@@ -1,0 +1,2 @@
+# PayU-Flutter
+Flutter package gives a set of Flutter mobile components for: pay-by-link, one-time card payments, storing card options, scanning card data, and one-click payments (Google Pay, Apple Pay, BLIK). Card is processed via PayU Backend and package sends request, but each merchant will receive card tokens in retrieve method(), so the card data does not go through merchant backend. User Interface in package can be adjusted to merchant branding/style guide.  
