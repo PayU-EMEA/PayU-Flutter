@@ -1,0 +1,128 @@
+enum DemoFeatureType {
+  demoAddCardPage,
+  demoAddCardWidget,
+  demoApplePay,
+  demoPaymentMethods,
+  demoPaymentWidget,
+  demoSoftAccept,
+  demoTermsAndConditions,
+  demoTheme,
+  demoVaryingNumberOfInstallments,
+  demoVaryingNumberOfOptions,
+  demoWebPaymentsSecure,
+  exampleOrder,
+}
+
+class DemoFeature {
+  final String name;
+  final String description;
+  final DemoFeatureType type;
+
+  const DemoFeature({
+    required this.name,
+    required this.description,
+    required this.type,
+  });
+
+  static final all = [
+    DemoFeature.demoAddCardPage(),
+    DemoFeature.demoAddCardWidget(),
+    DemoFeature.demoApplePay(),
+    DemoFeature.demoPaymentMethods(),
+    DemoFeature.demoPaymentWidget(),
+    DemoFeature.demoSoftAccept(),
+    DemoFeature.demoTermsAndConditions(),
+    DemoFeature.demoVaryingNumberOfInstallments(),
+    DemoFeature.demoVaryingNumberOfOptions(),
+    DemoFeature.demoWebPaymentsSecure(),
+    DemoFeature.exampleOrder(),
+  ];
+
+  factory DemoFeature.demoAddCardPage() {
+    return const DemoFeature(
+      name: '[Demo] AddCardPage',
+      description: 'Check how to use AddCardPage',
+      type: DemoFeatureType.demoAddCardPage,
+    );
+  }
+
+  factory DemoFeature.demoAddCardWidget() {
+    return const DemoFeature(
+      name: '[Demo] AddCardWidget',
+      description: 'Check how to use AddCardWidget',
+      type: DemoFeatureType.demoAddCardWidget,
+    );
+  }
+
+  factory DemoFeature.demoApplePay() {
+    return const DemoFeature(
+      name: '[Demo] ApplePay',
+      description: 'Check how to implement ApplePay',
+      type: DemoFeatureType.demoApplePay,
+    );
+  }
+
+  factory DemoFeature.demoPaymentMethods() {
+    return const DemoFeature(
+      name: '[Demo] PaymentMethodsPage',
+      description: 'Check how to implement different payment methods, for ex. Apple Pay / Google Pay, PBL, etc.',
+      type: DemoFeatureType.demoPaymentMethods,
+    );
+  }
+
+  factory DemoFeature.demoPaymentWidget() {
+    return const DemoFeature(
+      name: '[Demo] PaymentMethodsWidget',
+      description: 'Check how to integrate the `PaymentWidget`',
+      type: DemoFeatureType.demoPaymentWidget,
+    );
+  }
+
+  factory DemoFeature.demoSoftAccept() {
+    return const DemoFeature(
+      name: '[Demo] Soft Accept',
+      description: 'Check how to handle the `WARNING_CONTINUE_3DS`',
+      type: DemoFeatureType.demoSoftAccept,
+    );
+  }
+
+  factory DemoFeature.demoTermsAndConditions() {
+    return const DemoFeature(
+      name: '[Demo] TermsAndConditionsWidget',
+      description: 'Check how to use Terms And Conditions Widget',
+      type: DemoFeatureType.demoTermsAndConditions,
+    );
+  }
+
+  factory DemoFeature.demoVaryingNumberOfInstallments() {
+    return const DemoFeature(
+      name: '[Demo] Mastercard Installments',
+      description: 'VARYING_NUMBER_OF_INSTALLMENTS',
+      type: DemoFeatureType.demoVaryingNumberOfInstallments,
+    );
+  }
+
+  factory DemoFeature.demoVaryingNumberOfOptions() {
+    return const DemoFeature(
+      name: '[Demo] Mastercard Installments',
+      description: 'VARYING_NUMBER_OF_OPTIONS',
+      type: DemoFeatureType.demoVaryingNumberOfOptions,
+    );
+  }
+
+  factory DemoFeature.demoWebPaymentsSecure() {
+    return const DemoFeature(
+      name: '[Demo] WebPaymentsRequest (SSL)',
+      description: 'Check how do we handle security to web payments urls',
+      type: DemoFeatureType.demoWebPaymentsSecure,
+    );
+  }
+
+  factory DemoFeature.exampleOrder() {
+    return const DemoFeature(
+      name: 'Example',
+      description: 'Check the example flow of how to create an order',
+      type: DemoFeatureType.exampleOrder,
+    );
+  }
+}
