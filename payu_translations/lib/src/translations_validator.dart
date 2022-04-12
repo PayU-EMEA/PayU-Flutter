@@ -5,7 +5,6 @@ import 'translations_source.dart';
 
 class TranslationsValidator {
   void validatate() {
-    return;
     final codes = _codes();
     final keys = _keys();
 

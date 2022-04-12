@@ -61,7 +61,7 @@ class _PayuInterfaceTranslationsImpl {
 
   _PayuInterfaceTranslationsImpl() {
     _loadTranslations();
-    _validateTranslations();
+    // _validateTranslations();
   }
 
   String translated(String key, {List<String>? args}) {
