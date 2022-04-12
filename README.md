@@ -35,6 +35,17 @@ dependencies:
 import 'package:payu/payu.dart';
 ```
 
+<a id="example"></a>
+
+## Example
+
+There is an `example` project with predefined public `Sandbox` environment which you can run. This app  will help you to understand basic scenarios of integration.
+
+1. Download the repository
+2. Open in editor (`Visual Studio Code`, `Android Studio`, etc.)
+3. Select device where you want to run (`iOS`, `Android`)
+3. Run `example` configuration.
+
 <a id="preparing_the_project"></a> 
 
 ## Preparing the project
