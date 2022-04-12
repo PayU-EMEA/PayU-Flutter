@@ -1,9 +1,3 @@
-## TODO
-- [ ] Add `git` url for package to the `Installation` section
-- [ ] Add example documentation on how to run `example` app
-
-<a id="general"></a> 
-
 <a id="features"></a> 
 
 ## Features
@@ -31,8 +25,10 @@
 ```yaml
 dependencies:
   payu:
-    git:
-      url: # TODO: Add `git` url for package
+    git: 
+      url: https://github.com/PayU-EMEA/PayU-Flutter.git
+      ref: release/0.0.1-alpha
+      path: payu
 ```
 
 ```dart

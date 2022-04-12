@@ -83,3 +83,5 @@ flutter:
 import_sorter:
   emojis: false
   comments: false
+  ignored_files:
+    - \/test\/*
