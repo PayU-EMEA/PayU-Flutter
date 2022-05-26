@@ -44,16 +44,3 @@ public class SwiftPayuMobilePaymentsIosPlugin: NSObject, FlutterPlugin {
     }
   }
 }
-
-
-//public class SwiftPayuMobilePaymentsIosPlugin: NSObject, FlutterPlugin {
-//  public static func register(with registrar: FlutterPluginRegistrar) {
-//    let channel = FlutterMethodChannel(name: "payu_mobile_payments_ios", binaryMessenger: registrar.messenger())
-//    let instance = SwiftPayuMobilePaymentsIosPlugin()
-//    registrar.addMethodCallDelegate(instance, channel: channel)
-//  }
-//
-//  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-//    result("iOS " + UIDevice.current.systemVersion)
-//  }
-//}

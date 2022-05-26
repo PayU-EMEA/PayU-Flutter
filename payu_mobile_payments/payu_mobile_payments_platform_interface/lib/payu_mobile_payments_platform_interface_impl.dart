@@ -38,7 +38,6 @@ class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatf
       final result = ApplePayPayment.fromJson(jsonDecode(response));
       return result.token.paymentData;
     }
-    // TODO: - Add ApplePay response handling
     return null;
   }
 }

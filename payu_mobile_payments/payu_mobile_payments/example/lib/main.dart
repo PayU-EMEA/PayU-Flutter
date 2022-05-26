@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
                       await PayuMobilePayments().canMakePayment(_buildApplePayPaymentConfiguration());
                   debugPrint('✅ canMakePayment: $canMakePayment');
                 },
-                child: const Text('canMakePayments'),
+                child: const Text('ApplePay / canMakePayments'),
               ),
               TextButton(
                 onPressed: () async {
@@ -32,6 +32,21 @@ class MyApp extends StatelessWidget {
                   debugPrint('✅ makePayment: $makePayment');
                 },
                 child: const Text('ApplePay / makePayment'),
+              ),
+              TextButton(
+                onPressed: () async {
+                  final canMakePayment =
+                      await PayuMobilePayments().canMakePayment(_buildGooglePayPaymentConfiguration());
+                  debugPrint('✅ canMakePayment: $canMakePayment');
+                },
+                child: const Text('GooglePay / canMakePayments'),
+              ),
+              TextButton(
+                onPressed: () async {
+                  final makePayment = await PayuMobilePayments().makePayment(_buildGooglePayPaymentConfiguration());
+                  debugPrint('✅ makePayment: $makePayment');
+                },
+                child: const Text('GooglePay / makePayment'),
               ),
             ],
           ),
@@ -68,33 +83,12 @@ class MyApp extends StatelessWidget {
   }
 
   PaymentDataRequest _buildGooglePayPaymentDataRequest() {
-    return const PaymentDataRequest(
-      merchantInfo: MerchantInfo(
-        merchantId: 'merchantId',
-        merchantName: 'merchantName',
-      ),
-      allowedPaymentMethods: [
-        PaymentMethod(
-          type: PaymentMethod.paymentMethodTypeCard,
-          parameters: PaymentMethodParameters(
-            allowedAuthMethods: PaymentMethodParameters.defaultAllowedAuthMethods,
-            allowedCardNetworks: PaymentMethodParameters.defaultAllowedCardNetworks,
-          ),
-          tokenizationSpecification: PaymentMethodTokenizationSpecification(
-            type: PaymentMethodTokenizationSpecification.tokenizationSpecificationTypePaymentGateway,
-            parameters: PaymentMethodTokenizationSpecificationParameters(
-              gateway: 'payu',
-              gatewayMerchantId: 'gatewayMerchantId',
-            ),
-          ),
-        )
-      ],
-      transactionInfo: TransactionInfo(
-        currencyCode: 'PLN',
-        countryCode: 'PL',
-        totalPriceStatus: TransactionInfo.totalPriceStatusFinal,
-        totalPrice: '1.23',
-      ),
+    return PaymentDataRequest.payu(
+      merchantId: 'merchantId',
+      merchantName: 'merchantName',
+      currencyCode: 'PLN',
+      countryCode: 'PL',
+      totalPrice: '1.23',
     );
   }
 }

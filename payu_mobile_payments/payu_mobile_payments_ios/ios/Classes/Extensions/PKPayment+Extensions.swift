@@ -13,13 +13,10 @@ extension PKPayment {
       "token": token.toDictionary()
     ]
   }
-  func toJSON() -> Data {
-    return try! JSONSerialization.data(
+  func toJSON() -> Data? {
+    return try? JSONSerialization.data(
       withJSONObject: toDictionary(),
       options: [])
-  }
-  func toEncodedJSON() -> String {
-    return String(decoding: toJSON(), as: UTF8.self)
   }
 }
 

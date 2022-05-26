@@ -10,8 +10,16 @@ import PassKit
 
 class MakePaymentMethodCallHandler: NSObject {
 
+  private enum Status {
+    case didStartPayment
+    case didPresentAuthorization
+    case willAuthorizePayment
+    case didAuthorizePayment
+  }
+
   // MARK: - Private Properties
-  private var result: FlutterResult?
+  private var result: FlutterResult!
+  private var status: Status!
 
   // MARK: - Private Methods
   private func buildPaymentRequest(_ input: PaymentRequest) -> PKPaymentRequest {
@@ -24,17 +32,8 @@ class MakePaymentMethodCallHandler: NSObject {
   }
 
   private func processPaymentRequest(_ request: PKPaymentRequest, result: @escaping FlutterResult) {
-    guard let authorizationController = PKPaymentAuthorizationViewController(paymentRequest: request) else {
-      result(FlutterError.cannotCreatePaymentAuthorizationController())
-      return
-    }
-
-    guard let rootViewController = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController else {
-      result(FlutterError.cannotCreatePresentingViewController())
-      return
-    }
-
-    rootViewController.present(authorizationController, animated: true, completion: nil)
+    let authorizationController = PKPaymentAuthorizationController(paymentRequest: request)
+    authorizationController.present { isPresented in isPresented ? self.status = .didPresentAuthorization : result(FlutterError.didFailPresentPaymentController()) }
     authorizationController.delegate = self
   }
 
@@ -43,10 +42,11 @@ class MakePaymentMethodCallHandler: NSObject {
 // MARK: - MethodCallHandler
 extension MakePaymentMethodCallHandler: MethodCallHandler {
   func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    self.status = .didStartPayment
     self.result = result
 
     guard let json = call.arguments as? [String: Any] else {
-      result(FlutterError.invalidInputArguments())
+      result(FlutterError.didFailMapArguments())
       return
     }
 
@@ -55,30 +55,46 @@ extension MakePaymentMethodCallHandler: MethodCallHandler {
       let configuration = try JSONDecoder().decode(PaymentConfiguration.self, from: data)
       processPaymentRequest(buildPaymentRequest(configuration.data), result: result)
     } catch {
-      result(FlutterError.cannotParseInputArguments(error.localizedDescription))
+      result(FlutterError.didFailGenerateJSONForArguments(error.localizedDescription))
     }
   }
 }
 
-// MARK: - PKPaymentAuthorizationViewControllerDelegate
-extension MakePaymentMethodCallHandler: PKPaymentAuthorizationViewControllerDelegate {
-  
-  public func paymentAuthorizationViewController(
-    _ controller: PKPaymentAuthorizationViewController,
-    didAuthorizePayment payment: PKPayment,
-    handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-
-    controller.dismiss(animated: true) {
-      self.result?(payment.toEncodedJSON())
-      completion(PKPaymentAuthorizationResult(status: PKPaymentAuthorizationStatus.success, errors: nil))
-    }
+// MARK: - PKPaymentAuthorizationControllerDelegate
+extension MakePaymentMethodCallHandler: PKPaymentAuthorizationControllerDelegate {
+  func paymentAuthorizationControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationController) {
+    status = .willAuthorizePayment
   }
 
-  public func paymentAuthorizationViewControllerDidFinish(
-    _ controller: PKPaymentAuthorizationViewController) {
-      controller.dismiss(animated: true) {
-        self.result?(nil)
+  func paymentAuthorizationController(
+    _ controller: PKPaymentAuthorizationController,
+    didAuthorizePayment payment: PKPayment,
+    handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+      do {
+        let data = try JSONSerialization.data(withJSONObject: payment.toDictionary(), options: [])
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+        status = .didAuthorizePayment
+        result(data.utf8())
+      } catch {
+        result(FlutterError.didFailGenerateJSONForPayment(error.localizedDescription))
       }
+    }
+
+  func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
+    controller.dismiss {
+      DispatchQueue.main.async {
+        switch self.status {
+        case .didPresentAuthorization:
+          self.result(FlutterError.didCancelPayment())
+          break
+        case .willAuthorizePayment:
+          self.result(FlutterError.didFailPayment())
+          break
+        default:
+          break
+        }
+      }
+    }
   }
 }
 

@@ -1,11 +1,11 @@
-import 'payment_method_parameters.dart';
+import 'card_parameters.dart';
 import 'payment_method_tokenization_specification.dart';
 
 class PaymentMethod {
-  static const paymentMethodTypeCard = 'CARD';
+  static const typeCard = 'CARD';
 
   final String type;
-  final PaymentMethodParameters parameters;
+  final CardParameters parameters;
   final PaymentMethodTokenizationSpecification tokenizationSpecification;
 
   const PaymentMethod({

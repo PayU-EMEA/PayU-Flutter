@@ -8,22 +8,27 @@
 import Flutter
 
 extension FlutterError {
-  static let domain = "com.payu.flutter.apple-pay"
-
-  static func invalidInputArguments() -> FlutterError {
-    return FlutterError(code: domain, message: "invalidInputArguments", details: nil)
+  static func didFailMapArguments() -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didFailMapArguments", message: nil, details: nil)
   }
 
-  static func cannotParseInputArguments(_ message: String) -> FlutterError {
-    return FlutterError(code: domain, message: "cannotParseInputArguments", details: message)
+  static func didFailPresentPaymentController() -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didFailPresentPaymentController", message: nil, details: nil)
   }
 
-  static func cannotCreatePaymentAuthorizationController() -> FlutterError {
-    return FlutterError(code: domain, message: "cannotCreatePaymentAuthorizationController", details: nil)
+  static func didFailGenerateJSONForArguments(_ message: String) -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didFailGenerateJSONForArguments", message: message, details: nil)
   }
 
-  static func cannotCreatePresentingViewController() -> FlutterError {
-    return FlutterError(code: domain, message: "cannotCreatePresentingViewController", details: nil)
+  static func didFailGenerateJSONForPayment(_ message: String) -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didFailGenerateJSONForPayment", message: message, details: nil)
   }
 
+  static func didCancelPayment() -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didCancelPayment", message: nil, details: nil)
+  }
+
+  static func didFailPayment() -> FlutterError {
+    return FlutterError(code: "PayuMobilePayments.didFailPayment", message: nil, details: nil)
+  }
 }

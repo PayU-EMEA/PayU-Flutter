@@ -1,7 +1,8 @@
 import 'payment_method_tokenization_specification_parameters.dart';
 
 class PaymentMethodTokenizationSpecification {
-  static const tokenizationSpecificationTypePaymentGateway = 'PAYMENT_GATEWAY';
+  static const typePaymentGateway = 'PAYMENT_GATEWAY';
+  static const typeDirect = 'DIRECT';
 
   final String type;
   final PaymentMethodTokenizationSpecificationParameters parameters;
