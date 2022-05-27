@@ -24,14 +24,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  import_sorter: ^4.6.0
 
 flutter:
   assets:
     - ssl/entrust.pem
-
-import_sorter:
-  emojis: false
-  comments: false
-  ignored_files:
-    - \/test\/*

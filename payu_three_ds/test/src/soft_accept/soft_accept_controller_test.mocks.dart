@@ -5,10 +5,6 @@
 import 'dart:async' as _i5;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:webview_flutter/src/webview.dart' as _i8;
-
-import 'package:payu_three_ds/src/soft_accept/soft_accept_service.dart' as _i4;
-
 import 'package:payu_three_ds/src/soft_accept/helpers/soft_accept_components.dart'
     as _i2;
 import 'package:payu_three_ds/src/soft_accept/helpers/soft_accept_uri_modifier.dart'
@@ -17,8 +13,9 @@ import 'package:payu_three_ds/src/soft_accept/models/soft_accept_message.dart'
     as _i6;
 import 'package:payu_three_ds/src/soft_accept/models/soft_accept_request.dart'
     as _i3;
-import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart'
-    as _i9;
+import 'package:payu_three_ds/src/soft_accept/soft_accept_service.dart' as _i4;
+import 'package:webview_flutter/platform_interface.dart' as _i9;
+import 'package:webview_flutter/src/webview.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

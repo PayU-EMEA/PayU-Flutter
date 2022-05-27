@@ -5,7 +5,6 @@
 import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
-
 import 'package:payu_three_ds/src/soft_accept/helpers/soft_accept_query_parameter_extractor.dart'
     as _i5;
 import 'package:payu_three_ds/src/soft_accept/network/client/soft_accept_network_client.dart'

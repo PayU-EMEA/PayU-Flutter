@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_translations/payu_translations.dart';
 import 'package:webview_flutter/webview_flutter.dart';

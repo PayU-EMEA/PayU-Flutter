@@ -1,5 +1,4 @@
 import 'package:payu_mobile_payments_platform_interface/models/ios/request/apple_pay_payment_request.dart';
-
 import 'android/request/google_pay_payment_data_request.dart';
 import 'payment_environment.dart';
 import 'payment_provider.dart';

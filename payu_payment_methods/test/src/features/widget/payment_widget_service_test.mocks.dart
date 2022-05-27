@@ -3,7 +3,6 @@
 // Do not manually edit this file.
 
 import 'package:mockito/mockito.dart' as _i1;
-
 import 'package:payu_payment_methods/src/features/widget/payment_widget_service.dart'
     as _i2;
 

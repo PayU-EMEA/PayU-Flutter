@@ -33,13 +33,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.0
   http: ^0.13.4
-  import_sorter: ^4.6.0
   mockito: ^5.1.0
 
 flutter:
 
-import_sorter:
-  emojis: false
-  comments: false
-  ignored_files:
-    - \/test\/*
+

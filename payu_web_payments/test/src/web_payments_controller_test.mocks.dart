@@ -6,15 +6,13 @@ import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:payu_core/payu_core.dart' as _i2;
-import 'package:webview_flutter/webview_flutter.dart' as _i9;
-
+import 'package:payu_web_payments/src/matchers/web_payments_uri_matcher.dart'
+    as _i6;
 import 'package:payu_web_payments/src/models/web_payments_request.dart' as _i8;
 import 'package:payu_web_payments/src/models/web_payments_result.dart' as _i5;
 import 'package:payu_web_payments/src/models/web_payments_status.dart' as _i7;
 import 'package:payu_web_payments/src/web_payments_controller.dart' as _i4;
-
-import 'package:payu_web_payments/src/matchers/web_payments_uri_matcher.dart'
-    as _i6;
+import 'package:webview_flutter/webview_flutter.dart' as _i9;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

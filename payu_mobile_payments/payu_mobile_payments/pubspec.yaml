@@ -22,11 +22,11 @@ dependencies:
     path: '../payu_mobile_payments_platform_interface'
     
 dev_dependencies:
+  build_runner: ^2.1.7
   dependency_validator: ^3.0.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  import_sorter: ^4.6.0
 
 flutter:
   plugin:
@@ -36,8 +36,3 @@ flutter:
       ios:
         default_package: payu_mobile_payments_ios
 
-import_sorter:
-  emojis: false
-  comments: false
-  ignored_files:
-    - \/test\/*
