@@ -169,6 +169,7 @@ void _processPaymentMethod(PaymentMethod method) {
     onBlikCode: (value) => _didSelectBlikCode(value),
     onBlikToken: (value) => _didSelectBlikToken(value),
     onCardToken: (value) => _didSelectCardToken(value),
+    onGooglePay: (value) => _didSelectGooglePay(value),
     onInstallments: (value) => _didSelectInstallments(value),
     onPayByLink: (value) => _didSelectPayByLink(value),
   );
@@ -183,6 +184,7 @@ void _processPaymentMethod(PaymentMethod method) {
 * [BlikCode](#payment-methods-blik-code)
 * [BlikToken](#payment-methods-blik-token)
 * [CardToken](#payment-methods-card-token)
+* [GooglePay](#payment-methods-google-pay)
 * [Mastercard Installments](#payment-methods-installments)
 * [PayByLink](#payment-methods-pay-by-link)
 
@@ -190,14 +192,21 @@ void _processPaymentMethod(PaymentMethod method) {
 
 ### ApplePay
 
-Once user select `ApplePay` payment method, you need to initiate the payment process using `PayuApplePayService`. As the result of `authorize` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments/payu_mobile_payments_ios)
+Once user select `ApplePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
 
 ```dart
 void _didSelectApplePay(ApplePay applePay) {
-  PayuApplePayService().authorize(
-    request: ApplePayPaymentRequest(...),
-    onDidAuthorize: (authorizationCode) => debugPrint('onDidAuthorize: $authorizationCode'),
-    onDidCancel: () => debugPrint('onDidCancel'),
+  final service = PayuMobilePayments();
+  final authorizationCode = await service.makePayment(
+    PaymentConfiguration.applePay(
+      request: ...,
+    ),
+  );
+
+  final payMethod = PayMethod(
+    type: PayMethodType.pbl,
+    value: applePay.value,
+    authorizationCode: authorizationCode,
   );
 }
 ```
@@ -296,6 +305,39 @@ void _didSelectCardToken(CardToken cardToken) {
 "payMethod": {
   "type": "CARD_TOKEN",
   "value": "cardToken.value"
+}
+```
+
+<a id="payment-methods-google-pay"></a> 
+
+### GooglePay
+
+Once user select `GooglePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
+
+```dart
+void _didSelectGooglePay(GooglePay googlePay) {
+  final service = PayuMobilePayments();
+  final authorizationCode = await service.makePayment(
+    PaymentConfiguration.googlePay(
+      environment: ...,
+      request: ...,
+    ),
+  );
+
+  final payMethod = PayMethod(
+    type: PayMethodType.pbl,
+    value: googlePay.value,
+    authorizationCode: authorizationCode,
+  );
+}
+```
+
+`payMethod` for OrderCreateRequest: 
+```json 
+"payMethod": {
+  "type": "PBL",
+  "value": "ai", 
+  "authorizationCode": "authorizationCode"
 }
 ```
 
