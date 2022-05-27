@@ -39,12 +39,6 @@ class ExampleApplePayProcessor {
       final authorizationCode = await _service.makePayment(configuration);
       if (authorizationCode == null) snackbar('authorizationCode == null');
 
-      final payMethod = PayMethod(
-        type: PayMethodType.pbl,
-        value: applePay.value,
-        authorizationCode: authorizationCode,
-      );
-
       onProcessed(
         PayMethod(
           type: PayMethodType.pbl,
