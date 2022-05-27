@@ -1,5 +1,5 @@
 name: payu_mobile_payments_ios
-description: A new flutter plugin project.
+description: Flutter package with iOS (ApplePay) implementation for payu_mobile_payment
 
 version: 0.0.1-alpha.1
 publish_to: none
