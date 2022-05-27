@@ -190,7 +190,7 @@ void _processPaymentMethod(PaymentMethod method) {
 
 ### ApplePay
 
-Once user select `ApplePay` payment method, you need to initiate the payment process using `PayuApplePayService`. As the result of `authorize` method you'll receive `authorizationCode`. For more details visit [payu_apple_pay](../payu_apple_pay)
+Once user select `ApplePay` payment method, you need to initiate the payment process using `PayuApplePayService`. As the result of `authorize` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments/payu_mobile_payments_ios)
 
 ```dart
 void _didSelectApplePay(ApplePay applePay) {

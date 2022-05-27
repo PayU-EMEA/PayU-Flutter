@@ -1,23 +1,21 @@
-import 'package:get/get.dart';
-import 'package:payu/payu.dart';
-
-import 'package:example/core/constants.dart';
 import 'package:example/core/ui/snackbar.dart';
 import 'package:example/data/models/pay_method.dart';
 import 'package:example/data/models/pay_method_type.dart';
 import 'package:example/data/repositories/secure_storage.dart';
-import 'package:example/features/example/backend/data/repositories/backend_constants.dart';
 import 'package:example/features/example/backend/data/repositories/backend_repository.dart';
+import 'package:get/get.dart';
+import 'package:payu/payu.dart';
 
-class DemoPaymentWidgetController extends GetxController with StateMixin implements ApplePayListener {
+class DemoPaymentWidgetController extends GetxController with StateMixin {
   final BackendRepository _repository;
+  final PayuMobilePayments _payments;
   final PaymentWidgetService service;
   final SecureStorage storage;
 
   final configuration = Rxn<PaymentMethodsConfiguration>();
   final method = Rxn<PaymentMethod>();
 
-  DemoPaymentWidgetController(this._repository, this.service, this.storage);
+  DemoPaymentWidgetController(this._repository, this._payments, this.service, this.storage);
 
   @override
   void onInit() async {
@@ -47,33 +45,26 @@ class DemoPaymentWidgetController extends GetxController with StateMixin impleme
       onBlikCode: (value) => _processBlikCodePayment(value),
       onBlikToken: (value) => _processBlikTokenPayment(value),
       onCardToken: (value) => _processCardTokenPayment(value),
+      onGooglePay: (value) => _processGooglePayPayment(value),
       onInstallments: (value) => _processInstallmentsPayment(value),
       onPayByLink: (value) => _processPayByLinkPayment(value),
     );
   }
 
   void _processApplePayPayment(ApplePay value) async {
-    final service = ApplePayService.instance();
-    service.setListener(this);
-
-    if (await service.canMakePayments() == false) {
-      snackbar('Cannot make Apple Pay payments');
-      return null;
-    }
-
-    await service.authorize(
-      request: const ApplePayPaymentRequest(
-        merchantIdentifier: Constants.merchantIdentifier,
-        countryCode: 'PL',
-        currencyCode: 'PLN',
-        shippingContact: ApplePayContact(
-          emailAddress: BackendConstants.buyerEmail,
+    _processMobilePayment(
+      PaymentConfiguration.applePay(
+        request: const ApplePayPaymentRequest(
+          merchantIdentifier: 'merchant.identifier',
+          countryCode: 'PL',
+          currencyCode: 'PLN',
+          shippingContact: ApplePayContact(emailAddress: 'customer@email.com'),
+          paymentSummaryItems: [
+            ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
+            ApplePaySummaryItem(label: 'Napkin', amount: 49),
+            ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
+          ],
         ),
-        paymentSummaryItems: [
-          ApplePaySummaryItem(label: 'Futomaki', amount: 1999),
-          ApplePaySummaryItem(label: 'Napkin', amount: 49),
-          ApplePaySummaryItem(label: 'Order', amount: 1999 + 49),
-        ],
       ),
     );
   }
@@ -98,8 +89,32 @@ class DemoPaymentWidgetController extends GetxController with StateMixin impleme
     _processPayment(PayMethod(type: PayMethodType.cardToken, value: value.value));
   }
 
+  void _processGooglePayPayment(GooglePay value) {
+    _processMobilePayment(
+      PaymentConfiguration.googlePay(
+        environment: PaymentEnvironment.test,
+        request: GooglePayPaymentDataRequest.payu(
+          merchantId: 'merchantId',
+          merchantName: 'merchantName',
+          currencyCode: 'PLN',
+          countryCode: 'PL',
+          totalPrice: '1.23',
+        ),
+      ),
+    );
+  }
+
   void _processInstallmentsPayment(Installments value) {
     _processPayment(PayMethod(type: PayMethodType.pbl, value: value.value));
+  }
+
+  void _processMobilePayment(PaymentConfiguration paymentConfiguration) async {
+    if (await _payments.canMakePayment(paymentConfiguration)) {
+      final authorizationCode = await _payments.makePayment(paymentConfiguration);
+      snackbar('authorizationCode: ${authorizationCode?.substring(0, 10)}...}');
+    } else {
+      snackbar('cannotMakePayments');
+    }
   }
 
   void _processPayByLinkPayment(PayByLink value) {
@@ -108,15 +123,5 @@ class DemoPaymentWidgetController extends GetxController with StateMixin impleme
 
   void _processPayment(PayMethod value) {
     snackbar(value.toString());
-  }
-
-  @override
-  void onDidAuthorize(String authorizationCode) {
-    snackbar('onDidAuthorize ${authorizationCode.substring(0, 10)}...');
-  }
-
-  @override
-  void onDidCancel() {
-    snackbar('onDidCancel');
   }
 }

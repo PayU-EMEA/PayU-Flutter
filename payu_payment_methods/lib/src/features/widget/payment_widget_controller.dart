@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:payu_core/payu_core.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 

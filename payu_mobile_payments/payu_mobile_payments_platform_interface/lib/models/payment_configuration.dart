@@ -1,6 +1,6 @@
 import 'package:payu_mobile_payments_platform_interface/models/ios/request/apple_pay_payment_request.dart';
 
-import 'android/request/payment_data_request.dart';
+import 'android/request/google_pay_payment_data_request.dart';
 import 'payment_environment.dart';
 import 'payment_provider.dart';
 
@@ -27,7 +27,7 @@ class PaymentConfiguration {
 
   factory PaymentConfiguration.googlePay({
     required PaymentEnvironment environment,
-    required PaymentDataRequest request,
+    required GooglePayPaymentDataRequest request,
   }) {
     return PaymentConfiguration._(
       provider: PaymentProvider.googlePay,

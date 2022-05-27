@@ -37,10 +37,7 @@ dependencies:
   retrofit: ^3.0.0
 
   payu: 
-    git: 
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
-      path: payu
+    path: ../payu
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

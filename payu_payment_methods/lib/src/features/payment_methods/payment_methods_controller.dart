@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collection/collection.dart';
 import 'package:payu_core/payu_core.dart';
 import 'package:payu_state_management/payu_state_management.dart';
@@ -71,6 +73,8 @@ class PaymentMethodsController extends PayuController {
       _delegate.navigateToCardToken();
     } else if (item is PaymentMethodsCardTokenItem) {
       _selectPaymentMethod(item.value);
+    } else if (item is PaymentMethodsGooglePayItem) {
+      _selectPaymentMethod(item.value);
     } else if (item is PaymentMethodsInstallmentsItem) {
       _selectPaymentMethod(item.value);
     } else if (item is PaymentMethodsPayByLinkItem) {
@@ -96,6 +100,7 @@ class PaymentMethodsController extends PayuController {
     _items.clear();
 
     _setupApplePay();
+    _setupGooglePay();
     _setupBlikCode();
     _setupBlikTokens();
     _setupCardTokens();
@@ -110,9 +115,18 @@ class PaymentMethodsController extends PayuController {
 
   void _setupApplePay() {
     for (final e in _payByLinks) {
-      if (_isApplePayPayByLink(e)) {
+      if (_isApplePayPayByLink(e) && Platform.isIOS) {
         final value = ApplePay.fromPayByLink(e);
         _items.add(PaymentMethodsApplePayItem.build(value));
+      }
+    }
+  }
+
+  void _setupGooglePay() {
+    for (final e in _payByLinks) {
+      if (_isGooglePayByLink(e) && Platform.isAndroid) {
+        final value = GooglePay.fromPayByLink(e);
+        _items.add(PaymentMethodsGooglePayItem.build(value));
       }
     }
   }
@@ -199,11 +213,17 @@ class PaymentMethodsController extends PayuController {
 
   // MATCHING
   bool _isAllowedPayByLink(PayByLink value) {
-    return value.value != PaymentMethodValue.applePay && value.value != PaymentMethodValue.mastercardInstallments;
+    return value.value != PaymentMethodValue.applePay &&
+        value.value != PaymentMethodValue.googlePay &&
+        value.value != PaymentMethodValue.mastercardInstallments;
   }
 
   bool _isApplePayPayByLink(PayByLink value) {
     return value.value == PaymentMethodValue.applePay;
+  }
+
+  bool _isGooglePayByLink(PayByLink value) {
+    return value.value == PaymentMethodValue.googlePay;
   }
 
   bool _isInstallmentsPayByLink(PayByLink value) {

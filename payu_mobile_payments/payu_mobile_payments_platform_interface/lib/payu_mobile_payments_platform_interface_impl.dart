@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:payu_mobile_payments_platform_interface/models/ios/response/apple_pay_payment.dart';
 
+import 'models/ios/response/apple_pay_payment.dart';
 import 'payu_mobile_payments_platform_interface.dart';
 
 class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatformInterface {
@@ -15,11 +15,13 @@ class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatf
   PayuMobilePaymentsPlatformInterfaceImpl();
 
   @override
-  Future<bool?> canMakePayment(PaymentConfiguration configuration) {
-    return _channel.invokeMethod(
+  Future<bool> canMakePayment(PaymentConfiguration configuration) async {
+    final response = await _channel.invokeMethod<bool>(
       _methodCanMakePaymentName,
       configuration.toJson(),
     );
+
+    return response ?? false;
   }
 
   @override
@@ -30,7 +32,7 @@ class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatf
     );
 
     if (configuration.provider == PaymentProvider.googlePay) {
-      final result = PaymentData.fromJson(jsonDecode(response));
+      final result = GooglePayPaymentData.fromJson(jsonDecode(response));
       return result.paymentMethodData.tokenizationData.token;
     }
 

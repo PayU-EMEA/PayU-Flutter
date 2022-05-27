@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payu_mobile_payments/payu_mobile_payments.dart';
 
+// TODO: - Add payu_mobile_payment to scripts
+// TODO: - Change bundle ids
+// TODO: - Add tests for ApplePay and GooglePay
+
 void main() {
   runApp(const MyApp());
 }
@@ -82,8 +86,8 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  PaymentDataRequest _buildGooglePayPaymentDataRequest() {
-    return PaymentDataRequest.payu(
+  GooglePayPaymentDataRequest _buildGooglePayPaymentDataRequest() {
+    return GooglePayPaymentDataRequest.payu(
       merchantId: 'merchantId',
       merchantName: 'merchantName',
       currencyCode: 'PLN',

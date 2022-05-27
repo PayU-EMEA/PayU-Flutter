@@ -6,15 +6,10 @@ import 'dart:async' as _i6;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:payu_core/payu_core.dart' as _i3;
-
-import 'package:payu_payment_methods/src/features/core/payment_methods_storage.dart'
-    as _i5;
-import 'package:payu_payment_methods/src/features/payment_methods/payment_methods_listener.dart'
-    as _i7;
-import 'package:payu_payment_methods/src/features/widget/payment_widget_service.dart'
-    as _i4;
-import 'package:payu_payment_methods/src/payment_methods_configuration.dart'
-    as _i2;
+import 'package:payu_payment_methods/src/features/core/payment_methods_storage.dart' as _i5;
+import 'package:payu_payment_methods/src/features/payment_methods/payment_methods_listener.dart' as _i7;
+import 'package:payu_payment_methods/src/features/widget/payment_widget_service.dart' as _i4;
+import 'package:payu_payment_methods/src/payment_methods_configuration.dart' as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,80 +24,66 @@ import 'package:payu_payment_methods/src/payment_methods_configuration.dart'
 /// A class which mocks [PaymentMethodsConfiguration].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPaymentMethodsConfiguration extends _i1.Mock
-    implements _i2.PaymentMethodsConfiguration {
+class MockPaymentMethodsConfiguration extends _i1.Mock implements _i2.PaymentMethodsConfiguration {
   MockPaymentMethodsConfiguration() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   List<_i3.CardToken> get cardTokens =>
-      (super.noSuchMethod(Invocation.getter(#cardTokens),
-          returnValue: <_i3.CardToken>[]) as List<_i3.CardToken>);
+      (super.noSuchMethod(Invocation.getter(#cardTokens), returnValue: <_i3.CardToken>[]) as List<_i3.CardToken>);
   @override
   List<_i3.PayByLink> get payByLinks =>
-      (super.noSuchMethod(Invocation.getter(#payByLinks),
-          returnValue: <_i3.PayByLink>[]) as List<_i3.PayByLink>);
+      (super.noSuchMethod(Invocation.getter(#payByLinks), returnValue: <_i3.PayByLink>[]) as List<_i3.PayByLink>);
   @override
-  bool get enableAddCard =>
-      (super.noSuchMethod(Invocation.getter(#enableAddCard), returnValue: false)
-          as bool);
+  bool get enableAddCard => (super.noSuchMethod(Invocation.getter(#enableAddCard), returnValue: false) as bool);
   @override
-  bool get enablePayByLinks =>
-      (super.noSuchMethod(Invocation.getter(#enablePayByLinks),
-          returnValue: false) as bool);
+  bool get enablePayByLinks => (super.noSuchMethod(Invocation.getter(#enablePayByLinks), returnValue: false) as bool);
 }
 
 /// A class which mocks [PaymentWidgetService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPaymentWidgetService extends _i1.Mock
-    implements _i4.PaymentWidgetService {
+class MockPaymentWidgetService extends _i1.Mock implements _i4.PaymentWidgetService {
   MockPaymentWidgetService() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   set delegate(_i4.PaymentWidgetServiceDelegate? _delegate) =>
-      super.noSuchMethod(Invocation.setter(#delegate, _delegate),
-          returnValueForMissingStub: null);
+      super.noSuchMethod(Invocation.setter(#delegate, _delegate), returnValueForMissingStub: null);
   @override
-  bool isBlikAuthorizationCodeRequired() => (super.noSuchMethod(
-      Invocation.method(#isBlikAuthorizationCodeRequired, []),
-      returnValue: false) as bool);
+  bool isBlikAuthorizationCodeRequired() =>
+      (super.noSuchMethod(Invocation.method(#isBlikAuthorizationCodeRequired, []), returnValue: false) as bool);
 }
 
 /// A class which mocks [PaymentMethodsStorage].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPaymentMethodsStorage extends _i1.Mock
-    implements _i5.PaymentMethodsStorage {
+class MockPaymentMethodsStorage extends _i1.Mock implements _i5.PaymentMethodsStorage {
   MockPaymentMethodsStorage() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   _i6.Future<String?> getSelectedPaymentMethodHash() =>
-      (super.noSuchMethod(Invocation.method(#getSelectedPaymentMethodHash, []),
-          returnValue: Future<String?>.value()) as _i6.Future<String?>);
+      (super.noSuchMethod(Invocation.method(#getSelectedPaymentMethodHash, []), returnValue: Future<String?>.value())
+          as _i6.Future<String?>);
   @override
-  _i6.Future<void> saveSelectedPaymentMethodHash(String? hash) => (super
-      .noSuchMethod(Invocation.method(#saveSelectedPaymentMethodHash, [hash]),
-          returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+  _i6.Future<void> saveSelectedPaymentMethodHash(String? hash) =>
+      (super.noSuchMethod(Invocation.method(#saveSelectedPaymentMethodHash, [hash]),
+          returnValue: Future<void>.value(), returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
 }
 
 /// A class which mocks [PaymentMethodsListener].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPaymentMethodsListener extends _i1.Mock
-    implements _i7.PaymentMethodsListener {
+class MockPaymentMethodsListener extends _i1.Mock implements _i7.PaymentMethodsListener {
   MockPaymentMethodsListener() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  void didDeletePaymentMethod(_i3.PaymentMethod? paymentMethod) => super
-      .noSuchMethod(Invocation.method(#didDeletePaymentMethod, [paymentMethod]),
-          returnValueForMissingStub: null);
+  void didDeletePaymentMethod(_i3.PaymentMethod? paymentMethod) =>
+      super.noSuchMethod(Invocation.method(#didDeletePaymentMethod, [paymentMethod]), returnValueForMissingStub: null);
 }

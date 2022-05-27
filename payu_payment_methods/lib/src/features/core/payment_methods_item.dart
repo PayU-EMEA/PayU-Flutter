@@ -274,6 +274,51 @@ class PaymentMethodsCardTokenItem implements PaymentMethodsItem {
   }
 }
 
+class PaymentMethodsGooglePayItem implements PaymentMethodsItem {
+  final GooglePay value;
+
+  @override
+  final bool enabled;
+
+  @override
+  String? get hash => value.hash;
+
+  @override
+  final String title;
+
+  @override
+  final String? subtitle;
+
+  @override
+  final BrandImageProvider brandImageProvider;
+
+  @override
+  final double brandImageProviderSize;
+
+  @override
+  PaymentMethod? get paymentMethod => value;
+
+  const PaymentMethodsGooglePayItem({
+    required this.value,
+    required this.enabled,
+    required this.title,
+    required this.subtitle,
+    required this.brandImageProvider,
+    required this.brandImageProviderSize,
+  });
+
+  factory PaymentMethodsGooglePayItem.build(GooglePay value) {
+    return PaymentMethodsGooglePayItem(
+      value: value,
+      enabled: value.enabled,
+      title: value.name,
+      subtitle: 'pay_by_phone'.translated(),
+      brandImageProvider: value.brandImageProvider,
+      brandImageProviderSize: 48,
+    );
+  }
+}
+
 class PaymentMethodsInstallmentsItem implements PaymentMethodsItem {
   final Installments value;
 

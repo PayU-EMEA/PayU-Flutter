@@ -3,12 +3,10 @@
 // Do not manually edit this file.
 
 import 'package:mockito/mockito.dart' as _i1;
-
-import 'package:payu_add_card/src/helpers/card_date_parser.dart' as _i2;
-import 'package:payu_add_card/src/models/payment_card_provider.dart' as _i4;
-
 import 'package:payu_add_card/src/finders/payment_card_provider_finder.dart'
     as _i3;
+import 'package:payu_add_card/src/helpers/card_date_parser.dart' as _i2;
+import 'package:payu_add_card/src/models/payment_card_provider.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

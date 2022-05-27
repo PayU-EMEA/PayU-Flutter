@@ -3,7 +3,6 @@ clean:
 	sh scripts/clean.sh payu_about
 	sh scripts/clean.sh payu_add_card
 	sh scripts/clean.sh payu_api
-	sh scripts/clean.sh payu_apple_pay
 	sh scripts/clean.sh payu_core
 	sh scripts/clean.sh payu_mastercard_installments
 	sh scripts/clean.sh payu_payment_methods
@@ -21,7 +20,6 @@ setup:
 	sh scripts/setup.sh payu_about
 	sh scripts/setup.sh payu_add_card
 	sh scripts/setup.sh payu_api
-	sh scripts/setup.sh payu_apple_pay
 	sh scripts/setup.sh payu_core
 	sh scripts/setup.sh payu_mastercard_installments
 	sh scripts/setup.sh payu_payment_methods
@@ -39,7 +37,6 @@ setup_dev:
 	sh scripts/setup_dev.sh payu_about
 	sh scripts/setup_dev.sh payu_add_card
 	sh scripts/setup_dev.sh payu_api
-	sh scripts/setup_dev.sh payu_apple_pay
 	sh scripts/setup_dev.sh payu_core
 	sh scripts/setup_dev.sh payu_mastercard_installments
 	sh scripts/setup_dev.sh payu_payment_methods
@@ -57,7 +54,6 @@ tests:
 	sh scripts/test.sh payu_about
 	sh scripts/test.sh payu_add_card
 	sh scripts/test.sh payu_api
-	sh scripts/test.sh payu_apple_pay
 	sh scripts/test.sh payu_core
 	sh scripts/test.sh payu_mastercard_installments
 	sh scripts/test.sh payu_payment_methods
