@@ -54,17 +54,22 @@ class DemoPaymentWidgetController extends GetxController with StateMixin {
   void _processApplePayPayment(ApplePay value) async {
     _processMobilePayment(
       PaymentConfiguration.applePay(
-        request: const ApplePayPaymentRequest(
-          merchantIdentifier: 'merchant.identifier',
-          countryCode: 'PL',
-          currencyCode: 'PLN',
-          shippingContact: ApplePayContact(emailAddress: 'customer@email.com'),
-          paymentSummaryItems: [
+        request: ApplePayPaymentRequestBuilder()
+            .withCountryCode('PL')
+            .withCurrencyCode('PLN')
+            .withMerchantIdentifier('merchantIdentifier')
+            .withShippingContact(
+              const ApplePayContact(
+                emailAddress: 'email@address.com',
+              ),
+            )
+            .withPaymentSummaryItems(
+          const [
             ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
             ApplePaySummaryItem(label: 'Napkin', amount: 49),
             ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
           ],
-        ),
+        ).build(),
       ),
     );
   }
@@ -93,13 +98,13 @@ class DemoPaymentWidgetController extends GetxController with StateMixin {
     _processMobilePayment(
       PaymentConfiguration.googlePay(
         environment: PaymentEnvironment.test,
-        request: GooglePayPaymentDataRequest.payu(
-          merchantId: 'merchantId',
-          merchantName: 'merchantName',
-          currencyCode: 'PLN',
-          countryCode: 'PL',
-          totalPrice: '1.23',
-        ),
+        request: GooglePayPaymentDataRequestBuilder()
+            .withMerchantId('merchantId')
+            .withMerchantName('merchantName')
+            .withCountryCode('PL')
+            .withCurrencyCode('PLN')
+            .withTotalPrice('1.23')
+            .build(),
       ),
     );
   }

@@ -1,18 +1,11 @@
 import 'models/payment_configuration.dart';
 
-export 'models/android/request/google_pay_billing_address_parameters.dart';
 export 'models/android/request/google_pay_card_parameters.dart';
-export 'models/android/request/google_pay_display_item.dart';
 export 'models/android/request/google_pay_merchant_info.dart';
-export 'models/android/request/google_pay_offer_detail.dart';
-export 'models/android/request/google_pay_offer_info.dart';
 export 'models/android/request/google_pay_payment_data_request.dart';
 export 'models/android/request/google_pay_payment_method.dart';
 export 'models/android/request/google_pay_payment_method_tokenization_specification.dart';
 export 'models/android/request/google_pay_payment_method_tokenization_specification_parameters.dart';
-export 'models/android/request/google_pay_selection_option.dart';
-export 'models/android/request/google_pay_shipping_address_parameters.dart';
-export 'models/android/request/google_pay_shipping_option_parameters.dart';
 export 'models/android/request/google_pay_transaction_info.dart';
 export 'models/android/response/google_pay_payment_data.dart';
 export 'models/android/response/google_pay_payment_method_data.dart';

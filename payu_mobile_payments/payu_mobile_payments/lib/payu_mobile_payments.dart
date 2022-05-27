@@ -6,6 +6,9 @@ import 'package:payu_mobile_payments_platform_interface/payu_mobile_payments_pla
 
 export 'package:payu_mobile_payments_platform_interface/payu_mobile_payments_platform_interface.dart';
 
+export 'builders/apple_pay_payment_request_builder.dart';
+export 'builders/google_pay_payment_data_request_builder.dart';
+
 class PayuMobilePayments implements PayuMobilePaymentsPlatformInterface {
   final PayuMobilePaymentsPlatformInterface _interface;
 

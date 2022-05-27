@@ -2,7 +2,6 @@ import 'google_pay_payment_method_tokenization_specification_parameters.dart';
 
 class GooglePayPaymentMethodTokenizationSpecification {
   static const typePaymentGateway = 'PAYMENT_GATEWAY';
-  static const typeDirect = 'DIRECT';
 
   final String type;
   final GooglePayPaymentMethodTokenizationSpecificationParameters parameters;

@@ -1,4 +1,3 @@
-import 'package:example/core/constants.dart';
 import 'package:example/core/ui/snackbar.dart';
 import 'package:get/get.dart';
 import 'package:payu/payu.dart';
@@ -19,13 +18,13 @@ class DemoGooglePayController extends GetxController {
   PaymentConfiguration _buildGooglePayPaymentConfiguration() {
     return PaymentConfiguration.googlePay(
       environment: PaymentEnvironment.test,
-      request: GooglePayPaymentDataRequest.payu(
-        merchantId: Constants.googlePayMerchantId,
-        merchantName: 'merchantName',
-        currencyCode: 'PLN',
-        countryCode: 'PL',
-        totalPrice: '1.23',
-      ),
+      request: GooglePayPaymentDataRequestBuilder()
+          .withMerchantId('merchantId')
+          .withMerchantName('merchantName')
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withTotalPrice('1.23')
+          .build(),
     );
   }
 }

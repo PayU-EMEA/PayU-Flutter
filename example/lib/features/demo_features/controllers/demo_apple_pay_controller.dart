@@ -17,17 +17,22 @@ class DemoApplePayController extends GetxController {
 
   PaymentConfiguration _buildApplePayPaymentConfiguration() {
     return PaymentConfiguration.applePay(
-      request: const ApplePayPaymentRequest(
-        merchantIdentifier: 'merchant.identifier',
-        countryCode: 'PL',
-        currencyCode: 'PLN',
-        shippingContact: ApplePayContact(emailAddress: 'customer@email.com'),
-        paymentSummaryItems: [
+      request: ApplePayPaymentRequestBuilder()
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withMerchantIdentifier('merchantIdentifier')
+          .withShippingContact(
+            const ApplePayContact(
+              emailAddress: 'email@address.com',
+            ),
+          )
+          .withPaymentSummaryItems(
+        const [
           ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
           ApplePaySummaryItem(label: 'Napkin', amount: 49),
           ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
         ],
-      ),
+      ).build(),
     );
   }
 }

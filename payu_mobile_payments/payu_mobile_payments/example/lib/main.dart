@@ -61,38 +61,35 @@ class MyApp extends StatelessWidget {
 
   PaymentConfiguration _buildApplePayPaymentConfiguration() {
     return PaymentConfiguration.applePay(
-      request: _buildApplePayPaymentRequest(),
+      request: ApplePayPaymentRequestBuilder()
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withMerchantIdentifier('merchantIdentifier')
+          .withShippingContact(
+            const ApplePayContact(
+              emailAddress: 'email@address.com',
+            ),
+          )
+          .withPaymentSummaryItems(
+        const [
+          ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
+          ApplePaySummaryItem(label: 'Napkin', amount: 49),
+          ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
+        ],
+      ).build(),
     );
   }
 
   PaymentConfiguration _buildGooglePayPaymentConfiguration() {
     return PaymentConfiguration.googlePay(
       environment: PaymentEnvironment.test,
-      request: _buildGooglePayPaymentDataRequest(),
-    );
-  }
-
-  ApplePayPaymentRequest _buildApplePayPaymentRequest() {
-    return const ApplePayPaymentRequest(
-      merchantIdentifier: 'merchant.identifier',
-      countryCode: 'PL',
-      currencyCode: 'PLN',
-      shippingContact: ApplePayContact(emailAddress: 'customer@email.com'),
-      paymentSummaryItems: [
-        ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
-        ApplePaySummaryItem(label: 'Napkin', amount: 49),
-        ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
-      ],
-    );
-  }
-
-  GooglePayPaymentDataRequest _buildGooglePayPaymentDataRequest() {
-    return GooglePayPaymentDataRequest.payu(
-      merchantId: 'merchantId',
-      merchantName: 'merchantName',
-      currencyCode: 'PLN',
-      countryCode: 'PL',
-      totalPrice: '1.23',
+      request: GooglePayPaymentDataRequestBuilder()
+          .withMerchantId('merchantId')
+          .withMerchantName('merchantName')
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withTotalPrice('1.23')
+          .build(),
     );
   }
 }

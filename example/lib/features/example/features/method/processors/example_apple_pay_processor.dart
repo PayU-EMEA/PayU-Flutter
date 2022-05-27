@@ -19,15 +19,17 @@ class ExampleApplePayProcessor {
     products.add(ApplePaySummaryItem(label: 'Order', amount: products.map((e) => e.amount).sum));
 
     final configuration = PaymentConfiguration.applePay(
-      request: ApplePayPaymentRequest(
-        merchantIdentifier: Constants.applePayMerchantIdentifier,
-        countryCode: 'PL',
-        currencyCode: 'PLN',
-        shippingContact: const ApplePayContact(
-          emailAddress: BackendConstants.buyerEmail,
-        ),
-        paymentSummaryItems: products,
-      ),
+      request: ApplePayPaymentRequestBuilder()
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withMerchantIdentifier(Constants.applePayMerchantIdentifier)
+          .withShippingContact(
+            const ApplePayContact(
+              emailAddress: BackendConstants.buyerEmail,
+            ),
+          )
+          .withPaymentSummaryItems(products)
+          .build(),
     );
 
     try {

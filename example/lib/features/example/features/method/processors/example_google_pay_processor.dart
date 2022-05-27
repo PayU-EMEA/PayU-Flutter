@@ -17,13 +17,13 @@ class ExampleGooglePayProcessor {
 
     final configuration = PaymentConfiguration.googlePay(
       environment: PaymentEnvironment.test,
-      request: GooglePayPaymentDataRequest.payu(
-        merchantId: Constants.googlePayMerchantId,
-        merchantName: Constants.googlePayMerchantName,
-        currencyCode: 'PLN',
-        countryCode: 'PL',
-        totalPrice: totalPrice.toString(),
-      ),
+      request: GooglePayPaymentDataRequestBuilder()
+          .withMerchantId(Constants.googlePayMerchantId)
+          .withMerchantName(Constants.googlePayMerchantName)
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withTotalPrice(totalPrice.toString())
+          .build(),
     );
 
     try {
