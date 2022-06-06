@@ -17,7 +17,7 @@ class GooglePayCardParameters {
     return {
       'allowedAuthMethods': allowedAuthMethods,
       'allowedCardNetworks': allowedCardNetworks,
-    }..removeWhere((key, value) => value == null);
+    };
   }
 
   @override

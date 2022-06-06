@@ -27,7 +27,7 @@ class GooglePayPaymentDataRequest {
       'merchantInfo': merchantInfo?.toJson(),
       'allowedPaymentMethods': allowedPaymentMethods.map((e) => e.toJson()).toList(),
       'transactionInfo': transactionInfo.toJson(),
-    }..removeWhere((key, value) => value == null);
+    };
   }
 
   @override

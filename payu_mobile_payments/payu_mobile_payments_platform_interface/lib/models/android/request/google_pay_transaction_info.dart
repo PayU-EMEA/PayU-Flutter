@@ -19,7 +19,7 @@ class GooglePayTransactionInfo {
       'countryCode': countryCode,
       'totalPriceStatus': totalPriceStatus,
       'totalPrice': totalPrice,
-    }..removeWhere((key, value) => value == null);
+    };
   }
 
   @override
