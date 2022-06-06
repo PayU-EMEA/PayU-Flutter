@@ -34,10 +34,16 @@ class ExampleApplePayProcessor {
 
     try {
       final canMakePayment = await _service.canMakePayment(configuration);
-      if (!canMakePayment) snackbar('!canMakePayment');
+      if (!canMakePayment) {
+        snackbar('Cannot make Apple Pay payments');
+        return;
+      }
 
       final authorizationCode = await _service.makePayment(configuration);
-      if (authorizationCode == null) snackbar('authorizationCode == null');
+      if (authorizationCode == null) {
+        snackbar('Cannot get an authorizationCode from the Apple Pay payment');
+        return;
+      }
 
       onProcessed(
         PayMethod(
