@@ -2,18 +2,20 @@
 // in payu_payment_methods/test/src/features/payment_methods/payment_methods_page_controller_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i7;
+import 'dart:async' as _i8;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:payu_core/payu_core.dart' as _i2;
 import 'package:payu_payment_methods/src/features/core/payment_methods_item.dart'
-    as _i8;
+    as _i9;
+import 'package:payu_payment_methods/src/features/core/payment_methods_platform_provider.dart'
+    as _i5;
 import 'package:payu_payment_methods/src/features/core/payment_methods_storage.dart'
-    as _i6;
+    as _i7;
 import 'package:payu_payment_methods/src/features/payment_methods/payment_methods_controller.dart'
     as _i4;
 import 'package:payu_payment_methods/src/features/payment_methods/payment_methods_listener.dart'
-    as _i5;
+    as _i6;
 import 'package:payu_payment_methods/src/payment_methods_configuration.dart'
     as _i3;
 
@@ -80,11 +82,30 @@ class MockPaymentMethodsControllerDelegate extends _i1.Mock
           returnValueForMissingStub: null);
 }
 
+/// A class which mocks [PaymentMethodPlatformProvider].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPaymentMethodPlatformProvider extends _i1.Mock
+    implements _i5.PaymentMethodPlatformProvider {
+  MockPaymentMethodPlatformProvider() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  bool isAndroid() =>
+      (super.noSuchMethod(Invocation.method(#isAndroid, []), returnValue: false)
+          as bool);
+  @override
+  bool isiOS() =>
+      (super.noSuchMethod(Invocation.method(#isiOS, []), returnValue: false)
+          as bool);
+}
+
 /// A class which mocks [PaymentMethodsListener].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPaymentMethodsListener extends _i1.Mock
-    implements _i5.PaymentMethodsListener {
+    implements _i6.PaymentMethodsListener {
   MockPaymentMethodsListener() {
     _i1.throwOnMissingStub(this);
   }
@@ -99,27 +120,27 @@ class MockPaymentMethodsListener extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPaymentMethodsStorage extends _i1.Mock
-    implements _i6.PaymentMethodsStorage {
+    implements _i7.PaymentMethodsStorage {
   MockPaymentMethodsStorage() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<String?> getSelectedPaymentMethodHash() =>
+  _i8.Future<String?> getSelectedPaymentMethodHash() =>
       (super.noSuchMethod(Invocation.method(#getSelectedPaymentMethodHash, []),
-          returnValue: Future<String?>.value()) as _i7.Future<String?>);
+          returnValue: Future<String?>.value()) as _i8.Future<String?>);
   @override
-  _i7.Future<void> saveSelectedPaymentMethodHash(String? hash) => (super
+  _i8.Future<void> saveSelectedPaymentMethodHash(String? hash) => (super
       .noSuchMethod(Invocation.method(#saveSelectedPaymentMethodHash, [hash]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i7.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as _i8.Future<void>);
 }
 
 /// A class which mocks [PaymentMethodsItem].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPaymentMethodsItem extends _i1.Mock
-    implements _i8.PaymentMethodsItem {
+    implements _i9.PaymentMethodsItem {
   MockPaymentMethodsItem() {
     _i1.throwOnMissingStub(this);
   }

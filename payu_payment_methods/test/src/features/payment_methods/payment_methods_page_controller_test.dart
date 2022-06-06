@@ -2,16 +2,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:payu_core/payu_core.dart';
-
 import 'package:payu_payment_methods/payu_payment_methods.dart';
 import 'package:payu_payment_methods/src/features/core/payment_methods_item.dart';
+import 'package:payu_payment_methods/src/features/core/payment_methods_platform_provider.dart';
 import 'package:payu_payment_methods/src/features/payment_methods/payment_methods_controller.dart';
+
 import '../../../resources/resource_reader.dart';
 import 'payment_methods_page_controller_test.mocks.dart';
 
 @GenerateMocks([
   PaymentMethodsConfiguration,
   PaymentMethodsControllerDelegate,
+  PaymentMethodPlatformProvider,
   PaymentMethodsListener,
   PaymentMethodsStorage,
   PaymentMethodsItem,
@@ -25,6 +27,7 @@ void main() {
 
   late MockPaymentMethodsConfiguration configuration;
   late MockPaymentMethodsControllerDelegate delegate;
+  late MockPaymentMethodPlatformProvider provider;
   late MockPaymentMethodsListener listener;
   late MockPaymentMethodsStorage storage;
   late PaymentMethodsController sut;
@@ -38,9 +41,10 @@ void main() {
 
     configuration = MockPaymentMethodsConfiguration();
     delegate = MockPaymentMethodsControllerDelegate();
+    provider = MockPaymentMethodPlatformProvider();
     listener = MockPaymentMethodsListener();
     storage = MockPaymentMethodsStorage();
-    sut = PaymentMethodsController(delegate, configuration, listener, storage);
+    sut = PaymentMethodsController(delegate, configuration, provider, listener, storage);
 
     when(storage.getSelectedPaymentMethodHash()).thenAnswer((e) async => null);
   });
@@ -52,6 +56,9 @@ void main() {
       when(configuration.payByLinks).thenReturn(payByLinks);
       when(configuration.enableAddCard).thenReturn(true);
       when(configuration.enablePayByLinks).thenReturn(true);
+
+      when(provider.isiOS()).thenReturn(true);
+      when(provider.isAndroid()).thenReturn(false);
     });
 
     group('`onInit`', () {
@@ -141,11 +148,40 @@ void main() {
       });
     });
 
-    test('when `payByLinks` contains `jp` then should display ApplePay', () async {
+    test('when `payByLinks` contains `jp` and Platform is iOS then should display ApplePay', () async {
       when(configuration.payByLinks).thenReturn(payByLinks);
+      when(provider.isiOS()).thenReturn(true);
       await sut.onInit();
 
       expect(sut.items.whereType<PaymentMethodsApplePayItem>().length, equals(1));
+      verify(provider.isiOS()).called(1);
+    });
+
+    test('when `payByLinks` contains `jp` and Platform is not iOS then should not display ApplePay', () async {
+      when(configuration.payByLinks).thenReturn(payByLinks);
+      when(provider.isiOS()).thenReturn(false);
+      await sut.onInit();
+
+      expect(sut.items.whereType<PaymentMethodsApplePayItem>().length, equals(0));
+      verify(provider.isiOS()).called(1);
+    });
+
+    test('when `payByLinks` contains `ap` and Platform is Android then should display GooglePay', () async {
+      when(configuration.payByLinks).thenReturn(payByLinks);
+      when(provider.isAndroid()).thenReturn(true);
+      await sut.onInit();
+
+      expect(sut.items.whereType<PaymentMethodsGooglePayItem>().length, equals(1));
+      verify(provider.isAndroid()).called(1);
+    });
+
+    test('when `payByLinks` contains `ap` and Platform is not Android then should not display GooglePay', () async {
+      when(configuration.payByLinks).thenReturn(payByLinks);
+      when(provider.isAndroid()).thenReturn(false);
+      await sut.onInit();
+
+      expect(sut.items.whereType<PaymentMethodsGooglePayItem>().length, equals(0));
+      verify(provider.isAndroid()).called(1);
     });
 
     test('when `blikTokens` are not available then should not display BlikCode', () async {
@@ -191,7 +227,7 @@ void main() {
     });
 
     test('when `storage` has saved `hash` for payByLink then should display PayByLink', () async {
-      final pbl = payByLinks[2];
+      final pbl = payByLinks[3];
       when(storage.getSelectedPaymentMethodHash()).thenAnswer((e) async => pbl.hash);
       await sut.onInit();
 

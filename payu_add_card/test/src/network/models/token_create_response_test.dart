@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:payu_add_card/src/network/models/token_create_response.dart';
 import 'package:payu_api/payu_api.dart';
 
-import 'package:payu_add_card/src/network/models/token_create_response.dart';
 import '../../../resources/resource_reader.dart';
 
 void main() {
@@ -15,8 +15,8 @@ void main() {
         expect(model.status.codeLiteral, equals('SUCCESS'));
         expect(model.status.code, equals('0'));
 
-        expect(model.data?.token, equals('TOK_1KLPUS0MIMST0sS72F9j3d778W7H'));
-        expect(model.data?.mask, equals('444433******1111'));
+        expect(model.data?.token, equals('TOK_1KLQQR6MMPNS39GsrLtSmzB2JGd6'));
+        expect(model.data?.mask, equals('405621******1231'));
         expect(model.data?.type, equals('STANDARD'));
       });
     });
