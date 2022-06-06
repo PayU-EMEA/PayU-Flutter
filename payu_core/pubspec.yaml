@@ -15,7 +15,10 @@ dependencies:
   flutter:
     sdk: flutter
   payu_interface: 
-    path: ../payu_interface
+    git:
+      url: https://github.com/PayU-EMEA/PayU-Flutter.git
+      ref: feature/PUSDKM-694-google-pay
+      path: payu_interface
   url_launcher: ^6.0.15
 
 dev_dependencies:
