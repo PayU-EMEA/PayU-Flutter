@@ -1,8 +1,0 @@
-{
-    "value": "jp",
-    "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_jp.png",
-    "name": "Apple Pay",
-    "status": "ENABLED",
-    "minAmount": 50,
-    "maxAmount": 99999999
-}
