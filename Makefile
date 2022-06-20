@@ -14,6 +14,7 @@ clean:
 	sh scripts/clean.sh payu_terms_and_conditions
 	sh scripts/clean.sh payu_three_ds
 	sh scripts/clean.sh payu_translations
+	sh scripts/clean.sh payu_ui
 	sh scripts/clean.sh payu_web_payments
 
 	sh scripts/clean.sh payu
@@ -35,6 +36,7 @@ setup:
 	sh scripts/setup.sh payu_terms_and_conditions
 	sh scripts/setup.sh payu_three_ds
 	sh scripts/setup.sh payu_translations
+	sh scripts/setup.sh payu_ui
 	sh scripts/setup.sh payu_web_payments
 
 	sh scripts/setup.sh payu
@@ -56,6 +58,7 @@ setup_dev:
 	sh scripts/setup_dev.sh payu_terms_and_conditions
 	sh scripts/setup_dev.sh payu_three_ds
 	sh scripts/setup_dev.sh payu_translations
+	sh scripts/setup_dev.sh payu_ui
 	sh scripts/setup_dev.sh payu_web_payments
 
 	sh scripts/setup.sh payu
@@ -76,4 +79,5 @@ tests:
 	sh scripts/test.sh payu_terms_and_conditions
 	sh scripts/test.sh payu_three_ds
 	sh scripts/test.sh payu_translations
+	sh scripts/test.sh payu_ui
 	sh scripts/test.sh payu_web_payments
