@@ -1,0 +1,59 @@
+import 'package:payu/payu.dart';
+
+import 'package:example/core/constants.dart';
+import 'package:example/data/models/grant_type.dart';
+import 'package:example/data/models/order_create_response.dart';
+import 'package:example/data/models/pay_method.dart';
+import 'package:example/data/models/payment_methods_response.dart';
+import 'package:example/data/models/product.dart';
+import 'package:example/features/example/backend/api/api.dart';
+import 'package:example/features/example/backend/models/authorization_body.dart';
+import 'package:example/features/example/backend/models/get_transactions/transactions_response.dart';
+import 'package:example/features/example/backend/models/order_create_request.dart';
+import 'settings_repository.dart';
+
+class BackendRepository {
+  final Api _api;
+  final SettingsRepository _settingsRepository;
+
+  BackendRepository(
+    this._api,
+    this._settingsRepository,
+  );
+
+  Future<void> authorize() async {
+    final grantType = _settingsRepository.grantType;
+    final clientId = _settingsRepository.clientId;
+    final clientSecret = _settingsRepository.clientSecret;
+
+    final body = AuthorizationBody.mock(clientId!, clientSecret!, grantType!.key);
+    final response = await _api.authorize('application/x-www-form-urlencoded', body);
+    await _settingsRepository.setAccessToken(response.accessToken);
+  }
+
+  Future<OrderCreateResponse> createOrder(PayMethod payMethod, List<Product> products) async {
+    await authorize();
+
+    final clientId = _settingsRepository.clientId;
+    const continueUrl = Constants.continueUrl;
+    final request = OrderCreateRequest.mock(clientId!, continueUrl, payMethod, products);
+    return await _api.createOrder('application/json', request);
+  }
+
+  Future<PaymentMethodsResponse> getPaymentMethods() async {
+    await authorize();
+    return await _api.getPaymentMethods('application/json');
+  }
+
+  Future<InstallmentProposal> getCardInstallmentProposals(String proposalId) async {
+    return await _api.getCardInstallmentProposals(proposalId);
+  }
+
+  Future<void> postCardInstallmentProposals(String proposalId, InstallmentResult decision) async {
+    await _api.postCardInstallmentProposals(proposalId, decision);
+  }
+
+  Future<TransactionsResponse> getTransactions(String orderId) async {
+    return await _api.getTransactions(orderId);
+  }
+}

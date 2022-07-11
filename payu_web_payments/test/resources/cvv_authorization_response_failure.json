@@ -1,0 +1,7 @@
+{
+    "status": {
+        "statusCode": "ERROR_VALUE_INVALID",
+        "codeLiteral": "CARD_INVALID_CVV",
+        "code": "4003"
+    }
+}

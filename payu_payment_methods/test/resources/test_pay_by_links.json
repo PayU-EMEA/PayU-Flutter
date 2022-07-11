@@ -1,0 +1,46 @@
+[
+    {
+        "value": "jp",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_jp.png",
+        "name": "Apple Pay",
+        "status": "ENABLED"
+    },
+    {
+        "value": "ap",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_ap.png",
+        "name": "Google Pay",
+        "status": "ENABLED"
+    },
+    {
+        "value": "ai",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_ai_off.png",
+        "name": "Raty PayU",
+        "status": "DISABLED",
+        "minAmount": 30000,
+        "maxAmount": 2000000
+    },
+    {
+        "value": "pbc",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_pbc_off.png",
+        "name": "Bancontact",
+        "status": "DISABLED",
+        "minAmount": 100,
+        "maxAmount": 99999999
+    },
+    {
+        "value": "mtx",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_mtx_off.png",
+        "name": "mTransfer",
+        "status": "DISABLED",
+        "minAmount": 100,
+        "maxAmount": 99999999
+    },
+    {
+        "value": "sdd",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_sdd_off.png",
+        "name": "SEPA DirectDebit",
+        "status": "ENABLED",
+        "minAmount": 100,
+        "maxAmount": 100000
+    }
+]

@@ -1,0 +1,11 @@
+{
+    "value": "TOKC_QPY10DEHHLWPOMJIV5LWUZHG2DG",
+    "brandImageUrl": "https://static.payu.com/images/mobile/visa_off.png",
+    "preferred": false,
+    "status": "EXPIRED",
+    "cardExpirationYear": 2019,
+    "cardExpirationMonth": 1,
+    "cardNumberMasked": "401200******1112",
+    "cardScheme": "VS",
+    "cardBrand": "VISA"
+}
