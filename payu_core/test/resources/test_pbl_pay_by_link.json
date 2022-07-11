@@ -1,0 +1,8 @@
+{
+    "value": "m",
+    "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_m.png",
+    "name": "mTransfer",
+    "status": "ENABLED",
+    "minAmount": 50,
+    "maxAmount": 99999999
+}

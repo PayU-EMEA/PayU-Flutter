@@ -1,0 +1,1 @@
+enum CVVAuthorizationResult { success, cancelled }

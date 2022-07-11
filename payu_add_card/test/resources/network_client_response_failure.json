@@ -1,0 +1,7 @@
+{
+    "status": {
+        "statusCode": "ERROR_UNKNOWN_MERCHANT_POS",
+        "codeLiteral": "UNKNOWN_MERCHANT",
+        "code": "101"
+    }
+}

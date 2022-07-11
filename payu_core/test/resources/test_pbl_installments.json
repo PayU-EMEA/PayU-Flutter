@@ -1,0 +1,8 @@
+{
+    "value": "ai",
+    "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_ai.png",
+    "name": "Raty PayU",
+    "status": "ENABLED",
+    "minAmount": 30000,
+    "maxAmount": 2000000
+}

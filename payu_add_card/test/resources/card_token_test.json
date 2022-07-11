@@ -1,0 +1,10 @@
+{
+    "cardExpirationYear": "2024",
+    "cardExpirationMonth": "10",
+    "cardNumberMasked": "411111******1111",
+    "cardBrand": "VISA",
+    "value": "TOKC_XATB7DF8ACXYTVQIPLWTVPFRKQE411111",
+    "brandImageUrl": "http://static.payu.com/images/mobile/visa.png",
+    "preferred": true,
+    "status": "ACTIVE"
+}
