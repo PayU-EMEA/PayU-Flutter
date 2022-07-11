@@ -16,9 +16,9 @@ dependencies:
     sdk: flutter
   http: ^0.13.4
   payu_core: 
-    git: 
+    git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
+      ref: feature/PUSDKM-694-google-pay
       path: payu_core
     
 dev_dependencies:
@@ -27,14 +27,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  import_sorter: ^4.6.0
 
 flutter:
   assets:
     - ssl/entrust.pem
-
-import_sorter:
-  emojis: false
-  comments: false
-  ignored_files:
-    - \/test\/*

@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:example/core/ui/snackbar.dart';
+import 'package:flutter/material.dart';
 import 'package:payu/payu.dart';
 
 void main() {
@@ -23,13 +25,12 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> implements ApplePayListener {
-  late final ApplePayService _service;
+class _HomePageState extends State<HomePage> {
+  late final PayuMobilePayments _service;
 
   @override
   void initState() {
-    _service = ApplePayService.instance();
-    _service.setListener(this);
+    _service = PayuMobilePayments();
     super.initState();
   }
 
@@ -41,41 +42,68 @@ class _HomePageState extends State<HomePage> implements ApplePayListener {
         appBar: AppBar(
           title: const Text('HomePage'),
         ),
-        body: Center(
-          child: TextButton(
-            onPressed: () => _didTapPay(),
-            child: const Text(' Pay'),
-          ),
+        body: Column(
+          children: [
+            TextButton(
+              onPressed: Platform.isIOS ? _didTapPayWithApplePay : null,
+              child: const Text('ApplePay'),
+            ),
+            TextButton(
+              onPressed: Platform.isAndroid ? _didTapPayWithGooglePay : null,
+              child: const Text('GooglePay'),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  void _didTapPay() async {
-    if (await _service.canMakePayments()) {
-      await _service.authorize(
-        request: const ApplePayPaymentRequest(
-          merchantIdentifier: 'merchant.identifier',
-          countryCode: 'PL',
-          currencyCode: 'PLN',
-          shippingContact: ApplePayContact(emailAddress: 'customer@email.com'),
-          paymentSummaryItems: [
-            ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
-            ApplePaySummaryItem(label: 'Napkin', amount: 49),
-            ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
-          ],
-        ),
-      );
+  void _didTapPayWithApplePay() {
+    _didTapPay(_buildApplePayPaymentConfiguration());
+  }
+
+  void _didTapPayWithGooglePay() {
+    _didTapPay(_buildGooglePayPaymentConfiguration());
+  }
+
+  void _didTapPay(PaymentConfiguration paymentConfiguration) async {
+    if (await _service.canMakePayment(paymentConfiguration)) {
+      final authorizationCode = await _service.makePayment(paymentConfiguration);
+      snackbar('authorizationCode: $authorizationCode');
     }
   }
 
-  @override
-  void onDidAuthorize(String authorizationCode) {
-    debugPrint('onDidAuthorize: $authorizationCode');
+  PaymentConfiguration _buildApplePayPaymentConfiguration() {
+    return PaymentConfiguration.applePay(
+      request: ApplePayPaymentRequestBuilder()
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withMerchantIdentifier('merchantIdentifier')
+          .withShippingContact(
+            const ApplePayContact(
+              emailAddress: 'email@address.com',
+            ),
+          )
+          .withPaymentSummaryItems(
+        const [
+          ApplePaySummaryItem(label: 'Futomaki', amount: 1599),
+          ApplePaySummaryItem(label: 'Napkin', amount: 49),
+          ApplePaySummaryItem(label: 'Order', amount: 1599 + 49),
+        ],
+      ).build(),
+    );
   }
 
-  @override
-  void onDidCancel() {
-    debugPrint('onDidCancel');
+  PaymentConfiguration _buildGooglePayPaymentConfiguration() {
+    return PaymentConfiguration.googlePay(
+      environment: PaymentEnvironment.test,
+      request: GooglePayPaymentDataRequestBuilder()
+          .withMerchantId('merchantId')
+          .withMerchantName('merchantName')
+          .withCountryCode('PL')
+          .withCurrencyCode('PLN')
+          .withTotalPrice('1.23')
+          .build(),
+    );
   }
 }

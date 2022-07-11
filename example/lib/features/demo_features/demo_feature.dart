@@ -1,7 +1,10 @@
+import 'dart:io';
+
 enum DemoFeatureType {
   demoAddCardPage,
   demoAddCardWidget,
   demoApplePay,
+  demoGooglePay,
   demoPaymentMethods,
   demoPaymentWidget,
   demoSoftAccept,
@@ -17,17 +20,20 @@ class DemoFeature {
   final String name;
   final String description;
   final DemoFeatureType type;
+  final bool enabled;
 
   const DemoFeature({
     required this.name,
     required this.description,
     required this.type,
+    this.enabled = true,
   });
 
   static final all = [
     DemoFeature.demoAddCardPage(),
     DemoFeature.demoAddCardWidget(),
     DemoFeature.demoApplePay(),
+    DemoFeature.demoGooglePay(),
     DemoFeature.demoPaymentMethods(),
     DemoFeature.demoPaymentWidget(),
     DemoFeature.demoSoftAccept(),
@@ -55,11 +61,20 @@ class DemoFeature {
   }
 
   factory DemoFeature.demoApplePay() {
-    return const DemoFeature(
+    return DemoFeature(
       name: '[Demo] ApplePay',
       description: 'Check how to implement ApplePay',
       type: DemoFeatureType.demoApplePay,
+      enabled: Platform.isIOS,
     );
+  }
+
+  factory DemoFeature.demoGooglePay() {
+    return DemoFeature(
+        name: '[Demo] GooglePay',
+        description: 'Check how to implement GooglePay',
+        type: DemoFeatureType.demoGooglePay,
+        enabled: Platform.isAndroid);
   }
 
   factory DemoFeature.demoPaymentMethods() {

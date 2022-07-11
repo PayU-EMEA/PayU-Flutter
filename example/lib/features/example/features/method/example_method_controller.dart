@@ -1,6 +1,3 @@
-import 'package:get/get.dart';
-import 'package:payu/payu.dart';
-
 import 'package:example/core/routes.dart';
 import 'package:example/core/ui/snackbar.dart';
 import 'package:example/data/models/pay_method.dart';
@@ -9,6 +6,8 @@ import 'package:example/data/repositories/data_repository.dart';
 import 'package:example/data/repositories/secure_storage.dart';
 import 'package:example/features/example/core/example_core_controller.dart';
 import 'package:example/features/example/features/method/processors/example_method_processor.dart';
+import 'package:get/get.dart';
+import 'package:payu/payu.dart';
 
 class ExampleMethodController extends GetxController with StateMixin implements PaymentMethodsListener {
   final ExampleMethodProcessor _processor;

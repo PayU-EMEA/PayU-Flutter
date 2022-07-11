@@ -1,6 +1,7 @@
 import 'package:payu_state_management/payu_state_management.dart';
 
 import '../../payment_methods_configuration.dart';
+import '../core/payment_methods_platform_provider.dart';
 import '../core/payment_methods_storage.dart';
 import 'payment_methods_controller.dart';
 import 'payment_methods_listener.dart';
@@ -15,12 +16,14 @@ class PaymentMethodsAssembler extends PayuAssembler {
 
   @override
   void assemble() {
-    register(() => PaymentMethodsController(delegate, configuration, listener, storage));
+    register(() => PaymentMethodPlatformProvider());
+    register(() => PaymentMethodsController(delegate, configuration, find(), listener, storage));
     super.assemble();
   }
 
   @override
   void dispose() {
+    unregister<PaymentMethodPlatformProvider>();
     unregister<PaymentMethodsController>();
     super.dispose();
   }

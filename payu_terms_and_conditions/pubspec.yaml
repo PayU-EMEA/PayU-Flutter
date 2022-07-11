@@ -15,24 +15,24 @@ dependencies:
   flutter:
     sdk: flutter
   payu_core: 
-    git: 
+    git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
+      ref: feature/PUSDKM-694-google-pay
       path: payu_core
-  payu_state_management:
-    git: 
+  payu_state_management: 
+    git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
+      ref: feature/PUSDKM-694-google-pay
       path: payu_state_management
   payu_translations: 
-    git: 
+    git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
+      ref: feature/PUSDKM-694-google-pay
       path: payu_translations
   payu_ui: 
-    git: 
+    git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
+      ref: feature/PUSDKM-694-google-pay
       path: payu_ui
     
 dev_dependencies:
@@ -41,13 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  import_sorter: ^4.6.0
   mockito: ^5.1.0
 
 flutter:
 
-import_sorter:
-  emojis: false
-  comments: false
-  ignored_files:
-    - \/test\/*

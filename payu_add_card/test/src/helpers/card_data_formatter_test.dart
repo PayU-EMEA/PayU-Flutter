@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:payu_add_card/src/helpers/card_data_formatter.dart';
 
 void main() {
@@ -41,7 +39,7 @@ void main() {
 
     test('`number` formatter should format correctly', () {
       expect(numberFormatter.formatEditUpdate(empty, value('4444333322221111')), value('4444 3333 2222 1111'));
-      expect(numberFormatter.formatEditUpdate(empty, value('44443333222211110000')), value('4444 3333 2222 1111'));
+      expect(numberFormatter.formatEditUpdate(empty, value('44443333222211110000')), value('4444 3333 2222 1111 000'));
       expect(numberFormatter.formatEditUpdate(empty, value('44443333')), value('4444 3333'));
     });
   });

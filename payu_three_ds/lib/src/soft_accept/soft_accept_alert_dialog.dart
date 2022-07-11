@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_translations/payu_translations.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -25,24 +24,27 @@ class SoftAcceptAlertDialog extends StatelessWidget {
           children: [
             Text('please_wait_for_this_window_to_close_automatically'.translated()),
             SizedBox(
-              height: 0.0,
-              width: 0.0,
-              child: WebView(
-                backgroundColor: Colors.yellowAccent,
-                debuggingEnabled: true,
-                initialUrl: Uri.dataFromString(controller.iframe, mimeType: 'text/html').toString(),
-                javascriptMode: JavascriptMode.unrestricted,
-                onPageFinished: (e) => controller.didCompleteProcessingPage(),
-                onWebViewCreated: (e) => controller.didCreateWebViewController(e),
-                javascriptChannels: {
-                  JavascriptChannel(
-                    name: SoftAcceptConstants.javascriptChannelName,
-                    onMessageReceived: (e) async {
-                      final message = await controller.handleJavascriptMessage(e.message);
-                      if (message != null) Navigator.of(context).pop(message);
-                    },
-                  ),
-                },
+              height: 24.0,
+              width: 24.0,
+              child: Opacity(
+                opacity: double.minPositive,
+                child: WebView(
+                  backgroundColor: Colors.yellowAccent,
+                  debuggingEnabled: true,
+                  initialUrl: Uri.dataFromString(controller.iframe, mimeType: 'text/html').toString(),
+                  javascriptMode: JavascriptMode.unrestricted,
+                  onPageFinished: (e) => controller.didCompleteProcessingPage(),
+                  onWebViewCreated: (e) => controller.didCreateWebViewController(e),
+                  javascriptChannels: {
+                    JavascriptChannel(
+                      name: SoftAcceptConstants.javascriptChannelName,
+                      onMessageReceived: (e) async {
+                        final message = await controller.handleJavascriptMessage(e.message);
+                        if (message != null) Navigator.of(context).pop(message);
+                      },
+                    ),
+                  },
+                ),
               ),
             )
           ],

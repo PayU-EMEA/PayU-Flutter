@@ -7,6 +7,7 @@ class PaymentMethodsProcessor {
     required Function(BlikCode) onBlikCode,
     required Function(BlikToken) onBlikToken,
     required Function(CardToken) onCardToken,
+    required Function(GooglePay) onGooglePay,
     required Function(Installments) onInstallments,
     required Function(PayByLink) onPayByLink,
     Function(PaymentMethod)? onOther,
@@ -25,6 +26,10 @@ class PaymentMethodsProcessor {
     }
     if (method is CardToken) {
       onCardToken(method);
+      return;
+    }
+    if (method is GooglePay) {
+      onGooglePay(method);
       return;
     }
     if (method is Installments) {

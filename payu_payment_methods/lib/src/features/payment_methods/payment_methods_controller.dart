@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:payu_core/payu_core.dart';
+import 'package:payu_payment_methods/src/features/core/payment_methods_platform_provider.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 
 import '../../payment_methods_configuration.dart';
@@ -17,6 +18,7 @@ mixin PaymentMethodsControllerDelegate {
 class PaymentMethodsController extends PayuController {
   final PaymentMethodsControllerDelegate _delegate;
   final PaymentMethodsConfiguration _configuration;
+  final PaymentMethodPlatformProvider _provider;
   final PaymentMethodsListener _listener;
   final PaymentMethodsStorage _storage;
 
@@ -29,7 +31,7 @@ class PaymentMethodsController extends PayuController {
   final _items = <PaymentMethodsItem>[];
   final _removed = <String>[];
 
-  PaymentMethodsController(this._delegate, this._configuration, this._listener, this._storage);
+  PaymentMethodsController(this._delegate, this._configuration, this._provider, this._listener, this._storage);
 
   @override
   Future<void> onInit() async {
@@ -71,6 +73,8 @@ class PaymentMethodsController extends PayuController {
       _delegate.navigateToCardToken();
     } else if (item is PaymentMethodsCardTokenItem) {
       _selectPaymentMethod(item.value);
+    } else if (item is PaymentMethodsGooglePayItem) {
+      _selectPaymentMethod(item.value);
     } else if (item is PaymentMethodsInstallmentsItem) {
       _selectPaymentMethod(item.value);
     } else if (item is PaymentMethodsPayByLinkItem) {
@@ -96,6 +100,7 @@ class PaymentMethodsController extends PayuController {
     _items.clear();
 
     _setupApplePay();
+    _setupGooglePay();
     _setupBlikCode();
     _setupBlikTokens();
     _setupCardTokens();
@@ -110,9 +115,18 @@ class PaymentMethodsController extends PayuController {
 
   void _setupApplePay() {
     for (final e in _payByLinks) {
-      if (_isApplePayPayByLink(e)) {
+      if (_isApplePayPayByLink(e) && _provider.isiOS()) {
         final value = ApplePay.fromPayByLink(e);
         _items.add(PaymentMethodsApplePayItem.build(value));
+      }
+    }
+  }
+
+  void _setupGooglePay() {
+    for (final e in _payByLinks) {
+      if (_isGooglePayByLink(e) && _provider.isAndroid()) {
+        final value = GooglePay.fromPayByLink(e);
+        _items.add(PaymentMethodsGooglePayItem.build(value));
       }
     }
   }
@@ -199,11 +213,17 @@ class PaymentMethodsController extends PayuController {
 
   // MATCHING
   bool _isAllowedPayByLink(PayByLink value) {
-    return value.value != PaymentMethodValue.applePay && value.value != PaymentMethodValue.mastercardInstallments;
+    return value.value != PaymentMethodValue.applePay &&
+        value.value != PaymentMethodValue.googlePay &&
+        value.value != PaymentMethodValue.mastercardInstallments;
   }
 
   bool _isApplePayPayByLink(PayByLink value) {
     return value.value == PaymentMethodValue.applePay;
+  }
+
+  bool _isGooglePayByLink(PayByLink value) {
+    return value.value == PaymentMethodValue.googlePay;
   }
 
   bool _isInstallmentsPayByLink(PayByLink value) {

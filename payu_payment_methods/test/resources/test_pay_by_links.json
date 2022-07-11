@@ -6,6 +6,12 @@
         "status": "ENABLED"
     },
     {
+        "value": "ap",
+        "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_ap.png",
+        "name": "Google Pay",
+        "status": "ENABLED"
+    },
+    {
         "value": "ai",
         "brandImageUrl": "https://static.payu.com/images/mobile/logos/pbl_ai_off.png",
         "name": "Raty PayU",

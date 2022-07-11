@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:payu_core/src/models/payment_methods/apple_pay.dart';
 import 'package:payu_core/src/models/payment_methods/pay_by_link.dart';
+
 import '../../../resources/resource_reader.dart';
 
 void main() {

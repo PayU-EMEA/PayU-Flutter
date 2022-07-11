@@ -1,10 +1,8 @@
-import 'package:example/features/example/backend/data/repositories/backend_repository.dart';
-
-import 'package:get/get.dart';
-import 'package:payu/payu.dart';
-
 import 'package:example/core/ui/snackbar.dart';
 import 'package:example/data/repositories/secure_storage.dart';
+import 'package:example/features/example/backend/data/repositories/backend_repository.dart';
+import 'package:get/get.dart';
+import 'package:payu/payu.dart';
 
 class DemoPaymentMethodsController extends GetxController implements PaymentMethodsListener {
   final BackendRepository _repository;
@@ -34,6 +32,7 @@ class DemoPaymentMethodsController extends GetxController implements PaymentMeth
       onBlikCode: (value) => snackbar(value.toString()),
       onBlikToken: (value) => snackbar(value.toString()),
       onCardToken: (value) => snackbar(value.toString()),
+      onGooglePay: (value) => snackbar(value.toString()),
       onInstallments: (value) => snackbar(value.toString()),
       onPayByLink: (value) => snackbar(value.toString()),
       onOther: (value) => snackbar(value.toString()),
