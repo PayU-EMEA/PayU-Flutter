@@ -1,7 +1,7 @@
 name: payu_about
 description: Flutter package with Payu About dialog
 
-version: 0.0.1-alpha.1
+version: 1.0.0-beta.1
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
@@ -17,17 +17,14 @@ dependencies:
   payu_core: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_core
   payu_state_management: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_state_management
   payu_translations: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_translations
 
 dev_dependencies:

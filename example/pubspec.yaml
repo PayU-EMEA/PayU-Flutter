@@ -39,7 +39,6 @@ dependencies:
   payu: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu
 
   # The following adds the Cupertino Icons font to your application.

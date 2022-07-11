@@ -1,7 +1,7 @@
 name: payu
 description: Flutter package which gives a set of components for pay-by-link, one-time card payments, storing card options, scanning card data, and one-click payments (Google Pay, Apple Pay, BLIK).
 
-version: 0.0.1-alpha.1
+version: 1.0.0-beta.1
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
@@ -18,57 +18,46 @@ dependencies:
   payu_about: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_about
   payu_add_card: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_add_card
   payu_api: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_api
   payu_core: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_core
   payu_mastercard_installments: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_mastercard_installments
   payu_mobile_payments: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_mobile_payments/payu_mobile_payments
   payu_payment_methods: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_payment_methods
   payu_terms_and_conditions: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_terms_and_conditions
   payu_three_ds: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_three_ds
   payu_translations: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_translations
   payu_web_payments: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_web_payments
 
 dev_dependencies:

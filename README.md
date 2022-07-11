@@ -28,7 +28,6 @@ dependencies:
   payu:
     git: 
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: release/0.0.1-alpha
       path: payu
 ```
 
