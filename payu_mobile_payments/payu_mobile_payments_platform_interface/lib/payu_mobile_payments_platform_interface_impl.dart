@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
+import 'extensions/string_ext.dart';
 import 'models/ios/response/apple_pay_payment.dart';
 import 'payu_mobile_payments_platform_interface.dart';
 
@@ -33,12 +34,12 @@ class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatf
 
     if (configuration.provider == PaymentProvider.googlePay) {
       final result = GooglePayPaymentData.fromJson(jsonDecode(response));
-      return result.paymentMethodData.tokenizationData.token;
+      return result.paymentMethodData.tokenizationData.token?.toBase64();
     }
 
     if (configuration.provider == PaymentProvider.applePay) {
       final result = ApplePayPayment.fromJson(jsonDecode(response));
-      return result.token.paymentData;
+      return result.token.paymentData.toBase64();
     }
     return null;
   }
