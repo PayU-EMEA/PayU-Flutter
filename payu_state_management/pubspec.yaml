@@ -15,7 +15,6 @@ dependencies:
   payu_ui: 
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      ref: feature/PUSDKM-694-google-pay
       path: payu_ui
 
 dev_dependencies:
