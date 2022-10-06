@@ -40,6 +40,7 @@ class SoftAcceptAlertDialog extends StatelessWidget {
                       name: SoftAcceptConstants.javascriptChannelName,
                       onMessageReceived: (e) async {
                         final message = await controller.handleJavascriptMessage(e.message);
+                        // ignore: use_build_context_synchronously
                         if (message != null) Navigator.of(context).pop(message);
                       },
                     ),

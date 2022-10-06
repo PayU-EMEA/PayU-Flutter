@@ -80,6 +80,6 @@ class InstallmentsOptionsDataMapper {
   }
 
   String _formattedTotal(InstallmentOption e) {
-    return 'total'.translated() + ' ' + _priceFormatter.format(e.totalAmountDue / 100);
+    return '${'total'.translated()} ${_priceFormatter.format(e.totalAmountDue / 100)}';
   }
 }
