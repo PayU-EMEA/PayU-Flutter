@@ -62,10 +62,10 @@ class MockPayuLauncher extends _i1.Mock implements _i3.PayuLauncher {
         returnValue: _i4.Future<bool>.value(false),
       ) as _i4.Future<bool>);
   @override
-  _i4.Future<bool> launch(String? uri) => (super.noSuchMethod(
+  _i4.Future<bool> launch(String? uriString) => (super.noSuchMethod(
         Invocation.method(
           #launch,
-          [uri],
+          [uriString],
         ),
         returnValue: _i4.Future<bool>.value(false),
       ) as _i4.Future<bool>);

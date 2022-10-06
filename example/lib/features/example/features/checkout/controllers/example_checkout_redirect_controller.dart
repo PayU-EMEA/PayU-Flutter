@@ -1,10 +1,9 @@
-import 'package:get/get.dart';
-import 'package:payu/payu.dart';
-
 import 'package:example/core/constants.dart';
 import 'package:example/core/ui/snackbar.dart';
 import 'package:example/data/models/order_create_response.dart';
 import 'package:example/data/models/order_create_status_code.dart';
+import 'package:get/get.dart';
+import 'package:payu/payu.dart';
 
 class ExampleCheckoutRedirectController extends GetxController {
   Future process(OrderCreateResponse orderCreateResponse) async {
@@ -22,7 +21,7 @@ class ExampleCheckoutRedirectController extends GetxController {
         _processWarningContinueRedirectWebPayment(orderCreateResponse.redirectUri!);
         break;
       case OrderCreateStatusCode.warningContinue3DS:
-        _processWarningContinue3DSWebPayment(orderCreateResponse.redirectUri!);
+        _processWarningContinue3DSWebPayment(orderCreateResponse);
         break;
       case OrderCreateStatusCode.warningContinueCVV:
         _processWarningContinueCVVWebPayment(orderCreateResponse.redirectUri!);
@@ -42,8 +41,10 @@ class ExampleCheckoutRedirectController extends GetxController {
     _processWebPayment(WebPaymentsRequestType.payByLink, redirectUri);
   }
 
-  void _processWarningContinue3DSWebPayment(String redirectUri) async {
-    _processWebPayment(WebPaymentsRequestType.threeDS, redirectUri);
+  void _processWarningContinue3DSWebPayment(OrderCreateResponse orderCreateResponse) async {
+    orderCreateResponse.iframeAllowed == true
+        ? _processWarningContinue3DS2WebPayment(orderCreateResponse.redirectUri!)
+        : _processWebPayment(WebPaymentsRequestType.threeDS, orderCreateResponse.redirectUri!);
   }
 
   void _processWarningContinueCVVWebPayment(String redirectUri) async {
@@ -75,6 +76,18 @@ class ExampleCheckoutRedirectController extends GetxController {
     final result = await Get.dialog<CVVAuthorizationResult>(
       CVVAuthorizationAlertDialog(
         refReqId: refReqId,
+      ),
+    );
+
+    if (result != null) snackbar(result.toString());
+  }
+
+  void _processWarningContinue3DS2WebPayment(String redirectUri) async {
+    final result = await Get.dialog<SoftAcceptMessage>(
+      SoftAcceptAlertDialog(
+        request: SoftAcceptRequest(
+          redirectUri: redirectUri,
+        ),
       ),
     );
 

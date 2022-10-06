@@ -21,16 +21,18 @@ class DemoFeaturesPage extends GetView<DemoFeaturesController> {
           ),
         ],
       ),
-      body: ListView.separated(
-        padding: const EdgeInsets.only(top: 16.0),
-        itemBuilder: (context, index) => ListTile(
-          title: Text(demoFeatures[index].name),
-          subtitle: Text(demoFeatures[index].description),
-          onTap: () => controller.didTapFeature(demoFeatures[index].type),
-          enabled: demoFeatures[index].enabled,
+      body: SafeArea(
+        child: ListView.separated(
+          padding: const EdgeInsets.only(top: 16.0),
+          itemBuilder: (context, index) => ListTile(
+            title: Text(demoFeatures[index].name),
+            subtitle: Text(demoFeatures[index].description),
+            onTap: () => controller.didTapFeature(demoFeatures[index].type),
+            enabled: demoFeatures[index].enabled,
+          ),
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: demoFeatures.length,
         ),
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: demoFeatures.length,
       ),
     );
   }
