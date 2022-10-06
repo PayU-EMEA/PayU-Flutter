@@ -8,7 +8,7 @@ class SoftAcceptConfiguration {
 
   const SoftAcceptConfiguration._({
     required this.origin,
-    this.channelName = SoftAcceptConstants.javascriptChannelName,
+    required this.channelName,
   });
 
   factory SoftAcceptConfiguration.environment(Environment environment) {
@@ -16,11 +16,13 @@ class SoftAcceptConfiguration {
       case Environment.production:
         return const SoftAcceptConfiguration._(
           origin: 'https://secure.payu.com',
+          channelName: SoftAcceptConstants.javascriptChannelName,
         );
 
       case Environment.sandbox:
         return const SoftAcceptConfiguration._(
           origin: 'https://merch-prod.snd.payu.com',
+          channelName: SoftAcceptConstants.javascriptChannelName,
         );
     }
   }

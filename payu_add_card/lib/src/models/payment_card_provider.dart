@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:payu_core/payu_core.dart';
 
 enum PaymentCardProviderType { maestro, mastercard, visa }
@@ -49,7 +47,7 @@ class PaymentCardProvider {
   String toString() => '[$runtimeType]: $scheme';
 
   @override
-  int get hashCode => hashList([type, scheme]);
+  int get hashCode => Object.hashAll([type, scheme]);
 
   @override
   bool operator ==(Object other) => other is PaymentCardProvider && other.scheme == scheme && other.type == type;

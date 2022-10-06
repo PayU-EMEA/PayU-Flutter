@@ -8,11 +8,13 @@ part 'order_create_response.g.dart';
 class OrderCreateResponse {
   final OrderCreateStatus status;
   final String? redirectUri;
+  final bool? iframeAllowed;
   final String orderId;
 
   const OrderCreateResponse({
     required this.status,
     required this.redirectUri,
+    required this.iframeAllowed,
     required this.orderId,
   });
 

@@ -13,7 +13,7 @@ PayMethod _$PayMethodFromJson(Map<String, dynamic> json) => PayMethod(
     );
 
 Map<String, dynamic> _$PayMethodToJson(PayMethod instance) => <String, dynamic>{
-      'type': _$PayMethodTypeEnumMap[instance.type],
+      'type': _$PayMethodTypeEnumMap[instance.type]!,
       'value': instance.value,
       'authorizationCode': instance.authorizationCode,
     };

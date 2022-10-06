@@ -11,6 +11,7 @@ OrderCreateResponse _$OrderCreateResponseFromJson(Map<String, dynamic> json) =>
       status:
           OrderCreateStatus.fromJson(json['status'] as Map<String, dynamic>),
       redirectUri: json['redirectUri'] as String?,
+      iframeAllowed: json['iframeAllowed'] as bool?,
       orderId: json['orderId'] as String,
     );
 
@@ -19,5 +20,6 @@ Map<String, dynamic> _$OrderCreateResponseToJson(
     <String, dynamic>{
       'status': instance.status,
       'redirectUri': instance.redirectUri,
+      'iframeAllowed': instance.iframeAllowed,
       'orderId': instance.orderId,
     };

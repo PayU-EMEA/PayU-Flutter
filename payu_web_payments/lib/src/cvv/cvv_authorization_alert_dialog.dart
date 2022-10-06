@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_translations/payu_translations.dart';
 
@@ -54,6 +53,7 @@ class CVVAuthorizationAlertDialog extends StatelessWidget {
 
   void _didTapConfirmButton(BuildContext context, CVVAuthorizationController controller) async {
     await controller.didTapConfirmButton();
+    // ignore: use_build_context_synchronously
     Navigator.of(context).pop(CVVAuthorizationResult.success);
   }
 }

@@ -6,7 +6,7 @@ import 'theme_text_styles.dart';
 
 class ThemeDataFactory {
   static ThemeData platform() {
-    return SchedulerBinding.instance?.window.platformBrightness == Brightness.dark
+    return SchedulerBinding.instance.window.platformBrightness == Brightness.dark
         ? ThemeDataFactory.dark()
         : ThemeDataFactory.light();
   }

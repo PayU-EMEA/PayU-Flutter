@@ -1,12 +1,10 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/material.dart';
-
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:payu_core/payu_core.dart';
 
 import '../translations_source.dart';
-import '../translations_validator.dart';
 
 extension PayuInterfaceTranslations on PayuInterface {
   static final _impl = _PayuInterfaceTranslationsImpl();
@@ -101,9 +99,5 @@ class _PayuInterfaceTranslationsImpl {
 
     _translations.clear();
     _translations.addAll(selectedTranslations);
-  }
-
-  void _validateTranslations() {
-    TranslationsValidator().validatate();
   }
 }

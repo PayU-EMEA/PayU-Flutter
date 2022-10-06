@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class SoftAcceptLog {
   final String sender = 'Flutter - SDK PayU';
   final String event = 'receivedMessage';
@@ -27,7 +25,7 @@ class SoftAcceptLog {
   String toString() => '[$runtimeType]: ${toJson().toString()}';
 
   @override
-  int get hashCode => hashList([sender, event, level, message, id]);
+  int get hashCode => Object.hashAll([sender, event, level, message, id]);
 
   @override
   bool operator ==(Object other) =>
