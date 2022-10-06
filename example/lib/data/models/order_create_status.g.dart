@@ -14,7 +14,7 @@ OrderCreateStatus _$OrderCreateStatusFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$OrderCreateStatusToJson(OrderCreateStatus instance) =>
     <String, dynamic>{
-      'statusCode': _$OrderCreateStatusCodeEnumMap[instance.statusCode],
+      'statusCode': _$OrderCreateStatusCodeEnumMap[instance.statusCode]!,
     };
 
 const _$OrderCreateStatusCodeEnumMap = {

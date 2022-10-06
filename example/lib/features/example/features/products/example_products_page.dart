@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
 import 'package:example/data/models/product.dart';
 import 'package:example/features/example/features/products/example_products_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ExampleProductsPage extends GetView<ExampleProductsController> {
   const ExampleProductsPage({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class ExampleProductsPage extends GetView<ExampleProductsController> {
         ),
         floatingActionButton: TextButton(
           onPressed: () => controller.didTapCheckout(),
-          child: Text('Pay: ' + (controller.amount() / 100).toString()),
+          child: Text('Pay: ${controller.amount() / 100}'),
         ),
         body: ListView.separated(
           itemCount: controller.products.length,
@@ -46,7 +44,7 @@ class _ProductListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(product.name),
-      subtitle: Text('Price: ' + (product.unitPrice / 100).toString()),
+      subtitle: Text('Price: ${product.unitPrice / 100}'),
       trailing: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [

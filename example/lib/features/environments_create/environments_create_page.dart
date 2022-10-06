@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
 import 'package:example/data/models/environment.dart';
 import 'package:example/data/models/grant_type.dart';
 import 'package:example/features/environments_create/environments_create_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EnvironmentsCreatePage extends GetView<EnvironmentsCreateController> {
   const EnvironmentsCreatePage({Key? key}) : super(key: key);
@@ -32,14 +30,14 @@ class EnvironmentsCreatePage extends GetView<EnvironmentsCreateController> {
             Obx(
               () => DropdownButton(
                 value: controller.environment(),
-                items: controller.environments.map((e) => DropdownMenuItem(child: Text(e.name), value: e)).toList(),
+                items: controller.environments.map((e) => DropdownMenuItem(value: e, child: Text(e.name))).toList(),
                 onChanged: (Environment? environment) => controller.didSelectEnvironment(environment),
               ),
             ),
             Obx(
               () => DropdownButton(
                 value: controller.grantType(),
-                items: controller.grantTypes.map((e) => DropdownMenuItem(child: Text(e.key), value: e)).toList(),
+                items: controller.grantTypes.map((e) => DropdownMenuItem(value: e, child: Text(e.key))).toList(),
                 onChanged: (GrantType? grantType) => controller.didSelectGrantType(grantType),
               ),
             ),

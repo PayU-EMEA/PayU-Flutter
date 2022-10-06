@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'package:payu_web_payments/src/models/web_payments_status.dart';
 
 class WebPaymentsResult {
@@ -12,7 +10,7 @@ class WebPaymentsResult {
   String toString() => '[$runtimeType]: $status, uri: $uri';
 
   @override
-  int get hashCode => hashList([status, uri]);
+  int get hashCode => Object.hashAll([status, uri]);
 
   @override
   bool operator ==(Object other) => other is WebPaymentsResult && other.status == status && other.uri == uri;

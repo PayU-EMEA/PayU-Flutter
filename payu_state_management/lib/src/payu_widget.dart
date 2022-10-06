@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:payu_interface/payu_interface.dart';
 import 'package:payu_ui/payu_ui.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +13,7 @@ class PayuWidget<T extends PayuController, E extends PayuAssembler> extends Stat
   const PayuWidget({Key? key, required this.assembler, required this.builder}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _PayuWidgetState createState() => _PayuWidgetState<T, E>();
 }
 
