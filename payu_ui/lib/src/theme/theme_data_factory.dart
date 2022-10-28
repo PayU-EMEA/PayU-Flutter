@@ -122,6 +122,8 @@ class ThemeDataFactory {
     return TextTheme(
       headline6: ThemeTextStyles.headline6.copyWith(color: pallete.secondaryGray1),
       subtitle1: ThemeTextStyles.subtitle1.copyWith(color: pallete.secondaryGray1),
+      subtitle2: ThemeTextStyles.subtitle2.copyWith(color: pallete.secondaryGray2),
+      bodyText1: ThemeTextStyles.bodyText1.copyWith(color: pallete.secondaryGray1),
       bodyText2: ThemeTextStyles.bodyText2.copyWith(color: pallete.secondaryGray2),
       caption: ThemeTextStyles.caption.copyWith(color: pallete.secondaryGray2),
       button: ThemeTextStyles.button.copyWith(color: pallete.secondaryGray3),

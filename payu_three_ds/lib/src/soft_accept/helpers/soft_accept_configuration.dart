@@ -24,6 +24,11 @@ class SoftAcceptConfiguration {
           origin: 'https://merch-prod.snd.payu.com',
           channelName: SoftAcceptConstants.javascriptChannelName,
         );
+      case Environment.sandboxBeta:
+        return const SoftAcceptConfiguration._(
+          origin: 'https://secure.sndbeta.payu.com/',
+          channelName: SoftAcceptConstants.javascriptChannelName,
+        );
     }
   }
 }

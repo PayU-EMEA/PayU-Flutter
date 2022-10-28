@@ -8,7 +8,6 @@ abstract class Routes {
   static const demoTheme = '/demoTheme';
   static const demoWebPaymentsSecure = '/demoWebPaymentsSecure';
 
-  static const environments = '/environments';
   static const environmentsCreate = '/environmentsCreate';
 
   static const exampleCheckout = '/exampleCheckout';
@@ -16,4 +15,6 @@ abstract class Routes {
   static const exampleOrder = '/exampleOrder';
   static const exampleProducts = '/exampleProducts';
   static const exampleTestCards = '/exampleTestCards';
+
+  static const settings = '/settings';
 }

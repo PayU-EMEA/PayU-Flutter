@@ -17,6 +17,8 @@ class EnvironmentAdapter extends TypeAdapter<Environment> {
         return Environment.production;
       case 1:
         return Environment.sandbox;
+      case 2:
+        return Environment.sandboxBeta;
       default:
         return Environment.production;
     }
@@ -30,6 +32,9 @@ class EnvironmentAdapter extends TypeAdapter<Environment> {
         break;
       case Environment.sandbox:
         writer.writeByte(1);
+        break;
+      case Environment.sandboxBeta:
+        writer.writeByte(2);
         break;
     }
   }

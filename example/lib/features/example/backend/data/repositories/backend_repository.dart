@@ -1,5 +1,3 @@
-import 'package:payu/payu.dart';
-
 import 'package:example/core/constants.dart';
 import 'package:example/data/models/grant_type.dart';
 import 'package:example/data/models/order_create_response.dart';
@@ -10,6 +8,8 @@ import 'package:example/features/example/backend/api/api.dart';
 import 'package:example/features/example/backend/models/authorization_body.dart';
 import 'package:example/features/example/backend/models/get_transactions/transactions_response.dart';
 import 'package:example/features/example/backend/models/order_create_request.dart';
+import 'package:payu/payu.dart';
+
 import 'settings_repository.dart';
 
 class BackendRepository {
@@ -36,8 +36,18 @@ class BackendRepository {
 
     final clientId = _settingsRepository.clientId;
     const continueUrl = Constants.continueUrl;
-    final request = OrderCreateRequest.mock(clientId!, continueUrl, payMethod, products);
-    return await _api.createOrder('application/json', request);
+    final currencyCode = _settingsRepository.currencyCode;
+
+    return await _api.createOrder(
+      'application/json',
+      OrderCreateRequest.mock(
+        clientId: clientId!,
+        continueUrl: continueUrl,
+        currencyCode: currencyCode,
+        payMethod: payMethod,
+        products: products,
+      ),
+    );
   }
 
   Future<PaymentMethodsResponse> getPaymentMethods() async {
