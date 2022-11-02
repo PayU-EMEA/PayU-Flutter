@@ -16,13 +16,9 @@ dependencies:
     sdk: flutter
   get_it: ^7.2.0
   payu_interface: 
-    git:
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      path: payu_interface
+    path: ../payu_interface
   payu_ui: 
-    git:
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      path: payu_ui
+    path: ../payu_ui
   provider: ^6.0.3
 
 dev_dependencies:

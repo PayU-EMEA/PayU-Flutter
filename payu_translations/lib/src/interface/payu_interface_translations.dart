@@ -4,7 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:payu_core/payu_core.dart';
 
-import '../translations_source.dart';
+import '../translations_loader.dart';
 
 extension PayuInterfaceTranslations on PayuInterface {
   static final _impl = _PayuInterfaceTranslationsImpl();
@@ -17,8 +17,14 @@ extension PayuInterfaceTranslations on PayuInterface {
   /// - `cs` (Czech)
   /// - `de` (German)
   /// - `en` (English)
+  /// - `es` (Spanish)
+  /// - `fr` (French)
   /// - `hu` (Hungarian)
+  /// - `lv` (Latvian)
   /// - `pl` (Polish)
+  /// - `ro` (Romanian)
+  /// - `sl` (Slovenian)
+  /// - `uk` (Ukrainian)
   ///
   /// If provided languageCode is not available - default system Locale should be used.
   set locale(Locale? locale) => _impl.locale = locale;
@@ -45,10 +51,13 @@ extension PayuInterfaceTranslations on PayuInterface {
 
 class _PayuInterfaceTranslationsImpl {
   static const _defaultLanguageCode = 'pl';
+  static const _supportedLanguagesCodes = ['cs', 'de', 'en', 'es', 'fr', 'hu', 'lv', 'pl', 'ro', 'sl', 'uk'];
 
   late Locale _locale = _platformLocale();
 
-  final _translations = <String, String>{};
+  final _defaultTranslations = <String, String>{};
+  final _localeTranslations = <String, String>{};
+  final _translationsLoader = TranslationsLoader();
 
   Locale get locale => _locale;
 
@@ -59,12 +68,11 @@ class _PayuInterfaceTranslationsImpl {
 
   _PayuInterfaceTranslationsImpl() {
     _loadTranslations();
-    // _validateTranslations();
   }
 
   String translated(String key, {List<String>? args}) {
-    if (!_translations.containsKey(key)) Logger.logError('`${_locale.languageCode}` / `$key` translation missed');
-    var result = _translations[key] ?? key;
+    if (!_localeTranslations.containsKey(key)) Logger.logError('`${_locale.languageCode}` / `$key` translation missed');
+    var result = _localeTranslations[key] ?? key;
     args?.forEachIndexed((index, element) => result = result.replaceAll('{$index}', element));
     return result;
   }
@@ -89,15 +97,30 @@ class _PayuInterfaceTranslationsImpl {
   Locale _platformLocale() {
     const languageCodeLength = 2;
     final languageCode = Platform.localeName.substring(0, languageCodeLength);
-    final supportedLanguages = translations.keys;
-    return Locale(supportedLanguages.contains(languageCode) ? languageCode : _defaultLanguageCode);
+    return Locale(_supportedLanguagesCodes.contains(languageCode) ? languageCode : _defaultLanguageCode);
   }
 
-  void _loadTranslations() {
-    final languageCode = translations.keys.contains(locale.languageCode) ? locale.languageCode : _defaultLanguageCode;
-    final selectedTranslations = translations[languageCode] ?? translations[_defaultLanguageCode] ?? <String, String>{};
+  Future<void> _loadTranslations() async {
+    await _loadDefaultTranslations();
+    await _loadLocaleTranslations();
+  }
 
-    _translations.clear();
-    _translations.addAll(selectedTranslations);
+  Future<void> _loadDefaultTranslations() async {
+    _defaultTranslations.clear();
+    _defaultTranslations.addAll(
+      await _translationsLoader.load(
+        languageCode: _defaultLanguageCode,
+      ),
+    );
+  }
+
+  Future<void> _loadLocaleTranslations() async {
+    _localeTranslations.clear();
+    _localeTranslations.addAll(
+      await _translationsLoader.load(
+        languageCode: locale.languageCode,
+        fallbackLanguageCode: _defaultLanguageCode,
+      ),
+    );
   }
 }
