@@ -1,12 +1,10 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
 import 'package:example/core/ui/snackbar.dart';
 import 'package:example/data/models/environment.dart';
+import 'package:example/data/models/environment_model.dart';
 import 'package:example/data/models/grant_type.dart';
 import 'package:example/data/repositories/environments_repository.dart';
-import 'package:example/features/environments/environments_model.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EnvironmentsCreateController extends GetxController {
   final EnvironmentsRepository _repository;
@@ -43,7 +41,7 @@ class EnvironmentsCreateController extends GetxController {
 
   void _saveAndBack() async {
     if (_isValid(clientIdController) && _isValid(clientSecretController) && _isValid(nameController)) {
-      final model = EnvironmentsModel(
+      final model = EnvironmentModel(
         grantType: grantType(),
         environment: environment(),
         clientId: clientIdController.text,
@@ -54,8 +52,8 @@ class EnvironmentsCreateController extends GetxController {
       if (_repository.containsEnvironment(model)) {
         snackbar('Same environment already exists');
       } else {
-        await _repository.putEnvironment(model);
-        Get.back(result: model);
+        await _repository.setEnvironment(model);
+        Get.back();
       }
     }
   }

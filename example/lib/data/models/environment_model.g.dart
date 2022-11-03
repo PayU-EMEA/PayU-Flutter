@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'environments_model.dart';
+part of 'environment_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class EnvironmentsModelAdapter extends TypeAdapter<EnvironmentsModel> {
+class EnvironmentModelAdapter extends TypeAdapter<EnvironmentModel> {
   @override
   final int typeId = 2;
 
   @override
-  EnvironmentsModel read(BinaryReader reader) {
+  EnvironmentModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return EnvironmentsModel(
+    return EnvironmentModel(
       grantType: fields[0] as GrantType,
       environment: fields[1] as Environment,
       clientId: fields[2] as String,
@@ -26,7 +26,7 @@ class EnvironmentsModelAdapter extends TypeAdapter<EnvironmentsModel> {
   }
 
   @override
-  void write(BinaryWriter writer, EnvironmentsModel obj) {
+  void write(BinaryWriter writer, EnvironmentModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -47,7 +47,7 @@ class EnvironmentsModelAdapter extends TypeAdapter<EnvironmentsModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is EnvironmentsModelAdapter &&
+      other is EnvironmentModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

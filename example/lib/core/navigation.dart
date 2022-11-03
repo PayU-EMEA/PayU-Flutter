@@ -1,5 +1,3 @@
-import 'package:get/route_manager.dart';
-
 import 'package:example/core/routes.dart';
 import 'package:example/features/demo_add_card_widget/demo_add_card_widget_bindings.dart';
 import 'package:example/features/demo_add_card_widget/demo_add_card_widget_page.dart';
@@ -13,8 +11,6 @@ import 'package:example/features/demo_theme/demo_theme_bindings.dart';
 import 'package:example/features/demo_theme/demo_theme_page.dart';
 import 'package:example/features/demo_web_payments_secure/demo_web_payments_secure_bindings.dart';
 import 'package:example/features/demo_web_payments_secure/demo_web_payments_secure_page.dart';
-import 'package:example/features/environments/environments_bindings.dart';
-import 'package:example/features/environments/environments_page.dart';
 import 'package:example/features/environments_create/environments_create_bindings.dart';
 import 'package:example/features/environments_create/environments_create_page.dart';
 import 'package:example/features/example/features/checkout/example_checkout_bindings.dart';
@@ -27,6 +23,9 @@ import 'package:example/features/example/features/products/example_products_bind
 import 'package:example/features/example/features/products/example_products_page.dart';
 import 'package:example/features/example/features/test_cards/example_test_cards_bindings.dart';
 import 'package:example/features/example/features/test_cards/example_test_cards_page.dart';
+import 'package:example/features/settings/settings_binding.dart';
+import 'package:example/features/settings/settings_page.dart';
+import 'package:get/route_manager.dart';
 
 abstract class Navigation {
   static final pages = [
@@ -61,11 +60,6 @@ abstract class Navigation {
       binding: DemoWebPaymentsSecureBindings(),
     ),
     GetPage(
-      name: Routes.environments,
-      page: () => const EnvironmentsPage(),
-      binding: EnvironmentsBindings(),
-    ),
-    GetPage(
       name: Routes.environmentsCreate,
       page: () => const EnvironmentsCreatePage(),
       binding: EnvironmentsCreateBindings(),
@@ -94,6 +88,11 @@ abstract class Navigation {
       name: Routes.exampleTestCards,
       page: () => const ExampleTestCardsPage(),
       binding: ExampleTestCardsBindings(),
+    ),
+    GetPage(
+      name: Routes.settings,
+      page: () => const SettingsPage(),
+      binding: SettingsBinding(),
     ),
   ];
 }

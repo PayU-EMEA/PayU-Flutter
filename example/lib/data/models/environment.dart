@@ -1,8 +1,7 @@
+import 'package:example/core/database_type_id.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:payu/payu.dart' as payu;
-
-import 'package:example/core/database_type_id.dart';
 
 part 'environment.g.dart';
 
@@ -15,6 +14,10 @@ enum Environment {
   @HiveField(1)
   @JsonValue('sandbox')
   sandbox,
+
+  @HiveField(2)
+  @JsonValue('sandboxBeta')
+  sandboxBeta,
 }
 
 extension EnvironmentExt on Environment {

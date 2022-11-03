@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
-import 'package:json_annotation/json_annotation.dart';
-
 import 'package:example/data/models/pay_method.dart';
 import 'package:example/data/models/pay_methods.dart';
 import 'package:example/data/models/product.dart';
 import 'package:example/features/example/backend/data/repositories/backend_constants.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import 'buyer.dart';
 
 part 'order_create_request.g.dart';
@@ -37,14 +37,20 @@ class OrderCreateRequest {
 
   factory OrderCreateRequest.fromJson(Map<String, dynamic> json) => _$OrderCreateRequestFromJson(json);
 
-  factory OrderCreateRequest.mock(String clientId, String continueUrl, PayMethod payMethod, List<Product> products) {
+  factory OrderCreateRequest.mock({
+    required String clientId,
+    required String continueUrl,
+    required String currencyCode,
+    required PayMethod payMethod,
+    required List<Product> products,
+  }) {
     return OrderCreateRequest(
       continueUrl: continueUrl,
       notifyUrl: continueUrl,
       customerIp: BackendConstants.orderCustomerIp,
       merchantPosId: clientId,
       description: BackendConstants.orderDescription,
-      currencyCode: BackendConstants.orderCurrencyCode,
+      currencyCode: currencyCode,
       totalAmount: products.map((e) => e.unitPrice * e.quantity).sum.toInt(),
       buyer: Buyer.mock(),
       products: products,

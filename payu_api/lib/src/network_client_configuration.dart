@@ -16,6 +16,10 @@ class NetworkClientConfiguration {
         return NetworkClientConfiguration._(
           baseUrl: 'https://secure.snd.payu.com',
         );
+      case Environment.sandboxBeta:
+        return NetworkClientConfiguration._(
+          baseUrl: 'https://secure.sndbeta.payu.com/',
+        );
     }
   }
 }

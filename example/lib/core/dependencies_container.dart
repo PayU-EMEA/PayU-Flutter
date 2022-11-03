@@ -1,19 +1,16 @@
 import 'dart:developer';
 
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:payu/payu.dart';
-
 import 'package:example/data/local/environments_db.dart';
 import 'package:example/data/local/secure_db.dart';
 import 'package:example/data/models/environment.dart';
+import 'package:example/data/models/environment_model.dart';
 import 'package:example/data/models/grant_type.dart';
 import 'package:example/data/repositories/data_repository.dart';
 import 'package:example/data/repositories/environments_repository.dart';
 import 'package:example/data/repositories/secure_storage.dart';
 import 'package:example/data/services/environments_service.dart';
-import 'package:example/features/environments/environments_model.dart';
 import 'package:example/features/example/backend/api/api.dart';
 import 'package:example/features/example/backend/api/interceptors/base_url_interceptor.dart';
 import 'package:example/features/example/backend/api/interceptors/error_interceptor.dart';
@@ -21,6 +18,9 @@ import 'package:example/features/example/backend/api/interceptors/token_intercep
 import 'package:example/features/example/backend/data/local/setting_db.dart';
 import 'package:example/features/example/backend/data/repositories/backend_repository.dart';
 import 'package:example/features/example/backend/data/repositories/settings_repository.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:payu/payu.dart';
 
 class DependenciesContainer {
   static Future init() async {
@@ -35,7 +35,7 @@ class DependenciesContainer {
     await Hive.initFlutter();
 
     Hive.registerAdapter(EnvironmentAdapter());
-    Hive.registerAdapter(EnvironmentsModelAdapter());
+    Hive.registerAdapter(EnvironmentModelAdapter());
     Hive.registerAdapter(GrantTypeAdapter());
   }
 
@@ -43,6 +43,9 @@ class DependenciesContainer {
     final dio = Dio();
     dio.options.followRedirects = true;
     dio.options.validateStatus = (status) => status! < 400;
+
+    final adapter = dio.httpClientAdapter as DefaultHttpClientAdapter;
+    adapter.onHttpClientCreate = (client) => client..badCertificateCallback = (cert, host, port) => true;
 
     dio.interceptors.addAll([
       LogInterceptor(
@@ -75,7 +78,7 @@ class DependenciesContainer {
     Get.put(SecureDb(settingsDbBox), permanent: true);
 
     Get.put(DataRepository(Get.find()), permanent: true);
-    Get.put(EnvironmentsRepository(Get.find()), permanent: true);
+    Get.put(EnvironmentsRepository(Get.find(), Get.find()), permanent: true);
     Get.put(SecureStorage(Get.find()), permanent: true);
   }
 

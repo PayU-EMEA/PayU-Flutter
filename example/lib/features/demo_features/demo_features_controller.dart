@@ -25,8 +25,8 @@ class DemoFeaturesController extends GetxController {
     this._demoSoftAcceptController,
   );
 
-  void didTapEnvironments() {
-    Get.toNamed(Routes.environments);
+  void didTapSettings() {
+    Get.toNamed(Routes.settings);
   }
 
   void didTapFeature(DemoFeatureType type) {
