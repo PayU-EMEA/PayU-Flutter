@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ui';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
@@ -99,6 +100,7 @@ class DependenciesContainer {
 
     Payu.pos = POS(id: clientId);
     Payu.environment = environment.toPayu();
+    Payu.locale = Locale(repository.languageCode);
   }
 
   static Future<Box> _initBox(String name) async {

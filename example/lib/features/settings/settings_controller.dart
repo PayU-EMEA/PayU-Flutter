@@ -1,12 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:example/features/settings/controllers/settings_currencies_controller.dart';
 import 'package:example/features/settings/controllers/settings_environments_controller.dart';
+import 'package:example/features/settings/controllers/settings_languages_controller.dart';
 import 'package:example/features/settings/settings_model.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
   final SettingsCurrenciesController _currenciesController;
   final SettingsEnvironmentsController _environmentsController;
+  final SettingsLanguagesController _languagesController;
 
   List<SettingsModel> get models => _models();
   final _models = <SettingsModel>[].obs;
@@ -14,6 +16,7 @@ class SettingsController extends GetxController {
   SettingsController(
     this._currenciesController,
     this._environmentsController,
+    this._languagesController,
   );
 
   @override
@@ -30,6 +33,9 @@ class SettingsController extends GetxController {
       case SettingsModelType.environment:
         _showEnvironments();
         break;
+      case SettingsModelType.language:
+        _showLanguages();
+        break;
     }
   }
 
@@ -41,11 +47,14 @@ class SettingsController extends GetxController {
       _environmentsController.current?.name,
       _environmentsController.current?.clientId,
     ].whereNotNull().join('\n');
+    final languageDescription = _languagesController.current;
 
     _models.add(SettingsModel.currency().copyWith(subtitle: currencyDescription));
     _models.add(SettingsModel.environment().copyWith(subtitle: environmentDescription));
+    _models.add(SettingsModel.language().copyWith(subtitle: languageDescription));
   }
 
   void _showCurrensies() => _currenciesController.showCurrensies().then((value) => _setupSettingsModels());
   void _showEnvironments() => _environmentsController.showEnvironments().then((value) => _setupSettingsModels());
+  void _showLanguages() => _languagesController.showLanguages().then((value) => _setupSettingsModels());
 }

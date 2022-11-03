@@ -9,6 +9,10 @@ import '../translations_loader.dart';
 extension PayuInterfaceTranslations on PayuInterface {
   static final _impl = _PayuInterfaceTranslationsImpl();
 
+  String get defaultLanguageCode => _PayuInterfaceTranslationsImpl.defaultLanguageCode;
+
+  List<String> get supportedLanguagesCodes => _PayuInterfaceTranslationsImpl.supportedLanguagesCodes;
+
   Locale get locale => _impl.locale;
 
   /// [Locale] which is used for plugin texts.
@@ -50,8 +54,8 @@ extension PayuInterfaceTranslations on PayuInterface {
 }
 
 class _PayuInterfaceTranslationsImpl {
-  static const _defaultLanguageCode = 'pl';
-  static const _supportedLanguagesCodes = ['cs', 'de', 'en', 'es', 'fr', 'hu', 'lv', 'pl', 'ro', 'sl', 'uk'];
+  static const defaultLanguageCode = 'pl';
+  static const supportedLanguagesCodes = ['cs', 'de', 'en', 'es', 'fr', 'hu', 'lv', 'pl', 'ro', 'sl', 'uk'];
 
   late Locale _locale = _platformLocale();
 
@@ -97,7 +101,7 @@ class _PayuInterfaceTranslationsImpl {
   Locale _platformLocale() {
     const languageCodeLength = 2;
     final languageCode = Platform.localeName.substring(0, languageCodeLength);
-    return Locale(_supportedLanguagesCodes.contains(languageCode) ? languageCode : _defaultLanguageCode);
+    return Locale(supportedLanguagesCodes.contains(languageCode) ? languageCode : defaultLanguageCode);
   }
 
   Future<void> _loadTranslations() async {
@@ -109,7 +113,7 @@ class _PayuInterfaceTranslationsImpl {
     _defaultTranslations.clear();
     _defaultTranslations.addAll(
       await _translationsLoader.load(
-        languageCode: _defaultLanguageCode,
+        languageCode: defaultLanguageCode,
       ),
     );
   }
@@ -119,7 +123,7 @@ class _PayuInterfaceTranslationsImpl {
     _localeTranslations.addAll(
       await _translationsLoader.load(
         languageCode: locale.languageCode,
-        fallbackLanguageCode: _defaultLanguageCode,
+        fallbackLanguageCode: defaultLanguageCode,
       ),
     );
   }

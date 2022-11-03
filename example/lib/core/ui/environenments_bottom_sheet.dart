@@ -24,7 +24,7 @@ class EnvironmentsBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => SearchBottomSheet(
-        title: 'Select Environment',
+        title: 'Environment',
         itemCount: models.length,
         itemTitleBuilder: (index) => models[index].name,
         itemSelectedBuilder: (index) => models[index] == model,

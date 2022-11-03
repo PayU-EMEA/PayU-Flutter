@@ -9,7 +9,6 @@ void main() async {
   await DependenciesContainer.init();
 
   Payu.debug = true;
-  Payu.locale = const Locale('pl');
 
   runApp(
     GetMaterialApp(
