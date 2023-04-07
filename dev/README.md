@@ -15,7 +15,19 @@ Set the correct `pubspec.yaml` dependencies:
 
 1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `git` to `path`:
 
-For example: 
+For example:
+
+```yaml
+# from (Production Mode)
+payu_core:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_core
+
+# to (Developers Mode)
+payu_core: 
+  path: ../payu_core
+```
 
 ### Step 3
 
@@ -48,7 +60,21 @@ Update documentation:
 
 Set the correct `pubspec.yaml` dependencies:
 
-1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `path` to `git`
+1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `path` to `git`:
+
+For example:
+
+```yaml
+# from (Developers Mode)
+payu_core: 
+  path: ../payu_core
+
+# to (Production Mode)
+payu_core:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_core
+```
 
 ### Step 2
 
