@@ -1,14 +1,13 @@
 import 'package:equatable/equatable.dart';
-import 'package:hive/hive.dart';
-
 import 'package:example/core/database_type_id.dart';
 import 'package:example/data/models/environment.dart';
 import 'package:example/data/models/grant_type.dart';
+import 'package:hive/hive.dart';
 
-part 'environments_model.g.dart';
+part 'environment_model.g.dart';
 
-@HiveType(typeId: DatabaseTypeId.environmentsModel)
-class EnvironmentsModel extends Equatable {
+@HiveType(typeId: DatabaseTypeId.environmentModel)
+class EnvironmentModel extends Equatable {
   static const sandboxClientId = '300746';
   static const sandboxClientSecret = '2ee86a66e5d97e3fadc400c9f19b065d';
 
@@ -27,7 +26,7 @@ class EnvironmentsModel extends Equatable {
   @HiveField(4)
   final String name;
 
-  const EnvironmentsModel({
+  const EnvironmentModel({
     required this.grantType,
     required this.environment,
     required this.clientId,
@@ -35,8 +34,8 @@ class EnvironmentsModel extends Equatable {
     required this.name,
   });
 
-  factory EnvironmentsModel.sandbox() {
-    return const EnvironmentsModel(
+  factory EnvironmentModel.sandbox() {
+    return const EnvironmentModel(
       grantType: GrantType.trustedMerchant,
       environment: Environment.sandbox,
       clientId: sandboxClientId,

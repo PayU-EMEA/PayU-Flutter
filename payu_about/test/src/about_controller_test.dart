@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:payu_core/payu_core.dart';
-
 import 'package:payu_about/src/about_controller.dart';
 import 'package:payu_about/src/about_item.dart';
+import 'package:payu_core/payu_core.dart';
+
 import 'about_controller_test.mocks.dart';
 
 @GenerateMocks([
@@ -15,6 +16,8 @@ void main() {
   late MockAboutItem item;
   late MockPayuLauncher launcher;
   late AboutController sut;
+
+  setUpAll(() => WidgetsFlutterBinding.ensureInitialized());
 
   setUp(() {
     item = MockAboutItem();

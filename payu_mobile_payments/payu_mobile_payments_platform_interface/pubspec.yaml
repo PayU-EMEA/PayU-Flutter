@@ -1,7 +1,7 @@
 name: payu_mobile_payments_platform_interface
 description: Flutter package with platform interface for payu_mobile_payments
 
-version: 1.0.0-beta.2
+version: 1.0.0
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter

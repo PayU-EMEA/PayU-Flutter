@@ -16,7 +16,7 @@ class DemoFeaturesPage extends GetView<DemoFeaturesController> {
         title: PayuImage.logo(),
         actions: [
           IconButton(
-            onPressed: () => controller.didTapEnvironments(),
+            onPressed: () => controller.didTapSettings(),
             icon: const Icon(Icons.settings),
           ),
         ],

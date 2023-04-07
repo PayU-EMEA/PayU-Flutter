@@ -1,28 +1,28 @@
-import 'package:collection/collection.dart';
 import 'package:payu_core/payu_core.dart';
-
-import 'translations_source.dart';
+import 'package:payu_translations/src/translations_loader.dart';
 
 class TranslationsValidator {
-  void validatate() {
-    final codes = _codes();
-    final keys = _keys();
+  final _translationsLoader = TranslationsLoader();
 
-    for (final key in keys) {
+  void validateTranslations({required List<String> supportedLanguagesCodes}) async {
+    const enCode = 'en';
+    final enTranslations = await _translationsLoader.load(languageCode: enCode);
+    final enKeys = enTranslations.keys;
+
+    for (final key in enKeys) {
       Logger.logInfo('\n');
-      const enCode = 'en';
-      for (final code in codes) {
-        final enTranslation = translations[enCode]?[key];
-        final codeTranslation = translations[code]?[key];
-        code == enCode
-            ? Logger.logInfo('[$code] $key: ${translations[code]?[key]}')
-            : enTranslation == codeTranslation
-                ? Logger.logError('[$code] $key: ${translations[code]?[key]}')
-                : Logger.logInfo('[$code] $key: ${translations[code]?[key]}');
+
+      for (final languageCode in supportedLanguagesCodes) {
+        final languageTranslations = await _translationsLoader.load(languageCode: languageCode);
+        final languageTranslation = languageTranslations[key];
+        final enTranslation = enTranslations[key];
+
+        languageCode == enCode
+            ? Logger.logInfo('[$languageCode] $key: $languageTranslation')
+            : enTranslation == languageTranslation
+                ? Logger.logError('[$languageCode] $key: $languageTranslation')
+                : Logger.logInfo('[$languageCode] $key: $languageTranslation');
       }
     }
   }
-
-  List<String> _codes() => translations.keys.toList();
-  List<String> _keys() => translations.values.map((e) => e.keys).expand((e) => e).toSet().toList().sorted();
 }

@@ -51,7 +51,10 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> implements Paym
           ],
         ),
         body: ListView.builder(
-          padding: const EdgeInsets.only(top: PayuPadding.padding16),
+          padding: const EdgeInsets.only(
+            top: PayuPadding.padding16,
+            bottom: PayuPadding.padding32,
+          ),
           itemCount: controller.items.length,
           itemBuilder: (context, index) => controller.canDismissPaymentMethod(controller.items[index])
               ? _DismissibleListTile(

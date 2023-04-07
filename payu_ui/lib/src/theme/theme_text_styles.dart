@@ -14,9 +14,14 @@ abstract class ThemeTextStyles {
     fontSize: ThemeFontSizes.size16,
   );
 
-  static const bodyText1 = TextStyle(
+  static const subtitle2 = TextStyle(
     color: ThemeColorsPallete.debugColor,
     fontSize: ThemeFontSizes.size14,
+  );
+
+  static const bodyText1 = TextStyle(
+    color: ThemeColorsPallete.debugColor,
+    fontSize: ThemeFontSizes.size16,
   );
 
   static const bodyText2 = TextStyle(
@@ -24,7 +29,6 @@ abstract class ThemeTextStyles {
     fontSize: ThemeFontSizes.size14,
   );
 
-  // for ex. [ListTile] subtitle
   static const caption = TextStyle(
     color: ThemeColorsPallete.debugColor,
     fontSize: ThemeFontSizes.size14,
@@ -35,7 +39,6 @@ abstract class ThemeTextStyles {
     fontSize: ThemeFontSizes.size14,
   );
 
-  // for ex. [TextField] label, error
   static const overline = TextStyle(
     color: ThemeColorsPallete.debugColor,
     fontSize: ThemeFontSizes.size12,

@@ -10,7 +10,6 @@ abstract class BackendConstants {
 
   static const orderCustomerIp = '127.0.0.1';
   static const orderDescription = 'Flutter Demo Application';
-  static const orderCurrencyCode = 'PLN';
 
   static String apiBaseUrl(Environment environment) {
     switch (environment) {
@@ -18,6 +17,8 @@ abstract class BackendConstants {
         return 'https://secure.payu.com/';
       case Environment.sandbox:
         return 'https://secure.snd.payu.com/';
+      case Environment.sandboxBeta:
+        return 'https://secure.sndbeta.payu.com/';
     }
   }
 }
