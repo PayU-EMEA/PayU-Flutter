@@ -11,6 +11,14 @@ Create branch for feature, bugfix, etc. from `main` branch:
 
 ### Step 2
 
+Set the correct `pubspec.yaml` dependencies:
+
+1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `git` to `path`:
+
+For example: 
+
+### Step 3
+
 Make changes:
 
 1. Make changes in `{Package}/lib/src/` folder for package
@@ -18,7 +26,7 @@ Make changes:
 3. Run `example` app (optional)
 4. Push changes to your branch
 
-### Step 3
+### Step 4
 
 Update tests:
 
@@ -26,7 +34,7 @@ Update tests:
 2. Run tests in `{Package}/test` folder
 3. Push changes to your branch
 
-### Step 4
+### Step 5
 
 Update documentation:
 
@@ -38,13 +46,19 @@ Update documentation:
 
 ### Step 1
 
+Set the correct `pubspec.yaml` dependencies:
+
+1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `path` to `git`
+
+### Step 2
+
 Ensure all tests passed: 
 
 1. Run `make setup` command in `Terminal` from the project root folder 
 2. Run `make tests` command in `Terminal` from the project root folder
 3. Push changes to your branch
 
-### Step 2
+### Step 3
 
 Update documentation according to new version:
 
