@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
 import 'package:payu_mastercard_installments/payu_mastercard_installments.dart';
 import 'package:payu_mastercard_installments/src/pages/options/mappers/installments_options_data_mapper.dart';
+
 import '../../../../resources/resource_reader.dart';
 import 'installments_options_data_mapper_test.mocks.dart';
 
@@ -13,6 +14,8 @@ void main() {
   late MockNumberFormat percentageFormatter;
   late MockNumberFormat priceFormatter;
   late InstallmentsOptionsDataMapper sut;
+
+  setUpAll(() => WidgetsFlutterBinding.ensureInitialized());
 
   setUp(() {
     percentageFormatter = MockNumberFormat();

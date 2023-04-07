@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -31,6 +32,8 @@ void main() {
   late MockPaymentMethodsListener listener;
   late MockPaymentMethodsStorage storage;
   late PaymentMethodsController sut;
+
+  setUpAll(() => WidgetsFlutterBinding.ensureInitialized());
 
   setUp(() {
     blikTokens = mockList('test_blik_tokens.json').map((e) => BlikToken.fromJson(e)).toList();
