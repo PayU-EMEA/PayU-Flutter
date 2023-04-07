@@ -1,7 +1,7 @@
 name: payu_mobile_payments_android
 description: Flutter package with Android (GooglePay) implementation for payu_mobile_payment
 
-version: 1.0.0-beta.2
+version: 1.0.0
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
