@@ -1,7 +1,7 @@
 name: payu_web_payments
 description: Flutter package which allows to make Web payments via Payu
 
-version: 1.0.0
+version: 1.0.1
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
