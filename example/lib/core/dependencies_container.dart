@@ -1,8 +1,9 @@
 import 'dart:developer';
+import 'dart:io';
 import 'dart:ui';
 
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:example/data/local/environments_db.dart';
 import 'package:example/data/local/secure_db.dart';
 import 'package:example/data/models/environment.dart';
@@ -45,8 +46,14 @@ class DependenciesContainer {
     dio.options.followRedirects = true;
     dio.options.validateStatus = (status) => status! < 400;
 
-    final adapter = dio.httpClientAdapter as DefaultHttpClientAdapter;
-    adapter.onHttpClientCreate = (client) => client..badCertificateCallback = (cert, host, port) => true;
+    dio.httpClientAdapter = IOHttpClientAdapter(
+      createHttpClient: () {
+        final client = HttpClient();
+        client.badCertificateCallback = (cert, host, port) => true;
+
+        return client;
+      },
+    );
 
     dio.interceptors.addAll([
       LogInterceptor(

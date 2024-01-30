@@ -20,8 +20,8 @@ class _Api implements Api {
 
   @override
   Future<AuthorizationResponse> authorize(
-    contentType,
-    body,
+    String contentType,
+    AuthorizationBody body,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -42,18 +42,22 @@ class _Api implements Api {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = AuthorizationResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<PaymentMethodsResponse> getPaymentMethods(contentType) async {
+  Future<PaymentMethodsResponse> getPaymentMethods(String contentType) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': contentType};
     _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaymentMethodsResponse>(Options(
       method: 'GET',
@@ -67,15 +71,19 @@ class _Api implements Api {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = PaymentMethodsResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<OrderCreateResponse> createOrder(
-    contentType,
-    request,
+    String contentType,
+    OrderCreateRequest request,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -96,17 +104,22 @@ class _Api implements Api {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = OrderCreateResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<InstallmentProposal> getCardInstallmentProposals(proposalId) async {
+  Future<InstallmentProposal> getCardInstallmentProposals(
+      String proposalId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<InstallmentProposal>(Options(
       method: 'GET',
@@ -119,15 +132,19 @@ class _Api implements Api {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = InstallmentProposal.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<void> postCardInstallmentProposals(
-    proposalId,
-    decision,
+    String proposalId,
+    InstallmentResult decision,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -145,16 +162,19 @@ class _Api implements Api {
           queryParameters: queryParameters,
           data: _data,
         )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
   }
 
   @override
-  Future<TransactionsResponse> getTransactions(orderId) async {
+  Future<TransactionsResponse> getTransactions(String orderId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<TransactionsResponse>(Options(
       method: 'GET',
@@ -167,7 +187,11 @@ class _Api implements Api {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TransactionsResponse.fromJson(_result.data!);
     return value;
   }
@@ -183,5 +207,22 @@ class _Api implements Api {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
