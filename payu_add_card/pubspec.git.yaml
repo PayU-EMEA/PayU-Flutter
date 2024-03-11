@@ -1,0 +1,28 @@
+payu_about:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_about
+payu_api:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_api
+payu_core:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_core
+payu_state_management:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_state_management
+payu_terms_and_conditions:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_terms_and_conditions
+payu_translations:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_translations
+payu_ui:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_ui

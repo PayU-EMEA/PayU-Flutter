@@ -1,0 +1,12 @@
+payu_about:
+  path: ../payu_about
+payu_add_card:
+  path: ../payu_add_card
+payu_core:
+  path: ../payu_core
+payu_state_management:
+  path: ../payu_state_management
+payu_translations:
+  path: ../payu_translations
+payu_ui:
+  path: ../payu_ui

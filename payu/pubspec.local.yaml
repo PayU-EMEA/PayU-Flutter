@@ -1,0 +1,26 @@
+payu_about:
+  path: ../payu_about
+payu_add_card:
+  path: ../payu_add_card
+payu_api:
+  path: ../payu_api
+payu_core:
+  path: ../payu_core
+payu_interface:
+  path: ../payu_interface
+payu_mastercard_installments:
+  path: ../payu_mastercard_installments
+payu_mobile_payments:
+  path: ../payu_mobile_payments/payu_mobile_payments
+payu_payment_methods:
+  path: ../payu_payment_methods
+payu_terms_and_conditions:
+  path: ../payu_terms_and_conditions
+payu_three_ds:
+  path: ../payu_three_ds
+payu_translations:
+  path: ../payu_translations
+payu_web_payments:
+  path: ../payu_web_payments
+payu_ui:
+  path: ../payu_ui

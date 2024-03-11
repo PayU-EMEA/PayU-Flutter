@@ -1,4 +1,13 @@
 # Developers Process
+## Make script
+- `make clean`: Run `flutter clean` for all Packages
+- `make setup`: Run `flutter clean && flutter pub get` for all Packages
+- `make setup_dev`: Run `flutter clean && flutter pub get && flutter pub upgrade && flutter pub run dependency_validator` for all Packages and validates dependencies
+- `make build`: Run `flutter pub run build_runner build` for all Packages
+- `make to_local`: Switch PayU dependencies to local
+- `make to_git`: Switch PayU dependencies to git
+- `make tests`: Run tests for all Packages
+
 
 ## How to implement bugfix/feature?
 
@@ -11,23 +20,7 @@ Create branch for feature, bugfix, etc. from `main` branch:
 
 ### Step 2
 
-Set the correct `pubspec.yaml` dependencies:
-
-1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `git` to `path`:
-
-For example:
-
-```yaml
-# from (Production Mode)
-payu_core:
-  git:
-    url: https://github.com/PayU-EMEA/PayU-Flutter.git
-    path: payu_core
-
-# to (Developers Mode)
-payu_core: 
-  path: ../payu_core
-```
+Set to local dependencies in `pubspec.yaml`: `make to_local`
 
 ### Step 3
 
@@ -60,27 +53,14 @@ Update documentation:
 
 Set the correct `pubspec.yaml` dependencies:
 
-1. Change dependencies source in `{Package}/pubspec.yaml` for all Packages from `path` to `git`:
+1. Set to git dependencies in `pubspec.yaml`: `make to_git`
 
-For example:
-
-```yaml
-# from (Developers Mode)
-payu_core: 
-  path: ../payu_core
-
-# to (Production Mode)
-payu_core:
-  git:
-    url: https://github.com/PayU-EMEA/PayU-Flutter.git
-    path: payu_core
-```
 
 ### Step 2
 
-Ensure all tests passed: 
+Ensure all tests passed:
 
-1. Run `make setup` command in `Terminal` from the project root folder 
+1. Run `make setup` command in `Terminal` from the project root folder
 2. Run `make tests` command in `Terminal` from the project root folder
 3. Push changes to your branch
 
@@ -92,7 +72,7 @@ Update documentation according to new version:
 2. Update `Changelog.md` in the project root folder
 3. Push changes to your branch
 
-## How to make release? 
+## How to make release?
 
 ### Step 1
 

@@ -1,0 +1,8 @@
+payu_about:
+  path: ../payu_about
+payu_state_management:
+  path: ../payu_state_management
+payu_translations:
+  path: ../payu_translations
+payu_ui:
+  path: ../payu_ui

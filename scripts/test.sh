@@ -1,4 +1,9 @@
-cd $1
-flutter test -r expanded
-cd ../
+#!/bin/sh
 
+PWD=$(pwd)
+
+cd "$1" || exit
+
+flutter test -r expanded
+
+cd "$PWD"
