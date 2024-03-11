@@ -5,84 +5,142 @@ help: Makefile
 
 ## ➡️ clean: Run `flutter clean` for all Packages 
 clean:
-	sh scripts/clean.sh payu_about
-	sh scripts/clean.sh payu_add_card
-	sh scripts/clean.sh payu_api
-	sh scripts/clean.sh payu_core
-	sh scripts/clean.sh payu_mastercard_installments
-	cd payu_mobile_payments && sh ../scripts/clean.sh payu_mobile_payments_platform_interface && cd ../
-	cd payu_mobile_payments && sh ../scripts/clean.sh payu_mobile_payments_android && cd ../
-	cd payu_mobile_payments && sh ../scripts/clean.sh payu_mobile_payments_ios && cd ../
-	cd payu_mobile_payments && sh ../scripts/clean.sh payu_mobile_payments && cd ../
-	sh scripts/clean.sh payu_payment_methods
-	sh scripts/clean.sh payu_state_management
-	sh scripts/clean.sh payu_terms_and_conditions
-	sh scripts/clean.sh payu_three_ds
-	sh scripts/clean.sh payu_translations
-	sh scripts/clean.sh payu_ui
-	sh scripts/clean.sh payu_web_payments
+	scripts/clean.sh payu_about
+	scripts/clean.sh payu_add_card
+	scripts/clean.sh payu_api
+	scripts/clean.sh payu_core
+	scripts/clean.sh payu_mastercard_installments
+	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_platform_interface
+	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_android
+	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_ios
+	scripts/clean.sh payu_mobile_payments/payu_mobile_payments
+	scripts/clean.sh payu_payment_methods
+	scripts/clean.sh payu_state_management
+	scripts/clean.sh payu_terms_and_conditions
+	scripts/clean.sh payu_three_ds
+	scripts/clean.sh payu_translations
+	scripts/clean.sh payu_ui
+	scripts/clean.sh payu_web_payments
 
-	sh scripts/clean.sh payu
-	sh scripts/clean.sh example
+	scripts/clean.sh payu
+	scripts/clean.sh example
 
-## ➡️ setup: Run `flutter clean && flutter pub get && flutter pub run build_runner build` for all Packages
+## ➡️ setup: Run `flutter clean && flutter pub get` for all Packages
 setup:
-	sh scripts/setup.sh payu_about
-	sh scripts/setup.sh payu_add_card
-	sh scripts/setup.sh payu_api
-	sh scripts/setup.sh payu_core
-	sh scripts/setup.sh payu_mastercard_installments
-	cd payu_mobile_payments && sh ../scripts/setup.sh payu_mobile_payments_platform_interface && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup.sh payu_mobile_payments_android && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup.sh payu_mobile_payments_ios && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup.sh payu_mobile_payments && cd ../
-	sh scripts/setup.sh payu_payment_methods
-	sh scripts/setup.sh payu_state_management
-	sh scripts/setup.sh payu_terms_and_conditions
-	sh scripts/setup.sh payu_three_ds
-	sh scripts/setup.sh payu_translations
-	sh scripts/setup.sh payu_ui
-	sh scripts/setup.sh payu_web_payments
+	scripts/setup.sh payu_about
+	scripts/setup.sh payu_add_card
+	scripts/setup.sh payu_api
+	scripts/setup.sh payu_core
+	scripts/setup.sh payu_mastercard_installments
+	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_platform_interface
+	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_android
+	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_ios
+	scripts/setup.sh payu_mobile_payments/payu_mobile_payments
+	scripts/setup.sh payu_payment_methods
+	scripts/setup.sh payu_state_management
+	scripts/setup.sh payu_terms_and_conditions
+	scripts/setup.sh payu_three_ds
+	scripts/setup.sh payu_translations
+	scripts/setup.sh payu_ui
+	scripts/setup.sh payu_web_payments
 
-	sh scripts/setup.sh payu
-	sh scripts/setup.sh example
+	scripts/setup.sh payu
+	scripts/setup.sh example
 
-## ➡️ setup_dev: Run `flutter clean && flutter pub get && flutter pub run build_runner build` for all Packages and validates dependencies
+## ➡️ setup_dev: Run `flutter clean && flutter pub get && flutter pub upgrade && flutter pub run dependency_validator` for all Packages and validates dependencies
 setup_dev:
-	sh scripts/setup_dev.sh payu_about
-	sh scripts/setup_dev.sh payu_add_card
-	sh scripts/setup_dev.sh payu_api
-	sh scripts/setup_dev.sh payu_core
-	sh scripts/setup_dev.sh payu_mastercard_installments
-	cd payu_mobile_payments && sh ../scripts/setup_dev.sh payu_mobile_payments_platform_interface && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup_dev.sh payu_mobile_payments_android && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup_dev.sh payu_mobile_payments_ios && cd ../
-	cd payu_mobile_payments && sh ../scripts/setup_dev.sh payu_mobile_payments && cd ../
-	sh scripts/setup_dev.sh payu_payment_methods
-	sh scripts/setup_dev.sh payu_state_management
-	sh scripts/setup_dev.sh payu_terms_and_conditions
-	sh scripts/setup_dev.sh payu_three_ds
-	sh scripts/setup_dev.sh payu_translations
-	sh scripts/setup_dev.sh payu_ui
-	sh scripts/setup_dev.sh payu_web_payments
+	scripts/setup_dev.sh payu_about
+	scripts/setup_dev.sh payu_add_card
+	scripts/setup_dev.sh payu_api
+	scripts/setup_dev.sh payu_core
+	scripts/setup_dev.sh payu_mastercard_installments
+	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_platform_interface
+	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_android
+	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_ios
+	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments
+	scripts/setup_dev.sh payu_payment_methods
+	scripts/setup_dev.sh payu_state_management
+	scripts/setup_dev.sh payu_terms_and_conditions
+	scripts/setup_dev.sh payu_three_ds
+	scripts/setup_dev.sh payu_translations
+	scripts/setup_dev.sh payu_ui
+	scripts/setup_dev.sh payu_web_payments
 
-	sh scripts/setup.sh payu
-	sh scripts/setup.sh example
+	scripts/setup.sh payu
+	scripts/setup.sh example
+
+## ➡️ build: Run `flutter pub run build_runner build` for all Packages
+build:
+	scripts/build.sh payu_about
+	scripts/build.sh payu_add_card
+	scripts/build.sh payu_api
+	scripts/build.sh payu_core
+	scripts/build.sh payu_mastercard_installments
+	scripts/build.sh payu_mobile_payments/payu_mobile_payments_platform_interface
+	scripts/build.sh payu_mobile_payments/payu_mobile_payments_android
+	scripts/build.sh payu_mobile_payments/payu_mobile_payments_ios
+	scripts/build.sh payu_mobile_payments/payu_mobile_payments
+	scripts/build.sh payu_payment_methods
+	scripts/build.sh payu_state_management
+	scripts/build.sh payu_terms_and_conditions
+	scripts/build.sh payu_three_ds
+	scripts/build.sh payu_translations
+	scripts/build.sh payu_ui
+	scripts/build.sh payu_web_payments
+
+	scripts/build.sh payu
+	scripts/build.sh example
+
+## ➡️ to_local: Switch PayU dependencies to local
+to_local:
+	scripts/switch_dev.sh payu_about local
+	scripts/switch_dev.sh payu_add_card local
+	scripts/switch_dev.sh payu_api local
+	scripts/switch_dev.sh payu_core local
+	scripts/switch_dev.sh payu_mastercard_installments local
+	scripts/switch_dev.sh payu_mobile_payments/payu_mobile_payments local
+	scripts/switch_dev.sh payu_payment_methods local
+	scripts/switch_dev.sh payu_state_management local
+	scripts/switch_dev.sh payu_terms_and_conditions local
+	scripts/switch_dev.sh payu_three_ds local
+	scripts/switch_dev.sh payu_translations local
+	scripts/switch_dev.sh payu_ui local
+	scripts/switch_dev.sh payu_web_payments local
+	scripts/switch_dev.sh payu local
+	scripts/switch_dev.sh example local
+
+## ➡️ to_git: Switch PayU dependencies to git
+to_git:
+	scripts/switch_dev.sh payu_about git
+	scripts/switch_dev.sh payu_add_card git
+	scripts/switch_dev.sh payu_api git
+	scripts/switch_dev.sh payu_core git
+	scripts/switch_dev.sh payu_mastercard_installments git
+	scripts/switch_dev.sh payu_mobile_payments/payu_mobile_payments git
+	scripts/switch_dev.sh payu_payment_methods git
+	scripts/switch_dev.sh payu_state_management git
+	scripts/switch_dev.sh payu_terms_and_conditions git
+	scripts/switch_dev.sh payu_three_ds git
+	scripts/switch_dev.sh payu_translations git
+	scripts/switch_dev.sh payu_ui git
+	scripts/switch_dev.sh payu_web_payments git
+	scripts/switch_dev.sh payu git
+	scripts/switch_dev.sh example git
 
 ## ➡️ tests: Run tests for all Packages
 tests:
-	sh scripts/test.sh payu_about
-	sh scripts/test.sh payu_add_card
-	sh scripts/test.sh payu_api
-	sh scripts/test.sh payu_core
-	sh scripts/test.sh payu_mastercard_installments
-	cd payu_mobile_payments && sh ../scripts/test.sh payu_mobile_payments_platform_interface && cd ../
-	# cd payu_mobile_payments && sh ../scripts/test.sh payu_mobile_payments_android && cd ../
-	# cd payu_mobile_payments && sh ../scripts/test.sh payu_mobile_payments_ios && cd ../
-	# cd payu_mobile_payments && sh ../scripts/test.sh payu_mobile_payments && cd ../
-	sh scripts/test.sh payu_payment_methods
-	sh scripts/test.sh payu_terms_and_conditions
-	sh scripts/test.sh payu_three_ds
+	scripts/test.sh payu_about
+	scripts/test.sh payu_add_card
+	scripts/test.sh payu_api
+	scripts/test.sh payu_core
+	scripts/test.sh payu_mastercard_installments
+	scripts/test.sh payu_mobile_payments/payu_mobile_payments_platform_interface
+	# scripts/test.sh payu_mobile_payments/payu_mobile_payments_android
+	# scripts/test.sh payu_mobile_payments/payu_mobile_payments_ios
+	# scripts/test.sh payu_mobile_payments/payu_mobile_payments
+	scripts/test.sh payu_payment_methods
+	scripts/test.sh payu_terms_and_conditions
+	scripts/test.sh payu_three_ds
 	# sh scripts/test.sh payu_translations
 	# sh scripts/test.sh payu_ui
-	sh scripts/test.sh payu_web_payments
+	scripts/test.sh payu_web_payments

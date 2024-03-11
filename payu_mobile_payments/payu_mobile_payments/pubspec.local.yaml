@@ -1,0 +1,6 @@
+payu_mobile_payments_android:
+  path: ../payu_mobile_payments_android
+payu_mobile_payments_ios:
+  path: ../payu_mobile_payments_ios
+payu_mobile_payments_platform_interface:
+  path: ../payu_mobile_payments_platform_interface

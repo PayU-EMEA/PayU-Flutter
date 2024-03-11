@@ -1,0 +1,4 @@
+payu_interface:
+  path: ../payu_interface
+payu_ui:
+  path: ../payu_ui

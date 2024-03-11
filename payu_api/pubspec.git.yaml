@@ -1,0 +1,4 @@
+payu_core:
+  git:
+    url: https://github.com/PayU-EMEA/PayU-Flutter.git
+    path: payu_core

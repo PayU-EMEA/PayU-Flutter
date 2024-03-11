@@ -1,6 +1,12 @@
-cd $1
+#!/bin/sh
+
+PWD=$(pwd)
+
+cd "$1" || exit
+
 flutter clean
 flutter pub get
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub upgrade
 flutter pub run dependency_validator
-cd ../
+
+cd "$PWD"
