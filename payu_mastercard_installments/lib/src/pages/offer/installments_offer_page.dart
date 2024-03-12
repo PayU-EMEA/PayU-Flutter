@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payu_about/payu_about.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_translations/payu_translations.dart';
 import 'package:payu_ui/payu_ui.dart';
@@ -19,17 +18,9 @@ class InstallmentsOfferPage extends StatelessWidget {
     return PayuWidget<InstallmentsOfferController, InstallmentsOfferAssembler>(
       assembler: () => InstallmentsOfferAssembler(proposal),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           title: PayuImage.logo(),
-          actions: [
-            PayuAppBarIcon.info(
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) => const AboutPage(),
-              ),
-            ),
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(PayuPadding.padding16),
@@ -41,7 +32,7 @@ class InstallmentsOfferPage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: PayuPadding.padding16),
                 child: Text(
                   'transaction_approved'.translated(),
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(

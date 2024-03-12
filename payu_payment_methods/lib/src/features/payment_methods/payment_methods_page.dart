@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payu_about/payu_about.dart';
 import 'package:payu_add_card/payu_add_card.dart';
 import 'package:payu_core/payu_core.dart';
 import 'package:payu_state_management/payu_state_management.dart';
@@ -38,17 +37,9 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> implements Paym
     return PayuWidget<PaymentMethodsController, PaymentMethodsAssembler>(
       assembler: () => assembler,
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           title: PayuImage.logo(),
-          actions: [
-            PayuAppBarIcon.info(
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) => const AboutPage(),
-              ),
-            ),
-          ],
         ),
         body: ListView.builder(
           padding: const EdgeInsets.only(

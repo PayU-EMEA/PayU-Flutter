@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:payu_about/payu_about.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_ui/payu_ui.dart';
 
@@ -21,17 +20,9 @@ class InstallmentsOptionsPage extends StatelessWidget {
     return PayuWidget<InstallmentsOptionsController, InstallmentsOptionsAssembler>(
       assembler: () => InstallmentsOptionsAssembler(proposal),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           title: PayuImage.logo(),
-          actions: [
-            PayuAppBarIcon.info(
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) => const AboutPage(),
-              ),
-            ),
-          ],
         ),
         body: ListView.builder(
           padding: const EdgeInsets.symmetric(vertical: PayuPadding.padding16),

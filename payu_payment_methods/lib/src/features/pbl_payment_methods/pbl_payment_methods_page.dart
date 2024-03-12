@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:payu_about/payu_about.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_ui/payu_ui.dart';
 
@@ -21,14 +20,6 @@ class PBLPaymentMethodsPage extends StatelessWidget {
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
           title: PayuImage.logo(),
-          actions: [
-            PayuAppBarIcon.info(
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) => const AboutPage(),
-              ),
-            ),
-          ],
         ),
         body: GridView.builder(
           padding: const EdgeInsets.all(PayuPadding.padding8),

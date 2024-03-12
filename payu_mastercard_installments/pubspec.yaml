@@ -12,10 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.19.0
-  payu_about:
-    git:
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      path: payu_about
   payu_state_management:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git

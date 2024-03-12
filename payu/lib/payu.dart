@@ -1,6 +1,5 @@
 library payu;
 
-export 'package:payu_about/payu_about.dart';
 export 'package:payu_add_card/payu_add_card.dart';
 export 'package:payu_api/payu_api.dart';
 export 'package:payu_core/payu_core.dart';

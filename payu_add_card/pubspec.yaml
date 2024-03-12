@@ -11,10 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.19.0
-  payu_about:
-    git:
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      path: payu_about
   payu_api:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
@@ -46,5 +42,5 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   http: ^1.2.1
-  mockito: ^5.3.2
+  mockito: ^5.4.4
 flutter:

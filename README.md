@@ -2,7 +2,6 @@
 
 ## Features
 
-* [About](payu_about)
 * [Add Card](payu_add_card)
   * [AddCardPage](payu_add_card)
   * [AddCardWidget](payu_add_card)

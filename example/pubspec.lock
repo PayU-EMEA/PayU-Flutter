@@ -527,13 +527,6 @@ packages:
       relative: true
     source: path
     version: "1.0.1"
-  payu_about:
-    dependency: transitive
-    description:
-      path: "../payu_about"
-      relative: true
-    source: path
-    version: "1.0.1"
   payu_add_card:
     dependency: transitive
     description:

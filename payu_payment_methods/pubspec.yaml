@@ -11,10 +11,6 @@ dependencies:
   collection: ^1.18.0
   flutter:
     sdk: flutter
-  payu_about:
-    git:
-      url: https://github.com/PayU-EMEA/PayU-Flutter.git
-      path: payu_about
   payu_add_card:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git

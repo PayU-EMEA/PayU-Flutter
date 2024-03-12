@@ -5,7 +5,6 @@ help: Makefile
 
 ## ➡️ clean: Run `flutter clean` for all Packages 
 clean:
-	scripts/clean.sh payu_about
 	scripts/clean.sh payu_add_card
 	scripts/clean.sh payu_api
 	scripts/clean.sh payu_core
@@ -27,7 +26,6 @@ clean:
 
 ## ➡️ setup: Run `flutter clean && flutter pub get` for all Packages
 setup:
-	scripts/setup.sh payu_about
 	scripts/setup.sh payu_add_card
 	scripts/setup.sh payu_api
 	scripts/setup.sh payu_core
@@ -49,7 +47,6 @@ setup:
 
 ## ➡️ setup_dev: Run `flutter clean && flutter pub get && flutter pub upgrade && flutter pub run dependency_validator` for all Packages and validates dependencies
 setup_dev:
-	scripts/setup_dev.sh payu_about
 	scripts/setup_dev.sh payu_add_card
 	scripts/setup_dev.sh payu_api
 	scripts/setup_dev.sh payu_core
@@ -71,7 +68,6 @@ setup_dev:
 
 ## ➡️ build: Run `flutter pub run build_runner build` for all Packages
 build:
-	scripts/build.sh payu_about
 	scripts/build.sh payu_add_card
 	scripts/build.sh payu_api
 	scripts/build.sh payu_core
@@ -93,7 +89,6 @@ build:
 
 ## ➡️ to_local: Switch PayU dependencies to local
 to_local:
-	scripts/switch_dev.sh payu_about local
 	scripts/switch_dev.sh payu_add_card local
 	scripts/switch_dev.sh payu_api local
 	scripts/switch_dev.sh payu_core local
@@ -111,7 +106,6 @@ to_local:
 
 ## ➡️ to_git: Switch PayU dependencies to git
 to_git:
-	scripts/switch_dev.sh payu_about git
 	scripts/switch_dev.sh payu_add_card git
 	scripts/switch_dev.sh payu_api git
 	scripts/switch_dev.sh payu_core git
@@ -129,7 +123,6 @@ to_git:
 
 ## ➡️ tests: Run tests for all Packages
 tests:
-	scripts/test.sh payu_about
 	scripts/test.sh payu_add_card
 	scripts/test.sh payu_api
 	scripts/test.sh payu_core
