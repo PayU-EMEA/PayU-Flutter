@@ -7,11 +7,23 @@
 ## Locale
 
 Allows merchants to set custom `locale` for the Payu widgets:
-* `cs` (Czech)
-* `de` (German)
-* `en` (English)
-* `hu` (Hungarian)
-*  `pl` (Polish)
+- `bg` (Bulgarian)
+- `cs` (Czech)
+- `de` (German)
+- `el` (Greek)
+- `en` (English)
+- `es` (Spanish)
+- `fr` (French)
+- `hr` (Croatian)
+- `hu` (Hungarian)
+- `it` (Italian)
+- `lv` (Latvian)
+- `pl` (Polish)
+- `ro` (Romanian)
+- `ru` (Russian)
+- `sl` (Slovenian)
+- `sk` (Slovak)
+- `uk` (Ukrainian)
 
 > NOTE: If provided `languageCode` is not available - default system Locale should be used.
 
