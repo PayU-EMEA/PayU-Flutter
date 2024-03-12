@@ -18,16 +18,22 @@ extension PayuInterfaceTranslations on PayuInterface {
   /// [Locale] which is used for plugin texts.
   ///
   /// Available language codes:
+  /// - `bg` (Bulgarian)
   /// - `cs` (Czech)
   /// - `de` (German)
+  /// - `el` (Greek)
   /// - `en` (English)
   /// - `es` (Spanish)
   /// - `fr` (French)
+  /// - `hr` (Croatian)
   /// - `hu` (Hungarian)
+  /// - `it` (Italian)
   /// - `lv` (Latvian)
   /// - `pl` (Polish)
   /// - `ro` (Romanian)
+  /// - `ru` (Russian)
   /// - `sl` (Slovenian)
+  /// - `sk` (Slovak)
   /// - `uk` (Ukrainian)
   ///
   /// If provided languageCode is not available - default system Locale should be used.
@@ -55,7 +61,25 @@ extension PayuInterfaceTranslations on PayuInterface {
 
 class _PayuInterfaceTranslationsImpl {
   static const defaultLanguageCode = 'pl';
-  static const supportedLanguagesCodes = ['cs', 'de', 'en', 'es', 'fr', 'hu', 'lv', 'pl', 'ro', 'sl', 'uk'];
+  static const supportedLanguagesCodes = [
+    'bg',
+    'cs',
+    'de',
+    'el',
+    'en',
+    'es',
+    'fr',
+    'hr',
+    'hu',
+    'it',
+    'lv',
+    'pl',
+    'ro',
+    'ru',
+    'sk',
+    'sl',
+    'uk'
+  ];
 
   late Locale _locale = _platformLocale();
 
