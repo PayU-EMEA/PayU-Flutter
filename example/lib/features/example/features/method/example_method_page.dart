@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:example/features/example/features/method/example_method_controller.dart';
 
 class ExampleMethodPage extends GetView<ExampleMethodController> {
-  const ExampleMethodPage({Key? key}) : super(key: key);
+  const ExampleMethodPage({super.key});
 
   @override
   Widget build(BuildContext context) {

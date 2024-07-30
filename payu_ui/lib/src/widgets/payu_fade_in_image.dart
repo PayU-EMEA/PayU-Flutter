@@ -7,7 +7,7 @@ class PayuFadeInImage extends StatelessWidget {
   final IconData? icon;
   final double? size;
 
-  const PayuFadeInImage({Key? key, this.uri, this.icon, this.size}) : super(key: key);
+  const PayuFadeInImage({super.key, this.uri, this.icon, this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _UriFadeInImage extends StatelessWidget {
   final String uri;
   final double? size;
 
-  const _UriFadeInImage({Key? key, required this.uri, this.size}) : super(key: key);
+  const _UriFadeInImage({required this.uri, this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _IconFadeInImage extends StatelessWidget {
   final IconData icon;
   final double? size;
 
-  const _IconFadeInImage({Key? key, required this.icon, this.size}) : super(key: key);
+  const _IconFadeInImage({required this.icon, this.size});
 
   @override
   Widget build(BuildContext context) {

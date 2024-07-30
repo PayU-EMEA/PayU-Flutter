@@ -18,11 +18,11 @@ class PaymentMethodsPage extends StatefulWidget {
   final PaymentMethodsStorage storage;
 
   const PaymentMethodsPage({
-    Key? key,
+    super.key,
     required this.configuration,
     required this.listener,
     required this.storage,
-  }) : super(key: key);
+  });
 
   @override
   State<PaymentMethodsPage> createState() => _PaymentMethodsPageState();
@@ -37,7 +37,7 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> implements Paym
     return PayuWidget<PaymentMethodsController, PaymentMethodsAssembler>(
       assembler: () => assembler,
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
         ),
@@ -98,11 +98,10 @@ class _DismissibleListTile extends StatelessWidget {
   final Function(DismissDirection) onDismissed;
 
   const _DismissibleListTile({
-    Key? key,
     required this.value,
     required this.onTap,
     required this.onDismissed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +133,7 @@ class _ListTile extends StatelessWidget {
   final PaymentMethodsItem value;
   final VoidCallback onTap;
 
-  const _ListTile({Key? key, required this.value, required this.onTap}) : super(key: key);
+  const _ListTile({required this.value, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

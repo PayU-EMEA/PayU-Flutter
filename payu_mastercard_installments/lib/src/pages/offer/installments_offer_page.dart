@@ -11,14 +11,14 @@ import 'installments_offer_controller.dart';
 class InstallmentsOfferPage extends StatelessWidget {
   final InstallmentProposal proposal;
 
-  const InstallmentsOfferPage({Key? key, required this.proposal}) : super(key: key);
+  const InstallmentsOfferPage({super.key, required this.proposal});
 
   @override
   Widget build(BuildContext context) {
     return PayuWidget<InstallmentsOfferController, InstallmentsOfferAssembler>(
       assembler: () => InstallmentsOfferAssembler(proposal),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
         ),

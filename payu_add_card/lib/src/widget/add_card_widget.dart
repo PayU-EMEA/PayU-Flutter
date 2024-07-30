@@ -17,10 +17,10 @@ class AddCardWidget extends StatelessWidget {
   final Function(AddCardService) onCreated;
 
   const AddCardWidget({
-    Key? key,
+    super.key,
     required this.configuration,
     required this.onCreated,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class AddCardWidget extends StatelessWidget {
                   children: [
                     Text(
                       'new_card'.translated(),
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     Expanded(
                       child: Padding(

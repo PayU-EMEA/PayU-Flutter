@@ -23,7 +23,7 @@ class _Api implements Api {
     String contentType,
     AuthorizationBody body,
   ) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': contentType};
     _headers.removeWhere((k, v) => v == null);
@@ -53,11 +53,11 @@ class _Api implements Api {
 
   @override
   Future<PaymentMethodsResponse> getPaymentMethods(String contentType) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': contentType};
     _headers.removeWhere((k, v) => v == null);
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaymentMethodsResponse>(Options(
       method: 'GET',
@@ -85,7 +85,7 @@ class _Api implements Api {
     String contentType,
     OrderCreateRequest request,
   ) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': contentType};
     _headers.removeWhere((k, v) => v == null);
@@ -116,10 +116,10 @@ class _Api implements Api {
   @override
   Future<InstallmentProposal> getCardInstallmentProposals(
       String proposalId) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<InstallmentProposal>(Options(
       method: 'GET',
@@ -146,7 +146,7 @@ class _Api implements Api {
     String proposalId,
     InstallmentResult decision,
   ) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -171,10 +171,10 @@ class _Api implements Api {
 
   @override
   Future<TransactionsResponse> getTransactions(String orderId) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<TransactionsResponse>(Options(
       method: 'GET',

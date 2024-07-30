@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExampleProductsPage extends GetView<ExampleProductsController> {
-  const ExampleProductsPage({Key? key}) : super(key: key);
+  const ExampleProductsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +35,9 @@ class _ProductListTile extends StatelessWidget {
   final ExampleProductsController controller;
 
   const _ProductListTile({
-    Key? key,
     required this.product,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

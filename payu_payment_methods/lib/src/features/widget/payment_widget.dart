@@ -22,20 +22,20 @@ class PaymentMethodsWidget extends StatelessWidget {
   final Function(PaymentMethod) onSelect;
 
   const PaymentMethodsWidget({
-    Key? key,
+    super.key,
     required this.configuration,
     required this.service,
     required this.storage,
     required this.listener,
     required this.onSelect,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return PayuWidget<PaymentWidgetController, PaymentWidgetAssembler>(
       assembler: () => PaymentWidgetAssembler(configuration, service, storage, listener),
       builder: (context, controller) => Container(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.surface,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: PayuPadding.padding4,
@@ -87,7 +87,7 @@ class PaymentMethodsWidget extends StatelessWidget {
 }
 
 class _Logo extends StatelessWidget {
-  const _Logo({Key? key}) : super(key: key);
+  const _Logo();
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class _Logo extends StatelessWidget {
 }
 
 class _Divider extends StatelessWidget {
-  const _Divider({Key? key}) : super(key: key);
+  const _Divider();
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class _Divider extends StatelessWidget {
 class _Empty extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _Empty({Key? key, required this.controller}) : super(key: key);
+  const _Empty({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class _Empty extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Text(
         'select_payment_method'.translated(),
-        style: Theme.of(context).textTheme.subtitle2,
+        style: Theme.of(context).textTheme.titleSmall,
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
       ),
@@ -133,7 +133,7 @@ class _Empty extends StatelessWidget {
 class _Icon extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _Icon({Key? key, required this.controller}) : super(key: key);
+  const _Icon({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +150,7 @@ class _Icon extends StatelessWidget {
 class _Info extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _Info({Key? key, required this.controller}) : super(key: key);
+  const _Info({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +165,7 @@ class _Info extends StatelessWidget {
               Flexible(
                 child: Text(
                   controller.name ?? '',
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Theme.of(context).textTheme.titleSmall,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
@@ -173,7 +173,7 @@ class _Info extends StatelessWidget {
             if (controller.description != null)
               Text(
                 controller.description!,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               )
@@ -187,7 +187,7 @@ class _Info extends StatelessWidget {
 class _Arrow extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _Arrow({Key? key, required this.controller}) : super(key: key);
+  const _Arrow({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -204,7 +204,7 @@ class _Arrow extends StatelessWidget {
 class _BlikCode extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _BlikCode({Key? key, required this.controller}) : super(key: key);
+  const _BlikCode({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +225,7 @@ class _BlikCode extends StatelessWidget {
 class _BlikToken extends StatelessWidget {
   final PaymentWidgetController controller;
 
-  const _BlikToken({Key? key, required this.controller}) : super(key: key);
+  const _BlikToken({required this.controller});
 
   @override
   Widget build(BuildContext context) {

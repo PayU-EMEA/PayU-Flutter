@@ -6,7 +6,7 @@ import 'package:payu/payu.dart';
 import 'package:example/features/example/features/test_cards/example_test_cards_controller.dart';
 
 class ExampleTestCardsPage extends GetView<ExampleTestCardsController> {
-  const ExampleTestCardsPage({Key? key}) : super(key: key);
+  const ExampleTestCardsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

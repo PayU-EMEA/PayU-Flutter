@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import './example_order_controller.dart';
 
 class ExampleOrderPage extends GetView<ExampleOrderController> {
-  const ExampleOrderPage({Key? key}) : super(key: key);
+  const ExampleOrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {

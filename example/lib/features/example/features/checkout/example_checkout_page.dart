@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:example/features/example/features/checkout/example_checkout_controller.dart';
 
 class ExampleCheckoutPage extends GetView<ExampleCheckoutController> {
-  const ExampleCheckoutPage({Key? key}) : super(key: key);
+  const ExampleCheckoutPage({super.key});
 
   @override
   Widget build(BuildContext context) {

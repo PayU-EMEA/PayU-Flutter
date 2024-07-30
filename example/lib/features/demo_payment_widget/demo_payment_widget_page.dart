@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:payu/payu.dart';
 
 class DemoPaymentWidgetPage extends GetView<DemoPaymentWidgetController> implements PaymentMethodsListener {
-  const DemoPaymentWidgetPage({Key? key}) : super(key: key);
+  const DemoPaymentWidgetPage({super.key});
 
   @override
   Widget build(BuildContext context) {

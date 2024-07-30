@@ -8,7 +8,7 @@ import 'terms_and_conditions_assembler.dart';
 import 'terms_and_conditions_controller.dart';
 
 class TermsAndConditionsWidget extends StatelessWidget {
-  const TermsAndConditionsWidget({Key? key}) : super(key: key);
+  const TermsAndConditionsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class TermsAndConditionsWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: InkWell(
           child: Container(
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.surface,
             child: Padding(
               padding: const EdgeInsets.all(PayuPadding.padding16),
               child: RichText(
@@ -26,15 +26,15 @@ class TermsAndConditionsWidget extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'i_accept'.translated(),
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     TextSpan(
                       text: ' ',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     TextSpan(
                       text: 'pay_u_payment_terms'.translated(),
-                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).primaryColor),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).primaryColor),
                     ),
                   ],
                 ),

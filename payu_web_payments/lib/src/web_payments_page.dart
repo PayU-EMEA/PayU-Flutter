@@ -13,7 +13,7 @@ import 'web_payments_controller.dart';
 class WebPaymentsPage extends StatefulWidget {
   final WebPaymentsRequest request;
 
-  const WebPaymentsPage({Key? key, required this.request}) : super(key: key);
+  const WebPaymentsPage({super.key, required this.request});
 
   @override
   State<WebPaymentsPage> createState() => _WebPaymentsPageState();
@@ -28,7 +28,7 @@ class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsContr
     return PayuWidget<WebPaymentsController, WebPaymentsAssembler>(
       assembler: () => assembler,
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
           bottom: PreferredSize(

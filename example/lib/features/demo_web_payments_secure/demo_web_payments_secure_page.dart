@@ -6,7 +6,7 @@ import 'package:payu/payu.dart';
 import 'package:example/features/demo_web_payments_secure/demo_web_payments_secure_controller.dart';
 
 class DemoWebPaymentsSecurePage extends GetView<DemoWebPaymentsSecureController> {
-  const DemoWebPaymentsSecurePage({Key? key}) : super(key: key);
+  const DemoWebPaymentsSecurePage({super.key});
 
   @override
   Widget build(BuildContext context) {

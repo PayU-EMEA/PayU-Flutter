@@ -10,14 +10,14 @@ import 'pbl_payment_methods_controller.dart';
 class PBLPaymentMethodsPage extends StatelessWidget {
   final PaymentMethodsConfiguration configuration;
 
-  const PBLPaymentMethodsPage({Key? key, required this.configuration}) : super(key: key);
+  const PBLPaymentMethodsPage({super.key, required this.configuration});
 
   @override
   Widget build(BuildContext context) {
     return PayuWidget<PBLPaymentMethodsController, PBLPaymentMethodsAssembler>(
       assembler: () => PBLPaymentMethodsAssembler(configuration),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
         ),

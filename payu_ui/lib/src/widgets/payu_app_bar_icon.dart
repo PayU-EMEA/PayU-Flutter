@@ -5,10 +5,9 @@ class PayuAppBarIcon extends StatelessWidget {
   final VoidCallback onPressed;
 
   const PayuAppBarIcon._({
-    Key? key,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class EnvironmentsCreatePage extends GetView<EnvironmentsCreateController> {
-  const EnvironmentsCreatePage({Key? key}) : super(key: key);
+  const EnvironmentsCreatePage({super.key});
 
   @override
   Widget build(BuildContext context) {

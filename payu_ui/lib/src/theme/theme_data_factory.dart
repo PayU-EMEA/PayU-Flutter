@@ -22,14 +22,13 @@ class ThemeDataFactory {
   static ThemeData _data(ThemeColorsPallete pallete) {
     return ThemeData(
       appBarTheme: _appBarTheme(pallete),
-      backgroundColor: pallete.secondaryGray4,
       buttonTheme: _buttonTheme(pallete),
       cardTheme: _cardTheme(pallete),
-      colorScheme: _colorScheme(pallete),
       dialogBackgroundColor: pallete.secondaryGray4,
       inputDecorationTheme: _inputDecorationTheme(pallete),
       primaryColor: pallete.primary2,
       textTheme: _textTheme(pallete),
+      colorScheme: _colorScheme(pallete).copyWith(surface: pallete.secondaryGray4),
     );
   }
 
@@ -75,12 +74,10 @@ class ThemeDataFactory {
       primary: pallete.primary2,
       secondary: Colors.red,
       surface: ThemeColorsPallete.debugColor,
-      background: pallete.secondaryGray4,
       error: pallete.tertiary2,
       onPrimary: Colors.white,
       onSecondary: ThemeColorsPallete.debugColor,
       onSurface: pallete.secondaryGray2,
-      onBackground: ThemeColorsPallete.debugColor,
       onError: ThemeColorsPallete.debugColor,
     );
   }
@@ -120,14 +117,14 @@ class ThemeDataFactory {
 
   static TextTheme _textTheme(ThemeColorsPallete pallete) {
     return TextTheme(
-      headline6: ThemeTextStyles.headline6.copyWith(color: pallete.secondaryGray1),
-      subtitle1: ThemeTextStyles.subtitle1.copyWith(color: pallete.secondaryGray1),
-      subtitle2: ThemeTextStyles.subtitle2.copyWith(color: pallete.secondaryGray2),
-      bodyText1: ThemeTextStyles.bodyText1.copyWith(color: pallete.secondaryGray1),
-      bodyText2: ThemeTextStyles.bodyText2.copyWith(color: pallete.secondaryGray2),
-      caption: ThemeTextStyles.caption.copyWith(color: pallete.secondaryGray2),
-      button: ThemeTextStyles.button.copyWith(color: pallete.secondaryGray3),
-      overline: ThemeTextStyles.overline.copyWith(color: pallete.secondaryGray1),
+      titleLarge: ThemeTextStyles.headline6.copyWith(color: pallete.secondaryGray1),
+      titleMedium: ThemeTextStyles.subtitle1.copyWith(color: pallete.secondaryGray1),
+      titleSmall: ThemeTextStyles.subtitle2.copyWith(color: pallete.secondaryGray2),
+      bodyLarge: ThemeTextStyles.bodyText1.copyWith(color: pallete.secondaryGray1),
+      bodyMedium: ThemeTextStyles.bodyText2.copyWith(color: pallete.secondaryGray2),
+      bodySmall: ThemeTextStyles.caption.copyWith(color: pallete.secondaryGray2),
+      labelLarge: ThemeTextStyles.button.copyWith(color: pallete.secondaryGray3),
+      labelSmall: ThemeTextStyles.overline.copyWith(color: pallete.secondaryGray1),
     );
   }
 }

@@ -11,10 +11,10 @@ class AddCardTextField extends StatelessWidget {
   final AddCardWidgetTextInputDecoration decoration;
 
   const AddCardTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.decoration,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

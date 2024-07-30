@@ -12,7 +12,7 @@ import 'add_card_page_assembler.dart';
 import 'add_card_page_controller.dart';
 
 class AddCardPage extends StatefulWidget {
-  const AddCardPage({Key? key}) : super(key: key);
+  const AddCardPage({super.key});
 
   @override
   State<AddCardPage> createState() => _AddCardPageState();
@@ -24,7 +24,7 @@ class _AddCardPageState extends State<AddCardPage> with AddCardPageControllerDel
     return PayuWidget<AddCardPageController, AddCardPageAssembler>(
       assembler: () => AddCardPageAssembler(this),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
         ),

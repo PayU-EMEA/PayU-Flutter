@@ -8,7 +8,7 @@ class PayuProviderWidget<T extends ChangeNotifier> extends StatelessWidget {
   final T Function(BuildContext context) create;
   final Widget Function(BuildContext context, T controller) builder;
 
-  const PayuProviderWidget({Key? key, required this.create, required this.builder}) : super(key: key);
+  const PayuProviderWidget({super.key, required this.create, required this.builder});
 
   @override
   Widget build(BuildContext context) {

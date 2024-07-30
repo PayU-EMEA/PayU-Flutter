@@ -10,7 +10,7 @@ class PayuWidget<T extends PayuController, E extends PayuAssembler> extends Stat
   final E Function() assembler;
   final Widget Function(BuildContext context, T controller) builder;
 
-  const PayuWidget({Key? key, required this.assembler, required this.builder}) : super(key: key);
+  const PayuWidget({super.key, required this.assembler, required this.builder});
 
   @override
   // ignore: library_private_types_in_public_api

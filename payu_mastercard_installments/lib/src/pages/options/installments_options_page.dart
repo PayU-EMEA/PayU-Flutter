@@ -13,14 +13,14 @@ import 'installments_options_list_tile.dart';
 class InstallmentsOptionsPage extends StatelessWidget {
   final InstallmentProposal proposal;
 
-  const InstallmentsOptionsPage({Key? key, required this.proposal}) : super(key: key);
+  const InstallmentsOptionsPage({super.key, required this.proposal});
 
   @override
   Widget build(BuildContext context) {
     return PayuWidget<InstallmentsOptionsController, InstallmentsOptionsAssembler>(
       assembler: () => InstallmentsOptionsAssembler(proposal),
       builder: (context, controller) => Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
         ),

@@ -7,7 +7,7 @@ import 'package:example/features/example/features/method/blik/example_blik_alert
 class ExampleBlikAlertDialog extends StatelessWidget {
   final _controller = ExampleBlikAlertDialogController();
 
-  ExampleBlikAlertDialog({Key? key}) : super(key: key);
+  ExampleBlikAlertDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,7 @@ class PayuImage extends StatelessWidget {
   final Size size;
   final String url;
 
-  const PayuImage._({Key? key, required this.size, required this.url}) : super(key: key);
+  const PayuImage._({required this.size, required this.url});
 
   factory PayuImage.logo() => const PayuImage._(size: PayuImageSize.logo, url: PayuImageUrl.logo);
 

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:payu/payu.dart';
 
 class DemoFeaturesPage extends GetView<DemoFeaturesController> {
-  const DemoFeaturesPage({Key? key}) : super(key: key);
+  const DemoFeaturesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

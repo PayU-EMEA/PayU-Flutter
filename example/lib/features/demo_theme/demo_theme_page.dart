@@ -8,7 +8,7 @@ import 'package:example/features/demo_theme/demo_theme_controller.dart';
 class DemoThemePage extends GetView<DemoThemeController> {
   static const _awesomeColor = Colors.amber;
 
-  const DemoThemePage({Key? key}) : super(key: key);
+  const DemoThemePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class DemoThemePage extends GetView<DemoThemeController> {
         colorScheme: theme.colorScheme.copyWith(primary: _awesomeColor),
       ),
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: PayuImage.logo(),
           leading: IconButton(

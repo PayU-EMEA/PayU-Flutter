@@ -11,7 +11,7 @@ import 'soft_accept_controller.dart';
 class SoftAcceptAlertDialog extends StatelessWidget {
   final SoftAcceptRequest request;
 
-  const SoftAcceptAlertDialog({Key? key, required this.request}) : super(key: key);
+  const SoftAcceptAlertDialog({super.key, required this.request});
 
   @override
   Widget build(BuildContext context) {

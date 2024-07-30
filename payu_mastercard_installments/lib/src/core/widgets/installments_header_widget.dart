@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InstallmentsHeaderWidget extends StatelessWidget {
-  const InstallmentsHeaderWidget({Key? key}) : super(key: key);
+  const InstallmentsHeaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

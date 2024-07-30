@@ -10,7 +10,7 @@ import 'cvv_authorization_controller.dart';
 class CVVAuthorizationAlertDialog extends StatelessWidget {
   final String refReqId;
 
-  const CVVAuthorizationAlertDialog({Key? key, required this.refReqId}) : super(key: key);
+  const CVVAuthorizationAlertDialog({super.key, required this.refReqId});
 
   @override
   Widget build(BuildContext context) {
