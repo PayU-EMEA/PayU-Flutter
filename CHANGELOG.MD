@@ -1,3 +1,7 @@
+## 1.0.3
+* Compatibility with Dart 3.4
+* Dependencies update
+
 ## 1.0.2
 * Cleared translations
 * Added new languages - Bulgarian, Greek, Croatian, Italian, Russian, Slovak

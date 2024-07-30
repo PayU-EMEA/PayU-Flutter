@@ -1,6 +1,6 @@
 name: payu_add_card
 description: Flutter package which allows to tokenize cards via Payu
-version: 1.0.2
+version: 1.0.3
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues

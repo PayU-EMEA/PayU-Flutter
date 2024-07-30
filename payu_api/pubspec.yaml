@@ -1,6 +1,6 @@
 name: payu_api
 description: Flutter package with Payu networking mechanism.
-version: 1.0.2
+version: 1.0.3
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
