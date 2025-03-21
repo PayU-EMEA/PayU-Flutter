@@ -12,8 +12,5 @@ void main() {
     test('`googlePay` contains correct value', () {
       expect(PaymentMethodValue.googlePay, equals('ap'));
     });
-    test('`mastercardInstallments` contains correct value', () {
-      expect(PaymentMethodValue.mastercardInstallments, equals('ai'));
-    });
   });
 }

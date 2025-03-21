@@ -47,7 +47,6 @@
     "use": "Utiliser",
     "use_code_from_your_bank_app": "paiement par code par l’application de votre banque",
     "yes_go_back": "Oui, retour au magasin",
-    "you_can_split_this_payment_into_installments_with_mastercard": "Vous pouvez utiliser le service Mastercard Pay en plusieurs fois et échelonner ce paiement en plusieurs versements",
     "your_connection_is_not_secure": "La connexion n'est pas sécurisée",
     "your_payment_will_be_canceled_continue": "Votre paiement sera annulé. Continuer ?"
 }

@@ -8,7 +8,6 @@ clean:
 	scripts/clean.sh payu_add_card
 	scripts/clean.sh payu_api
 	scripts/clean.sh payu_core
-	scripts/clean.sh payu_mastercard_installments
 	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_platform_interface
 	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_android
 	scripts/clean.sh payu_mobile_payments/payu_mobile_payments_ios
@@ -29,7 +28,6 @@ setup:
 	scripts/setup.sh payu_add_card
 	scripts/setup.sh payu_api
 	scripts/setup.sh payu_core
-	scripts/setup.sh payu_mastercard_installments
 	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_platform_interface
 	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_android
 	scripts/setup.sh payu_mobile_payments/payu_mobile_payments_ios
@@ -50,7 +48,6 @@ setup_dev:
 	scripts/setup_dev.sh payu_add_card
 	scripts/setup_dev.sh payu_api
 	scripts/setup_dev.sh payu_core
-	scripts/setup_dev.sh payu_mastercard_installments
 	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_platform_interface
 	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_android
 	scripts/setup_dev.sh payu_mobile_payments/payu_mobile_payments_ios
@@ -71,7 +68,6 @@ build:
 	scripts/build.sh payu_add_card
 	scripts/build.sh payu_api
 	scripts/build.sh payu_core
-	scripts/build.sh payu_mastercard_installments
 	scripts/build.sh payu_mobile_payments/payu_mobile_payments_platform_interface
 	scripts/build.sh payu_mobile_payments/payu_mobile_payments_android
 	scripts/build.sh payu_mobile_payments/payu_mobile_payments_ios
@@ -92,7 +88,6 @@ to_local:
 	scripts/switch_dev.sh payu_add_card local
 	scripts/switch_dev.sh payu_api local
 	scripts/switch_dev.sh payu_core local
-	scripts/switch_dev.sh payu_mastercard_installments local
 	scripts/switch_dev.sh payu_mobile_payments/payu_mobile_payments local
 	scripts/switch_dev.sh payu_payment_methods local
 	scripts/switch_dev.sh payu_state_management local
@@ -109,7 +104,6 @@ to_git:
 	scripts/switch_dev.sh payu_add_card git
 	scripts/switch_dev.sh payu_api git
 	scripts/switch_dev.sh payu_core git
-	scripts/switch_dev.sh payu_mastercard_installments git
 	scripts/switch_dev.sh payu_mobile_payments/payu_mobile_payments git
 	scripts/switch_dev.sh payu_payment_methods git
 	scripts/switch_dev.sh payu_state_management git
@@ -126,7 +120,6 @@ tests:
 	scripts/test.sh payu_add_card
 	scripts/test.sh payu_api
 	scripts/test.sh payu_core
-	scripts/test.sh payu_mastercard_installments
 	scripts/test.sh payu_mobile_payments/payu_mobile_payments_platform_interface
 	# scripts/test.sh payu_mobile_payments/payu_mobile_payments_android
 	# scripts/test.sh payu_mobile_payments/payu_mobile_payments_ios

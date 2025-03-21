@@ -343,22 +343,6 @@ void _didSelectGooglePay(GooglePay googlePay) {
 
 <a id="payment-methods-installments"></a> 
 
-### Mastercard Installments
-
-```dart
-void _didSelectPayByLink(Installments installments) {
-  debugPrint('installments: $installments');
-}
-```
-
-`payMethod` for OrderCreateRequest: 
-```json 
-"payMethod": {
-  "type": "PBL",
-  "value": "installments.value"
-}
-```
-
 ### PayByLink (PBL)
 
 ```dart

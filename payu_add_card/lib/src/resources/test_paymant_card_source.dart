@@ -6,7 +6,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "n/a",
         "behavior": "Positive authorization"
     },
     {
@@ -15,7 +14,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "yes",
         "behavior": "Positive authorization"
     },
     {
@@ -24,7 +22,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "yes",
         "behavior": "Positive authorization"
     },
     {
@@ -33,7 +30,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "n/a",
         "behavior": "Positive authorization. CVV is not required in single click payments (PayU | Express)"
     },
     {
@@ -42,7 +38,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 1",
-        "isMastercardInstallments": "n/a",
         "behavior": "Positive authorization"
     },
     {
@@ -51,7 +46,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 1",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -60,7 +54,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 1",
-        "isMastercardInstallments": "no",
         "behavior": "Negative  authorization"
     },
     {
@@ -69,7 +62,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 1",
-        "isMastercardInstallments": "n/a",
         "behavior": "Negative  authorization"
     },
     {
@@ -78,7 +70,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "no",
         "behavior": "Negative  authorization"
     },
     {
@@ -87,7 +78,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "n/a",
         "behavior": "Negative  authorization"
     },
     {
