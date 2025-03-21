@@ -86,7 +86,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - challenge required",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -95,7 +94,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - 3DS Method required",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -104,7 +102,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - 3DS Method and challenge required",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -113,7 +110,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - challenge params if sdk object sent in OrderCreateRequest",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -122,7 +118,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "32",
         "cvv": "123",
         "is3DSecure": "3DS 2 - challenge required / if no 3DS is used, returns soft decline (SSD)",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -131,7 +126,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - frictionless positive authentication",
-        "isMastercardInstallments": "no",
         "behavior": "Positive authorization"
     },
     {
@@ -140,7 +134,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "3DS 2 - frictionless negative authentication",
-        "isMastercardInstallments": "no",
         "behavior": "no authorization (authentication fails)"
     },
     {
@@ -149,7 +142,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "no",
         "behavior": "50% chance for successful authorization"
     },
     {
@@ -158,7 +150,6 @@ const testPaymentCardsJson = '''
         "expirationYear": "29",
         "cvv": "123",
         "is3DSecure": "no",
-        "isMastercardInstallments": "no",
         "behavior": "successful authorization only if amount below 1000 minor units of given currency"
     }
 ]

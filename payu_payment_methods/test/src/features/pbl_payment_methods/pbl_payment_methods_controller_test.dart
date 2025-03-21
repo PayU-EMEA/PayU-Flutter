@@ -30,12 +30,6 @@ void main() {
         final filtered = sut.items.where((e) => e.value.value == PaymentMethodValue.applePay);
         expect(filtered.isEmpty, equals(true));
       });
-
-      test('when `configuration` contains `ai` then `items` should not contain it', () {
-        sut.onInit();
-        final filtered = sut.items.where((e) => e.value.value == PaymentMethodValue.mastercardInstallments);
-        expect(filtered.isEmpty, equals(true));
-      });
     });
   });
 }

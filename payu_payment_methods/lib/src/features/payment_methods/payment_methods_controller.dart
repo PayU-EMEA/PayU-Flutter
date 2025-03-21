@@ -44,7 +44,6 @@ class PaymentMethodsController extends PayuController {
       PaymentMethodValue.applePay,
       PaymentMethodValue.blikCode,
       PaymentMethodValue.googlePay,
-      PaymentMethodValue.mastercardInstallments,
     ];
 
     return item.hash != null && !excluded.contains(item.hash);
@@ -106,7 +105,6 @@ class PaymentMethodsController extends PayuController {
     _setupCardTokens();
     _setupCard();
     _setupBankTransfer();
-    _setupInstallments();
     await _setupPayByLinks();
     await _setupSelectedPaymentMethod();
 
@@ -148,15 +146,6 @@ class PaymentMethodsController extends PayuController {
   void _setupCardTokens() {
     for (final e in _cardTokens) {
       _items.add(PaymentMethodsCardTokenItem.build(e));
-    }
-  }
-
-  void _setupInstallments() {
-    for (final e in _payByLinks) {
-      if (_isInstallmentsPayByLink(e)) {
-        final value = Installments.fromPayByLink(e);
-        _items.add(PaymentMethodsInstallmentsItem.build(value));
-      }
     }
   }
 
@@ -214,8 +203,7 @@ class PaymentMethodsController extends PayuController {
   // MATCHING
   bool _isAllowedPayByLink(PayByLink value) {
     return value.value != PaymentMethodValue.applePay &&
-        value.value != PaymentMethodValue.googlePay &&
-        value.value != PaymentMethodValue.mastercardInstallments;
+        value.value != PaymentMethodValue.googlePay;
   }
 
   bool _isApplePayPayByLink(PayByLink value) {
@@ -224,9 +212,5 @@ class PaymentMethodsController extends PayuController {
 
   bool _isGooglePayByLink(PayByLink value) {
     return value.value == PaymentMethodValue.googlePay;
-  }
-
-  bool _isInstallmentsPayByLink(PayByLink value) {
-    return value.value == PaymentMethodValue.mastercardInstallments;
   }
 }
