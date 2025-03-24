@@ -31,6 +31,7 @@ class PBLPaymentMethodsController extends PayuController {
   // MATCHING
   bool _isAllowedPayByLink(PayByLink value) {
     return value.value != PaymentMethodValue.applePay &&
-        value.value != PaymentMethodValue.googlePay;
+        value.value != PaymentMethodValue.googlePay &&
+        value.value != PaymentMethodValue.installments;
   }
 }

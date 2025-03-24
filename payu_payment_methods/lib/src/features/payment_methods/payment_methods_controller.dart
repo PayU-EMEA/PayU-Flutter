@@ -44,6 +44,7 @@ class PaymentMethodsController extends PayuController {
       PaymentMethodValue.applePay,
       PaymentMethodValue.blikCode,
       PaymentMethodValue.googlePay,
+      PaymentMethodValue.installments,
     ];
 
     return item.hash != null && !excluded.contains(item.hash);
