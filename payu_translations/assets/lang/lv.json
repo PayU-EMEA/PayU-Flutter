@@ -1,5 +1,4 @@
 {
-    "1_st_installment": "1. daļas maksājums",
     "attackers_might_be_trying_to_steal_your_information_for_example_passwords_messages_or_credit_cards": "Uzbrucēji var mēģināt nozagt jūsu informāciju (piemēram, paroles, ziņojumus vai kredītkartes datus).",
     "back": "Atpakaļ",
     "bank_transfer": "Bankas pārskaitījums",
@@ -22,11 +21,6 @@
     "expiration_date": "Derīguma termiņš",
     "fast_online_transfer": "ātrs tiešsaistes pārskaitījums",
     "i_accept": "Es piekrītu",
-    "installments_count_zero": "{0} installments",
-    "installments_count_one": "{0} installment",
-    "installments_count_two": "{0} installments",
-    "installments_count_few": "{0} installments",
-    "installments_count_many": "{0} installments",
     "MM/YY": "MM/GG",
     "new_card": "Jauna karte",
     "no_stay_on_one_payment_page": "Nē, palikt atsevišķajā maksājumu lapā",
@@ -40,14 +34,12 @@
     "please_wait_for_this_window_to_close_automatically": "Lūdzu, uzgaidiet, līdz šis logs tiek automātiski aizvērts",
     "save_and_use": "Saglabāt un lietot",
     "select_payment_method": "Izvēlieties maksāšanas veidu",
-    "split_into_installments": "Sadalīt vairākos maksājumos",
     "the_recipient_will_get_the_total_order_amount": "Saņēmējs saņems kopējo pasūtījuma summu.",
     "total": "kopā",
     "transaction_approved": "Darījums apstiprināts",
     "use": "Lietot",
     "use_code_from_your_bank_app": "izmantojiet kodu no savas bankas lietotnes",
     "yes_go_back": "Jā, doties atpakaļ",
-    "you_can_split_this_payment_into_installments_with_mastercard": "Ar Mastercard karti šo maksājumu varat sadalīt pa daļām.",
     "your_connection_is_not_secure": "Jūsu savienojums nav drošs",
     "your_payment_will_be_canceled_continue": "Jūsu maksājums tiks atcelts. Turpināt?"
 }

@@ -1,5 +1,4 @@
 {
-    "1_st_installment": "1st installment",
     "attackers_might_be_trying_to_steal_your_information_for_example_passwords_messages_or_credit_cards": "Hacker können versuchen, deine Daten zu stehlen (z. B. Passwörter, Nachrichten oder Kreditkarteninformationen).",
     "back": "Zurück",
     "bank_transfer": "Banküberweisung",
@@ -22,11 +21,6 @@
     "expiration_date": "Gültigkeitsdatum",
     "fast_online_transfer": "fast online transfer",
     "i_accept": "Ich stimme",
-    "installments_count_zero": "{0} installments",
-    "installments_count_one": "{0} installment",
-    "installments_count_two": "{0} installments",
-    "installments_count_few": "{0} installments",
-    "installments_count_many": "{0} installments",
     "MM/YY": "MM/JJ",
     "new_card": "Karte hinzufügen",
     "no_stay_on_one_payment_page": "Nein, bleiben",
@@ -40,14 +34,12 @@
     "please_wait_for_this_window_to_close_automatically": "Please wait for this window to close automatically",
     "save_and_use": "Speichern und verwenden",
     "select_payment_method": "Wähle eine Zahlungsart aus",
-    "split_into_installments": "Split into installments",
     "the_recipient_will_get_the_total_order_amount": "The recipient will get the total order amount.",
     "total": "total",
     "transaction_approved": "Transaction approved",
     "use": "Verwenden",
     "use_code_from_your_bank_app": "Verwenden Sie den Code aus Ihrer Bank-App",
     "yes_go_back": "Ja, zurück",
-    "you_can_split_this_payment_into_installments_with_mastercard": "You can split this payment into installments with Mastercard.",
     "your_connection_is_not_secure": "Die Verbindung ist nicht privat",
     "your_payment_will_be_canceled_continue": "Deine Zahlung wird abgebrochen. Fortfahren?"
 }

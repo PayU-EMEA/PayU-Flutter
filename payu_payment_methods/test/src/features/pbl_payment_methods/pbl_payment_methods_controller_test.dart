@@ -33,7 +33,7 @@ void main() {
 
       test('when `configuration` contains `ai` then `items` should not contain it', () {
         sut.onInit();
-        final filtered = sut.items.where((e) => e.value.value == PaymentMethodValue.mastercardInstallments);
+        final filtered = sut.items.where((e) => e.value.value == PaymentMethodValue.installments);
         expect(filtered.isEmpty, equals(true));
       });
     });

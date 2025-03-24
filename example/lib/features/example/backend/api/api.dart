@@ -31,17 +31,6 @@ abstract class Api {
     @Body() OrderCreateRequest request,
   );
 
-  @GET('api/v2_1/card-installment-proposals/{proposalId}')
-  Future<InstallmentProposal> getCardInstallmentProposals(
-    @Path() String proposalId,
-  );
-
-  @POST('api/v2_1/card-installment-proposals/{proposalId}/decisions')
-  Future<void> postCardInstallmentProposals(
-    @Path() String proposalId,
-    @Body() InstallmentResult decision,
-  );
-
   @GET('api/v2_1/orders/{orderId}/transactions')
   Future<TransactionsResponse> getTransactions(
     @Path() String orderId,

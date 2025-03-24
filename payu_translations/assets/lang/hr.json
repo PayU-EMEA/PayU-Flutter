@@ -1,5 +1,4 @@
 {
-    "1_st_installment": "1. rata",
     "attackers_might_be_trying_to_steal_your_information_for_example_passwords_messages_or_credit_cards": "Napadači možda pokušavaju ukrasti vaše podatke (na primjer, lozinke, poruke ili kreditne kartice).",
     "back": "Natrag",
     "bank_transfer": "Bankovni transfer",
@@ -22,11 +21,6 @@
     "expiration_date": "Datum isteka roka trajanja",
     "fast_online_transfer": "brz online prijenos",
     "i_accept": "Prihvaćam",
-    "installments_count_zero": "{0} rate",
-    "installments_count_one": "{0} rata",
-    "installments_count_two": "{0} rate",
-    "installments_count_few": "{0} rate",
-    "installments_count_many": "{0} rate",
     "MM/YY": "MM/GG",
     "new_card": "Nova kartica",
     "no_stay_on_one_payment_page": "Ne, ostani na jednoj stranici za plaćanje",
@@ -40,14 +34,12 @@
     "please_wait_for_this_window_to_close_automatically": "Pričekajte da se ovaj prozor automatski zatvori",
     "save_and_use": "Spremi i koristi",
     "select_payment_method": "Odaberite način plaćanja",
-    "split_into_installments": "Podijeljeno na rate",
     "the_recipient_will_get_the_total_order_amount": "Primatelj će dobiti ukupni iznos narudžbe.",
     "total": "ukupno",
     "transaction_approved": "Transakcija odobrena",
     "use": "Koristiti",
     "use_code_from_your_bank_app": "upotrijebite kod iz svoje bankovne aplikacije",
     "yes_go_back": "Da, vrati se",
-    "you_can_split_this_payment_into_installments_with_mastercard": "Ovo plaćanje možete podijeliti na rate preko Mastercard kartice.",
     "your_connection_is_not_secure": "Vaša veza nije sigurna",
     "your_payment_will_be_canceled_continue": "Vaše plaćanje će biti poništeno. Nastaviti?"
 }

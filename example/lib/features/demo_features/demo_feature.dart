@@ -10,8 +10,6 @@ enum DemoFeatureType {
   demoSoftAccept,
   demoTermsAndConditions,
   demoTheme,
-  demoVaryingNumberOfInstallments,
-  demoVaryingNumberOfOptions,
   demoWebPaymentsSecure,
   exampleOrder,
 }
@@ -38,8 +36,6 @@ class DemoFeature {
     DemoFeature.demoPaymentWidget(),
     DemoFeature.demoSoftAccept(),
     DemoFeature.demoTermsAndConditions(),
-    DemoFeature.demoVaryingNumberOfInstallments(),
-    DemoFeature.demoVaryingNumberOfOptions(),
     DemoFeature.demoWebPaymentsSecure(),
     DemoFeature.exampleOrder(),
   ];
@@ -106,22 +102,6 @@ class DemoFeature {
       name: '[Demo] TermsAndConditionsWidget',
       description: 'Check how to use Terms And Conditions Widget',
       type: DemoFeatureType.demoTermsAndConditions,
-    );
-  }
-
-  factory DemoFeature.demoVaryingNumberOfInstallments() {
-    return const DemoFeature(
-      name: '[Demo] Mastercard Installments',
-      description: 'VARYING_NUMBER_OF_INSTALLMENTS',
-      type: DemoFeatureType.demoVaryingNumberOfInstallments,
-    );
-  }
-
-  factory DemoFeature.demoVaryingNumberOfOptions() {
-    return const DemoFeature(
-      name: '[Demo] Mastercard Installments',
-      description: 'VARYING_NUMBER_OF_OPTIONS',
-      type: DemoFeatureType.demoVaryingNumberOfOptions,
     );
   }
 

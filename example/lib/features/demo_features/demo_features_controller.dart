@@ -2,7 +2,6 @@ import 'package:example/core/routes.dart';
 import 'package:example/features/demo_features/controllers/demo_add_card_page_controller.dart';
 import 'package:example/features/demo_features/controllers/demo_apple_pay_controller.dart';
 import 'package:example/features/demo_features/controllers/demo_google_pay_controller.dart';
-import 'package:example/features/demo_features/controllers/demo_mastercard_installments_controller.dart';
 import 'package:example/features/demo_features/controllers/demo_payment_methods_controller.dart';
 import 'package:example/features/demo_features/controllers/demo_soft_accept_controller.dart';
 import 'package:example/features/demo_features/demo_feature.dart';
@@ -12,7 +11,6 @@ class DemoFeaturesController extends GetxController {
   final DemoAddCardPageController _demoAddCardPageController;
   final DemoApplePayController _demoApplePayController;
   final DemoGooglePayController _demoGooglePayController;
-  final DemoMastercardInstallmentsController _demoMastercardInstallmentsController;
   final DemoPaymentMethodsController _demoPaymentMethodsController;
   final DemoSoftAcceptController _demoSoftAcceptController;
 
@@ -20,7 +18,6 @@ class DemoFeaturesController extends GetxController {
     this._demoAddCardPageController,
     this._demoApplePayController,
     this._demoGooglePayController,
-    this._demoMastercardInstallmentsController,
     this._demoPaymentMethodsController,
     this._demoSoftAcceptController,
   );
@@ -42,12 +39,6 @@ class DemoFeaturesController extends GetxController {
         break;
       case DemoFeatureType.demoGooglePay:
         _demoGooglePayController.demo();
-        break;
-      case DemoFeatureType.demoVaryingNumberOfInstallments:
-        _demoMastercardInstallmentsController.demoVaryingNumberOfInstallments();
-        break;
-      case DemoFeatureType.demoVaryingNumberOfOptions:
-        _demoMastercardInstallmentsController.demoVaryingNumberOfOptions();
         break;
       case DemoFeatureType.demoPaymentMethods:
         _demoPaymentMethodsController.demo();

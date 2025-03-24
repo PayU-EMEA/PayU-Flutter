@@ -555,13 +555,6 @@ packages:
       relative: true
     source: path
     version: "1.0.2"
-  payu_mastercard_installments:
-    dependency: transitive
-    description:
-      path: "../payu_mastercard_installments"
-      relative: true
-    source: path
-    version: "1.0.2"
   payu_mobile_payments:
     dependency: transitive
     description:

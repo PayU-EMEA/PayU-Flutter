@@ -44,7 +44,7 @@ class PaymentMethodsController extends PayuController {
       PaymentMethodValue.applePay,
       PaymentMethodValue.blikCode,
       PaymentMethodValue.googlePay,
-      PaymentMethodValue.mastercardInstallments,
+      PaymentMethodValue.installments,
     ];
 
     return item.hash != null && !excluded.contains(item.hash);
@@ -215,7 +215,7 @@ class PaymentMethodsController extends PayuController {
   bool _isAllowedPayByLink(PayByLink value) {
     return value.value != PaymentMethodValue.applePay &&
         value.value != PaymentMethodValue.googlePay &&
-        value.value != PaymentMethodValue.mastercardInstallments;
+        value.value != PaymentMethodValue.installments;
   }
 
   bool _isApplePayPayByLink(PayByLink value) {
@@ -227,6 +227,6 @@ class PaymentMethodsController extends PayuController {
   }
 
   bool _isInstallmentsPayByLink(PayByLink value) {
-    return value.value == PaymentMethodValue.mastercardInstallments;
+    return value.value == PaymentMethodValue.installments;
   }
 }

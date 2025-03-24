@@ -5,7 +5,6 @@ class TestPaymentCard {
   final String cvv;
 
   final String is3DSecure;
-  final String isMastercardInstallments;
   final String behavior;
 
   const TestPaymentCard({
@@ -14,7 +13,6 @@ class TestPaymentCard {
     required this.expirationYear,
     required this.cvv,
     required this.is3DSecure,
-    required this.isMastercardInstallments,
     required this.behavior,
   });
 
@@ -25,7 +23,6 @@ class TestPaymentCard {
       expirationYear: json['expirationYear'],
       cvv: json['cvv'],
       is3DSecure: json['is3DSecure'],
-      isMastercardInstallments: json['isMastercardInstallments'],
       behavior: json['behavior'],
     );
   }

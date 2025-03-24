@@ -6,8 +6,6 @@ payu_core:
   path: ../payu_core
 payu_interface:
   path: ../payu_interface
-payu_mastercard_installments:
-  path: ../payu_mastercard_installments
 payu_mobile_payments:
   path: ../payu_mobile_payments/payu_mobile_payments
 payu_payment_methods:

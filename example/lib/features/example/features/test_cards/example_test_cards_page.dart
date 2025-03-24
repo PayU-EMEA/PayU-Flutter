@@ -35,7 +35,6 @@ class ExampleTestCardsPage extends GetView<ExampleTestCardsController> {
       _makeDataColumn('Date'),
       _makeDataColumn('CVV'),
       _makeDataColumn('3DS'),
-      _makeDataColumn('Mastercard\ninstallments'),
       _makeDataColumn('Behavior'),
     ];
   }
@@ -55,7 +54,6 @@ class ExampleTestCardsPage extends GetView<ExampleTestCardsController> {
         _makeDataCell(value: '${model.expirationMonth} / ${model.expirationYear}'),
         _makeDataCell(value: model.cvv),
         _makeDataCell(value: model.is3DSecure),
-        _makeDataCell(value: model.isMastercardInstallments),
         _makeDataCell(value: model.behavior),
       ],
       onSelectChanged: (value) => onTap(),

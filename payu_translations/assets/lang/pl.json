@@ -1,5 +1,4 @@
 {
-    "1_st_installment": "1. rata",
     "attackers_might_be_trying_to_steal_your_information_for_example_passwords_messages_or_credit_cards": "Hakerzy mogą próbować wykraść Twoje dane (np. hasła, wiadomości lub informacje o karcie kredytowej).",
     "back": "Wróć",
     "bank_transfer": "Przelew bankowy",
@@ -22,11 +21,6 @@
     "expiration_date": "Data ważności",
     "fast_online_transfer": "szybki przelew online",
     "i_accept": "Akceptuję",
-    "installments_count_zero": "{0} rat",
-    "installments_count_one": "{0} rata",
-    "installments_count_two": "{0} raty",
-    "installments_count_few": "{0} raty",
-    "installments_count_many": "{0} rat",
     "MM/YY": "MM/RR",
     "new_card": "Nowa karta",
     "no_stay_on_one_payment_page": "Nie, zostań na stronie płatności",
@@ -40,14 +34,12 @@
     "please_wait_for_this_window_to_close_automatically": "Poczekaj, aż to okno zamknie się automatycznie",
     "save_and_use": "Zapisz i użyj",
     "select_payment_method": "Wybierz metodę płatności",
-    "split_into_installments": "Rozkładam na raty",
     "the_recipient_will_get_the_total_order_amount": "Sprzedawca otrzyma pełną kwotę zamówienia.",
     "total": "łącznie",
     "transaction_approved": "Transakcja zaakceptowana",
     "use": "Użyj",
     "use_code_from_your_bank_app": "płatność kodem z aplikacji banku",
     "yes_go_back": "Tak, wróć do sklepu",
-    "you_can_split_this_payment_into_installments_with_mastercard": "Możesz skorzystać z usługi Mastercard Płać w ratach i rozłożyć tę płatność na raty.",
     "your_connection_is_not_secure": "Połączenie nie jest bezpieczne",
     "your_payment_will_be_canceled_continue": "Za chwilę przejdziesz z powrotem do sklepu. Jeśli nie dokonałeś płatności, Twoja transakcja zostanie anulowana. Kontynuować?"
 }

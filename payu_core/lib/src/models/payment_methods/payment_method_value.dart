@@ -3,5 +3,5 @@ abstract class PaymentMethodValue {
   static const applePay = 'jp';
   static const blikCode = 'blik_code';
   static const googlePay = 'ap';
-  static const mastercardInstallments = 'ai';
+  static const installments = 'ai';
 }

@@ -1,5 +1,4 @@
 {
-    "1_st_installment": "1-й платеж",
     "attackers_might_be_trying_to_steal_your_information_for_example_passwords_messages_or_credit_cards": "Злоумышленники могут пытаться украсть вашу информацию (например, пароли, сообщения или данные кредитных карт).",
     "back": "Назад",
     "bank_transfer": "Банковский перевод",
@@ -22,11 +21,6 @@
     "expiration_date": "Срок действия",
     "fast_online_transfer": "быстрый онлайн-платеж",
     "i_accept": "Я принимаю",
-    "installments_count_zero": "Количество платежей: {0}",
-    "installments_count_one": "Количество платежей: {0}",
-    "installments_count_two": "Количество платежей: {0}",
-    "installments_count_few": "Количество платежей: {0}",
-    "installments_count_many": "Количество платежей: {0}",
     "MM/YY": "ММ/ГГ",
     "new_card": "Новая карта",
     "no_stay_on_one_payment_page": "Нет, остаться на странице платежа",
@@ -40,14 +34,12 @@
     "please_wait_for_this_window_to_close_automatically": "Дождитесь автоматического закрытия окна",
     "save_and_use": "Сохранить и использовать",
     "select_payment_method": "Выбрать способ оплаты",
-    "split_into_installments": "Разделить на платежи",
     "the_recipient_will_get_the_total_order_amount": "Получатель получит всю сумму заказа.",
     "total": "всего",
     "transaction_approved": "Транзакция утверждена",
     "use": "Использовать",
     "use_code_from_your_bank_app": "использовать код из банковского приложения",
     "yes_go_back": "Да, вернуться назад",
-    "you_can_split_this_payment_into_installments_with_mastercard": "Можно разделить этот платеж на части, используя карту Mastercard.",
     "your_connection_is_not_secure": "Ваше соединение небезопасно",
     "your_payment_will_be_canceled_continue": "Ваш платеж будет отменен. Продолжить?"
 }
