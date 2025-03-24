@@ -55,14 +55,6 @@ class BackendRepository {
     return await _api.getPaymentMethods('application/json');
   }
 
-  Future<InstallmentProposal> getCardInstallmentProposals(String proposalId) async {
-    return await _api.getCardInstallmentProposals(proposalId);
-  }
-
-  Future<void> postCardInstallmentProposals(String proposalId, InstallmentResult decision) async {
-    await _api.postCardInstallmentProposals(proposalId, decision);
-  }
-
   Future<TransactionsResponse> getTransactions(String orderId) async {
     return await _api.getTransactions(orderId);
   }

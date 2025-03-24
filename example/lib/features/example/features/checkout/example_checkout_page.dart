@@ -23,10 +23,6 @@ class ExampleCheckoutPage extends GetView<ExampleCheckoutController> {
                   onPressed: () => controller.didTapGoToCheckoutPayment(),
                   child: const Text('Checkout'),
                 ),
-                TextButton(
-                  onPressed: () => controller.didTapGoToInstallments(),
-                  child: const Text('Check Pay in installments with Mastercard'),
-                ),
               ],
             ),
           ),
