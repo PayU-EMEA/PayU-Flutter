@@ -14,7 +14,7 @@ OrderCreateRequest _$OrderCreateRequestFromJson(Map<String, dynamic> json) =>
       merchantPosId: json['merchantPosId'] as String,
       description: json['description'] as String,
       currencyCode: json['currencyCode'] as String,
-      totalAmount: json['totalAmount'] as int,
+      totalAmount: (json['totalAmount'] as num).toInt(),
       buyer: Buyer.fromJson(json['buyer'] as Map<String, dynamic>),
       products: (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))

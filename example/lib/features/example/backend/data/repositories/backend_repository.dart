@@ -8,7 +8,6 @@ import 'package:example/features/example/backend/api/api.dart';
 import 'package:example/features/example/backend/models/authorization_body.dart';
 import 'package:example/features/example/backend/models/get_transactions/transactions_response.dart';
 import 'package:example/features/example/backend/models/order_create_request.dart';
-import 'package:payu/payu.dart';
 
 import 'settings_repository.dart';
 

@@ -6,4 +6,4 @@ cd "$1" || exit
 
 flutter clean
 
-cd "$PWD"
+cd "$PWD" || exit

@@ -1,13 +1,30 @@
 # Developers Process
+- Java 17
+- Download Flutter https://docs.flutter.dev/install/archive (Min and tested version is 3.22.2 with Dart 3.4.4)
+- Add Flutter SDK bin path to `$PATH`
+- Add Java 17 to Flutter `flutter config --jdk-dir=/path/to/java17/jdk`
+- Add Flutter SDK path to Flutter configuration in Android Studio
+
 ## Make script
 - `make clean`: Run `flutter clean` for all Packages
-- `make setup`: Run `flutter clean && flutter pub get` for all Packages
-- `make setup_dev`: Run `flutter clean && flutter pub get && flutter pub upgrade && flutter pub run dependency_validator` for all Packages and validates dependencies
+- `make setup`: Run `flutter pub get` for all Packages
+- `make setup_dev`: Run `flutter pub get && flutter pub upgrade && flutter pub run dependency_validator` for all Packages and validates dependencies
 - `make build`: Run `flutter pub run build_runner build` for all Packages
 - `make to_local`: Switch PayU dependencies to local
 - `make to_git`: Switch PayU dependencies to git
 - `make tests`: Run tests for all Packages
 
+## How build SDK and run example project
+- `make to_local` - if you want to use local PayU dependencies
+- `make clean` - clean project
+- `make setup` - get dependencies
+- Create `local.properties` file in `example/android` directory with content
+```properties
+sdk.dir=/path/to/android/sdk
+flutter.sdk=/path/to/flutter/sdk
+```
+- Dart entrypoint for Flutter Run configuration is `example/lib/main.dart`
+- Select Device (Android or iOS) and `Run`
 
 ## How to implement bugfix/feature?
 
