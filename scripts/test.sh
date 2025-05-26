@@ -6,4 +6,4 @@ cd "$1" || exit
 
 flutter test -r expanded
 
-cd "$PWD"
+cd "$PWD" || exit

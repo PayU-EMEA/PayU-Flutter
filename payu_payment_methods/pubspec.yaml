@@ -5,7 +5,7 @@ publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
   flutter: ">=2.5.0"
 dependencies:
   collection: ^1.18.0
@@ -32,10 +32,9 @@ dependencies:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_ui
 dev_dependencies:
-  build_runner: ^2.4.9
-  dependency_validator: ^4.1.0
+  build_runner: ^2.4.11
+  dependency_validator: ^4.1.3
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-  mockito: ^5.3.2
-flutter:
+  mockito: ^5.4.4

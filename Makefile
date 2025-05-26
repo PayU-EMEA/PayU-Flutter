@@ -60,8 +60,8 @@ setup_dev:
 	scripts/setup_dev.sh payu_ui
 	scripts/setup_dev.sh payu_web_payments
 
-	scripts/setup.sh payu
-	scripts/setup.sh example
+	scripts/setup_dev.sh payu
+	scripts/setup_dev.sh example
 
 ## ➡️ build: Run `flutter pub run build_runner build` for all Packages
 build:
