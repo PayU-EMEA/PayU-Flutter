@@ -1,6 +1,8 @@
 # Developers Process
 - Java 17
-- Download Flutter https://docs.flutter.dev/install/archive (Min and tested version is 3.22.2 with Dart 3.4.4)
+- Download Flutter https://docs.flutter.dev/install/archive 
+  - Min version is 3.22.2 with Dart 3.4.4
+  - Tested on 3.22.2, 3.24.5 and 3.27.4 (Dart 3.4, 3.5 and 3.6)
 - Add Flutter SDK bin path to `$PATH`
 - Add Java 17 to Flutter `flutter config --jdk-dir=/path/to/java17/jdk`
 - Add Flutter SDK path to Flutter configuration in Android Studio
