@@ -1,3 +1,8 @@
+## 1.0.5
+* Added new certificate for ssl pinning
+* Added new address for Sandbox
+* Relaxed int version
+
 ## 1.0.4
 * Min Dart version 3.4
 * Removed mastercard installments
