@@ -14,7 +14,7 @@ class NetworkClientConfiguration {
 
       case Environment.sandbox:
         return NetworkClientConfiguration._(
-          baseUrl: 'https://secure.snd.payu.com',
+          baseUrl: 'https://mobilesdk.snd.payu.com',
         );
       case Environment.sandboxBeta:
         return NetworkClientConfiguration._(
