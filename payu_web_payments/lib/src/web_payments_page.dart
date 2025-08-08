@@ -129,6 +129,36 @@ class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsContr
   }
 
   @override
+  void showWebPaymentsViewModelShouldPresentProviderRedirectDialog(String uri) {
+    showDialog(
+      context: context,
+      builder: (context) => Theme(
+        data: Payu.theme,
+        child: AlertDialog(
+          title: Text('credit_provider_url_redirect'.translated()),
+          content: Text('credit_browser_provider_url_redirect'.translated()),
+          actions: [
+            TextButton(
+              child: Text('ok'.translated()),
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.didProceedWithCreditExternalApplication(uri);
+              },
+            ),
+            TextButton(
+              child: Text('cancel'.translated(), style: const TextStyle(color: Colors.red)),
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.didAbortCreditExternalApplication();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
   void didComplete(WebPaymentsResult result) {
     Navigator.of(context).pop(result);
   }

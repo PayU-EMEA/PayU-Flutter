@@ -13,6 +13,7 @@ Buyer _$BuyerFromJson(Map<String, dynamic> json) => Buyer(
       lastName: json['lastName'] as String,
       language: json['language'] as String,
       extCustomerId: json['extCustomerId'] as String,
+      delivery: Delivery.fromJson(json['delivery'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$BuyerToJson(Buyer instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$BuyerToJson(Buyer instance) => <String, dynamic>{
       'lastName': instance.lastName,
       'language': instance.language,
       'extCustomerId': instance.extCustomerId,
+      'delivery': instance.delivery,
     };

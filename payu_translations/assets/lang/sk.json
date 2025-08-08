@@ -42,5 +42,7 @@
     "use_code_from_your_bank_app": "použite kód z aplikácie vašej banky",
     "yes_go_back": "Áno, návrat späť",
     "your_connection_is_not_secure": "Vaše pripojenie nie je zabezpečené",
-    "your_payment_will_be_canceled_continue": "Vaša platba sa zruší. Pokračovať?"
+    "your_payment_will_be_canceled_continue": "Vaša platba sa zruší. Pokračovať?",
+    "credit_provider_url_redirect": "Presmerovanie formulára poskytovateľa",
+    "credit_browser_provider_url_redirect": "Pre dokončenie procesu vás presmerujeme do prehliadača."
 }

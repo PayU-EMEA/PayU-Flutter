@@ -106,6 +106,32 @@ void main() {
       });
     });
 
+    group('when `didProceedWithCreditExternalApplication`', () {
+      test('then flow should complete with `externalBrowser` status', () async {
+        when(launcher.launchInBrowser(any)).thenAnswer((e) async => true);
+
+        var redirectUri = 'https://www.payu.com';
+        when(request.redirectUri).thenReturn(redirectUri);
+
+        const status = WebPaymentsStatus.externalBrowser;
+        final result = WebPaymentsResult(status: status, uri: request.redirectUri);
+        sut.didProceedWithCreditExternalApplication(redirectUri);
+        verify(launcher.launchInBrowser(redirectUri));
+        verify(delegate.didComplete(result));
+      });
+    });
+
+    group('when `didAbortCreditExternalApplication`', () {
+      test('then flow should complete with `failure` status', () async {
+        when(request.redirectUri).thenReturn('https://www.payu.com');
+
+        const status = WebPaymentsStatus.cancelled;
+        final result = WebPaymentsResult(status: status, uri: request.redirectUri);
+        sut.didAbortCreditExternalApplication();
+        verify(delegate.didComplete(result));
+      });
+    });
+
     group('when `navigationDecision`', () {
       test('when matcher result is `notMatched` then should not complete', () async {
         when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.notMatched);
@@ -177,6 +203,17 @@ void main() {
         expect(decision, NavigationDecision.prevent);
         verify(launcher.launch(uri));
         verify(delegate.didComplete(result));
+      });
+
+      test('when matcher result is `creditExternalApplication` then should show the provider redirect dialog', () async {
+        when(launcher.launchInBrowser(any)).thenAnswer((e) async => true);
+        when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.creditExternalApplication);
+
+        const uri = 'https://www.payu.com';
+
+        final decision = sut.navigationDecision(uri);
+        expect(decision, NavigationDecision.prevent);
+        verify(delegate.showWebPaymentsViewModelShouldPresentProviderRedirectDialog(uri));
       });
     });
   });

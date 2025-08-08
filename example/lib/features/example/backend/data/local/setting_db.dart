@@ -8,7 +8,7 @@ import 'package:payu/payu.dart' as payu;
 class SettingsDb extends GetxService {
   static const tag = 'SettingsDb';
 
-  static const _defaultCurrencies = ['CZK', 'PLN'];
+  static const _defaultCurrencies = ['CZK', 'PLN', 'RON'];
   static final _defaultLanguages = payu.Payu.supportedLanguagesCodes;
 
   static const _defaultCurrencyCode = 'PLN';

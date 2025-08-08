@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "płatność kodem z aplikacji banku",
     "yes_go_back": "Tak, wróć do sklepu",
     "your_connection_is_not_secure": "Połączenie nie jest bezpieczne",
-    "your_payment_will_be_canceled_continue": "Za chwilę przejdziesz z powrotem do sklepu. Jeśli nie dokonałeś płatności, Twoja transakcja zostanie anulowana. Kontynuować?"
+    "your_payment_will_be_canceled_continue": "Za chwilę przejdziesz z powrotem do sklepu. Jeśli nie dokonałeś płatności, Twoja transakcja zostanie anulowana. Kontynuować?",
+    "credit_provider_url_redirect": "Przekierowanie na formularz dostawcy",
+    "credit_browser_provider_url_redirect": "W celu dokończenia procesu przekierujemy Cię do przeglądarki."
 }

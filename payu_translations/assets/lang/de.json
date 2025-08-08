@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "Verwenden Sie den Code aus Ihrer Bank-App",
     "yes_go_back": "Ja, zurück",
     "your_connection_is_not_secure": "Die Verbindung ist nicht privat",
-    "your_payment_will_be_canceled_continue": "Deine Zahlung wird abgebrochen. Fortfahren?"
+    "your_payment_will_be_canceled_continue": "Deine Zahlung wird abgebrochen. Fortfahren?",
+    "credit_provider_url_redirect": "Weiterleitung des Anbieterformulars",
+    "credit_browser_provider_url_redirect": "Um den Vorgang abzuschließen, leiten wir Sie zum Browser weiter."
 }

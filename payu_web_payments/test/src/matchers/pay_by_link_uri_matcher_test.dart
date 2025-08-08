@@ -7,11 +7,11 @@ void main() {
   late PayByLinkUriMatcher sut;
   late String continueUri = 'https://www.payu.com';
 
-  setUp(() {
-    sut = PayByLinkUriMatcher(continueUri);
-  });
+  group('PayByLinkUriMatcher for iOS', () {
+    setUp(() {
+      sut = PayByLinkUriMatcher(continueUri, true);
+    });
 
-  group('PayByLinkUriMatcher', () {
     group('when matching result', () {
       test('when `uri` is empty redirection then result is `notMatched`', () {
         const uri = 'about:blank';
@@ -41,6 +41,40 @@ void main() {
         final uri = continueUri;
         final result = sut.result(uri);
         expect(result, WebPaymentsUriMatchResult.success);
+      });
+
+      test('when platform is iOS and `uri` matches a credit provider URL then result is `creditExternalApplication`', () {
+        expect(sut.result("https://www.wniosek.santanderconsumer.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.pardapu.inbank.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.smartney.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.raty.aliorbank.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.form.mbank.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.ewniosek.credit-agricole.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.bank-simulator-merch-prod.snd.payu.com/simulator/spring/sandbox/utf8/installment/form?a=11111"),
+            WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.smartneydevweb.z6.web.core.windows.net/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+        expect(sut.result("https://www.demo-pardapu.inbank.pl/form?a=11111"), WebPaymentsUriMatchResult.creditExternalApplication);
+      });
+    });
+  });
+
+  group('PayByLinkUriMatcher for non-iOS', () {
+    setUp(() {
+      sut = PayByLinkUriMatcher(continueUri, false);
+    });
+
+    group('when not matching credit', () {
+      test('when platform is not iOS and `uri` matches a credit provider URL then result is `notMatched`', () {
+        expect(sut.result("https://www.wniosek.santanderconsumer.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.pardapu.inbank.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.smartney.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.raty.aliorbank.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.form.mbank.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.ewniosek.credit-agricole.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.bank-simulator-merch-prod.snd.payu.com/simulator/spring/sandbox/utf8/installment/form?a=11111"),
+            WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.smartneydevweb.z6.web.core.windows.net/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
+        expect(sut.result("https://www.demo-pardapu.inbank.pl/form?a=11111"), WebPaymentsUriMatchResult.notMatched);
       });
     });
   });

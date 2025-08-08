@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "χρήση κωδικού από την εφαρμογή της τράπεζας",
     "yes_go_back": "Ναι, επιστροφή",
     "your_connection_is_not_secure": "Η σύνδεσή σας δεν είναι ασφαλής",
-    "your_payment_will_be_canceled_continue": "Οι πληρωμές σας θα ακυρωθούν. Θέλετε να συνεχίσετε;"
+    "your_payment_will_be_canceled_continue": "Οι πληρωμές σας θα ακυρωθούν. Θέλετε να συνεχίσετε;",
+    "credit_provider_url_redirect": "Ανακατεύθυνση φόρμας παρόχου",
+    "credit_browser_provider_url_redirect": "Για να ολοκληρώσουμε τη διαδικασία, θα σας ανακατευθύνουμε στο πρόγραμμα περιήγησης."
 }

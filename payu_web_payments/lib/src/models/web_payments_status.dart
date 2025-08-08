@@ -20,4 +20,7 @@ enum WebPaymentsStatus {
 
   /// Transaction will be handled in mobile bank app
   externalApplication,
+
+  /// Transaction will be handled in the browser
+  externalBrowser,
 }

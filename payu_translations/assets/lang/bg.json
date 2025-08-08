@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "използвайте код от приложението на вашата банка",
     "yes_go_back": "Да, върнете се обратно",
     "your_connection_is_not_secure": "Връзката Ви не е сигурна",
-    "your_payment_will_be_canceled_continue": "Плащането Ви ще бъде отменено. Продължете?"
+    "your_payment_will_be_canceled_continue": "Плащането Ви ще бъде отменено. Продължете?",
+    "credit_provider_url_redirect": "Пренасочване на формуляр на доставчик",
+    "credit_browser_provider_url_redirect": "За да завършим процеса, ще ви пренасочим към браузъра."
 }

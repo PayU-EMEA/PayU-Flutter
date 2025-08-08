@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "Használd a kódot a banki appodból",
     "yes_go_back": "Igen, menjünk vissza",
     "your_connection_is_not_secure": "YAz internetkapcsolatod nem biztonságos",
-    "your_payment_will_be_canceled_continue": "A fizetési folyamat megszakad. Biztosan megszakítod?"
+    "your_payment_will_be_canceled_continue": "A fizetési folyamat megszakad. Biztosan megszakítod?",
+    "credit_provider_url_redirect": "Szolgáltatói űrlap átirányítás",
+    "credit_browser_provider_url_redirect": "A folyamat befejezéséhez átirányítjuk Önt a böngészőbe."
 }

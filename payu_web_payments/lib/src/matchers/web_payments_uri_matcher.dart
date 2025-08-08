@@ -16,13 +16,16 @@ enum WebPaymentsUriMatchResult {
 
   /// Transaction will be handled in mobile bank app
   externalApplication,
+
+  /// Transaction will be handled in the browser on credit provider's form
+  creditExternalApplication,
 }
 
 class WebPaymentsUriMatcher {
   WebPaymentsUriMatchResult result(String uri) => throw UnimplementedError();
 
-  bool matchAboutBlank(Uri uri) {
-    return uri.toString().contains('about:blank');
+  bool matchAboutURIScheme(Uri uri) {
+    return RegExp(r'^about:.+$').hasMatch(uri.toString());
   }
 
   bool matchExternalScheme(Uri uri) {

@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "paiement par code par l’application de votre banque",
     "yes_go_back": "Oui, retour au magasin",
     "your_connection_is_not_secure": "La connexion n'est pas sécurisée",
-    "your_payment_will_be_canceled_continue": "Votre paiement sera annulé. Continuer ?"
+    "your_payment_will_be_canceled_continue": "Votre paiement sera annulé. Continuer ?",
+    "credit_provider_url_redirect": "Redirection du formulaire du fournisseur",
+    "credit_browser_provider_url_redirect": "Afin de finaliser le processus, nous vous redirigerons vers le navigateur."
 }

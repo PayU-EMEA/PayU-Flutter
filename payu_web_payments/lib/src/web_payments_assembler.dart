@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:payu_core/payu_core.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 
@@ -17,7 +19,7 @@ class WebPaymentsAssembler extends PayuAssembler {
   void assemble() {
     register(() => PayuLauncher());
     if (request.type == WebPaymentsRequestType.payByLink) {
-      register<WebPaymentsUriMatcher>(() => PayByLinkUriMatcher(request.continueUri));
+      register<WebPaymentsUriMatcher>(() => PayByLinkUriMatcher(request.continueUri, Platform.isIOS));
     }
     if (request.type == WebPaymentsRequestType.threeDS) {
       register<WebPaymentsUriMatcher>(() => ThreeDSUriMatcher(request.continueUri));
