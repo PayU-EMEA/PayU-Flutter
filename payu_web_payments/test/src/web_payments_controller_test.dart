@@ -213,7 +213,7 @@ void main() {
 
         final decision = sut.navigationDecision(uri);
         expect(decision, NavigationDecision.prevent);
-        verify(delegate.showWebPaymentsViewModelShouldPresentProviderRedirectDialog(uri));
+        verify(delegate.showProviderRedirectDialog(uri));
       });
     });
   });

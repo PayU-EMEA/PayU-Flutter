@@ -129,7 +129,7 @@ class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsContr
   }
 
   @override
-  void showWebPaymentsViewModelShouldPresentProviderRedirectDialog(String uri) {
+  void showProviderRedirectDialog(String uri) {
     showDialog(
       context: context,
       builder: (context) => Theme(

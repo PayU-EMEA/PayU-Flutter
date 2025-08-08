@@ -10,7 +10,7 @@ import 'models/web_payments_status.dart';
 mixin WebPaymentsControllerDelegate {
   void showBackAlertDialog();
   void showWebResourceErrorAlertDialog();
-  void showWebPaymentsViewModelShouldPresentProviderRedirectDialog(String uri);
+  void showProviderRedirectDialog(String uri);
 
   void didComplete(WebPaymentsResult result);
 }
@@ -114,7 +114,7 @@ class WebPaymentsController extends PayuController {
         _completeExternalApplication(uri);
         return NavigationDecision.prevent;
       case WebPaymentsUriMatchResult.creditExternalApplication:
-        _delegate.showWebPaymentsViewModelShouldPresentProviderRedirectDialog(uri);
+        _delegate.showProviderRedirectDialog(uri);
         return NavigationDecision.prevent;
     }
   }
