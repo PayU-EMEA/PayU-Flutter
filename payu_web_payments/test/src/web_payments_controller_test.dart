@@ -122,7 +122,7 @@ void main() {
     });
 
     group('when `didAbortCreditExternalApplication`', () {
-      test('then flow should complete with `failure` status', () async {
+      test('then flow should complete with `cancelled` status', () async {
         when(request.redirectUri).thenReturn('https://www.payu.com');
 
         const status = WebPaymentsStatus.cancelled;
