@@ -13,7 +13,7 @@ void main() {
 
       test('when `environment` is `sandbox` then should return correct `NetworkClientConfiguration`', () {
         final sut = NetworkClientConfiguration.environment(Environment.sandbox);
-        expect(sut.baseUrl, equals('https://secure.snd.payu.com'));
+        expect(sut.baseUrl, equals('https://mobilesdk.snd.payu.com'));
       });
     });
   });

@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "utilizaţi codul din aplicaţia dvs. bancară",
     "yes_go_back": "Da, revin",
     "your_connection_is_not_secure": "Conexiunea dvs. nu este securizată",
-    "your_payment_will_be_canceled_continue": "Plata dvs. va fi anulată. Continuaţi?"
+    "your_payment_will_be_canceled_continue": "Plata dvs. va fi anulată. Continuaţi?",
+    "credit_provider_url_redirect": "Redirecționarea formularului furnizorului",
+    "credit_browser_provider_url_redirect": "Pentru a finaliza procesul, vă vom redirecționa către browser."
 }

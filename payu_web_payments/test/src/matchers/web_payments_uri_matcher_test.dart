@@ -10,9 +10,15 @@ void main() {
   });
 
   group('WebPaymentsUriMatcher', () {
-    test('should match empty redirections correctly', () {
-      expect(sut.matchAboutBlank(Uri.parse('about:blank')), true);
-      expect(sut.matchAboutBlank(Uri.parse('https://www.pay.com')), false);
+    test('should match about URI scheme correctly', () {
+      expect(sut.matchAboutURIScheme(Uri.parse('about:blank')), true);
+      expect(sut.matchAboutURIScheme(Uri.parse('about:srcdoc')), true);
+      expect(sut.matchAboutURIScheme(Uri.parse('about:cache?device=memory')), true);
+      expect(sut.matchAboutURIScheme(Uri.parse('about:startpage')), true);
+      expect(sut.matchAboutURIScheme(Uri.parse('https://www.pay.com')), false);
+      expect(sut.matchAboutURIScheme(Uri.parse('tel:123123123')), false);
+      expect(sut.matchAboutURIScheme(Uri.parse('app://testapp')), false);
+      expect(sut.matchAboutURIScheme(Uri.parse('https://about.pl/test?:blank')), false);
     });
 
     test('should match external scheme correctly', () {

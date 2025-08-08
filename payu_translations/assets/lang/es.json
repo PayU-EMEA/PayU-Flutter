@@ -41,5 +41,7 @@
     "use_code_from_your_bank_app": "use el codigo de la aplicación de su banco",
     "yes_go_back": "Si, vuelve",
     "your_connection_is_not_secure": "Tu conexion no es segura",
-    "your_payment_will_be_canceled_continue": "Su pago sera cancelado. ¿Continuar?"
+    "your_payment_will_be_canceled_continue": "Su pago sera cancelado. ¿Continuar?",
+    "credit_provider_url_redirect": "Redirección del formulario del proveedor",
+    "credit_browser_provider_url_redirect": "Para finalizar el proceso te redireccionaremos al navegador."
 }

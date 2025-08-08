@@ -28,7 +28,7 @@ class ThreeDSUriMatcher extends WebPaymentsUriMatcher {
     final mappedUri = Uri.parse(uri);
     final mappedContinueUri = Uri.parse(continueUri);
 
-    if (matchAboutBlank(mappedUri)) return WebPaymentsUriMatchResult.notMatched;
+    if (matchAboutURIScheme(mappedUri)) return WebPaymentsUriMatchResult.notMatched;
     if (matchExternalScheme(mappedUri)) return WebPaymentsUriMatchResult.externalApplication;
     if (!matchContinueUri(mappedUri, mappedContinueUri)) return WebPaymentsUriMatchResult.notMatched;
     if (matchContinueUriWithError(mappedUri)) return WebPaymentsUriMatchResult.failure;

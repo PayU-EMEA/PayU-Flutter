@@ -1,3 +1,4 @@
+import 'package:example/features/example/backend/models/delivery.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:example/features/example/backend/data/repositories/backend_constants.dart';
@@ -12,6 +13,7 @@ class Buyer {
   final String lastName;
   final String language;
   final String extCustomerId;
+  final Delivery delivery;
 
   const Buyer({
     required this.email,
@@ -20,18 +22,20 @@ class Buyer {
     required this.lastName,
     required this.language,
     required this.extCustomerId,
+    required this.delivery,
   });
 
   factory Buyer.fromJson(Map<String, dynamic> json) => _$BuyerFromJson(json);
 
   factory Buyer.mock() {
-    return const Buyer(
+    return Buyer(
       email: BackendConstants.buyerEmail,
       phone: BackendConstants.buyerPhone,
       firstName: BackendConstants.buyerFirstName,
       lastName: BackendConstants.buyerLastName,
       language: BackendConstants.buyerLanguage,
       extCustomerId: BackendConstants.buyerExtCustomerId,
+      delivery: Delivery.mock(),
     );
   }
 

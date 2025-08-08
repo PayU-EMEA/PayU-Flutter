@@ -10,6 +10,7 @@ import 'models/web_payments_status.dart';
 mixin WebPaymentsControllerDelegate {
   void showBackAlertDialog();
   void showWebResourceErrorAlertDialog();
+  void showProviderRedirectDialog(String uri);
 
   void didComplete(WebPaymentsResult result);
 }
@@ -79,6 +80,15 @@ class WebPaymentsController extends PayuController {
     _complete(WebPaymentsResult(status: WebPaymentsStatus.failure, uri: _uri));
   }
 
+  void didProceedWithCreditExternalApplication(String uri) {
+    _launcher.launchInBrowser(uri);
+    _completeCreditExternalApplication(uri);
+  }
+
+  void didAbortCreditExternalApplication() {
+    _complete(WebPaymentsResult(status: WebPaymentsStatus.cancelled, uri: _uri));
+  }
+
   NavigationDecision navigationDecision(String uri) {
     final result = _matcher.result(uri);
     Logger.logInfo('navigationDecision uri: $uri');
@@ -103,6 +113,9 @@ class WebPaymentsController extends PayuController {
         _launcher.launch(uri);
         _completeExternalApplication(uri);
         return NavigationDecision.prevent;
+      case WebPaymentsUriMatchResult.creditExternalApplication:
+        _delegate.showProviderRedirectDialog(uri);
+        return NavigationDecision.prevent;
     }
   }
 
@@ -124,6 +137,10 @@ class WebPaymentsController extends PayuController {
 
   void _completeExternalApplication(String uri) {
     _complete(WebPaymentsResult(status: WebPaymentsStatus.externalApplication, uri: uri));
+  }
+
+  void _completeCreditExternalApplication(String uri) {
+    _complete(WebPaymentsResult(status: WebPaymentsStatus.externalBrowser, uri: uri));
   }
 
   void _complete(WebPaymentsResult result) {
