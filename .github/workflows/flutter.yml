@@ -1,0 +1,40 @@
+name: Flutter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        flutter: [ '3.24.5', '3.29.3' ]
+    name: Build and Test on Flutter ${{ matrix.flutter }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up Flutter ${{ matrix.flutter }}
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter }}
+      - run: flutter --version
+
+      - name: Switch to local
+        run: make to_local
+
+      - name: Install dependencies
+        run: make setup
+
+      - name: Build
+        run: make build
+
+      - name: Build & Analyze
+        run: make build
+
+      - name: Tests
+        run: make tests

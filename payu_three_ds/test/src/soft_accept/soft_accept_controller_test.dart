@@ -65,7 +65,7 @@ void main() {
         when(components.javascript(any, any)).thenReturn(javascript);
         sut.didCreateWebViewController(webViewController);
         sut.didCompleteProcessingPage();
-        verify(webViewController.runJavascript(javascript));
+        verify(webViewController.runJavaScript(javascript));
       });
     });
 

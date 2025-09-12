@@ -17,40 +17,46 @@ class SoftAcceptAlertDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return PayuWidget<SoftAcceptController, SoftAcceptAssembler>(
       assembler: () => SoftAcceptAssembler(request),
-      builder: (context, controller) => AlertDialog(
-        title: Text('payment_security'.translated()),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('please_wait_for_this_window_to_close_automatically'.translated()),
-            SizedBox(
-              height: 24.0,
-              width: 24.0,
-              child: Opacity(
-                opacity: double.minPositive,
-                child: WebView(
-                  backgroundColor: Colors.yellowAccent,
-                  debuggingEnabled: true,
-                  initialUrl: Uri.dataFromString(controller.iframe, mimeType: 'text/html').toString(),
-                  javascriptMode: JavascriptMode.unrestricted,
-                  onPageFinished: (e) => controller.didCompleteProcessingPage(),
-                  onWebViewCreated: (e) => controller.didCreateWebViewController(e),
-                  javascriptChannels: {
-                    JavascriptChannel(
-                      name: SoftAcceptConstants.javascriptChannelName,
-                      onMessageReceived: (e) async {
-                        final message = await controller.handleJavascriptMessage(e.message);
-                        // ignore: use_build_context_synchronously
-                        if (message != null) Navigator.of(context).pop(message);
-                      },
-                    ),
-                  },
+      builder: (context, controller) {
+        final webViewController = WebViewController()
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          ..setBackgroundColor(Colors.yellowAccent)
+          ..setNavigationDelegate(
+            NavigationDelegate(
+              onPageFinished: (url) => controller.didCompleteProcessingPage(),
+            ),
+          )
+          ..addJavaScriptChannel(
+            SoftAcceptConstants.javascriptChannelName,
+            onMessageReceived: (message) async {
+              final result = await controller.handleJavascriptMessage(message.message);
+              if (result != null && context.mounted) {
+                Navigator.of(context).pop(result);
+              }
+            },
+          )
+          ..loadRequest(Uri.dataFromString(controller.iframe, mimeType: 'text/html'));
+
+        controller.didCreateWebViewController(webViewController);
+
+        return AlertDialog(
+          title: Text('payment_security'.translated()),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('please_wait_for_this_window_to_close_automatically'.translated()),
+              SizedBox(
+                height: 24.0,
+                width: 24.0,
+                child: Opacity(
+                  opacity: double.minPositive,
+                  child: WebViewWidget(controller: webViewController),
                 ),
-              ),
-            )
-          ],
-        ),
-      ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

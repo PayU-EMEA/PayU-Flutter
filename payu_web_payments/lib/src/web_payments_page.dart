@@ -5,6 +5,7 @@ import 'package:payu_state_management/payu_state_management.dart';
 import 'package:payu_translations/payu_translations.dart';
 import 'package:payu_ui/payu_ui.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 import '../payu_web_payments.dart';
 import 'web_payments_assembler.dart';
@@ -21,7 +22,34 @@ class WebPaymentsPage extends StatefulWidget {
 
 class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsControllerDelegate {
   late final assembler = WebPaymentsAssembler(this, widget.request);
-  late final controller = assembler.find<WebPaymentsController>();
+  late WebPaymentsController controller;
+  late final WebViewController webViewController;
+
+  @override
+  void initState() {
+    super.initState();
+    assembler.assemble();
+    controller = assembler.find<WebPaymentsController>();
+    webViewController = WebViewController();
+
+    if (webViewController.platform is WebKitWebViewController) {
+      (webViewController.platform as WebKitWebViewController)
+          .setAllowsBackForwardNavigationGestures(true);
+    }
+
+    webViewController
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageStarted: (uri) => controller.didStartNavigation(uri),
+          onPageFinished: (uri) => controller.didFinishNavigation(uri),
+          onNavigationRequest: (request) => controller.navigationDecision(request.url),
+          onWebResourceError: (error) => controller.didUpdateWebResourceError(error),
+        ),
+      )
+      ..loadRequest(Uri.parse(controller.initialUri));
+    controller.didUpdateWebViewController(webViewController);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +86,7 @@ class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsContr
             onPressed: () => controller.didTapBackButton(),
           ),
         ),
-        body: WebView(
-          onWebViewCreated: (webViewController) => controller.didUpdateWebViewController(webViewController),
-          onWebResourceError: (error) => controller.didUpdateWebResourceError(error),
-          initialUrl: controller.initialUri,
-          navigationDelegate: (request) => controller.navigationDecision(request.url),
-          onPageStarted: (uri) => controller.didStartNavigation(uri),
-          onPageFinished: (uri) => controller.didFinishNavigation(uri),
-          javascriptMode: JavascriptMode.unrestricted,
-          gestureNavigationEnabled: true,
-        ),
+        body: WebViewWidget(controller: webViewController),
       ),
     );
   }

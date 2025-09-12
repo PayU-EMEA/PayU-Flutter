@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:example/features/settings/controllers/settings_currencies_controller.dart';
 import 'package:example/features/settings/controllers/settings_environments_controller.dart';
 import 'package:example/features/settings/controllers/settings_languages_controller.dart';
@@ -46,7 +45,7 @@ class SettingsController extends GetxController {
     final environmentDescription = [
       _environmentsController.current?.name,
       _environmentsController.current?.clientId,
-    ].whereNotNull().join('\n');
+    ].nonNulls.join('\n');
     final languageDescription = _languagesController.current;
 
     _models.add(SettingsModel.currency().copyWith(subtitle: currencyDescription));

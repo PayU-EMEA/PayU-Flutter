@@ -14,7 +14,10 @@ class PayuAssembler {
   void dispose() {}
 
   void register<Dependency extends Object>(Dependency Function() foo, {String? name}) {
-    _container.registerLazySingleton<Dependency>(() => foo(), instanceName: _instanceName(name));
+    if (!_container.isRegistered<Dependency>(instanceName: _instanceName(name))) {
+      _container.registerLazySingleton<Dependency>(() => foo(),
+          instanceName: _instanceName(name));
+    }
   }
 
   void unregister<Dependency extends Object>({String? name}) {

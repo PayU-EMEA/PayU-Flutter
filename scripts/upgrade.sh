@@ -1,10 +1,10 @@
 #!/bin/sh
-set -e
 
 PWD=$(pwd)
 
 cd "$1" || exit
 
-flutter test -r expanded
+flutter pub upgrade
+flutter pub run dependency_validator
 
 cd "$PWD" || exit

@@ -47,7 +47,7 @@ void main() {
 
     group('when `didUpdateWebResourceError`', () {
       test('when the error code is `-1200` then delegate method is called', () {
-        final e = WebResourceError(errorCode: -1200, description: 'description');
+        const e = WebResourceError(errorCode: -1200, description: 'description');
         sut.didUpdateWebResourceError(e);
         verify(delegate.showWebResourceErrorAlertDialog());
       });

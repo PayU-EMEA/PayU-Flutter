@@ -28,8 +28,8 @@ class SoftAcceptController extends PayuController {
 
   void didCompleteProcessingPage() async {
     final configuration = SoftAcceptConfiguration.environment(Payu.environment!);
-    final javascript = _components.javascript(configuration.origin, configuration.channelName);
-    webViewController.runJavascript(javascript);
+    final javaScript = _components.javascript(configuration.origin, configuration.channelName);
+    webViewController.runJavaScript(javaScript);
   }
 
   Future<SoftAcceptMessage?> handleJavascriptMessage(String javascriptMessage) {

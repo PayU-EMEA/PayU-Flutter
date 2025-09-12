@@ -79,6 +79,8 @@ class _HomePageState extends State<HomePage> {
   void _tokenize(bool save) async {
     final result = await _service.tokenize(false);
 
+    if (!mounted) return;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
