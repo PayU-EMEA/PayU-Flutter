@@ -1,6 +1,6 @@
 name: payu_state_management
 description: Flutter package with Payu interface which allows to use wrapper over state management.
-version: 1.0.5
+version: 1.0.6
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
@@ -15,12 +15,12 @@ dependencies:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_interface
-      ref: 1.0.5
+      ref: 1.0.6
   payu_ui:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_ui
-      ref: 1.0.5
+      ref: 1.0.6
   provider: ^6.1.5
 dev_dependencies:
   build_runner: ^2.4.11
