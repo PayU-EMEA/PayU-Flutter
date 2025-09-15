@@ -1,3 +1,6 @@
+## 1.0.6
+* Upgraded webview_flutter package
+
 ## 1.0.5
 * Added new certificate for ssl pinning
 * Added new address for Sandbox
