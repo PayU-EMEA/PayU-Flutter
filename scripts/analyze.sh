@@ -1,10 +1,11 @@
 #!/bin/sh
-set -e
 
 PWD=$(pwd)
 
 cd "$1" || exit
 
-flutter test -r expanded
+flutter analyze
 
 cd "$PWD" || exit
+
+

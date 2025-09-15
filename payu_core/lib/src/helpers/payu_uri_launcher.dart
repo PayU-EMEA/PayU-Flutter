@@ -2,10 +2,6 @@ import 'package:payu_core/payu_core.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
 class PayuLauncher {
-  Future<bool> call(String number) async {
-    return await launch('tel://$number');
-  }
-
   Future<bool> launch(String uriString) async {
     try {
       final uri = Uri.parse(uriString);
