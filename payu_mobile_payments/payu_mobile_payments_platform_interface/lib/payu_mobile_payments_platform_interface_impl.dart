@@ -39,7 +39,7 @@ class PayuMobilePaymentsPlatformInterfaceImpl implements PayuMobilePaymentsPlatf
 
     if (configuration.provider == PaymentProvider.applePay) {
       final result = ApplePayPayment.fromJson(jsonDecode(response));
-      return result.token.paymentData.toBase64();
+      return result.token.paymentData;
     }
     return null;
   }
