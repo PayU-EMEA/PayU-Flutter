@@ -1,6 +1,6 @@
 name: payu_three_ds
 description: Flutter package which allows to handle Payu 3DS.
-version: 1.0.6
+version: 1.0.7
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
@@ -14,22 +14,22 @@ dependencies:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_api
-      ref: 1.0.6
+      ref: 1.0.7
   payu_core:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_core
-      ref: 1.0.6
+      ref: 1.0.7
   payu_state_management:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_state_management
-      ref: 1.0.6
+      ref: 1.0.7
   payu_translations:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_translations
-      ref: 1.0.6
+      ref: 1.0.7
   webview_flutter: ^4.4.0
 dev_dependencies:
   build_runner: ^2.4.11

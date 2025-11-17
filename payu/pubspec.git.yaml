@@ -2,54 +2,54 @@ payu_add_card:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_add_card
-    ref: 1.0.6
+    ref: 1.0.7
 payu_api:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_api
-    ref: 1.0.6
+    ref: 1.0.7
 payu_core:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_core
-    ref: 1.0.6
+    ref: 1.0.7
 payu_interface:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_interface
-    ref: 1.0.6
+    ref: 1.0.7
 payu_mobile_payments:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_mobile_payments/payu_mobile_payments
-    ref: 1.0.6
+    ref: 1.0.7
 payu_payment_methods:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_payment_methods
-    ref: 1.0.6
+    ref: 1.0.7
 payu_terms_and_conditions:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_terms_and_conditions
-    ref: 1.0.6
+    ref: 1.0.7
 payu_three_ds:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_three_ds
-    ref: 1.0.6
+    ref: 1.0.7
 payu_translations:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_translations
-    ref: 1.0.6
+    ref: 1.0.7
 payu_web_payments:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_web_payments
-    ref: 1.0.6
+    ref: 1.0.7
 payu_ui:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_ui
-    ref: 1.0.6
+    ref: 1.0.7

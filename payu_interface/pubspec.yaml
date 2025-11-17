@@ -1,7 +1,7 @@
 name: payu_interface
 description: Flutter package with Payu interface which allows to access the main properties directly.
 
-version: 1.0.6
+version: 1.0.7
 publish_to: none
 
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
