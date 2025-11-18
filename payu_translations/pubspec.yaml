@@ -1,6 +1,6 @@
 name: payu_translations
 description: Flutter package with Payu translations functionality.
-version: 1.0.6
+version: 1.0.7
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
@@ -15,7 +15,7 @@ dependencies:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_core
-      ref: 1.0.6
+      ref: 1.0.7
 dev_dependencies:
   build_runner: ^2.4.11
   dependency_validator: ^4.1.3

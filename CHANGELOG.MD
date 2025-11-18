@@ -1,3 +1,6 @@
+## 1.0.7
+* Fixed double base64 Apple Pay token
+
 ## 1.0.6
 * Upgraded webview_flutter package
 

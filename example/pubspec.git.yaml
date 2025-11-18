@@ -2,4 +2,4 @@ payu:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu
-    ref: 1.0.6
+    ref: 1.0.7
