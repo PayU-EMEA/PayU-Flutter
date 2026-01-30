@@ -24,7 +24,7 @@ class ThemeDataFactory {
       appBarTheme: _appBarTheme(pallete),
       buttonTheme: _buttonTheme(pallete),
       cardTheme: _cardTheme(pallete),
-      dialogBackgroundColor: pallete.secondaryGray4,
+      dialogTheme: _dialogThemeData(pallete),
       inputDecorationTheme: _inputDecorationTheme(pallete),
       primaryColor: pallete.primary2,
       textTheme: _textTheme(pallete),
@@ -56,8 +56,8 @@ class ThemeDataFactory {
     return const ButtonThemeData();
   }
 
-  static CardTheme _cardTheme(ThemeColorsPallete pallete) {
-    return CardTheme(
+  static CardThemeData _cardTheme(ThemeColorsPallete pallete) {
+    return CardThemeData(
       color: pallete.secondaryGray4,
       elevation: 0,
       margin: const EdgeInsets.all(0.0),
@@ -66,6 +66,12 @@ class ThemeDataFactory {
         side: _borderSide(color: pallete.secondaryGray3),
         borderRadius: _borderRadius(),
       ),
+    );
+  }
+
+  static DialogThemeData _dialogThemeData(ThemeColorsPallete pallete) {
+    return DialogThemeData(
+      backgroundColor: pallete.secondaryGray4
     );
   }
 
