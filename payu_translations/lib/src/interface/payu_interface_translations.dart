@@ -28,6 +28,7 @@ extension PayuInterfaceTranslations on PayuInterface {
   /// - `hr` (Croatian)
   /// - `hu` (Hungarian)
   /// - `it` (Italian)
+  /// - `lt` (Lithuanian)
   /// - `lv` (Latvian)
   /// - `pl` (Polish)
   /// - `ro` (Romanian)
@@ -72,6 +73,7 @@ class _PayuInterfaceTranslationsImpl {
     'hr',
     'hu',
     'it',
+    'lt',
     'lv',
     'pl',
     'ro',
