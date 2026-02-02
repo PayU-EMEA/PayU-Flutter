@@ -11,6 +11,6 @@ struct PaymentRequest: Codable {
   let merchantIdentifier: String
   let countryCode: String
   let currencyCode: String
-  let shippingContact: Contact
+  let shippingContact: Contact?
   let paymentSummaryItems: [SummaryItem]
 }

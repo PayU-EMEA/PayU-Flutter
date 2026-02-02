@@ -36,14 +36,13 @@ class ApplePayPaymentRequestBuilder {
     assert(_countryCode != null, '`countryCode` cannot be null');
     assert(_currencyCode != null, '`currencyCode` cannot be null');
     assert(_merchantIdentifier != null, '`merchantIdentifier` cannot be null');
-    assert(_shippingContact != null, '`shippingContact` cannot be null');
     assert(_paymentSummaryItems != null, '`paymentSummaryItems` cannot be null');
 
     return ApplePayPaymentRequest(
       merchantIdentifier: _merchantIdentifier!,
       countryCode: _countryCode!,
       currencyCode: _currencyCode!,
-      shippingContact: _shippingContact!,
+      shippingContact: _shippingContact,
       paymentSummaryItems: _paymentSummaryItems!,
     );
   }
