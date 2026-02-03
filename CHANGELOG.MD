@@ -2,8 +2,9 @@
 * Min Dart version 3.8
 * Compatibility with Dart 3.8, 3.9, 3.10
 * Do not require PaymentContact in ApplePay
+* Add Lithuanian language
 
-## 1.1.0
+## 1.0.7
 * Fixed double base64 Apple Pay token
 
 ## 1.0.6
