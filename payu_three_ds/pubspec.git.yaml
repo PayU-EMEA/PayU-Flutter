@@ -2,19 +2,19 @@ payu_api:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_api
-    ref: 1.0.7
+    ref: 1.1.0
 payu_core:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_core
-    ref: 1.0.7
+    ref: 1.1.0
 payu_state_management:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_state_management
-    ref: 1.0.7
+    ref: 1.1.0
 payu_translations:
   git:
     url: https://github.com/PayU-EMEA/PayU-Flutter.git
     path: payu_translations
-    ref: 1.0.7
+    ref: 1.1.0
