@@ -1,9 +1,8 @@
 # Developers Process
 - Java 17
 - Download Flutter https://docs.flutter.dev/install/archive 
-  - Min version is 3.22.2 with Dart 3.4.4
-  - Max version is 3.29.3 with Dart 3.7.2, because CardTheme not available in >3.29 (https://docs.flutter.dev/release/breaking-changes/material-theme-system-updates)
-  - Tested on 3.22.2, 3.24.5, 3.27.4 and 3.29.3 (Dart 3.4, 3.5, 3.6 and 3.7)
+  - Min version is 3.32.0 with Dart 3.8.0
+  - Tested on 3.32.8, 3.35.7, 3.38.8 (Dart 3.8.1, 3.9.2 and 3.10.7)
 - Add Flutter SDK bin path to `$PATH`
 - Add Java 17 to Flutter `flutter config --jdk-dir=/path/to/java17/jdk`
 - Add Flutter SDK path to Flutter configuration in Android Studio

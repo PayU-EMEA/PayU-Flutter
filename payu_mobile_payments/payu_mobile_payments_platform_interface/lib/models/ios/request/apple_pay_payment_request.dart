@@ -13,7 +13,7 @@ class ApplePayPaymentRequest {
   final String currencyCode;
 
   /// A prepopulated shipping address.
-  final ApplePayContact shippingContact;
+  final ApplePayContact? shippingContact;
 
   /// List of [ApplePaySummaryItem] objects which should be presented to the user.
   /// The last item should be the total you wish to charge
@@ -32,7 +32,7 @@ class ApplePayPaymentRequest {
       'merchantIdentifier': merchantIdentifier,
       'countryCode': countryCode,
       'currencyCode': currencyCode,
-      'shippingContact': shippingContact.toJson(),
+      'shippingContact': shippingContact?.toJson(),
       'paymentSummaryItems': paymentSummaryItems.map((e) => e.toJson()).toList(),
     };
   }

@@ -35,7 +35,8 @@ class PKPaymentRequestBuilder {
   }
 
   @discardableResult
-  func withShippingContact(_ value: Contact) -> PKPaymentRequestBuilder {
+  func withShippingContact(_ value: Contact?) -> PKPaymentRequestBuilder {
+    guard let value = value else { return self };
     let contact = PKContact()
     contact.emailAddress = value.emailAddress
     request.requiredShippingContactFields = [.emailAddress]
