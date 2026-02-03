@@ -17,6 +17,7 @@ Allows merchants to set custom `locale` for the Payu widgets:
 - `hr` (Croatian)
 - `hu` (Hungarian)
 - `it` (Italian)
+- `lt` (Lithuanian)
 - `lv` (Latvian)
 - `pl` (Polish)
 - `ro` (Romanian)
