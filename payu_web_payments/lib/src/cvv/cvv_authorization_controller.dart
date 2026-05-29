@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:payu_api/payu_api.dart';
 import 'package:payu_state_management/payu_state_management.dart';
 
 import 'network/client/cvv_authorization_network_client.dart';
@@ -32,11 +31,7 @@ class CVVAuthorizationController extends PayuController {
   Future<void> didTapConfirmButton() async {
     try {
       _setCodeLiteral(null);
-      final result = await _client.authorizeCVV(refReqId: _refReqId, cvv: textEditingController.text);
-      if (result.status.statusCode != NetworkClientStatusCode.success) throw result.status;
-    } on NetworkClientStatus catch (status) {
-      _setCodeLiteral(status.codeLiteral);
-      rethrow;
+      await _client.authorizeCVV(refReqId: _refReqId, cvv: textEditingController.text);
     } catch (e) {
       _setCodeLiteral(e.toString());
       rethrow;

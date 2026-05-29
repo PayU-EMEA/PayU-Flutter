@@ -1,5 +1,3 @@
-<a id="features"></a> 
-
 ## Features
 
 * [Add Card](payu_add_card)
@@ -16,8 +14,6 @@
 * [ThreeDS](payu_three_ds)
 * [Web Payments](payu_web_payments)
 
-<a id="installation"></a> 
-
 ## Installation
 
 ```yaml
@@ -26,13 +22,14 @@ dependencies:
     git: 
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu
+      ref: VERSION
 ```
+You can get VERSION from https://github.com/PayU-EMEA/PayU-Flutter/releases.
+**Always** use `ref`. If you don't specify a `ref`, you'll always fetch the latest version from the repository, which may contain untested changes.
 
 ```dart
 import 'package:payu/payu.dart';
 ```
-
-<a id="example"></a>
 
 ## Example
 
@@ -50,8 +47,6 @@ There is an `example` project with predefined public `Sandbox` environment which
 * [Set Environment](payu_core)
 * [Set Locale](payu_core)
 * [Set POS](payu_core)
-
-<a id="getting_started"></a> 
 
 ## Getting started
 

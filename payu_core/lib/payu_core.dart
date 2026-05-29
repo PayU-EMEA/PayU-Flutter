@@ -2,6 +2,7 @@ library payu_core;
 
 export 'package:payu_interface/payu_interface.dart';
 
+export 'src/constants/sdk_version.dart';
 export 'src/extensions/string_ext.dart';
 export 'src/helpers/logger.dart';
 export 'src/helpers/payu_uri_launcher.dart';

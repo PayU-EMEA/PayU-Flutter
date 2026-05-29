@@ -55,12 +55,54 @@ void main() {
         expect(await sut.tokenize(card, true), isA<TokenCreateResult>());
       });
 
-      test('when post complete with failure status then should throw `NetworkClientError`', () async {
-        final data = resource('network_client_response_failure.json');
+      test('when post returns non-200 status then should throw exception', () async {
+        when(client.post(any, headers: anyNamed('headers'), body: anyNamed('body')))
+            .thenAnswer((e) async => http.Response("", 500));
+
+        expect(sut.tokenize(card, true), throwsA(isA<Exception>()));
+      });
+
+      test('when `save` is true then should call `/api/front/tokens` with JSON body and `MULTI` type', () async {
+        final data = resource('network_client_response_success.json');
         when(client.post(any, headers: anyNamed('headers'), body: anyNamed('body')))
             .thenAnswer((e) async => http.Response(jsonEncode(data), 200));
 
-        expect(sut.tokenize(card, true), throwsA(isA<NetworkClientError>()));
+        await sut.tokenize(card, true);
+
+        final verification = verify(client.post(captureAny, headers: captureAnyNamed('headers'), body: captureAnyNamed('body')));
+        final captured = verification.captured;
+        final uri = captured[0] as Uri;
+        final headers = captured[1] as Map<String, String>;
+        final body = jsonDecode(captured[2] as String) as Map<String, dynamic>;
+        final bodyCard = body['card'] as Map<String, dynamic>;
+
+        expect(uri.path, '/api/front/tokens');
+        expect(uri.queryParameters['from'], 'mobilesdk');
+        expect(uri.queryParameters['sender'], 'flutter');
+        expect(uri.queryParameters['version'], payuSdkVersion);
+        expect(headers['Content-Type'], 'application/json');
+        expect(body['posId'], 'id');
+        expect(body['type'], 'MULTI');
+        expect(bodyCard, {
+          'number': card.number,
+          'expirationMonth': card.expirationMonth,
+          'expirationYear': card.expirationYear,
+          'cvv': card.cvv,
+        });
+      });
+
+      test('when `save` is false then should set `SINGLE_LONGTERM` token type', () async {
+        final data = resource('network_client_response_success.json');
+        when(client.post(any, headers: anyNamed('headers'), body: anyNamed('body')))
+            .thenAnswer((e) async => http.Response(jsonEncode(data), 200));
+
+        await sut.tokenize(card, false);
+
+        final verification = verify(client.post(captureAny, headers: captureAnyNamed('headers'), body: captureAnyNamed('body')));
+        final captured = verification.captured;
+        final body = jsonDecode(captured[2] as String) as Map<String, dynamic>;
+
+        expect(body['type'], 'SINGLE_LONGTERM');
       });
     });
   });
