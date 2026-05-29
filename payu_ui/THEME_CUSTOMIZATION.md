@@ -15,14 +15,14 @@ void main() {
 ```
 
 - `Payu.theme` is applied inside PayU wrappers:
-  - `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_state_management/lib/src/payu_widget.dart`
-  - `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_ui/lib/src/widgets/payu_provider_widget.dart`
+  - `payu_state_management/lib/src/payu_widget.dart`
+  - `payu_ui/lib/src/widgets/payu_provider_widget.dart`
 - Setting `Payu.theme = null` restores the default PayU theme (`ThemeDataFactory.platform()`).
 
 ## Default PayU theme definition
 
 The default theme is created in:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_ui/lib/src/theme/theme_data_factory.dart`
+- `payu_ui/lib/src/theme/theme_data_factory.dart`
 
 It defines:
 - `appBarTheme`
@@ -37,42 +37,42 @@ It defines:
 
 ### `appBarTheme`
 Used by pages with `AppBar(...)`:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_add_card/lib/src/page/add_card_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_web_payments/lib/src/web_payments_page.dart`
+- `payu_add_card/lib/src/page/add_card_page.dart`
+- `payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
+- `payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
+- `payu_web_payments/lib/src/web_payments_page.dart`
 
 ### `cardTheme`
 Used by `Card(...)` components:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
+- `payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
+- `payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
 
 ### `dialogTheme`
 Used by `AlertDialog(...)` components:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_web_payments/lib/src/cvv/cvv_authorization_alert_dialog.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_three_ds/lib/src/soft_accept/soft_accept_alert_dialog.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_web_payments/lib/src/web_payments_page.dart` (dialogs opened in `showBackAlertDialog` and `showWebResourceErrorAlertDialog`)
+- `payu_web_payments/lib/src/cvv/cvv_authorization_alert_dialog.dart`
+- `payu_three_ds/lib/src/soft_accept/soft_accept_alert_dialog.dart`
+- `payu_web_payments/lib/src/web_payments_page.dart` (dialogs opened in `showBackAlertDialog` and `showWebResourceErrorAlertDialog`)
 
 ### `inputDecorationTheme`
 Used by `TextField(..., decoration: InputDecoration(...))`:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_add_card/lib/src/widget/widgets/add_card_text_field.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/widget/payment_widget.dart` (`_BlikCode`)
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_web_payments/lib/src/cvv/cvv_authorization_alert_dialog.dart`
+- `payu_add_card/lib/src/widget/widgets/add_card_text_field.dart`
+- `payu_payment_methods/lib/src/features/widget/payment_widget.dart` (`_BlikCode`)
+- `payu_web_payments/lib/src/cvv/cvv_authorization_alert_dialog.dart`
 
 ### `textTheme`
 Used with `Theme.of(context).textTheme...`:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_add_card/lib/src/widget/add_card_widget.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/widget/payment_widget.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_terms_and_conditions/lib/src/terms_and_conditions_widget.dart`
+- `payu_add_card/lib/src/widget/add_card_widget.dart`
+- `payu_payment_methods/lib/src/features/widget/payment_widget.dart`
+- `payu_terms_and_conditions/lib/src/terms_and_conditions_widget.dart`
 
 ### `colorScheme` and `primaryColor`
 Used for surface/background and accent colors:
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_add_card/lib/src/page/add_card_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/widget/payment_widget.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_terms_and_conditions/lib/src/terms_and_conditions_widget.dart`
-- `/tmp/workspace/PayU-EMEA/PayU-Flutter/payu_web_payments/lib/src/web_payments_page.dart`
+- `payu_add_card/lib/src/page/add_card_page.dart`
+- `payu_payment_methods/lib/src/features/widget/payment_widget.dart`
+- `payu_payment_methods/lib/src/features/payment_methods/payment_methods_page.dart`
+- `payu_payment_methods/lib/src/features/pbl_payment_methods/pbl_payment_methods_page.dart`
+- `payu_terms_and_conditions/lib/src/terms_and_conditions_widget.dart`
+- `payu_web_payments/lib/src/web_payments_page.dart`
 
 ## Recommended customization approach
 
@@ -99,4 +99,6 @@ Payu.theme = Payu.theme.copyWith(
 - `TextTheme`: https://api.flutter.dev/flutter/material/TextTheme-class.html
 - `AppBarTheme`: https://api.flutter.dev/flutter/material/AppBarTheme-class.html
 - `DialogThemeData`: https://api.flutter.dev/flutter/material/DialogThemeData-class.html
+
+Input filtering (used by PayU text fields together with themed `InputDecoration`):
 - `FilteringTextInputFormatter`: https://api.flutter.dev/flutter/services/FilteringTextInputFormatter-class.html
