@@ -368,6 +368,130 @@ void main() {
 
 ---
 
+### Example 3 — Playful gradient / glassmorphism
+
+A very expressive style with a deep gradient base, extra-large rounded corners, strong shadows, vivid accents, custom typography, and bigger paddings.
+
+```dart
+void main() {
+  Payu.theme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'SpaceGrotesk',
+    scaffoldBackgroundColor: const Color(0xFF120F2A),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFF7B61FF),
+      secondary: Color(0xFF21D4FD),
+      surface: Color(0xFF1B1738),
+      onSurface: Color(0xFFF4F2FF),
+      error: Color(0xFFFF5F7A),
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: const Color(0x991B1738),
+      foregroundColor: const Color(0xFFF4F2FF),
+      centerTitle: false,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+      ),
+      titleTextStyle: const TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0.2,
+      ),
+    ),
+    cardTheme: CardThemeData(
+      color: const Color(0xCC26214D),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      elevation: 14,
+      shadowColor: const Color(0x8021D4FD),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+        side: const BorderSide(color: Color(0x66FFFFFF), width: 1.2),
+      ),
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: const Color(0xFF201A45),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(26),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: const Color(0x662E275D),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
+      hintStyle: const TextStyle(color: Color(0xFFB9B3E3), fontSize: 15),
+      labelStyle: const TextStyle(
+        color: Color(0xFF21D4FD),
+        fontSize: 13,
+        fontWeight: FontWeight.w600,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(22),
+        borderSide: const BorderSide(color: Color(0x44FFFFFF)),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(22),
+        borderSide: const BorderSide(color: Color(0x55FFFFFF)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(22),
+        borderSide: const BorderSide(color: Color(0xFF21D4FD), width: 2.2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(22),
+        borderSide: const BorderSide(color: Color(0xFFFF5F7A), width: 1.8),
+      ),
+    ),
+    textTheme: const TextTheme(
+      titleSmall: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.w700,
+        color: Color(0xFFF4F2FF),
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 15,
+        height: 1.45,
+        color: Color(0xFFD0C9FF),
+      ),
+      bodySmall: TextStyle(
+        fontSize: 13,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.1,
+        color: Color(0xFFB9B3E3),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF7B61FF),
+        foregroundColor: Colors.white,
+        elevation: 8,
+        shadowColor: const Color(0xFF7B61FF),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: const Color(0xFF21D4FD),
+        side: const BorderSide(color: Color(0xFF21D4FD), width: 1.5),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    ),
+  );
+
+  runApp(const MyApp());
+}
+```
+
+---
+
 ## Related Flutter documentation
 
 - Material theming overview: https://docs.flutter.dev/cookbook/design/themes
