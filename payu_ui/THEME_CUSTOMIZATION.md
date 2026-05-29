@@ -184,6 +184,188 @@ The remaining slots (`titleLarge`, `titleMedium`, `bodyLarge`, `labelLarge`, `la
 
 ---
 
+## Customization examples
+
+The examples below show two completely different looks to illustrate how far the PayU UI can be tailored to your brand. Set `Payu.theme` before calling `runApp`.
+
+---
+
+### Example 1 — Bold dark / neon
+
+A dark background with vibrant cyan and hot-pink accents, heavy elevation, and large rounded corners.
+
+<!-- TODO: add screenshot -->
+<!-- ![Bold dark / neon theme](docs/screenshots/theme_dark_neon.png) -->
+
+```dart
+void main() {
+  Payu.theme = ThemeData(
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFFFF2E63),
+      secondary: Color(0xFF08D9D6),
+      surface: Color(0xFF1A1A2E),
+      onSurface: Colors.white,
+      error: Color(0xFFFF6B6B),
+    ),
+    scaffoldBackgroundColor: const Color(0xFF0F0F1A),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFF1A1A2E),
+      foregroundColor: Color(0xFFFF2E63),
+      centerTitle: true,
+      elevation: 0,
+    ),
+    cardTheme: CardThemeData(
+      color: const Color(0xFF22223B),
+      elevation: 6,
+      shadowColor: Colors.black54,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: Color(0xFF08D9D6), width: 1.5),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: const Color(0xFF2A2A40),
+      hintStyle: const TextStyle(color: Colors.white70),
+      labelStyle: const TextStyle(color: Color(0xFF08D9D6)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: Color(0xFF08D9D6)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: const BorderSide(color: Color(0xFFFF2E63), width: 2),
+      ),
+    ),
+    textTheme: const TextTheme(
+      bodyMedium: TextStyle(fontSize: 15, color: Colors.white),
+      titleSmall: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Color(0xFFFF2E63),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFFF2E63),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+        ),
+      ),
+    ),
+  );
+
+  runApp(const MyApp());
+}
+```
+
+---
+
+### Example 2 — Elegant light / premium
+
+An off-white canvas with warm gold accents and deep navy secondary tones. Subtle borders, generous padding, and no elevation for a refined look.
+
+<!-- TODO: add screenshot -->
+<!-- ![Elegant light / premium theme](docs/screenshots/theme_light_premium.png) -->
+
+```dart
+void main() {
+  Payu.theme = ThemeData(
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: const Color(0xFFFCFBF7),
+    colorScheme: const ColorScheme.light(
+      primary: Color(0xFFB38A3D),
+      secondary: Color(0xFF2F4858),
+      surface: Color(0xFFFFFCF5),
+      onSurface: Color(0xFF2A2A2A),
+      error: Color(0xFFC44536),
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFFFCF5),
+      foregroundColor: Color(0xFFB38A3D),
+      centerTitle: true,
+      elevation: 0,
+    ),
+    cardTheme: CardThemeData(
+      color: Colors.white,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+        side: const BorderSide(color: Color(0xFFE7D7B1), width: 1.2),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: const Color(0xFFF8F4EA),
+      hintStyle: const TextStyle(color: Color(0xFF8C8577)),
+      labelStyle: const TextStyle(color: Color(0xFFB38A3D)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: Color(0xFFE7D7B1)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: Color(0xFFB38A3D), width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: Color(0xFFC44536)),
+      ),
+    ),
+    textTheme: const TextTheme(
+      titleSmall: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: Color(0xFF2F4858),
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 15,
+        height: 1.4,
+        color: Color(0xFF5C5C5C),
+      ),
+      bodySmall: TextStyle(
+        fontSize: 13,
+        color: Color(0xFF8C8577),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFB38A3D),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: const Color(0xFF2F4858),
+        side: const BorderSide(color: Color(0xFFE7D7B1)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+    ),
+  );
+
+  runApp(const MyApp());
+}
+```
+
+---
+
 ## Related Flutter documentation
 
 - Material theming overview: https://docs.flutter.dev/cookbook/design/themes
