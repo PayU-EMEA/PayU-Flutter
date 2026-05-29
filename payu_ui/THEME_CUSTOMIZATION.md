@@ -197,9 +197,6 @@ A dark background with vibrant cyan and hot-pink accents, heavy elevation, and l
 <img src="https://github.com/user-attachments/assets/2a9b8304-86f8-446a-a1be-5a3006ace5c9" alt="Bold dark / neon theme — screenshot 1" width="32%">
 <img src="https://github.com/user-attachments/assets/27334744-9c51-4fa2-9317-1d64e9ac33fa" alt="Bold dark / neon theme — screenshot 2" width="32%">
 <img src="https://github.com/user-attachments/assets/253d53bb-d12f-43d9-919a-6148dab381c9" alt="Bold dark / neon theme — screenshot 3" width="32%">
-<br/>
-<img src="https://github.com/user-attachments/assets/87cb704b-d8c6-4550-93d2-b203b3eafb87" alt="Bold dark / neon theme — screenshot 4" width="32%">
-<img src="https://github.com/user-attachments/assets/e56a1ccd-0b30-4707-8f4e-7309023c7e3b" alt="Bold dark / neon theme — screenshot 5" width="32%">
 
 ```dart
 void main() {
