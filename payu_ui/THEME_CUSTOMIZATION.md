@@ -190,84 +190,7 @@ The examples below show two completely different looks to illustrate how far the
 
 ---
 
-### Example 1 — Bold dark / neon
-
-A dark background with vibrant cyan and hot-pink accents, heavy elevation, and large rounded corners.
-
-<img src="https://github.com/user-attachments/assets/2a9b8304-86f8-446a-a1be-5a3006ace5c9" alt="Bold dark / neon theme — screenshot 1" width="32%">
-<img src="https://github.com/user-attachments/assets/27334744-9c51-4fa2-9317-1d64e9ac33fa" alt="Bold dark / neon theme — screenshot 2" width="32%">
-<img src="https://github.com/user-attachments/assets/253d53bb-d12f-43d9-919a-6148dab381c9" alt="Bold dark / neon theme — screenshot 3" width="32%">
-
-```dart
-void main() {
-  Payu.theme = ThemeData(
-    brightness: Brightness.dark,
-    colorScheme: const ColorScheme.dark(
-      primary: Color(0xFFFF2E63),
-      secondary: Color(0xFF08D9D6),
-      surface: Color(0xFF1A1A2E),
-      onSurface: Colors.white,
-      error: Color(0xFFFF6B6B),
-    ),
-    scaffoldBackgroundColor: const Color(0xFF0F0F1A),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFF1A1A2E),
-      foregroundColor: Color(0xFFFF2E63),
-      centerTitle: true,
-      elevation: 0,
-    ),
-    cardTheme: CardThemeData(
-      color: const Color(0xFF22223B),
-      elevation: 6,
-      shadowColor: Colors.black54,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: const BorderSide(color: Color(0xFF08D9D6), width: 1.5),
-      ),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: const Color(0xFF2A2A40),
-      hintStyle: const TextStyle(color: Colors.white70),
-      labelStyle: const TextStyle(color: Color(0xFF08D9D6)),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(color: Color(0xFF08D9D6)),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(color: Color(0xFFFF2E63), width: 2),
-      ),
-    ),
-    textTheme: const TextTheme(
-      bodyMedium: TextStyle(fontSize: 15, color: Colors.white),
-      titleSmall: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Color(0xFFFF2E63),
-      ),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFFF2E63),
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-        ),
-      ),
-    ),
-  );
-
-  runApp(const MyApp());
-}
-```
-
----
-
-### Example 2 — Elegant light / premium
+### Example 1 — Elegant light / premium
 
 An off-white canvas with warm gold accents and deep navy secondary tones. Subtle borders, generous padding, and no elevation for a refined look.
 
@@ -368,9 +291,14 @@ void main() {
 
 ---
 
-### Example 3 — Playful gradient / glassmorphism
+### Example 2 — Playful gradient / glassmorphism
 
 A very expressive style with a deep gradient base, extra-large rounded corners, strong shadows, vivid accents, custom typography, and bigger paddings.
+
+<img src="https://github.com/user-attachments/assets/5ecfb07f-fe25-4432-b3fd-c39b40b592f5" alt="Playful gradient / glassmorphism theme — screenshot 1" width="24%">
+<img src="https://github.com/user-attachments/assets/4fcabad8-d401-478d-98b0-5fee31945bbb" alt="Playful gradient / glassmorphism theme — screenshot 2" width="24%">
+<img src="https://github.com/user-attachments/assets/03d6cf0c-2ec1-4c37-af6b-7a1a1c23ca1e" alt="Playful gradient / glassmorphism theme — screenshot 3" width="24%">
+<img src="https://github.com/user-attachments/assets/7c4a3a95-2cc8-4958-836c-f888532e29bb" alt="Playful gradient / glassmorphism theme — screenshot 4" width="24%">
 
 ```dart
 void main() {
