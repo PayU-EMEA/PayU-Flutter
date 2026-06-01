@@ -295,10 +295,9 @@ void main() {
 
 A very expressive style with a deep gradient base, extra-large rounded corners, strong shadows, vivid accents, custom typography, and bigger paddings.
 
-<img src="https://github.com/user-attachments/assets/5ecfb07f-fe25-4432-b3fd-c39b40b592f5" alt="Playful gradient / glassmorphism theme — screenshot 1" width="24%">
-<img src="https://github.com/user-attachments/assets/4fcabad8-d401-478d-98b0-5fee31945bbb" alt="Playful gradient / glassmorphism theme — screenshot 2" width="24%">
-<img src="https://github.com/user-attachments/assets/03d6cf0c-2ec1-4c37-af6b-7a1a1c23ca1e" alt="Playful gradient / glassmorphism theme — screenshot 3" width="24%">
-<img src="https://github.com/user-attachments/assets/7c4a3a95-2cc8-4958-836c-f888532e29bb" alt="Playful gradient / glassmorphism theme — screenshot 4" width="24%">
+<img src="https://github.com/user-attachments/assets/4fcabad8-d401-478d-98b0-5fee31945bbb" alt="Playful gradient / glassmorphism theme — screenshot 1" width="32%">
+<img src="https://github.com/user-attachments/assets/03d6cf0c-2ec1-4c37-af6b-7a1a1c23ca1e" alt="Playful gradient / glassmorphism theme — screenshot 2" width="32%">
+<img src="https://github.com/user-attachments/assets/7c4a3a95-2cc8-4958-836c-f888532e29bb" alt="Playful gradient / glassmorphism theme — screenshot 3" width="32%">
 
 ```dart
 void main() {
