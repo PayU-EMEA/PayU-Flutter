@@ -92,9 +92,13 @@ Update documentation according to new version:
 3. Push changes to your branch
 
 ## How to make release?
+Decide what the new version should look like.
 
 ### Step 1
+1. Create new branch
+2. Update all `pubspec.yaml` for new version - set versions and ref
+3. Update version in `payu_core/lib/src/constants/sdk_version.dart`
+4. Merge your branch into `main` branch
 
-1. Make pull request into `main` branch from your branch
-2. Merge your branch into `main` branch
-3. Push `tag` with new version to `main` branch
+### Step 2
+1. Create a new release on GitHub with a tag corresponding to the new version

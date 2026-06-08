@@ -10,9 +10,8 @@ void main() {
         final json = resource('token_create_result_test.json');
         final model = TokenCreateResult.fromJson(json);
 
-        expect(model.token, equals('TOK_1KLPUR7NNONX0pmWlmL8g8kYhzs6'));
+        expect(model.token, equals('TOKD_1LPKNT3MJQUX4w0PKKG828mVX1F'));
         expect(model.mask, equals('444433******1111'));
-        expect(model.type, equals('STANDARD'));
       });
     });
   });

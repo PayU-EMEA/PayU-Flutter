@@ -1,12 +1,4 @@
 {
-    "data": {
-        "token": "TOK_1KLQQR6MMPNS39GsrLtSmzB2JGd6",
-        "mask": "405621******1231",
-        "type": "STANDARD"
-    },
-    "status": {
-        "statusCode": "SUCCESS",
-        "codeLiteral": "SUCCESS",
-        "code": "0"
-    }
+    "value": "TOKD_1LPKNT3MJQUX4w0PKKG828mVX1F",
+    "maskedCard": "444433******1111"
 }

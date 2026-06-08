@@ -1,20 +1,22 @@
-import 'token_create_request_data.dart';
+import 'token_create_request_data_card.dart';
+import 'token_type.dart';
 
 class TokenCreateRequest {
-  final String request = 'TokenCreateRequest';
-  final String sender;
-  final TokenCreateRequestData data;
+  final String posId;
+  final TokenType type;
+  final TokenCreateRequestDataCard card;
 
   const TokenCreateRequest({
-    required this.sender,
-    required this.data,
-  });
+    required this.posId,
+    required bool save,
+    required this.card,
+  }) : type = save ? TokenType.multi : TokenType.singleLongterm;
 
   Map<String, dynamic> toJson() {
     return {
-      'request': request,
-      'sender': sender,
-      'data': data,
+      'posId': posId,
+      'type': type.value,
+      'card': card,
     };
   }
 
