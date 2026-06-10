@@ -80,6 +80,35 @@ Merchant Server - Payu Server means that call is made from merchant server to Pa
 * `Merchant Backend` send `OrderCreateRequest` with user details, products details and payment method details and return the result of `OrderCreateResponse` to `Merchant Mobile App` (see how to make `OrderCreateRequest` [here](https://developers.payu.com/en/restapi.html#creating_new_order)
 * `Merchant Mobile App` handle the result of `OrderCreateResponse` (see how to handle the result of `OrderCreateResponse` [here](payu_web_payments/)
 
+<a id="ui_customization"></a>
+
+## UI Customization
+
+The PayU Flutter plugin exposes a single `Payu.theme` property that accepts a standard Material `ThemeData` object. Every PayU screen and widget is wrapped internally by a `Theme` widget that injects `Payu.theme`, so all visual changes flow through one place:
+
+```dart
+void main() {
+  Payu.theme = ThemeData(
+    colorScheme: ColorScheme.light(
+      primary: Colors.indigo,
+    ),
+  );
+
+  runApp(const MyApp());
+}
+```
+
+Key customization points:
+
+* **Colors** — set via `colorScheme` (`primary`, `secondary`, `surface`, `onSurface`, …)
+* **Typography** — override `textTheme` or set a custom `fontFamily`
+* **Cards & inputs** — `cardTheme` and `inputDecorationTheme` control the look of payment cards and text fields
+* **Buttons** — `elevatedButtonTheme` changes the primary action button style
+* **Shape / elevation** — adjust `cardTheme.shape` and `cardTheme.elevation` for rounded or flat cards
+* **Dark / light mode** — set `Payu.theme = null` to restore the default theme which automatically follows device brightness
+
+For full details, advanced recipes, and real-world styling examples see the [Theme Customization guide](payu_ui/THEME_CUSTOMIZATION.md).
+
 ## Additional information
 
 TODO: Tell users more about the package: where to find more information, how to 
