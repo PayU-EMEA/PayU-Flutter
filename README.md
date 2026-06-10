@@ -84,30 +84,9 @@ Merchant Server - Payu Server means that call is made from merchant server to Pa
 
 ## UI Customization
 
-The PayU Flutter plugin exposes a single `Payu.theme` property that accepts a standard Material `ThemeData` object. Every PayU screen and widget is wrapped internally by a `Theme` widget that injects `Payu.theme`, so all visual changes flow through one place:
+Customize PayU UI with `Payu.theme` (`ThemeData`) to control colors, typography, inputs, cards, and buttons across all PayU screens.
 
-```dart
-void main() {
-  Payu.theme = ThemeData(
-    colorScheme: ColorScheme.light(
-      primary: Colors.indigo,
-    ),
-  );
-
-  runApp(const MyApp());
-}
-```
-
-Key customization points:
-
-* **Colors** — set via `colorScheme` (`primary`, `secondary`, `surface`, `onSurface`, …)
-* **Typography** — override `textTheme` or set a custom `fontFamily`
-* **Cards & inputs** — `cardTheme` and `inputDecorationTheme` control the look of payment cards and text fields
-* **Buttons** — `elevatedButtonTheme` changes the primary action button style
-* **Shape / elevation** — adjust `cardTheme.shape` and `cardTheme.elevation` for rounded or flat cards
-* **Dark / light mode** — set `Payu.theme = null` to restore the default theme which automatically follows device brightness
-
-For full details, advanced recipes, and real-world styling examples see the [Theme Customization guide](payu_ui/THEME_CUSTOMIZATION.md).
+For full details and examples, see the [Theme Customization guide](payu_ui/THEME_CUSTOMIZATION.md).
 
 ## Additional information
 
