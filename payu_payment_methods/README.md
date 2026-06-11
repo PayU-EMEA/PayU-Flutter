@@ -308,6 +308,24 @@ void _didSelectCardToken(CardToken cardToken) {
 }
 ```
 
+> ⚠️ **Only for Romanian Market**
+#### Card Installments
+When a user enters a card number, the widget automatically fetches available installment options from the PayU API based on the first 10 digits (BIN) of the card number.
+
+The selected installment data is returned as part of `CardToken` in the `cardInstallments` field of type `CardTokenInstallments`:
+```dart
+class CardTokenInstallments {
+  final String provider; // installment provider identifier
+  final int number;      // selected number of installments
+}
+```
+
+Card installments must be explicitly enabled via `Payu.cardInstallments`:
+
+```dart
+Payu.cardInstallments = true;
+```
+
 <a id="payment-methods-google-pay"></a> 
 
 ### GooglePay
@@ -358,9 +376,3 @@ void _didSelectPayByLink(PayByLink payByLink) {
   "value": "payByLink.value"
 }
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

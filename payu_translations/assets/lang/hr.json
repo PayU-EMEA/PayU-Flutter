@@ -22,7 +22,6 @@
     "fast_online_transfer": "brz online prijenos",
     "i_accept": "Prihvaćam",
     "MM/YY": "MM/GG",
-    "new_card": "Nova kartica",
     "no_stay_on_one_payment_page": "Ne, ostani na jednoj stranici za plaćanje",
     "no_thanks": "Ne, hvala",
     "one_tap_payment": "plaćanje jednim dodirom",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "upotrijebite kod iz svoje bankovne aplikacije",
     "yes_go_back": "Da, vrati se",
     "your_connection_is_not_secure": "Vaša veza nije sigurna",
-    "your_payment_will_be_canceled_continue": "Vaše plaćanje će biti poništeno. Nastaviti?"
+    "your_payment_will_be_canceled_continue": "Vaše plaćanje će biti poništeno. Nastaviti?",
+    "installment_options": "Opcije obroka",
+    "installments_none": "Nema",
+    "installments_one": "{0} obrok",
+    "installments_two": "{0} obroka",
+    "installments_few": "{0} obroka",
+    "installments_many": "{0} obroka",
+    "choose_installment_option": "Odaberite opciju obroka"
 }

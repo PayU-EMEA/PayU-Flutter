@@ -22,7 +22,6 @@
     "fast_online_transfer": "transfer online rapid",
     "i_accept": "Sunt de acord",
     "MM/YY": "LL/AA",
-    "new_card": "Card nou",
     "no_stay_on_one_payment_page": "Nu, rămân pe pagina de plată",
     "no_thanks": "Nu, mulţumesc",
     "one_tap_payment": "plată cu o atingere",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "utilizaţi codul din aplicaţia dvs. bancară",
     "yes_go_back": "Da, revin",
     "your_connection_is_not_secure": "Conexiunea dvs. nu este securizată",
-    "your_payment_will_be_canceled_continue": "Plata dvs. va fi anulată. Continuaţi?"
+    "your_payment_will_be_canceled_continue": "Plata dvs. va fi anulată. Continuaţi?",
+    "installment_options": "Opțiuni de rate",
+    "installments_none": "Niciuna",
+    "installments_one": "{0} rată",
+    "installments_two": "{0} rate",
+    "installments_few": "{0} rate",
+    "installments_many": "{0} rate",
+    "choose_installment_option": "Alege opțiunea de rate"
 }

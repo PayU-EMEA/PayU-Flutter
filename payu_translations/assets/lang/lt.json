@@ -22,7 +22,6 @@
     "fast_online_transfer": "Greitas internetinis pavedimas",
     "i_accept": "Sutinku",
     "MM/YY": "MM/MM",
-    "new_card": "Nauja kortelė",
     "no_stay_on_one_payment_page": "Ne, likti viename mokėjimo puslapyje",
     "no_thanks": "Ne, ačiū",
     "one_tap_payment": "Mokėjimas vienu paspaudimu",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "Naudokite kodą iš savo banko programėlės",
     "yes_go_back": "Taip, grįžti",
     "your_connection_is_not_secure": "Jūsų ryšys nėra saugus",
-    "your_payment_will_be_canceled_continue": "Jūsų mokėjimas bus atšauktas. Tęsti?"
+    "your_payment_will_be_canceled_continue": "Jūsų mokėjimas bus atšauktas. Tęsti?",
+    "installment_options": "Įmokų parinktys",
+    "installments_none": "Nėra",
+    "installments_one": "{0} įmoka",
+    "installments_two": "{0} įmokos",
+    "installments_few": "{0} įmokos",
+    "installments_many": "{0} įmokų",
+    "choose_installment_option": "Pasirinkite įmokų parinktį"
 }

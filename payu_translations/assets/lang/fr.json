@@ -22,7 +22,6 @@
     "fast_online_transfer": "virement en ligne rapide",
     "i_accept": "J'accepte",
     "MM/YY": "MM/AA",
-    "new_card": "Nouvelle carte",
     "no_stay_on_one_payment_page": "Non, rester sur la page de paiement",
     "no_thanks": "Non, merci",
     "one_tap_payment": "paiement par touche unique",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "paiement par code par l’application de votre banque",
     "yes_go_back": "Oui, retour au magasin",
     "your_connection_is_not_secure": "La connexion n'est pas sécurisée",
-    "your_payment_will_be_canceled_continue": "Votre paiement sera annulé. Continuer ?"
+    "your_payment_will_be_canceled_continue": "Votre paiement sera annulé. Continuer ?",
+    "installment_options": "Options de paiement en plusieurs fois",
+    "installments_none": "Aucune",
+    "installments_one": "{0} échéance",
+    "installments_two": "{0} échéances",
+    "installments_few": "{0} échéances",
+    "installments_many": "{0} échéances",
+    "choose_installment_option": "Choisissez une option de paiement en plusieurs fois"
 }

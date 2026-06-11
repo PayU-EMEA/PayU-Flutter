@@ -22,7 +22,6 @@
     "fast_online_transfer": "szybki przelew online",
     "i_accept": "Akceptuję",
     "MM/YY": "MM/RR",
-    "new_card": "Nowa karta",
     "no_stay_on_one_payment_page": "Nie, zostań na stronie płatności",
     "no_thanks": "Nie, dziękuję",
     "one_tap_payment": "płatność jednym dotknięciem",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "płatność kodem z aplikacji banku",
     "yes_go_back": "Tak, wróć do sklepu",
     "your_connection_is_not_secure": "Połączenie nie jest bezpieczne",
-    "your_payment_will_be_canceled_continue": "Za chwilę przejdziesz z powrotem do sklepu. Jeśli nie dokonałeś płatności, Twoja transakcja zostanie anulowana. Kontynuować?"
+    "your_payment_will_be_canceled_continue": "Za chwilę przejdziesz z powrotem do sklepu. Jeśli nie dokonałeś płatności, Twoja transakcja zostanie anulowana. Kontynuować?",
+    "installment_options": "Opcje rat",
+    "installments_none": "Brak",
+    "installments_one": "{0} rata",
+    "installments_two": "{0} raty",
+    "installments_few": "{0} raty",
+    "installments_many": "{0} rat",
+    "choose_installment_option": "Wybierz opcję rat"
 }

@@ -22,7 +22,6 @@
     "fast_online_transfer": "бърз онлайн превод",
     "i_accept": "Приемам",
     "MM/YY": "ММ/ГГГ",
-    "new_card": "Нова карта",
     "no_stay_on_one_payment_page": "Не, останете на страницата за плащане",
     "no_thanks": "Не, благодаря",
     "one_tap_payment": "плащане с едно докосване",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "използвайте код от приложението на вашата банка",
     "yes_go_back": "Да, върнете се обратно",
     "your_connection_is_not_secure": "Връзката Ви не е сигурна",
-    "your_payment_will_be_canceled_continue": "Плащането Ви ще бъде отменено. Продължете?"
+    "your_payment_will_be_canceled_continue": "Плащането Ви ще бъде отменено. Продължете?",
+    "installment_options": "Опции за вноски",
+    "installments_none": "Няма",
+    "installments_one": "{0} вноска",
+    "installments_two": "{0} вноски",
+    "installments_few": "{0} вноски",
+    "installments_many": "{0} вноски",
+    "choose_installment_option": "Изберете опция за вноски"
 }

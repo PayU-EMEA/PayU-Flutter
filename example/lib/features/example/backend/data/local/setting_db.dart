@@ -23,6 +23,7 @@ class SettingsDb extends GetxService {
 
   static const _currencyCode = '_currencyCode';
   static const _languageCode = '_languageCode';
+  static const _cardInstallments = '_cardInstallments';
 
   final Box _box;
 
@@ -37,6 +38,7 @@ class SettingsDb extends GetxService {
 
   String get currencyCode => _box.get(_currencyCode, defaultValue: _defaultCurrencyCode);
   String get languageCode => _box.get(_languageCode, defaultValue: _defaultLanguageCode);
+  bool get cardInstallments => _box.get(_cardInstallments, defaultValue: false);
 
   Future<void> setAccessToken(String value) => _box.put(_accessToken, value);
   Future<void> setGrantType(GrantType value) => _box.put(_grantType, value);
@@ -47,6 +49,7 @@ class SettingsDb extends GetxService {
 
   Future<void> setCurrencyCode(String value) => _box.put(_currencyCode, value);
   Future<void> setLanguageCode(String value) => _box.put(_languageCode, value);
+  Future<void> setCardInstallments(bool value) => _box.put(_cardInstallments, value);
 
   List<String> getCurrencies() => _defaultCurrencies;
   List<String> getLanguages() => _defaultLanguages;

@@ -5,8 +5,29 @@ import 'package:payu/payu.dart';
 
 import 'package:example/features/demo_add_card_widget/demo_add_card_widget_controller.dart';
 
-class DemoAddCardWidgetPage extends GetView<DemoAddCardWidgetController> {
+class DemoAddCardWidgetPage extends StatefulWidget {
   const DemoAddCardWidgetPage({super.key});
+
+  @override
+  State<DemoAddCardWidgetPage> createState() => _DemoAddCardWidgetPageState();
+}
+
+class _DemoAddCardWidgetPageState extends State<DemoAddCardWidgetPage> {
+  late final DemoAddCardWidgetController controller;
+  bool _isInstallmentsLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.find<DemoAddCardWidgetController>();
+  }
+
+  void _didUpdateInstallmentsLoading(bool value) {
+    if (_isInstallmentsLoading == value) return;
+    setState(() {
+      _isInstallmentsLoading = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +44,15 @@ class DemoAddCardWidgetPage extends GetView<DemoAddCardWidgetController> {
               AddCardWidget(
                 configuration: AddCardWidgetConfiguration.payu(),
                 onCreated: (service) => controller.didUpdateService(service),
+                onInstallmentsLoadingChanged: _didUpdateInstallmentsLoading,
               ),
               const TermsAndConditionsWidget(),
               TextButton(
-                onPressed: () => controller.tokenize(false),
+                onPressed: _isInstallmentsLoading ? null : () => controller.tokenize(false),
                 child: const Text('Save'),
               ),
               TextButton(
-                onPressed: () => controller.tokenize(true),
+                onPressed: _isInstallmentsLoading ? null : () => controller.tokenize(true),
                 child: const Text('Save and use'),
               ),
             ],

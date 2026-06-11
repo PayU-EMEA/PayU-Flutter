@@ -22,7 +22,6 @@
     "fast_online_transfer": "быстрый онлайн-платеж",
     "i_accept": "Я принимаю",
     "MM/YY": "ММ/ГГ",
-    "new_card": "Новая карта",
     "no_stay_on_one_payment_page": "Нет, остаться на странице платежа",
     "no_thanks": "Нет, спасибо",
     "one_tap_payment": "оплата одним нажатием",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "использовать код из банковского приложения",
     "yes_go_back": "Да, вернуться назад",
     "your_connection_is_not_secure": "Ваше соединение небезопасно",
-    "your_payment_will_be_canceled_continue": "Ваш платеж будет отменен. Продолжить?"
+    "your_payment_will_be_canceled_continue": "Ваш платеж будет отменен. Продолжить?",
+    "installment_options": "Варианты рассрочки",
+    "installments_none": "Нет",
+    "installments_one": "{0} платеж",
+    "installments_two": "{0} платежа",
+    "installments_few": "{0} платежа",
+    "installments_many": "{0} платежей",
+    "choose_installment_option": "Выберите вариант рассрочки"
 }

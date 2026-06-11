@@ -22,7 +22,6 @@
     "fast_online_transfer": "gyors online átutalás",
     "i_accept": "Elfogadom",
     "MM/YY": "HH/ÉÉ",
-    "new_card": "Új kártya",
     "no_stay_on_one_payment_page": "Nem, maradok a fizetési oldalon",
     "no_thanks": "No, thanks",
     "one_tap_payment": "Egytapintásos fizetés",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "Használd a kódot a banki appodból",
     "yes_go_back": "Igen, menjünk vissza",
     "your_connection_is_not_secure": "YAz internetkapcsolatod nem biztonságos",
-    "your_payment_will_be_canceled_continue": "A fizetési folyamat megszakad. Biztosan megszakítod?"
+    "your_payment_will_be_canceled_continue": "A fizetési folyamat megszakad. Biztosan megszakítod?",
+    "installment_options": "Részletfizetési lehetőségek",
+    "installments_none": "Nincs",
+    "installments_one": "{0} részlet",
+    "installments_two": "{0} részlet",
+    "installments_few": "{0} részlet",
+    "installments_many": "{0} részlet",
+    "choose_installment_option": "Válasszon részletfizetési lehetőséget"
 }

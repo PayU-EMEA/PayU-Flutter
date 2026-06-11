@@ -17,7 +17,12 @@ class CardToken implements PaymentMethod {
   String get name => cardNumberMasked;
 
   @override
-  String? get description => '$cardExpirationMonth/$cardExpirationYear';
+  String? get description {
+    final base = '$cardExpirationMonth/$cardExpirationYear';
+    final installments = cardInstallments;
+    if (installments == null) return base;
+    return '$base, ${installments.numberLabel}';
+  }
 
   final String brandImageUrl;
   final String cardExpirationMonth;
@@ -27,6 +32,7 @@ class CardToken implements PaymentMethod {
   final bool preferred;
   final CardTokenStatus status;
   final String value;
+  final CardTokenInstallments? cardInstallments;
 
   const CardToken({
     required this.brandImageUrl,
@@ -37,6 +43,7 @@ class CardToken implements PaymentMethod {
     required this.preferred,
     required this.status,
     required this.value,
+    this.cardInstallments,
   });
 
   factory CardToken.fromJson(Map<String, dynamic> json) {
@@ -49,6 +56,11 @@ class CardToken implements PaymentMethod {
       preferred: json['preferred'],
       status: CardTokenStatusFromExt.fromValue(json['status']),
       value: json['value'],
+      cardInstallments: json['cardInstallments'] != null
+          ? CardTokenInstallments.fromJson(
+              json['cardInstallments'] as Map<String, dynamic>,
+            )
+          : null,
     );
   }
 
@@ -62,6 +74,37 @@ class CardToken implements PaymentMethod {
       'preferred': preferred,
       'status': status.value,
       'value': value,
+      if (cardInstallments != null) 'cardInstallments': cardInstallments,
+    };
+  }
+
+  @override
+  String toString() => '[$runtimeType]: ${toJson().toString()}';
+}
+
+class CardTokenInstallments {
+  final String provider;
+  final int number;
+  final String numberLabel;
+
+  const CardTokenInstallments({
+    required this.provider,
+    required this.number,
+    required this.numberLabel,
+  });
+
+  factory CardTokenInstallments.fromJson(Map<String, dynamic> json) {
+    return CardTokenInstallments(
+      provider: json['provider'] as String,
+      number: json['number'] as int,
+      numberLabel: json['numberLabel'] as String,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'provider': provider,
+      'number': number,
     };
   }
 

@@ -22,7 +22,6 @@
     "fast_online_transfer": "bonifico rapido online",
     "i_accept": "Accetto",
     "MM/YY": "MM/AA",
-    "new_card": "Nuova carta",
     "no_stay_on_one_payment_page": "No, rimani sulla pagina dei pagamenti",
     "no_thanks": "No, grazie",
     "one_tap_payment": "pagamento one-touch",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "pagamento con codice dall’app della banca",
     "yes_go_back": "Sì, torna al negozio",
     "your_connection_is_not_secure": "La connessione non è sicura",
-    "your_payment_will_be_canceled_continue": "Il pagamento sarà annullato. Vuoi continuare?"
+    "your_payment_will_be_canceled_continue": "Il pagamento sarà annullato. Vuoi continuare?",
+    "installment_options": "Opzioni di rateizzazione",
+    "installments_none": "Nessuna",
+    "installments_one": "{0} rata",
+    "installments_two": "{0} rate",
+    "installments_few": "{0} rate",
+    "installments_many": "{0} rate",
+    "choose_installment_option": "Scegli un'opzione di rateizzazione"
 }

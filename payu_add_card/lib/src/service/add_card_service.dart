@@ -8,6 +8,7 @@ import '../network/models/token_create_result.dart';
 
 mixin AddCardServiceDelegate {
   PaymentCard card();
+  CardTokenInstallments? cardInstallments();
   void validate();
 }
 
@@ -43,6 +44,7 @@ class AddCardService {
       preferred: false,
       status: CardTokenStatus.active,
       value: result.token,
+      cardInstallments: delegate.cardInstallments(),
     );
   }
 }
