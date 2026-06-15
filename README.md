@@ -75,6 +75,14 @@ Merchant Server - Payu Server means that call is made from merchant server to Pa
 * `Merchant Backend` send `OrderCreateRequest` with user details, products details and payment method details and return the result of `OrderCreateResponse` to `Merchant Mobile App` (see how to make `OrderCreateRequest` [here](https://developers.payu.com/en/restapi.html#creating_new_order)
 * `Merchant Mobile App` handle the result of `OrderCreateResponse` (see how to handle the result of `OrderCreateResponse` [here](payu_web_payments/)
 
+<a id="ui_customization"></a>
+
+## UI Customization
+
+Customize PayU UI with `Payu.theme` (`ThemeData`) to control colors, typography, inputs, cards, and buttons across all PayU screens.
+
+For full details and examples, see the [Theme Customization guide](payu_ui/THEME_CUSTOMIZATION.md).
+
 ## Additional information
 
 TODO: Tell users more about the package: where to find more information, how to 
