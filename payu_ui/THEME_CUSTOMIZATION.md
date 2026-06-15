@@ -95,6 +95,28 @@ Controls the appearance of `Card` containers used to display individual payment 
 
 ---
 
+### `chipTheme`
+
+Controls the appearance of `ChoiceChip`/`FilterChip` controls used in selectable option groups.
+
+**Default values:**
+
+| Property | Default | Description |
+|---|---|---|
+| `backgroundColor` | `#F7F7F7` | Unselected chip background |
+| `selectedColor` | `#F7F7F7` | Selected chip background (same fill as unselected) |
+| `labelStyle` | 12sp, `#3F3F3F` | Chip label text style |
+| `side` (default state) | 1 px `#E3E4E2` | Outline for non-selected state |
+| `side` (`WidgetState.selected`) | 1 px `#438F29` | Outline accent for selected state |
+| `shape` border radius | `8 px` | Rounded chip corners |
+
+The selected outline color is state-aware and resolved through `WidgetStateBorderSide.resolveWith`.
+
+**Features using `chipTheme`:**
+- Add Card Widget — installment option chips (`ChoiceChip`)
+
+---
+
 ### `dialogTheme`
 
 Controls the appearance of overlay dialogs (`AlertDialog`).
@@ -146,16 +168,16 @@ Controls all text styles. PayU components use only the slots listed below.
 
 **Default values:**
 
-| Slot | Font size | Color | Used in feature |
-|---|---|---|---|
+| Slot | Font size | Color | Used in feature                                                                       |
+|---|---|---|---------------------------------------------------------------------------------------|
+| `bodyLarge` | 16sp | `#3F3F3F` | Installments dropdown selected value and menu item labels in Add Card Widget          |
 | `titleSmall` | 14sp | `#777777` | Payment method name and "select payment method" placeholder in Payment Methods Widget |
-| `bodyMedium` | 14sp | `#777777` | Payment method description in Payment Methods Widget |
-| `bodySmall` | 14sp | `#777777` | "New card" label in Add Card Widget; Terms & Conditions text |
+| `bodyMedium` | 14sp | `#777777` | Payment method description in Payment Methods Widget                                  |
+| `bodySmall` | 14sp | `#777777` | Installment validation text style base; Terms & Conditions text                       |
 
-The remaining slots (`titleLarge`, `titleMedium`, `bodyLarge`, `labelLarge`, `labelSmall`) are defined in the default theme but are not currently consumed by any PayU widget.
+The remaining slots (`titleLarge`, `titleMedium`, `labelLarge`, `labelSmall`) are defined in the default theme but are not currently consumed by any PayU widget.
 
 **Features using `textTheme`:**
-- Add Card Widget — "New card" section header
 - Payment Methods Widget — payment method name and description
 - Terms & Conditions Widget — legal disclaimer text
 
@@ -181,6 +203,31 @@ The remaining slots (`titleLarge`, `titleMedium`, `bodyLarge`, `labelLarge`, `la
 - Payment Methods Widget — container background and arrow icon color
 - Terms & Conditions Widget — background and link text color
 - Web Payments Page — page background
+- Add Card Widget — installment validation text color (`colorScheme.error`)
+
+---
+
+### `ThemeDataFactory.dropdownTextStyle(...)`
+
+`ThemeDataFactory` exposes `dropdownTextStyle(ThemeColorsPallete)` as a convenience style for dropdown content consistency.
+
+**Default value:**
+
+| Property | Default | Description |
+|---|---|---|
+| `dropdownTextStyle` | `ThemeTextStyles.bodyText1.copyWith(color: secondaryGray1)` | Default text style for dropdown selected value and dropdown menu items |
+
+**Recommended usage:**
+
+```dart
+style: Theme.of(context).textTheme.bodyLarge,
+```
+
+or, when you build from the palette directly inside theme internals:
+
+```dart
+ThemeDataFactory.dropdownTextStyle(palette)
+```
 
 ---
 
@@ -427,6 +474,7 @@ void main() {
 - `AppBarTheme`: https://api.flutter.dev/flutter/material/AppBarTheme-class.html
 - `CardThemeData`: https://api.flutter.dev/flutter/material/CardThemeData-class.html
 - `DialogThemeData`: https://api.flutter.dev/flutter/material/DialogThemeData-class.html
+- `ChipThemeData`: https://api.flutter.dev/flutter/material/ChipThemeData-class.html
 - `InputDecorationTheme`: https://api.flutter.dev/flutter/material/InputDecorationTheme-class.html
 - `TextTheme`: https://api.flutter.dev/flutter/material/TextTheme-class.html
 
