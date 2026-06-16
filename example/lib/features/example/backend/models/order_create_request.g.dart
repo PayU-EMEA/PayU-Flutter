@@ -19,8 +19,9 @@ OrderCreateRequest _$OrderCreateRequestFromJson(Map<String, dynamic> json) =>
       products: (json['products'] as List<dynamic>)
           .map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
-      payMethods:
-          PayMethods.fromJson(json['payMethods'] as Map<String, dynamic>),
+      payMethods: PayMethods.fromJson(
+        json['payMethods'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$OrderCreateRequestToJson(OrderCreateRequest instance) =>

@@ -101,7 +101,7 @@ build:
 	scripts/build.sh payu_web_payments
 
 	scripts/build.sh payu
-	scripts/build.sh example
+#	scripts/build.sh example
 
 ## ➡️ analyze: Run `flutter analyze` for all Packages
 analyze:
