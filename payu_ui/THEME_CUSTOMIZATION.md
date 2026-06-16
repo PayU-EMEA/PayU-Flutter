@@ -241,14 +241,28 @@ The examples below show two completely different looks to illustrate how far the
 
 An off-white canvas with warm gold accents and deep navy secondary tones. Subtle borders, generous padding, and no elevation for a refined look.
 
-<img src="https://github.com/user-attachments/assets/fa8051bc-08c4-4415-a41b-02758ec163ed" alt="Elegant light / premium theme — screenshot 1" width="32%">
-<img src="https://github.com/user-attachments/assets/cfb9f79e-29df-4000-8649-18e626826153" alt="Elegant light / premium theme — screenshot 2" width="32%">
-<img src="https://github.com/user-attachments/assets/1b8c437d-f6df-4166-a6c5-6ab5a3dddc78" alt="Elegant light / premium theme — screenshot 3" width="32%">
+<img src="../assets/elegant_01.png" alt="Elegant light / premium theme — screenshot 1" width="32%">
+<img src="../assets/elegant_02.png" alt="Elegant light / premium theme — screenshot 2" width="32%">
+<img src="../assets/elegant_03.png" alt="Elegant light / premium theme — screenshot 3" width="32%">
 
 ```dart
 void main() {
   Payu.theme = ThemeData(
     brightness: Brightness.light,
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(0xFFF8F4EA),
+      selectedColor: const Color(0xFFB38A3D),
+      labelStyle: const TextStyle(color: Color(0xFF5C5C5C)),
+      side: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const BorderSide(color: Color(0xFFE7D7B1), width: 1.2);
+        }
+        return const BorderSide(color: Color(0xFFE7D7B1), width: 1.2);
+      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+      ),
+    ),
     scaffoldBackgroundColor: const Color(0xFFFCFBF7),
     colorScheme: const ColorScheme.light(
       primary: Color(0xFFB38A3D),
@@ -314,8 +328,6 @@ void main() {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFFB38A3D),
         foregroundColor: Colors.white,
-        elevation: 0,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -342,9 +354,9 @@ void main() {
 
 A very expressive style with a deep gradient base, extra-large rounded corners, strong shadows, vivid accents, custom typography, and bigger paddings.
 
-<img src="https://github.com/user-attachments/assets/4fcabad8-d401-478d-98b0-5fee31945bbb" alt="Playful gradient / glassmorphism theme — screenshot 1" width="32%">
-<img src="https://github.com/user-attachments/assets/03d6cf0c-2ec1-4c37-af6b-7a1a1c23ca1e" alt="Playful gradient / glassmorphism theme — screenshot 2" width="32%">
-<img src="https://github.com/user-attachments/assets/7c4a3a95-2cc8-4958-836c-f888532e29bb" alt="Playful gradient / glassmorphism theme — screenshot 3" width="32%">
+<img src="../assets/playful_01.png" alt="Playful gradient / glassmorphism theme — screenshot 1" width="32%">
+<img src="../assets/playful_02.png" alt="Playful gradient / glassmorphism theme — screenshot 2" width="32%">
+<img src="../assets/playful_03.png" alt="Playful gradient / glassmorphism theme — screenshot 3" width="32%">
 
 ```dart
 void main() {
@@ -352,6 +364,20 @@ void main() {
     useMaterial3: true,
     fontFamily: 'SpaceGrotesk',
     scaffoldBackgroundColor: const Color(0xFF120F2A),
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(0x662E275D),
+      selectedColor: const Color(0x8021D4FD),
+      labelStyle: const TextStyle(color: Color(0xFFF4F2FF)),
+      side: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const BorderSide(color: Color(0x55FFFFFF), width: 1.2);
+        }
+        return const BorderSide(color: Color(0x55FFFFFF), width: 1.2);
+      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
+    ),
     colorScheme: const ColorScheme.dark(
       primary: Color(0xFF7B61FF),
       secondary: Color(0xFF21D4FD),
@@ -366,7 +392,7 @@ void main() {
       elevation: 0,
       scrolledUnderElevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(0),
       ),
       titleTextStyle: const TextStyle(
         fontSize: 22,
@@ -380,14 +406,14 @@ void main() {
       elevation: 14,
       shadowColor: const Color(0x8021D4FD),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(0),
         side: const BorderSide(color: Color(0x66FFFFFF), width: 1.2),
       ),
     ),
     dialogTheme: DialogThemeData(
       backgroundColor: const Color(0xFF201A45),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(26),
+        borderRadius: BorderRadius.circular(0),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -401,19 +427,19 @@ void main() {
         fontWeight: FontWeight.w600,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0x44FFFFFF)),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0x55FFFFFF)),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0xFF21D4FD), width: 2.2),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0xFFFF5F7A), width: 1.8),
       ),
     ),
@@ -439,12 +465,10 @@ void main() {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF7B61FF),
         foregroundColor: Colors.white,
-        elevation: 8,
         shadowColor: const Color(0xFF7B61FF),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
     ),
@@ -452,9 +476,8 @@ void main() {
       style: OutlinedButton.styleFrom(
         foregroundColor: const Color(0xFF21D4FD),
         side: const BorderSide(color: Color(0xFF21D4FD), width: 1.5),
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
     ),
