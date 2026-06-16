@@ -24,6 +24,7 @@ class ThemeDataFactory {
       appBarTheme: _appBarTheme(pallete),
       buttonTheme: _buttonTheme(pallete),
       cardTheme: _cardTheme(pallete),
+      chipTheme: _chipTheme(pallete),
       dialogTheme: _dialogThemeData(pallete),
       inputDecorationTheme: _inputDecorationTheme(pallete),
       primaryColor: pallete.primary2,
@@ -64,6 +65,23 @@ class ThemeDataFactory {
       shadowColor: null,
       shape: RoundedRectangleBorder(
         side: _borderSide(color: pallete.secondaryGray3),
+        borderRadius: _borderRadius(),
+      ),
+    );
+  }
+
+  static ChipThemeData _chipTheme(ThemeColorsPallete pallete) {
+    return ChipThemeData(
+      backgroundColor: pallete.secondaryGray4,
+      selectedColor: pallete.secondaryGray4,
+      labelStyle: ThemeTextStyles.overline.copyWith(color: pallete.secondaryGray1),
+      side: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return _borderSide(color: pallete.primary2);
+        }
+        return _borderSide(color: pallete.secondaryGray3);
+      }),
+      shape: RoundedRectangleBorder(
         borderRadius: _borderRadius(),
       ),
     );
@@ -132,5 +150,9 @@ class ThemeDataFactory {
       labelLarge: ThemeTextStyles.button.copyWith(color: pallete.secondaryGray3),
       labelSmall: ThemeTextStyles.overline.copyWith(color: pallete.secondaryGray1),
     );
+  }
+
+  static TextStyle dropdownTextStyle(ThemeColorsPallete pallete) {
+    return ThemeTextStyles.bodyText1.copyWith(color: pallete.secondaryGray1);
   }
 }

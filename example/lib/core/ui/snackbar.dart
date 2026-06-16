@@ -8,5 +8,7 @@ void snackbar(String? message) {
   Get.rawSnackbar(
     message: message ?? 'null',
     animationDuration: const Duration(milliseconds: 250),
+    duration: const Duration(seconds: 30),
+    onTap: (_) => Get.closeCurrentSnackbar(),
   );
 }

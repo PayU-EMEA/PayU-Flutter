@@ -9,11 +9,15 @@ class PayMethod {
   final PayMethodType type;
   final String? value;
   final String? authorizationCode;
+  final String? installmentsProvider;
+  final int? installmentsNumber;
 
   const PayMethod({
     required this.type,
     this.value,
     this.authorizationCode,
+    this.installmentsProvider,
+    this.installmentsNumber,
   });
 
   factory PayMethod.fromJson(Map<String, dynamic> json) => _$PayMethodFromJson(json);

@@ -10,12 +10,16 @@ PayMethod _$PayMethodFromJson(Map<String, dynamic> json) => PayMethod(
       type: $enumDecode(_$PayMethodTypeEnumMap, json['type']),
       value: json['value'] as String?,
       authorizationCode: json['authorizationCode'] as String?,
+      installmentsProvider: json['installmentsProvider'] as String?,
+      installmentsNumber: (json['installmentsNumber'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PayMethodToJson(PayMethod instance) => <String, dynamic>{
       'type': _$PayMethodTypeEnumMap[instance.type]!,
       'value': instance.value,
       'authorizationCode': instance.authorizationCode,
+      'installmentsProvider': instance.installmentsProvider,
+      'installmentsNumber': instance.installmentsNumber,
     };
 
 const _$PayMethodTypeEnumMap = {

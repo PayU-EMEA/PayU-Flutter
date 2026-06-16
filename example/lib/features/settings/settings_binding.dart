@@ -10,6 +10,6 @@ class SettingsBinding implements Bindings {
     Get.put(SettingsCurrenciesController(Get.find()));
     Get.put(SettingsEnvironmentsController(Get.find()));
     Get.put(SettingsLanguagesController(Get.find()));
-    Get.put(SettingsController(Get.find(), Get.find(), Get.find()));
+    Get.put(SettingsController(Get.find(), Get.find(), Get.find(), Get.find()));
   }
 }

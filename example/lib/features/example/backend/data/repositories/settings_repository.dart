@@ -19,6 +19,7 @@ class SettingsRepository {
 
   String get currencyCode => _db.currencyCode;
   String get languageCode => _db.languageCode;
+  bool get cardInstallments => _db.cardInstallments;
 
   Future<void> setAccessToken(String value) => _db.setAccessToken(value);
   Future<void> setGrantType(GrantType value) => _db.setGrantType(value);
@@ -29,6 +30,7 @@ class SettingsRepository {
 
   Future<void> setCurrencyCode(String value) => _db.setCurrencyCode(value);
   Future<void> setLanguageCode(String value) => _db.setLanguageCode(value).then((e) => p.Payu.locale = Locale(value));
+  Future<void> setCardInstallments(bool value) => _db.setCardInstallments(value).then((e) => p.Payu.cardInstallments = value);
 
   List<String> getCurrencies() => _db.getCurrencies();
   List<String> getLanguages() => _db.getLanguages();

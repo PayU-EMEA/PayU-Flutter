@@ -22,7 +22,6 @@
     "fast_online_transfer": "ātrs tiešsaistes pārskaitījums",
     "i_accept": "Es piekrītu",
     "MM/YY": "MM/GG",
-    "new_card": "Jauna karte",
     "no_stay_on_one_payment_page": "Nē, palikt atsevišķajā maksājumu lapā",
     "no_thanks": "Nē, paldies",
     "one_tap_payment": "viena pieskāriena maksājums",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "izmantojiet kodu no savas bankas lietotnes",
     "yes_go_back": "Jā, doties atpakaļ",
     "your_connection_is_not_secure": "Jūsu savienojums nav drošs",
-    "your_payment_will_be_canceled_continue": "Jūsu maksājums tiks atcelts. Turpināt?"
+    "your_payment_will_be_canceled_continue": "Jūsu maksājums tiks atcelts. Turpināt?",
+    "installment_options": "Maksājumu pa daļām opcijas",
+    "installments_none": "Nav",
+    "installments_one": "{0} iemaksa",
+    "installments_two": "{0} iemaksas",
+    "installments_few": "{0} iemaksas",
+    "installments_many": "{0} iemaksas",
+    "choose_installment_option": "Izvēlieties maksājumu pa daļām opciju"
 }

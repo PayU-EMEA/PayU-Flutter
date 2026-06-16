@@ -22,7 +22,6 @@
     "fast_online_transfer": "fast online transfer",
     "i_accept": "I accept",
     "MM/YY": "MM/YY",
-    "new_card": "New card",
     "no_stay_on_one_payment_page": "No, stay on one payment page",
     "no_thanks": "No, thanks",
     "one_tap_payment": "one-tap payment",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "use code from your bank app",
     "yes_go_back": "Yes, go back",
     "your_connection_is_not_secure": "Your connection is not secure",
-    "your_payment_will_be_canceled_continue": "Your payment will be canceled. Continue?"
+    "your_payment_will_be_canceled_continue": "Your payment will be canceled. Continue?",
+    "installment_options": "Installment options",
+    "installments_none": "None",
+    "installments_one": "{0} installment",
+    "installments_two": "{0} installments",
+    "installments_few": "{0} installments",
+    "installments_many": "{0} installments",
+    "choose_installment_option": "Choose the installment option"
 }

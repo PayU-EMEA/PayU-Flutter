@@ -22,7 +22,6 @@
     "fast_online_transfer": "ταχεία online μεταφορά χρημάτων",
     "i_accept": "Αποδέχομαι",
     "MM/YY": "ΜΜ/ΕΕ",
-    "new_card": "Νέα κάρτα",
     "no_stay_on_one_payment_page": "Όχι, παραμονή στη σελίδα πληρωμής",
     "no_thanks": "Όχι, ευχαριστώ",
     "one_tap_payment": "πληρωμή με ένα πάτημα",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "χρήση κωδικού από την εφαρμογή της τράπεζας",
     "yes_go_back": "Ναι, επιστροφή",
     "your_connection_is_not_secure": "Η σύνδεσή σας δεν είναι ασφαλής",
-    "your_payment_will_be_canceled_continue": "Οι πληρωμές σας θα ακυρωθούν. Θέλετε να συνεχίσετε;"
+    "your_payment_will_be_canceled_continue": "Οι πληρωμές σας θα ακυρωθούν. Θέλετε να συνεχίσετε;",
+    "installment_options": "Επιλογές δόσεων",
+    "installments_none": "Καμία",
+    "installments_one": "{0} δόση",
+    "installments_two": "{0} δόσεις",
+    "installments_few": "{0} δόσεις",
+    "installments_many": "{0} δόσεις",
+    "choose_installment_option": "Επιλέξτε επιλογή δόσεων"
 }

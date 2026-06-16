@@ -9,6 +9,7 @@ export 'src/helpers/payu_uri_launcher.dart';
 export 'src/interface/payu_interface_debug.dart';
 export 'src/interface/payu_interface_environment.dart';
 export 'src/interface/payu_interface_pos.dart';
+export 'src/interface/payu_interface_card_installments.dart';
 export 'src/models/brand_image_provider.dart';
 export 'src/models/environment.dart';
 export 'src/models/payment_methods/apple_pay.dart';

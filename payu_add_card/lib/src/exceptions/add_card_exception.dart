@@ -12,6 +12,7 @@ class AddCardException implements Exception {
   factory AddCardException.invalidCVV() => const AddCardException._('enter_valid_cvv');
   factory AddCardException.invalidDate() => const AddCardException._('enter_valid_card_date');
   factory AddCardException.invalidNumber() => const AddCardException._('enter_valid_card_number');
+  factory AddCardException.noSelectInstallmentOption() => const AddCardException._('choose_installment_option');
 
   @override
   String toString() => message.translated();

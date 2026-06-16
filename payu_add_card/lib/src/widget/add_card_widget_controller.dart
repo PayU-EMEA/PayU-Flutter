@@ -1,10 +1,13 @@
 import 'package:payu_core/payu_core.dart';
 import 'package:payu_state_management/payu_state_management.dart';
-
 import 'package:payu_add_card/payu_add_card.dart';
+
+import '../network/client/card_installments_network_client.dart';
 import '../finders/payment_card_provider_finder.dart';
+import '../helpers/installments_label.dart';
 import '../models/payment_card.dart';
 import '../models/payment_card_provider.dart';
+import 'card_installments_controller.dart';
 import 'widgets/add_card_text_field_controller.dart';
 
 class AddCardWidgetController extends PayuController with AddCardServiceDelegate {
@@ -14,6 +17,7 @@ class AddCardWidgetController extends PayuController with AddCardServiceDelegate
 
   final AddCardService _service;
   final PaymentCardProviderFinder _finder;
+  late final CardInstallmentsController installments;
 
   PaymentCardProvider? cardProvider;
 
@@ -23,7 +27,13 @@ class AddCardWidgetController extends PayuController with AddCardServiceDelegate
     this.numberController,
     this._service,
     this._finder,
-  );
+    CardInstallmentsNetworkClient cardInstallmentsClient,
+  ) {
+    installments = CardInstallmentsController(
+      client: cardInstallmentsClient,
+      onChanged: notifyListeners,
+    );
+  }
 
   @override
   void onInit() {
@@ -35,7 +45,11 @@ class AddCardWidgetController extends PayuController with AddCardServiceDelegate
   }
 
   void _numberDidChange() {
-    cardProvider = _finder.find(numberController.textEditingController.text);
+    final number = numberController.textEditingController.text;
+    cardProvider = _finder.find(number);
+    if (Payu.cardInstallments) {
+      installments.didUpdateDigits(number.digitsOnly);
+    }
     notifyListeners();
   }
 
@@ -51,15 +65,38 @@ class AddCardWidgetController extends PayuController with AddCardServiceDelegate
   }
 
   @override
+  CardTokenInstallments? cardInstallments() {
+    final provider = installments.cardInstallmentsOptions?.provider;
+    final number = installments.selectedNumber;
+
+    if (provider == null || number == null || number == 1) {
+      return null;
+    }
+
+    return CardTokenInstallments(
+      provider: provider,
+      number: number,
+      numberLabel: InstallmentsLabel.build(number),
+    );
+  }
+
+  @override
   void validate() {
     try {
       cvvController.prevalidate();
       dateController.prevalidate();
       numberController.prevalidate();
+      if (Payu.cardInstallments) {
+        installments.prevalidate();
+      }
 
       cvvController.validate();
       dateController.validate();
       numberController.validate();
+      if (Payu.cardInstallments) {
+        installments.validate();
+      }
+
     } catch (e) {
       rethrow;
     }

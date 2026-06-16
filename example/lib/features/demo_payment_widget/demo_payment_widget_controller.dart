@@ -91,7 +91,7 @@ class DemoPaymentWidgetController extends GetxController with StateMixin {
   }
 
   void _processCardTokenPayment(CardToken value) {
-    _processPayment(PayMethod(type: PayMethodType.cardToken, value: value.value));
+    _processPayment(PayMethod(type: PayMethodType.cardToken, value: value.value, installmentsProvider: value.cardInstallments?.provider, installmentsNumber: value.cardInstallments?.number));
   }
 
   void _processGooglePayPayment(GooglePay value) {

@@ -7,6 +7,7 @@ import '../helpers/card_data_validator.dart';
 import '../helpers/card_date_parser.dart';
 import '../helpers/card_luhn_validator.dart';
 import '../network/client/add_card_network_client.dart';
+import '../network/client/card_installments_network_client.dart';
 import '../service/add_card_service.dart';
 import 'add_card_widget_controller.dart';
 import 'widgets/add_card_text_field_controller.dart';
@@ -32,13 +33,14 @@ class AddCardWidgetAssembler extends PayuAssembler {
 
     register(() => SecureHttpClient.create());
     register(() => AddCardNetworkClient(find()));
+    register(() => CardInstallmentsNetworkClient(find()));
     register(() => AddCardService(find(), find()));
 
     register(() => AddCardTextFieldController(find(name: 'v.cvv'), find(name: 'f.cvv')), name: 'c');
     register(() => AddCardTextFieldController(find(name: 'v.date'), find(name: 'f.date')), name: 'd');
     register(() => AddCardTextFieldController(find(name: 'v.number'), find(name: 'f.number')), name: 'n');
 
-    register(() => AddCardWidgetController(find(name: 'c'), find(name: 'd'), find(name: 'n'), find(), find()));
+    register(() => AddCardWidgetController(find(name: 'c'), find(name: 'd'), find(name: 'n'), find(), find(), find()));
 
     onAssembled(this);
 
@@ -61,6 +63,7 @@ class AddCardWidgetAssembler extends PayuAssembler {
 
     unregister<SecureHttpClient>();
     unregister<AddCardNetworkClient>();
+    unregister<CardInstallmentsNetworkClient>();
     unregister<AddCardService>();
 
     unregister<AddCardTextFieldController>(name: 'c');

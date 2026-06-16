@@ -95,6 +95,28 @@ Controls the appearance of `Card` containers used to display individual payment 
 
 ---
 
+### `chipTheme`
+
+Controls the appearance of `ChoiceChip`/`FilterChip` controls used in selectable option groups.
+
+**Default values:**
+
+| Property | Default | Description |
+|---|---|---|
+| `backgroundColor` | `#F7F7F7` | Unselected chip background |
+| `selectedColor` | `#F7F7F7` | Selected chip background (same fill as unselected) |
+| `labelStyle` | 12sp, `#3F3F3F` | Chip label text style |
+| `side` (default state) | 1 px `#E3E4E2` | Outline for non-selected state |
+| `side` (`WidgetState.selected`) | 1 px `#438F29` | Outline accent for selected state |
+| `shape` border radius | `8 px` | Rounded chip corners |
+
+The selected outline color is state-aware and resolved through `WidgetStateBorderSide.resolveWith`.
+
+**Features using `chipTheme`:**
+- Add Card Widget — installment option chips (`ChoiceChip`)
+
+---
+
 ### `dialogTheme`
 
 Controls the appearance of overlay dialogs (`AlertDialog`).
@@ -146,16 +168,16 @@ Controls all text styles. PayU components use only the slots listed below.
 
 **Default values:**
 
-| Slot | Font size | Color | Used in feature |
-|---|---|---|---|
+| Slot | Font size | Color | Used in feature                                                                       |
+|---|---|---|---------------------------------------------------------------------------------------|
+| `bodyLarge` | 16sp | `#3F3F3F` | Installments dropdown selected value and menu item labels in Add Card Widget          |
 | `titleSmall` | 14sp | `#777777` | Payment method name and "select payment method" placeholder in Payment Methods Widget |
-| `bodyMedium` | 14sp | `#777777` | Payment method description in Payment Methods Widget |
-| `bodySmall` | 14sp | `#777777` | "New card" label in Add Card Widget; Terms & Conditions text |
+| `bodyMedium` | 14sp | `#777777` | Payment method description in Payment Methods Widget                                  |
+| `bodySmall` | 14sp | `#777777` | Installment validation text style base; Terms & Conditions text                       |
 
-The remaining slots (`titleLarge`, `titleMedium`, `bodyLarge`, `labelLarge`, `labelSmall`) are defined in the default theme but are not currently consumed by any PayU widget.
+The remaining slots (`titleLarge`, `titleMedium`, `labelLarge`, `labelSmall`) are defined in the default theme but are not currently consumed by any PayU widget.
 
 **Features using `textTheme`:**
-- Add Card Widget — "New card" section header
 - Payment Methods Widget — payment method name and description
 - Terms & Conditions Widget — legal disclaimer text
 
@@ -181,6 +203,31 @@ The remaining slots (`titleLarge`, `titleMedium`, `bodyLarge`, `labelLarge`, `la
 - Payment Methods Widget — container background and arrow icon color
 - Terms & Conditions Widget — background and link text color
 - Web Payments Page — page background
+- Add Card Widget — installment validation text color (`colorScheme.error`)
+
+---
+
+### `ThemeDataFactory.dropdownTextStyle(...)`
+
+`ThemeDataFactory` exposes `dropdownTextStyle(ThemeColorsPallete)` as a convenience style for dropdown content consistency.
+
+**Default value:**
+
+| Property | Default | Description |
+|---|---|---|
+| `dropdownTextStyle` | `ThemeTextStyles.bodyText1.copyWith(color: secondaryGray1)` | Default text style for dropdown selected value and dropdown menu items |
+
+**Recommended usage:**
+
+```dart
+style: Theme.of(context).textTheme.bodyLarge,
+```
+
+or, when you build from the palette directly inside theme internals:
+
+```dart
+ThemeDataFactory.dropdownTextStyle(palette)
+```
 
 ---
 
@@ -194,14 +241,28 @@ The examples below show two completely different looks to illustrate how far the
 
 An off-white canvas with warm gold accents and deep navy secondary tones. Subtle borders, generous padding, and no elevation for a refined look.
 
-<img src="https://github.com/user-attachments/assets/fa8051bc-08c4-4415-a41b-02758ec163ed" alt="Elegant light / premium theme — screenshot 1" width="32%">
-<img src="https://github.com/user-attachments/assets/cfb9f79e-29df-4000-8649-18e626826153" alt="Elegant light / premium theme — screenshot 2" width="32%">
-<img src="https://github.com/user-attachments/assets/1b8c437d-f6df-4166-a6c5-6ab5a3dddc78" alt="Elegant light / premium theme — screenshot 3" width="32%">
+<img src="../assets/elegant_01.png" alt="Elegant light / premium theme — screenshot 1" width="32%">
+<img src="../assets/elegant_02.png" alt="Elegant light / premium theme — screenshot 2" width="32%">
+<img src="../assets/elegant_03.png" alt="Elegant light / premium theme — screenshot 3" width="32%">
 
 ```dart
 void main() {
   Payu.theme = ThemeData(
     brightness: Brightness.light,
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(0xFFF8F4EA),
+      selectedColor: const Color(0xFFB38A3D),
+      labelStyle: const TextStyle(color: Color(0xFF5C5C5C)),
+      side: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const BorderSide(color: Color(0xFFE7D7B1), width: 1.2);
+        }
+        return const BorderSide(color: Color(0xFFE7D7B1), width: 1.2);
+      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+      ),
+    ),
     scaffoldBackgroundColor: const Color(0xFFFCFBF7),
     colorScheme: const ColorScheme.light(
       primary: Color(0xFFB38A3D),
@@ -267,8 +328,6 @@ void main() {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFFB38A3D),
         foregroundColor: Colors.white,
-        elevation: 0,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -295,9 +354,9 @@ void main() {
 
 A very expressive style with a deep gradient base, extra-large rounded corners, strong shadows, vivid accents, custom typography, and bigger paddings.
 
-<img src="https://github.com/user-attachments/assets/4fcabad8-d401-478d-98b0-5fee31945bbb" alt="Playful gradient / glassmorphism theme — screenshot 1" width="32%">
-<img src="https://github.com/user-attachments/assets/03d6cf0c-2ec1-4c37-af6b-7a1a1c23ca1e" alt="Playful gradient / glassmorphism theme — screenshot 2" width="32%">
-<img src="https://github.com/user-attachments/assets/7c4a3a95-2cc8-4958-836c-f888532e29bb" alt="Playful gradient / glassmorphism theme — screenshot 3" width="32%">
+<img src="../assets/playful_01.png" alt="Playful gradient / glassmorphism theme — screenshot 1" width="32%">
+<img src="../assets/playful_02.png" alt="Playful gradient / glassmorphism theme — screenshot 2" width="32%">
+<img src="../assets/playful_03.png" alt="Playful gradient / glassmorphism theme — screenshot 3" width="32%">
 
 ```dart
 void main() {
@@ -305,6 +364,20 @@ void main() {
     useMaterial3: true,
     fontFamily: 'SpaceGrotesk',
     scaffoldBackgroundColor: const Color(0xFF120F2A),
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(0x662E275D),
+      selectedColor: const Color(0x8021D4FD),
+      labelStyle: const TextStyle(color: Color(0xFFF4F2FF)),
+      side: WidgetStateBorderSide.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const BorderSide(color: Color(0x55FFFFFF), width: 1.2);
+        }
+        return const BorderSide(color: Color(0x55FFFFFF), width: 1.2);
+      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
+    ),
     colorScheme: const ColorScheme.dark(
       primary: Color(0xFF7B61FF),
       secondary: Color(0xFF21D4FD),
@@ -319,7 +392,7 @@ void main() {
       elevation: 0,
       scrolledUnderElevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(0),
       ),
       titleTextStyle: const TextStyle(
         fontSize: 22,
@@ -333,14 +406,14 @@ void main() {
       elevation: 14,
       shadowColor: const Color(0x8021D4FD),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(0),
         side: const BorderSide(color: Color(0x66FFFFFF), width: 1.2),
       ),
     ),
     dialogTheme: DialogThemeData(
       backgroundColor: const Color(0xFF201A45),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(26),
+        borderRadius: BorderRadius.circular(0),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -354,19 +427,19 @@ void main() {
         fontWeight: FontWeight.w600,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0x44FFFFFF)),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0x55FFFFFF)),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0xFF21D4FD), width: 2.2),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(0),
         borderSide: const BorderSide(color: Color(0xFFFF5F7A), width: 1.8),
       ),
     ),
@@ -392,12 +465,10 @@ void main() {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF7B61FF),
         foregroundColor: Colors.white,
-        elevation: 8,
         shadowColor: const Color(0xFF7B61FF),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
     ),
@@ -405,9 +476,8 @@ void main() {
       style: OutlinedButton.styleFrom(
         foregroundColor: const Color(0xFF21D4FD),
         side: const BorderSide(color: Color(0xFF21D4FD), width: 1.5),
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(0),
         ),
       ),
     ),
@@ -427,6 +497,7 @@ void main() {
 - `AppBarTheme`: https://api.flutter.dev/flutter/material/AppBarTheme-class.html
 - `CardThemeData`: https://api.flutter.dev/flutter/material/CardThemeData-class.html
 - `DialogThemeData`: https://api.flutter.dev/flutter/material/DialogThemeData-class.html
+- `ChipThemeData`: https://api.flutter.dev/flutter/material/ChipThemeData-class.html
 - `InputDecorationTheme`: https://api.flutter.dev/flutter/material/InputDecorationTheme-class.html
 - `TextTheme`: https://api.flutter.dev/flutter/material/TextTheme-class.html
 

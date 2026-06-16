@@ -22,7 +22,6 @@
     "fast_online_transfer": "швидкий онлайн переказ",
     "i_accept": "Я приймаю",
     "MM/YY": "MM/РР",
-    "new_card": "Нова картка",
     "no_stay_on_one_payment_page": "Ні, залишитися на сторінці оплати",
     "no_thanks": "Ні, дякую",
     "one_tap_payment": "оплата в один клік",
@@ -39,4 +38,11 @@
     "yes_go_back": "Так, повернутися",
     "your_connection_is_not_secure": "Ваше з'єднання не безпечне",
     "your_payment_will_be_canceled_continue": "Якщо Ви не здійснили платіж, ваша транзакція буде скасована. Продовжити?",
+    "installment_options": "Варіанти розстрочки",
+    "installments_none": "Немає",
+    "installments_one": "{0} платіж",
+    "installments_two": "{0} платежі",
+    "installments_few": "{0} платежі",
+    "installments_many": "{0} платежів",
+    "choose_installment_option": "Виберіть варіант розстрочки"
 }

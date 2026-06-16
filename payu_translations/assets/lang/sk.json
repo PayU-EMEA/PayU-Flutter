@@ -22,7 +22,6 @@
     "fast_online_transfer": "rýchly online prevod",
     "i_accept": "Súhlasím",
     "MM/YY": "MM/RR",
-    "new_card": "Nová karta",
     "no_stay_on_one_payment_page": "Nie, zostaňte na stránke s platbami",
     "no_thanks": "Nie, ďakujem",
     "one_tap_payment": "platba jedným klepnutím",
@@ -38,5 +37,12 @@
     "use_code_from_your_bank_app": "použite kód z aplikácie vašej banky",
     "yes_go_back": "Áno, návrat späť",
     "your_connection_is_not_secure": "Vaše pripojenie nie je zabezpečené",
-    "your_payment_will_be_canceled_continue": "Vaša platba sa zruší. Pokračovať?"
+    "your_payment_will_be_canceled_continue": "Vaša platba sa zruší. Pokračovať?",
+    "installment_options": "Možnosti splátok",
+    "installments_none": "Žiadne",
+    "installments_one": "{0} splátka",
+    "installments_two": "{0} splátky",
+    "installments_few": "{0} splátky",
+    "installments_many": "{0} splátok",
+    "choose_installment_option": "Vyberte možnosť splátok"
 }

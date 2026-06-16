@@ -19,6 +19,15 @@ class AddCardPage extends StatefulWidget {
 }
 
 class _AddCardPageState extends State<AddCardPage> with AddCardPageControllerDelegate {
+  bool _isInstallmentsLoading = false;
+
+  void _didUpdateInstallmentsLoading(bool value) {
+    if (_isInstallmentsLoading == value) return;
+    setState(() {
+      _isInstallmentsLoading = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return PayuWidget<AddCardPageController, AddCardPageAssembler>(
@@ -43,6 +52,7 @@ class _AddCardPageState extends State<AddCardPage> with AddCardPageControllerDel
                     AddCardWidget(
                       onCreated: (service) => controller.didUpdateService(service),
                       configuration: AddCardWidgetConfiguration.payu(),
+                      onInstallmentsLoadingChanged: _didUpdateInstallmentsLoading,
                     ),
                     const SizedBox(
                       height: PayuPadding.padding32,
@@ -50,14 +60,14 @@ class _AddCardPageState extends State<AddCardPage> with AddCardPageControllerDel
                     SizedBox(
                       width: double.maxFinite,
                       child: ElevatedButton(
-                        onPressed: () => controller.tokenize(true),
+                        onPressed: _isInstallmentsLoading ? null : () => controller.tokenize(true),
                         child: Text('save_and_use'.translated()),
                       ),
                     ),
                     SizedBox(
                       width: double.maxFinite,
                       child: OutlinedButton(
-                        onPressed: () => controller.tokenize(false),
+                        onPressed: _isInstallmentsLoading ? null : () => controller.tokenize(false),
                         child: Text('use'.translated()),
                       ),
                     ),

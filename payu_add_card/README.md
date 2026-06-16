@@ -1,10 +1,11 @@
 ## Features
 
-Flutter package which allows to tokenize cards via Payu.
+Flutter package which allows to tokenize cards via PayU.
 
 * [AddCardService](#add_card_service)
 * [AddCardPage](#add_card_page)
 * [AddCardWidget](#add_card_widget)
+* [Card Installments](#card_token_installments)
 
 ## Getting started
 
@@ -214,9 +215,161 @@ class _HomePageState extends State<HomePage> {
 | ----------- | ----------- | ----------- |
 |![](docs/screenshots/payu_add_card_widget_1.png)|![](docs/screenshots/payu_add_card_widget_2.png)|![](docs/screenshots/payu_add_card_widget_3.png)|
 
+---
 
-## Additional information
+<a id="card_token_installments"></a>
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Card Installments
+
+> ⚠️ **Only for Romanian Market**
+
+`AddCardWidget` and `AddCardPage` support displaying installment options for cards that are eligible for installment payments. When a user enters a card number, the widget automatically fetches available installment options from the PayU API based on the first 10 digits (BIN) of the card number.
+
+If installment options are available, the widget displays a selection UI (chips or dropdown, depending on the number of options). The user must select an option before tokenization can proceed.
+
+The selected installment data is returned as part of `CardToken` in the `cardInstallments` field.
+
+### Enabling card installments
+
+Card installments must be explicitly enabled via `Payu.cardInstallments`:
+
+```dart
+Payu.cardInstallments = true;
+```
+
+
+### onInstallmentsLoadingChanged
+
+`AddCardWidget` exposes an optional `onInstallmentsLoadingChanged` callback that is called whenever the widget starts (`true`) or finishes (`false`) fetching installment options from the PayU API. Use it to block action buttons while the request is in progress:
+
+```dart
+bool _isLoading = false;
+
+AddCardWidget(
+  configuration: ...,
+  onCreated: (service) => _service = service,
+  onInstallmentsLoadingChanged: (isLoading) {
+    setState(() => _isLoading = isLoading);
+  },
+),
+TextButton(
+  onPressed: _isLoading ? null : () => _tokenize(false),
+  child: const Text('💚 Use'),
+),
+```
+
+### CardTokenInstallments model
+
+When a user selects an installment option, the tokenized `CardToken` contains a `cardInstallments` field of type `CardTokenInstallments`:
+
+```dart
+class CardTokenInstallments {
+  final String provider; // installment provider identifier
+  final int number;      // selected number of installments
+}
+```
+
+### Example result
+
+```dart
+final result = await _service.tokenize(false);
+
+// result.cardToken.cardInstallments may contain:
+// CardTokenInstallments(provider: 'UNICREDIT', number: 6)
+```
+
+
+### Usage
+
+```dart
+void main() {
+  Payu.debug = true;
+  Payu.cardInstallments = true;
+  Payu.locale = const Locale('en');
+  Payu.environment = Environment.sandbox;
+  Payu.pos = const POS(id: '300746');
+
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    ),
+  );
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late AddCardService _service;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: Payu.theme,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Home'),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(32),
+                  child: Text('Awesome Widget'),
+                ),
+                AddCardWidget(
+                  configuration: AddCardWidgetConfiguration(
+                    cvvDecoration: const AddCardWidgetTextInputDecoration(
+                      hintText: 'Awesome cvv hint',
+                    ),
+                    dateDecoration: const AddCardWidgetTextInputDecoration(
+                      hintText: 'Awesome date hint',
+                    ),
+                    numberDecoration: const AddCardWidgetTextInputDecoration(
+                      hintText: 'Awesome number hint',
+                    ),
+                    isFooterVisible: false,
+                  ),
+                  onCreated: (service) => _service = service,
+                  onInstallmentsLoadingChanged: (isLoading) {
+                    setState(() => _isLoading = isLoading);
+                  },
+                ),
+                TextButton(
+                  onPressed: _isLoading ? null : () => _tokenize(false),
+                  child: const Text('💚 Use'),
+                ),
+                TextButton(
+                  onPressed: _isLoading ? null : () => _tokenize(true),
+                  child: const Text('💛 Save and Use'),
+                ),
+                const TermsAndConditionsWidget(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _tokenize(bool save) async {
+    final result = await _service.tokenize(false);
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('CardPaymentMethod'),
+        content: Text(result.toString()),
+      ),
+    );
+  }
+}
+```

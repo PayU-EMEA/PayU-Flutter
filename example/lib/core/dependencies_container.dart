@@ -108,6 +108,7 @@ class DependenciesContainer {
     Payu.pos = POS(id: clientId);
     Payu.environment = environment.toPayu();
     Payu.locale = Locale(repository.languageCode);
+    Payu.cardInstallments = repository.cardInstallments;
   }
 
   static Future<Box> _initBox(String name) async {
