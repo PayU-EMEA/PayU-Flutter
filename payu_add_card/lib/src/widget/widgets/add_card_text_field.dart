@@ -39,6 +39,7 @@ class AddCardTextField extends StatelessWidget {
                 FilteringTextInputFormatter.digitsOnly,
                 controller.formatter,
               ],
+              autofillHints: [controller.formatter.autofill],
               keyboardType: TextInputType.number,
             ),
           ),

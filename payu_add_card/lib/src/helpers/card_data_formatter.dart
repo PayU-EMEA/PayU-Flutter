@@ -3,19 +3,20 @@ import 'package:flutter/services.dart';
 class CardDataFormatter extends TextInputFormatter {
   final String mask;
   final String separator;
+  final String autofill;
 
-  CardDataFormatter._({required this.mask, required this.separator});
+  CardDataFormatter._({required this.mask, required this.separator, required this.autofill});
 
   factory CardDataFormatter.cvv() {
-    return CardDataFormatter._(mask: 'xxx', separator: '');
+    return CardDataFormatter._(mask: 'xxx', separator: '', autofill: AutofillHints.creditCardSecurityCode);
   }
 
   factory CardDataFormatter.date() {
-    return CardDataFormatter._(mask: 'xx/xxxx', separator: '/');
+    return CardDataFormatter._(mask: 'xx/xxxx', separator: '/', autofill: AutofillHints.creditCardExpirationDate);
   }
 
   factory CardDataFormatter.number() {
-    return CardDataFormatter._(mask: 'xxxx xxxx xxxx xxxx xxx', separator: ' ');
+    return CardDataFormatter._(mask: 'xxxx xxxx xxxx xxxx xxx', separator: ' ', autofill: AutofillHints.creditCardNumber);
   }
 
   @override
