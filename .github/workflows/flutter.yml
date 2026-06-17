@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        flutter: [ '3.32.8', '3.35.7', '3.38.8' ]
+        flutter: [ '3.32.8', '3.35.7', '3.38.10', '3.41.9', '3.44.2' ]
     name: Build and Test on Flutter ${{ matrix.flutter }}
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up Flutter ${{ matrix.flutter }}
         uses: subosito/flutter-action@v2
@@ -31,9 +31,6 @@ jobs:
         run: make setup
 
       - name: Build
-        run: make build
-
-      - name: Build & Analyze
         run: make build
 
       - name: Tests

@@ -7,8 +7,6 @@ import 'package:dio/io.dart';
 import 'package:example/data/local/environments_db.dart';
 import 'package:example/data/local/secure_db.dart';
 import 'package:example/data/models/environment.dart';
-import 'package:example/data/models/environment_model.dart';
-import 'package:example/data/models/grant_type.dart';
 import 'package:example/data/repositories/data_repository.dart';
 import 'package:example/data/repositories/environments_repository.dart';
 import 'package:example/data/repositories/secure_storage.dart';
@@ -21,7 +19,7 @@ import 'package:example/features/example/backend/data/local/setting_db.dart';
 import 'package:example/features/example/backend/data/repositories/backend_repository.dart';
 import 'package:example/features/example/backend/data/repositories/settings_repository.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:payu/payu.dart';
 
 class DependenciesContainer {
@@ -33,12 +31,10 @@ class DependenciesContainer {
     await _initPayu();
   }
 
-  static Future _initCore() async {
-    await Hive.initFlutter();
+  static late SharedPreferences _prefs;
 
-    Hive.registerAdapter(EnvironmentAdapter());
-    Hive.registerAdapter(EnvironmentModelAdapter());
-    Hive.registerAdapter(GrantTypeAdapter());
+  static Future _initCore() async {
+    _prefs = await SharedPreferences.getInstance();
   }
 
   static Future _initBackendDependencies() async {
@@ -71,19 +67,15 @@ class DependenciesContainer {
     Get.put(dio, permanent: true);
     Get.put(Api(Get.find()), permanent: true);
 
-    final box = await _initBox(SettingsDb.tag);
-    Get.put(SettingsDb(box), permanent: true);
+    Get.put(SettingsDb(_prefs), permanent: true);
 
     Get.put(SettingsRepository(Get.find()), permanent: true);
     Get.put(BackendRepository(Get.find(), Get.find()), permanent: true);
   }
 
   static Future _initProjectDependencies() async {
-    final environmentsDbBox = await _initBox(EnvironmentsDb.tag);
-    Get.put(EnvironmentsDb(environmentsDbBox), permanent: true);
-
-    final settingsDbBox = await _initBox(SecureDb.tag);
-    Get.put(SecureDb(settingsDbBox), permanent: true);
+    Get.put(EnvironmentsDb(_prefs), permanent: true);
+    Get.put(SecureDb(_prefs), permanent: true);
 
     Get.put(DataRepository(Get.find()), permanent: true);
     Get.put(EnvironmentsRepository(Get.find(), Get.find()), permanent: true);
@@ -109,14 +101,5 @@ class DependenciesContainer {
     Payu.environment = environment.toPayu();
     Payu.locale = Locale(repository.languageCode);
     Payu.cardInstallments = repository.cardInstallments;
-  }
-
-  static Future<Box> _initBox(String name) async {
-    try {
-      return Hive.openBox(name);
-    } catch (e) {
-      await Hive.deleteBoxFromDisk(name);
-      return Hive.openBox(name);
-    }
   }
 }

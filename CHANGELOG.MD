@@ -1,3 +1,9 @@
+## 1.2.0
+* Added card installments for Romania market
+* Switched tokenize and save cvv endpoints
+* Added SDK version to tokenize query
+* Compatibility with Dart 3.11, 3.12
+
 ## 1.1.0
 * Min Dart version 3.8
 * Compatibility with Dart 3.8, 3.9, 3.10

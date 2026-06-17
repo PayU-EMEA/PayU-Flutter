@@ -6,6 +6,8 @@ import 'package:get/route_manager.dart';
 import 'package:payu/payu.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await DependenciesContainer.init();
 
   Payu.debug = true;

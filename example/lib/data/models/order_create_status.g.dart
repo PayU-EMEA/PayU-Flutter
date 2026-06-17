@@ -8,8 +8,10 @@ part of 'order_create_status.dart';
 
 OrderCreateStatus _$OrderCreateStatusFromJson(Map<String, dynamic> json) =>
     OrderCreateStatus(
-      statusCode:
-          $enumDecode(_$OrderCreateStatusCodeEnumMap, json['statusCode']),
+      statusCode: $enumDecode(
+        _$OrderCreateStatusCodeEnumMap,
+        json['statusCode'],
+      ),
     );
 
 Map<String, dynamic> _$OrderCreateStatusToJson(OrderCreateStatus instance) =>
