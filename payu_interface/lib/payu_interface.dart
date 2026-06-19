@@ -1,4 +1,4 @@
-library payu_interface;
+library;
 
 abstract class PayuInterface {}
 

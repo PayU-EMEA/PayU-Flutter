@@ -1,4 +1,4 @@
-library payu_core;
+library;
 
 export 'package:payu_interface/payu_interface.dart';
 

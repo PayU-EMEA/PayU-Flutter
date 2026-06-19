@@ -1,4 +1,4 @@
-library payu_api;
+library;
 
 export 'src/client/secure_http_client.dart';
 

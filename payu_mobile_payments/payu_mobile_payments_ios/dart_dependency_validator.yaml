@@ -1,2 +1,3 @@
 ignore:
   - import_sorter
+  - payu_mobile_payments_ios_example

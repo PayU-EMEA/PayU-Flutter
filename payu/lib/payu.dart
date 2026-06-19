@@ -1,4 +1,4 @@
-library payu;
+library;
 
 export 'package:payu_add_card/payu_add_card.dart';
 export 'package:payu_api/payu_api.dart';

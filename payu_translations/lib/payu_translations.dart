@@ -1,4 +1,4 @@
-library payu_translations;
+library;
 
 export '../src/extensions/plurals_ext.dart';
 export '../src/extensions/translations_ext.dart';
