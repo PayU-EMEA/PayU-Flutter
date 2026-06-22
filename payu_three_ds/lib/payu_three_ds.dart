@@ -1,4 +1,4 @@
-library payu_three_ds;
+library;
 
 export 'src/soft_accept/models/soft_accept_message.dart';
 export 'src/soft_accept/models/soft_accept_request.dart';

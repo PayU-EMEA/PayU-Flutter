@@ -1,2 +1,6 @@
 ignore:
   - import_sorter
+  - flutter
+  - flutter_test
+  - payu_mobile_payments_android
+  - payu_mobile_payments_ios

@@ -1,4 +1,4 @@
-library payu_web_payments;
+library;
 
 export 'src/cvv/cvv_authorization_alert_dialog.dart';
 export 'src/cvv/cvv_authorization_extractor.dart';

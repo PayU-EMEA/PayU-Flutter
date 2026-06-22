@@ -1,4 +1,4 @@
-library payu_add_card;
+library;
 
 export 'src/models/test_payment_card.dart';
 

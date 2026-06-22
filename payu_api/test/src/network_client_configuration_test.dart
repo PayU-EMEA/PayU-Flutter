@@ -8,12 +8,12 @@ void main() {
     group('`environment`', () {
       test('when `environment` is `production` then should return correct `NetworkClientConfiguration`', () {
         final sut = NetworkClientConfiguration.environment(Environment.production);
-        expect(sut.baseUrl, equals('https://mobilesdk.secure.payu.com'));
+        expect(sut.baseUrl, equals('https://mobilesdk.platnosci.pl'));
       });
 
       test('when `environment` is `sandbox` then should return correct `NetworkClientConfiguration`', () {
         final sut = NetworkClientConfiguration.environment(Environment.sandbox);
-        expect(sut.baseUrl, equals('https://mobilesdk.snd.payu.com'));
+        expect(sut.baseUrl, equals('https://mobilesdk.snd.platnosci.pl'));
       });
     });
   });

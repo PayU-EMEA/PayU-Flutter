@@ -1,4 +1,4 @@
-library payu_mobile_payments;
+library;
 
 import 'dart:async';
 

@@ -1,4 +1,4 @@
-library payu_payment_methods;
+library;
 
 export 'src/payment_methods_configuration.dart';
 

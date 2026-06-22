@@ -1,4 +1,4 @@
-library payu_ui;
+library;
 
 export 'src/interface/payu_interface_theme.dart';
 

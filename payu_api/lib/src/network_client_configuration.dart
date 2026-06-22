@@ -9,12 +9,12 @@ class NetworkClientConfiguration {
     switch (environment) {
       case Environment.production:
         return NetworkClientConfiguration._(
-          baseUrl: 'https://mobilesdk.secure.payu.com',
+          baseUrl: 'https://mobilesdk.platnosci.pl',
         );
 
       case Environment.sandbox:
         return NetworkClientConfiguration._(
-          baseUrl: 'https://mobilesdk.snd.payu.com',
+          baseUrl: 'https://mobilesdk.snd.platnosci.pl',
         );
       case Environment.sandboxBeta:
         return NetworkClientConfiguration._(
