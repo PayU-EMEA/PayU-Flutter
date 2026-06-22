@@ -1,3 +1,8 @@
+## 1.2.1
+* Added new certificate for ssl pinning
+* Switched tokenize and save cvv to new domain
+* Added autofill to card form fields
+
 ## 1.2.0
 * Added card installments for Romania market
 * Switched tokenize and save cvv endpoints
