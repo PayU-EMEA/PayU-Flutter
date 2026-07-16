@@ -69,6 +69,7 @@ class AddCardWidget extends StatelessWidget {
               AddCardTextField(
                 controller: controller.numberController,
                 decoration: configuration.numberDecoration,
+                isAutofillEnable: configuration.isAutofillEnable,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,6 +78,7 @@ class AddCardWidget extends StatelessWidget {
                     child: AddCardTextField(
                       controller: controller.dateController,
                       decoration: configuration.dateDecoration,
+                      isAutofillEnable: configuration.isAutofillEnable,
                     ),
                   ),
                   const SizedBox(width: PayuPadding.padding16),
@@ -84,6 +86,7 @@ class AddCardWidget extends StatelessWidget {
                     child: AddCardTextField(
                       controller: controller.cvvController,
                       decoration: configuration.cvvDecoration,
+                      isAutofillEnable: configuration.isAutofillEnable,
                     ),
                   ),
                 ],

@@ -5,12 +5,14 @@ class AddCardWidgetConfiguration {
   final AddCardWidgetTextInputDecoration numberDecoration;
   final AddCardWidgetTextInputDecoration dateDecoration;
   final bool isFooterVisible;
+  final bool isAutofillEnable;
 
   AddCardWidgetConfiguration({
     required this.cvvDecoration,
     required this.dateDecoration,
     required this.numberDecoration,
     required this.isFooterVisible,
+    this.isAutofillEnable = true,
   });
 
   factory AddCardWidgetConfiguration.payu() {

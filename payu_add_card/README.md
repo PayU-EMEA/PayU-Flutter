@@ -111,6 +111,16 @@ void _openAddCardPage(BuildContext context) async {
 
 This class allows merchants to add prepared card widget to their own pages. The main difference from `AddCardPage` is that it allows to customize widget presentation style properties, such as: `hintText`, etc. For more details please take a look on `AddCardWidgetConfiguration` class.
 
+`AddCardWidgetConfiguration` supports the following parameters:
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| `cvvDecoration` | `AddCardWidgetTextInputDecoration` | required | Decoration for the CVV input field. |
+| `dateDecoration` | `AddCardWidgetTextInputDecoration` | required | Decoration for the expiry date input field. |
+| `numberDecoration` | `AddCardWidgetTextInputDecoration` | required | Decoration for the card number input field. |
+| `isFooterVisible` | `bool` | required | Controls visibility of the terms and conditions footer. |
+| `isAutofillEnable` | `bool` | `true` | Controls whether autofill hints are provided to the card input fields. Set to `false` to disable autofill. |
+
 * [Usage](#add_card_widget_usage)
 * [Screenshots](#add_card_widget_screenshots)
 
@@ -173,6 +183,7 @@ class _HomePageState extends State<HomePage> {
                       hintText: 'Awesome number hint',
                     ),
                     isFooterVisible: false,
+                    isAutofillEnable: true,
                   ),
                   onCreated: (service) => _service = service,
                 ),
@@ -337,6 +348,7 @@ class _HomePageState extends State<HomePage> {
                       hintText: 'Awesome number hint',
                     ),
                     isFooterVisible: false,
+                    isAutofillEnable: true,
                   ),
                   onCreated: (service) => _service = service,
                   onInstallmentsLoadingChanged: (isLoading) {
