@@ -9,11 +9,13 @@ import 'add_card_text_field_controller.dart';
 class AddCardTextField extends StatelessWidget {
   final AddCardTextFieldController controller;
   final AddCardWidgetTextInputDecoration decoration;
+  final bool isAutofillEnable;
 
   const AddCardTextField({
     super.key,
     required this.controller,
     required this.decoration,
+    required this.isAutofillEnable,
   });
 
   @override
@@ -39,7 +41,9 @@ class AddCardTextField extends StatelessWidget {
                 FilteringTextInputFormatter.digitsOnly,
                 controller.formatter,
               ],
-              autofillHints: [controller.formatter.autofill],
+              autofillHints: isAutofillEnable
+                  ? [controller.formatter.autofill]
+                  : null,
               keyboardType: TextInputType.number,
             ),
           ),
