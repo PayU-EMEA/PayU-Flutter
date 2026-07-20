@@ -1,3 +1,6 @@
+## 1.2.2
+* Added the option to disable autofill
+
 ## 1.2.1
 * Added new certificate for ssl pinning
 * Switched tokenize and save cvv to new domain

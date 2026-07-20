@@ -1,6 +1,6 @@
 name: payu_payment_methods
 description: Flutter package which allows to present available POS payment methods easy
-version: 1.2.1
+version: 1.2.2
 publish_to: none
 homepage: https://github.com/PayU-EMEA/PayU-Flutter
 issue_tracker: https://github.com/PayU-EMEA/PayU-Flutter/issues
@@ -15,27 +15,27 @@ dependencies:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_add_card
-      ref: 1.2.1
+      ref: 1.2.2
   payu_core:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_core
-      ref: 1.2.1
+      ref: 1.2.2
   payu_state_management:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_state_management
-      ref: 1.2.1
+      ref: 1.2.2
   payu_translations:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_translations
-      ref: 1.2.1
+      ref: 1.2.2
   payu_ui:
     git:
       url: https://github.com/PayU-EMEA/PayU-Flutter.git
       path: payu_ui
-      ref: 1.2.1
+      ref: 1.2.2
 dev_dependencies:
   build_runner: ^2.5.0
   dependency_validator: ^5.0.5
