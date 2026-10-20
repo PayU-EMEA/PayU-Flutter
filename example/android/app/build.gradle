@@ -1,7 +1,21 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
+}
+
+// AGP 9 provides Kotlin support natively unless the consuming app opts out with
+// android.builtInKotlin=false, which is what `flutter create` writes by default.
+def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger()
+def builtInKotlinProperty = providers.gradleProperty('android.builtInKotlin').getOrNull()
+def builtInKotlinEnabled = agpMajor >= 9 &&
+    (builtInKotlinProperty == null ? true : builtInKotlinProperty.toBoolean())
+
+if (!builtInKotlinEnabled) {
+    apply plugin: 'kotlin-android'
+}
+
+project.extensions.configure(org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension) { ext ->
+    ext.compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
 }
 
 def localProperties = new Properties()
@@ -30,10 +44,6 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = '11'
-    }
-
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -60,8 +70,4 @@ android {
 
 flutter {
     source '../..'
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
 }

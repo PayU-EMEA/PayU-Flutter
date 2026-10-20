@@ -24,7 +24,25 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+
+// AGP 9 provides Kotlin support natively unless the consuming app opts out with
+// android.builtInKotlin=false, which is what `flutter create` writes by default.
+def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger()
+def builtInKotlinProperty = providers.gradleProperty('android.builtInKotlin').getOrNull()
+// Note: `builtInKotlinProperty?.toBoolean() ?: true` would be wrong here - Groovy's elvis
+// operator treats `false` itself as falsy, so an explicit `android.builtInKotlin=false` would
+// be overridden back to `true`, unlike Kotlin's null-only elvis operator used in similar
+// Kotlin DSL plugin migrations.
+def builtInKotlinEnabled = agpMajor >= 9 &&
+    (builtInKotlinProperty == null ? true : builtInKotlinProperty.toBoolean())
+
+if (!builtInKotlinEnabled) {
+    apply plugin: 'kotlin-android'
+}
+
+project.extensions.configure(org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension) { ext ->
+    ext.compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+}
 
 android {
     compileSdkVersion 35
@@ -32,10 +50,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = '11'
     }
 
     sourceSets {
@@ -50,6 +64,5 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.android.gms:play-services-wallet:$wallet_version"
 }
