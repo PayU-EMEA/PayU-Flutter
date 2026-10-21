@@ -1,4 +1,4 @@
-group 'com.example.payu_mobile_payments_android'
+group 'com.payu.flutter.mobile_payments_android'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -46,7 +46,7 @@ android {
         minSdkVersion 19
     }
 
-    namespace "com.example.payu_mobile_payments_android"
+    namespace "com.payu.flutter.mobile_payments_android"
 }
 
 dependencies {

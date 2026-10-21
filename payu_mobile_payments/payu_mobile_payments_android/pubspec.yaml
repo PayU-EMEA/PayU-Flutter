@@ -17,12 +17,10 @@ dev_dependencies:
   build_runner: ^2.5.0
   dependency_validator: ^5.0.5
   flutter_lints: ^6.0.0
-  flutter_test:
-    sdk: flutter
 
 flutter:
   plugin:
     platforms:
       android:
-        package: com.example.payu_mobile_payments_android
+        package: com.payu.flutter.mobile_payments_android
         pluginClass: PayuMobilePaymentsAndroidPlugin
