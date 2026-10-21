@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/payu_mobile_payments_ios/ios"
 
 SPEC CHECKSUMS:
-  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
   payu_mobile_payments_ios: 346266119d695d016bff3ec413602064de303bb6
 
-PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
+PODFILE CHECKSUM: 57c8aed26fba39d3ec9424816221f294a07c58eb
 
 COCOAPODS: 1.16.2
