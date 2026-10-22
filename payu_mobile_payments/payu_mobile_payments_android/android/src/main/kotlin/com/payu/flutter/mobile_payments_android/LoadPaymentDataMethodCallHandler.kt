@@ -2,6 +2,9 @@ package com.payu.flutter.mobile_payments_android
 
 import android.app.Activity
 import android.content.Intent
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.wallet.AutoResolveHelper
 import com.google.android.gms.wallet.PaymentData
 import com.google.android.gms.wallet.Wallet
@@ -32,7 +35,14 @@ class LoadPaymentDataMethodCallHandler(
         val paymentsClient = Wallet.getPaymentsClient(activity, walletOptions)
         val task = paymentsClient.loadPaymentData(paymentDataRequest)
 
-        AutoResolveHelper.resolveTask(task, activity, LOAD_PAYMENT_DATA_REQUEST_CODE)
+        task.addOnCompleteListener(activity) { completedTask ->
+            when (val exception = completedTask.exception) {
+                null -> result.success(completedTask.result.toJson())
+                is ResolvableApiException -> exception.startResolutionForResult(activity, LOAD_PAYMENT_DATA_REQUEST_CODE)
+                is ApiException -> result.error(exception.statusCode.toString(), "AutoResolveHelper.RESULT_ERROR", exception.status.statusMessage)
+                else -> result.error(CommonStatusCodes.INTERNAL_ERROR.toString(), "AutoResolveHelper.RESULT_ERROR", exception.message)
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
