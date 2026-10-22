@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-public class SwiftPayuMobilePaymentsIosPlugin: NSObject, FlutterPlugin {
+public class PayuMobilePaymentsIosPlugin: NSObject, FlutterPlugin {
   private struct Constants {
     static let METHOD_CHANNEL_NAME = "PayuMobilePaymentsPlatformInterface"
     static let METHOD_CAN_MAKE_PAYMENT = "canMakePayment"
@@ -27,7 +27,7 @@ public class SwiftPayuMobilePaymentsIosPlugin: NSObject, FlutterPlugin {
       binaryMessenger: registrar.messenger())
 
     registrar.addMethodCallDelegate(
-      SwiftPayuMobilePaymentsIosPlugin(
+      PayuMobilePaymentsIosPlugin(
         canMakePaymentMethodCallHandler: CanMakePaymentMethodCallHandler(),
         makePaymentMethodCallHandler: MakePaymentMethodCallHandler()),
       channel: inputChannel)

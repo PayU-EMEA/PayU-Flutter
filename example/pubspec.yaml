@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.2.2
 environment:
   sdk: '>=3.8.0 <4.0.0'
-  flutter: ">=3.32.0"
+  flutter: ">=3.38.0"
 dependencies:
   collection: ^1.18.0
   dio: ^5.8.0+1
@@ -28,3 +28,5 @@ dev_dependencies:
   retrofit_generator: ^10.2.0
 flutter:
   uses-material-design: true
+  config:
+    enable-swift-package-manager: true

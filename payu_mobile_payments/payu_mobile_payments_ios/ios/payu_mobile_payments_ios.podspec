@@ -5,15 +5,15 @@
 Pod::Spec.new do |s|
   s.name             = 'payu_mobile_payments_ios'
   s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.summary          = 'iOS (ApplePay) implementation of payu_mobile_payments.'
   s.description      = <<-DESC
-A new flutter plugin project.
+iOS (ApplePay) implementation of payu_mobile_payments.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/PayU-EMEA/PayU-Flutter'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'PayU' => 'https://github.com/PayU-EMEA' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'payu_mobile_payments_ios/Sources/payu_mobile_payments_ios/**/*.swift'
   s.dependency 'Flutter'
   s.platform = :ios, '13.0'
 
