@@ -1,4 +1,4 @@
-.PHONY: clean setup setup_dev tests
+.PHONY: clean setup setup_dev tests bump_version
 
 help: Makefile
 	@sed -n "s/^##//p" $<
@@ -172,3 +172,7 @@ tests:
 		scripts/test.sh $$pkg || fail=1; \
 	done; \
 	exit $$fail
+
+## ➡️ bump_version: Set new SDK version in all pubspecs, git refs and sdk_version.dart (usage: make bump_version VERSION=1.2.3)
+bump_version:
+	scripts/bump_version.sh $(VERSION)
