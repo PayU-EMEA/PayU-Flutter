@@ -145,7 +145,7 @@ To enable Google Pay you should have configurated POS with Google Pay enabled on
 
 ### Requirements
 
-1. `minSdkVersion` 19
+1. `minSdkVersion` 23
 2. Google account on the device you are testing. 
 
 <a id="google_pay_integration"></a> 
