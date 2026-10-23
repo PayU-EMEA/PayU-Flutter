@@ -15,6 +15,7 @@
 - `make to_local`: Switch PayU dependencies to local
 - `make to_git`: Switch PayU dependencies to git
 - `make tests`: Run tests for all Packages
+- `make bump_version VERSION=x.y.z`: Set new SDK version in all pubspecs, git refs and `sdk_version.dart`
 
 ## How build SDK and run example project
 - `make to_local` - if you want to use local PayU dependencies
@@ -96,9 +97,8 @@ Decide what the new version should look like.
 
 ### Step 1
 1. Create new branch
-2. Update all `pubspec.yaml` for new version - set versions and ref
-3. Update version in `payu_core/lib/src/constants/sdk_version.dart`
-4. Merge your branch into `main` branch
+2. Update version in all `pubspec.yaml`, `pubspec.git.yaml` (ref) and `payu_core/lib/src/constants/sdk_version.dart`: `make bump_version VERSION=x.y.z`
+3. Merge your branch into `main` branch
 
 ### Step 2
 1. Create a new release on GitHub with a tag corresponding to the new version

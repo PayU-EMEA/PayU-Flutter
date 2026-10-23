@@ -1,3 +1,7 @@
+## 1.2.3
+* Added Swift Package Manager support to payu_mobile_payments_ios
+* Added Built-in Kotlin support to payu_mobile_payments_android
+
 ## 1.2.2
 * Added the option to disable autofill
 
