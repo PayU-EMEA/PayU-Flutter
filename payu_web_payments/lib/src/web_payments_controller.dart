@@ -79,13 +79,17 @@ class WebPaymentsController extends PayuController {
     _complete(WebPaymentsResult(status: WebPaymentsStatus.failure, uri: _uri));
   }
 
-  NavigationDecision navigationDecision(String uri) {
+  Future<NavigationDecision> navigationDecision(String uri, {bool isMainFrame = true}) async {
     final result = _matcher.result(uri);
     Logger.logInfo('navigationDecision uri: $uri');
     Logger.logInfo('navigationDecision result: $result');
 
     switch (result) {
       case WebPaymentsUriMatchResult.notMatched:
+        if (isMainFrame && _isWebUri(uri) && await _launcher.launchNonBrowserApplication(uri)) {
+          _completeExternalApplication(uri);
+          return NavigationDecision.prevent;
+        }
         return NavigationDecision.navigate;
       case WebPaymentsUriMatchResult.success:
         _completeSuccess(uri);
@@ -104,6 +108,11 @@ class WebPaymentsController extends PayuController {
         _completeExternalApplication(uri);
         return NavigationDecision.prevent;
     }
+  }
+
+  bool _isWebUri(String uri) {
+    final parsedUri = Uri.tryParse(uri);
+    return parsedUri != null && (parsedUri.isScheme('http') || parsedUri.isScheme('https'));
   }
 
   void _completeSuccess(String uri) {

@@ -112,7 +112,7 @@ class AddCardWidget extends StatelessWidget {
                               return Padding(
                                 padding: const EdgeInsets.symmetric(vertical: PayuPadding.padding8),
                                 child: DropdownButtonFormField<int>(
-                                  value: controller.installments.selectedNumber ?? 1,
+                                  initialValue: controller.installments.selectedNumber ?? 1,
                                   decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     contentPadding: EdgeInsets.all(PayuPadding.padding16),

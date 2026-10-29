@@ -108,12 +108,50 @@ void main() {
 
     group('when `navigationDecision`', () {
       test('when matcher result is `notMatched` then should not complete', () async {
+        when(launcher.launchNonBrowserApplication(any)).thenAnswer((e) async => false);
         when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.notMatched);
 
         const uri = 'https://www.payu.com';
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.navigate);
+        verify(launcher.launchNonBrowserApplication(uri));
+        verifyNever(delegate.didComplete(any));
+      });
+
+      test('when matcher result is `notMatched` and uri is opened by application then should complete with `external` status', () async {
+        when(launcher.launchNonBrowserApplication(any)).thenAnswer((e) async => true);
+        when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.notMatched);
+
+        const uri = 'https://bank.example.com/authorize';
+        const status = WebPaymentsStatus.externalApplication;
+        const result = WebPaymentsResult(status: status, uri: uri);
+
+        final decision = await sut.navigationDecision(uri);
+        expect(decision, NavigationDecision.prevent);
+        verify(launcher.launchNonBrowserApplication(uri));
+        verify(delegate.didComplete(result));
+      });
+
+      test('when matcher result is `notMatched` and navigation is not in main frame then should not launch application', () async {
+        when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.notMatched);
+
+        const uri = 'https://bank.example.com/authorize';
+
+        final decision = await sut.navigationDecision(uri, isMainFrame: false);
+        expect(decision, NavigationDecision.navigate);
+        verifyNever(launcher.launchNonBrowserApplication(any));
+        verifyNever(delegate.didComplete(any));
+      });
+
+      test('when matcher result is `notMatched` and uri is not http(s) then should not launch application', () async {
+        when(matcher.result(any)).thenReturn(WebPaymentsUriMatchResult.notMatched);
+
+        const uri = 'about:blank';
+
+        final decision = await sut.navigationDecision(uri);
+        expect(decision, NavigationDecision.navigate);
+        verifyNever(launcher.launchNonBrowserApplication(any));
         verifyNever(delegate.didComplete(any));
       });
 
@@ -124,7 +162,7 @@ void main() {
         const status = WebPaymentsStatus.success;
         const result = WebPaymentsResult(status: status, uri: uri);
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.prevent);
         verify(delegate.didComplete(result));
       });
@@ -136,7 +174,7 @@ void main() {
         const status = WebPaymentsStatus.failure;
         const result = WebPaymentsResult(status: status, uri: uri);
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.prevent);
         verify(delegate.didComplete(result));
       });
@@ -148,7 +186,7 @@ void main() {
         const status = WebPaymentsStatus.continue3DS;
         const result = WebPaymentsResult(status: status, uri: uri);
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.navigate);
         verify(delegate.didComplete(result));
       });
@@ -160,7 +198,7 @@ void main() {
         const status = WebPaymentsStatus.continueCvv;
         const result = WebPaymentsResult(status: status, uri: uri);
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.navigate);
         verify(delegate.didComplete(result));
       });
@@ -173,7 +211,7 @@ void main() {
         const status = WebPaymentsStatus.externalApplication;
         const result = WebPaymentsResult(status: status, uri: uri);
 
-        final decision = sut.navigationDecision(uri);
+        final decision = await sut.navigationDecision(uri);
         expect(decision, NavigationDecision.prevent);
         verify(launcher.launch(uri));
         verify(delegate.didComplete(result));
