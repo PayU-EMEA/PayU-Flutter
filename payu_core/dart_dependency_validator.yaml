@@ -1,2 +1,4 @@
 ignore:
   - import_sorter
+  # Not imported directly; pins the Android implementation that supports LaunchMode.externalNonBrowserApplication
+  - url_launcher_android

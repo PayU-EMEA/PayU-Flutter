@@ -43,7 +43,8 @@ class _WebPaymentsPageState extends State<WebPaymentsPage> with WebPaymentsContr
         NavigationDelegate(
           onPageStarted: (uri) => controller.didStartNavigation(uri),
           onPageFinished: (uri) => controller.didFinishNavigation(uri),
-          onNavigationRequest: (request) => controller.navigationDecision(request.url),
+          onNavigationRequest: (request) =>
+              controller.navigationDecision(request.url, isMainFrame: request.isMainFrame),
           onWebResourceError: (error) => controller.didUpdateWebResourceError(error),
         ),
       )

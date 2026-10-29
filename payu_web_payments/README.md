@@ -29,6 +29,10 @@ The `redirectUri` field includes payment link, so later it would be passed to th
 
 [Here](https://developers.payu.com/en/overview.html#paymethods) is a full list of payment methods available from Payu.
 
+### External applications
+
+If the web page redirects to a non-`http(s)` scheme, or to an `http(s)` address registered as a deep link of an installed application (Universal Link on iOS, App Link on Android 11+), that application is opened instead of loading the address in the webview. `WebPaymentsPage` is then closed with `WebPaymentsStatus.externalApplication`.
+
 <a id="success"></a> 
 
 ## Status Codes
