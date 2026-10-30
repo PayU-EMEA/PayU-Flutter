@@ -1,2 +1,2 @@
-const String payuSdkVersion = '1.2.3';
+const String payuSdkVersion = '1.2.4';
 

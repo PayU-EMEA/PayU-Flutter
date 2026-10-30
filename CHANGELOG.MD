@@ -1,3 +1,8 @@
+## 1.2.4
+* Added open deep links (Universal Links / App Links) in installed applications instead of loading them in Web Payments webview
+* Minimum supported version is Flutter 3.35.0 / Dart 3.9.0
+* Added new certificate for ssl pinning
+
 ## 1.2.3
 * Added Swift Package Manager support to payu_mobile_payments_ios
 * Added Built-in Kotlin support to payu_mobile_payments_android
