@@ -27,4 +27,7 @@ flutter:
     - ssl/payu-root-ca-01.pem
     - ssl/digicert-global-root-g2.pem
     - ssl/digicert-global-root-g3.pem
+    - ssl/DigiCertGlobalRootCA.crt.pem
+    - ssl/DigiCertTLSECCP384RootG5.crt.pem
+    - ssl/DigiCertTLSRSA4096RootG5.crt.pem
     - ssl/sectigoR46.pem
