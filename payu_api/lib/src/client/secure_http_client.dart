@@ -21,6 +21,9 @@ class SecureHttpClient extends IOClient {
     _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/payu-root-ca-01.pem');
     _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/digicert-global-root-g2.pem');
     _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/digicert-global-root-g3.pem');
+    _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/DigiCertGlobalRootCA.crt.pem');
+    _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/DigiCertTLSECCP384RootG5.crt.pem');
+    _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/DigiCertTLSRSA4096RootG5.crt.pem');
     _setTrustedCertificatesBytes(context, 'packages/payu_api/ssl/sectigoR46.pem');
     return context;
   }
