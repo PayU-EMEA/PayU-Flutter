@@ -1,6 +1,6 @@
 ## Features
 
-Flutter package which allows to present available POS payment methods easy
+Flutter package that lets you present the payment methods available on your POS.
 
 * [Core](#core)
 * [Example](#example)
@@ -8,7 +8,7 @@ Flutter package which allows to present available POS payment methods easy
 
 ## Getting started
 
-Payment methods must be retreived from your backend, because request requires authorization, which is `strongly` recommended to be done by the backend. Your app can only receive payment methods, present it and process the selected one. Also, each payment method which is used in `payu_payment_methods` package has default method `toJSON()` which can be very helpfull during the API integration, for ex. if you are using `Retrofit`.
+Payment methods must be retrieved from your backend, because request requires authorization, which is `strongly` recommended to be done by the backend. Your app can only receive payment methods, present it and process the selected one. Also, each payment method which is used in `payu_payment_methods` package has default method `toJSON()` which can be very helpful during the API integration, for ex. if you are using `Retrofit`.
 
 <a id="core"></a> 
 
@@ -36,7 +36,7 @@ This page is responsible for displaying and selecting of payment methods. It has
 
 ### PaymentMethodsWidget
 
-Class which allows to display available payment methods in a small widget. The implementation handles all available payment methods, for ex: `ApplePay`, `BlikCode`, `BlikToken` etc. Also, widget has `dynamic` height, because it displays `TextField` for giving user ability to type `BLIK` code.
+Class that lets you display available payment methods in a small widget. The implementation handles all available payment methods, for ex: `ApplePay`, `BlikCode`, `BlikToken` etc. Also, widget has `dynamic` height, because it displays `TextField` for giving user ability to type `BLIK` code.
 
 <a id="core-payment-methods-processor"></a> 
 
@@ -79,7 +79,7 @@ class SecureStorage implements PaymentMethodsStorage {
 
 #### 2. Get the list of `blikTokens`, `cardTokens` and `payByLinks` from your backend.
 
- For details of how your backend retreives payment methods read [Payment methods retrieve](https://developers.payu.com/en/restapi.html#Transparent_retrieve). 
+ For details of how your backend retrieves payment methods read [Payment methods retrieve](https://developers.payu.com/europe/docs/checkout/payment-methods-retrieve/). 
 
 ```dart
 final availablePaymentMethods = await _api.getAvailablePaymentMethods();
@@ -192,7 +192,7 @@ void _processPaymentMethod(PaymentMethod method) {
 
 ### ApplePay
 
-Once user select `ApplePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
+Once the user selects `ApplePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
 
 ```dart
 void _didSelectApplePay(ApplePay applePay) {
@@ -224,7 +224,7 @@ void _didSelectApplePay(ApplePay applePay) {
 
 ### BlikCode
 
-Transparent payment with a T6 code. Once user select `BlikCode` payment method, you need to give user ability to input six-digit code, for ex. via the `AlertDialog` or adding new field to the existing page. Please rememeber to add validation rules to it. For more details visit [developers.payu.com](https://developers.payu.com/en/blik_oneclick.html)
+Transparent payment with a T6 code. Once the user selects `BlikCode` payment method, you need to give user ability to input six-digit code, for ex. via the `AlertDialog` or adding new field to the existing page. Please remember to add validation rules to it. For more details visit [developers.payu.com](https://developers.payu.com/europe/docs/payment-solutions/blik/integration/#blik-integration-code)
 
 ```dart
 void _didSelectBlikCode(BlikCode blikCode) await {
@@ -274,7 +274,7 @@ class BlikCodeAlertDialog extends StatelessWidget {
 
 ### BlikToken
 
-Transparent payment with a token. If customers saved a token durign their last BLIK payment, they can now pay with OneClick without entering a new code.
+Transparent payment with a token. If customers saved a token during their last BLIK payment, they can now pay with OneClick without entering a new code.
 
 ```dart
 void _didSelectBlikToken(BlikToken blikToken) {
@@ -330,7 +330,7 @@ Payu.cardInstallments = true;
 
 ### GooglePay
 
-Once user select `GooglePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
+Once the user selects `GooglePay` payment method, you need to initiate the payment process using `PayuMobilePayments`. As the result of `makePayment` method you'll receive `authorizationCode`. For more details visit [payu_mobile_payments](../payu_mobile_payments)
 
 ```dart
 void _didSelectGooglePay(GooglePay googlePay) {

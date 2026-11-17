@@ -1,15 +1,8 @@
 ## Features
 
-Flutter package with platform interface for [payu_mobile_payment](../payu_mobile_payments)
+Flutter package with platform interface for [payu_mobile_payments](../payu_mobile_payments)
 
 
 ## Getting started
 
 This package should not be used directly by the merchants.
-
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

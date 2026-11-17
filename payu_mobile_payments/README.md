@@ -1,6 +1,6 @@
 ## Features
 
-Flutter plugin which allows make payments via Apple Pay / Google Pay
+Flutter plugin that lets you make payments via Apple Pay / Google Pay
 
 * [Apple Pay](#apple_pay)
 * [Google Pay](#google_pay)
@@ -21,8 +21,8 @@ Apple Pay™ is a digital wallet which lets you make card payments in a simple a
 
 1. [Enable Apple Pay](https://help.apple.com/xcode/mac/current/#/deva43983eb7?sub=dev44ce8ef13)
 2. [Create a merchant identifier](https://help.apple.com/developer-account/#/devb2e62b839?sub=dev103e030bb)
-3. [Create a payment processing certificate](https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f)
-4. Send created payment processing certificate to `tech@payu.pl`
+3. Ask PayU for the CSR file and [create a payment processing certificate](https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f) with it.
+4. Send the certificate to PayU. See [Apple Pay Configuration Instructions](https://developers.payu.com/europe/docs/payment-solutions/cards/digital-wallets/apple-pay/#apple-pay-configuration-instructions).
 
 > When creating an Apple Pay Payment Processing Certificate, you must specify the Key Pair information. Select ECC and 256 bit key pair.
 
@@ -30,7 +30,7 @@ Apple Pay™ is a digital wallet which lets you make card payments in a simple a
 
 The Apple Pay payment method is also available in a sandbox environment. In the integration process, we suggest creating an independent Merchant ID (with a name ending “.test”, for example) together with a set of certificates.
 
-Because Apple Pay is not the default payment method, please contact the `tech@payu.pl` after registering in the sandbox environment, but before beginning integration using the Apple Pay payment method. In response you receive also `CSR` file for sandbox environment.
+Because Apple Pay is not the default payment method, contact PayU support after registering in the sandbox environment, but before beginning integration using the Apple Pay payment method. In response, you also receive the `CSR` file for the sandbox environment. See [Testing](https://developers.payu.com/europe/docs/payment-solutions/cards/digital-wallets/apple-pay/#apple-pay-sandbox).
 
 #### Testing
 
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
 
 ### Getting started
 
-To enable Google Pay you should have configurated POS with Google Pay enabled on PayU backend. 
+To enable Google Pay you should have configured POS with Google Pay enabled on PayU backend. 
 
 * [Set up Google Pay](https://support.google.com/pay/answer/7625055?hl=en&co=GENIE.Platform%3DAndroid)
 * [Test card suite](https://developers.google.com/pay/api/android/guides/resources/test-card-suite)
@@ -228,9 +228,3 @@ class _HomePageState extends State<HomePage> {
 }
 
 ```
-
-### Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

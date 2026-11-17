@@ -1,6 +1,6 @@
 ## Features
 
-Flutter package which allows to tokenize cards via PayU.
+Flutter package that lets you tokenize cards via PayU.
 
 * [AddCardService](#add_card_service)
 * [AddCardPage](#add_card_page)
@@ -9,18 +9,18 @@ Flutter package which allows to tokenize cards via PayU.
 
 ## Getting started
 
-Card tokenization service is based on a transparent integration type which allows to accept card payments without redirecting users to a page hosted by the payment service provider. This integration type retains the security level and minimizes the PCI DSS compliance effort. It is also meant to give you more flexibility and increase conversion rates through better control over the payment process.
+Card tokenization service is based on a transparent integration type that lets you accept card payments without redirecting users to a page hosted by the payment service provider. This integration type retains the security level and minimizes the PCI DSS compliance effort. It is also meant to give you more flexibility and increase conversion rates through better control over the payment process.
 
 A payment flow is based on two steps - capturing card credentials in a secure way (front-end process) and then using them to create a payment transaction (back-end process). Card credentials are returned in the form of a token and a masked card number, therefore the Merchant never receives full card details.
 
 Tokens received from PayU can be either single-use or multi-use. Multi-use tokens can be stored and used for future payments. Typically such functionality can be used by e.g. a merchant who has an extensive database of returning users – linking a user account with a multi-use token improves user experience, because the user no longer needs to enter card data each time.
 
-For more detailed documentation please visit [developers.payu.com](https://developers.payu.com/en/card_tokenization.html)
+For more detailed documentation please visit [developers.payu.com](https://developers.payu.com/europe/docs/payment-solutions/cards/tokenization/)
 
-## Usefull links
+## Useful links
 
-* [Integration overview](https://developers.payu.com/en/card_tokenization.html#integration)
-* [Sandbox cards](https://developers.payu.com/en/overview.html#sandbox_cards)
+* [Integration overview](https://developers.payu.com/europe/docs/payment-solutions/cards/tokenization/create-token/)
+* [Sandbox cards](https://developers.payu.com/europe/docs/testing/sandbox/#sandbox-test-cards)
 
 <a id="add_card_service"></a> 
 
@@ -32,7 +32,7 @@ Allows merchants to `tokenize` cards. This service should not be used separately
 
 ## AddCardPage
 
-This class allows to present the page with the `AddCardWidget` and predefined actions. The result of tokenization is `CardPaymentMethod` - tokenized card data. 
+This class lets you present the page with the `AddCardWidget` and predefined actions. The result of tokenization is `CardPaymentMethod` - tokenized card data. 
 
 * [Usage](#add_card_page_usage)
 * [Screenshots](#add_card_page_screenshots)
@@ -109,7 +109,7 @@ void _openAddCardPage(BuildContext context) async {
 
 ## AddCardWidget
 
-This class allows merchants to add prepared card widget to their own pages. The main difference from `AddCardPage` is that it allows to customize widget presentation style properties, such as: `hintText`, etc. For more details please take a look on `AddCardWidgetConfiguration` class.
+This class allows merchants to add prepared card widget to their own pages. The main difference from `AddCardPage` is that it lets you customize widget presentation style properties, such as: `hintText`, etc. For more details please take a look on `AddCardWidgetConfiguration` class.
 
 `AddCardWidgetConfiguration` supports the following parameters:
 
