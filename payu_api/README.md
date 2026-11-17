@@ -10,10 +10,4 @@ This package should not be used directly by the merchants.
 
 ## Card tokenization
 
-Card tokenization service is based on a transparent integration type which allows to accept card payments without redirecting users to a page hosted by the payment service provider. This integration type retains the security level and minimizes the PCI DSS compliance effort. It is also meant to give you more flexibility and increase conversion rates through better control over the payment process. For more information please visit [documentation](https://developers.payu.com/en/card_tokenization.html).
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Card tokenization service is based on a transparent integration type that lets you accept card payments without redirecting users to a page hosted by the payment service provider. This integration type retains the security level and minimizes the PCI DSS compliance effort. It is also meant to give you more flexibility and increase conversion rates through better control over the payment process. For more information please visit [documentation](https://developers.payu.com/europe/docs/payment-solutions/cards/tokenization/).

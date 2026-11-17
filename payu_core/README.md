@@ -28,7 +28,7 @@ enum Environment {
 }
 ```
 
-Sandbox is an almost identical copy of PayU production system. It can be used for integration and testing purposes. To use the sandbox you need a register separately in one quick step. After you are registered, you can set up own companies / shops / point of sale. For more details please visit [overview](https://developers.payu.com/en/overview.html#sandbox)
+Sandbox is an almost identical copy of PayU production system. It can be used for integration and testing purposes. To use the sandbox you need to register separately in one quick step. After you are registered, you can set up own companies / shops / point of sale. For more details please visit [overview](https://developers.payu.com/europe/docs/testing/sandbox/)
 
 <a id="locale"></a>
 
@@ -66,9 +66,3 @@ void main() async {
   );
 }
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
