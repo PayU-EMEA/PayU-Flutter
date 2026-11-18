@@ -4,7 +4,7 @@ Flutter package with Payu Terms and Conditions widget. Tapping on the `link` wil
 
 ## Getting started
 
-This widget must be added by the merchants in places where they interacts with the Payu, for ex: `AddCardWidget`.
+This widget must be added by the merchants in places where they interact with the Payu, for ex: `AddCardWidget`.
 
 ## Usage
 
@@ -48,9 +48,3 @@ class HomePage extends StatelessWidget {
 ## Screenshots
 
 <img src="docs/screenshots/payu_terms_and_conditions.png" width="400">
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

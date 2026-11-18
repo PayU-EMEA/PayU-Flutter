@@ -1,12 +1,12 @@
 ## Features
 
-Flutter package which allows to handle Payu 3DS.
+Flutter package that lets you handle PayU 3DS.
 
-3DS 2 is an enhanced version of the original "Three Domain Secure" (3-D Secure or 3DS) authentication implemented by card issuers and acquirers under the umbrella of specific card schemes like MasterCard (MasterCard SecureCode) and Visa (Verified by Visa).
+3DS 2 is an enhanced version of the original "Three Domain Secure" (3-D Secure or 3DS) authentication implemented by card issuers and acquirers under the umbrella of specific card schemes like Mastercard (Mastercard Identity Check) and Visa (Visa Secure).
 
 ## Getting started
 
-Response with `WARNING_CONTINUE_3DS` status has been enhanced with `threeDsProtocolVersion` (possible values: `3DS1` and `3DS2`) and `iframeAllowed` field. It will indicate that the `redirectUri` may be displayed in an `iframe` using `SoftAcceptAlertDialog`. For more detailed information about 3DS please visit [developers.payu.com](https://developers.payu.com/en/3ds_2.html#impact).
+Response with `WARNING_CONTINUE_3DS` status has been enhanced with `threeDsProtocolVersion` (possible values: `3DS1` and `3DS2`) and `iframeAllowed` field. It will indicate that the `redirectUri` may be displayed in an `iframe` using `SoftAcceptAlertDialog`. For more detailed information about 3DS please visit [developers.payu.com](https://developers.payu.com/europe/docs/card-payments/threeds/impact/).
 
 * [Order Create Response](#order_create_response)
 * [Process overview](#process_overview)

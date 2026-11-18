@@ -1,4 +1,4 @@
-// https://developers.payu.com/en/overview.html#paymethods
+// https://developers.payu.com/europe/docs/get-started/integration-overview/references/#payment-methods-reference
 abstract class PaymentMethodValue {
   static const applePay = 'jp';
   static const blikCode = 'blik_code';
