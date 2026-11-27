@@ -1,6 +1,6 @@
 ## Features
 
-Flutter package which allows to make Web payments via Pay. 
+Flutter package that lets you make web payments via PayU. 
 
 Below is a list of status codes sent by the PayU system. Some status codes may be sent with a more detailed message.
 
@@ -11,7 +11,7 @@ Below is a list of status codes sent by the PayU system. Some status codes may b
 
 ## Getting started
 
-After sending a request for a new order, a response will be returned by the API. The payment link is based on regular Payu integration involving REST API described [here](https://developers.payu.com/en/restapi.html#creating_new_order_api). Those requests should be handled by the merchant's backend. 
+After sending a request for a new order, a response will be returned by the API. The payment link is based on regular Payu integration involving REST API described [here](https://developers.payu.com/europe/docs/payment-flows/auth-and-order/#creating-new-order). Those requests should be handled by the merchant's backend. 
 
 Sample response to a new order request:
 ```json
@@ -27,7 +27,7 @@ Sample response to a new order request:
 
 The `redirectUri` field includes payment link, so later it would be passed to the `WebPaymentsRequest`.
 
-[Here](https://developers.payu.com/en/overview.html#paymethods) is a full list of payment methods available from Payu.
+[Here](https://developers.payu.com/europe/docs/get-started/integration-overview/references/#payment-methods-reference) is a full list of payment methods available from Payu.
 
 ### External applications
 
@@ -79,7 +79,7 @@ final result = await Navigator.of(context).push<WebPaymentsResult>(
 
 #### WARNING_CONTINUE_3DS
 
-`3DS` authorization is required. Redirect the buyer to perform 3DS authentication process.
+`3DS` authorization is required. Redirect the payer to perform 3DS authentication process.
 
 ```dart
 final result = await Navigator.of(context).push<WebPaymentsResult>(
@@ -122,4 +122,4 @@ final result = await showDialog<CVVAuthorizationResult>(
 );
 ```
 
-4. If the `result` is `CVVAuthorizationResult.success` then the order has been paid.
+4. If the `result` is `CVVAuthorizationResult.success`, the CVV code has been accepted. Wait for the final payment status in the [notification](https://developers.payu.com/europe/docs/payment-flows/lifecycle/#notifications) sent to your server.
