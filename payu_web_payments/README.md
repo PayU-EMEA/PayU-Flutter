@@ -79,7 +79,7 @@ final result = await Navigator.of(context).push<WebPaymentsResult>(
 
 #### WARNING_CONTINUE_3DS
 
-`3DS` authorization is required. Redirect the buyer to perform 3DS authentication process.
+`3DS` authorization is required. Redirect the payer to perform 3DS authentication process.
 
 ```dart
 final result = await Navigator.of(context).push<WebPaymentsResult>(
