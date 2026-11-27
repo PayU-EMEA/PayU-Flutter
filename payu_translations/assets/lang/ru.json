@@ -13,6 +13,7 @@
     "enter_blik_code": "Введите код BLIK",
     "enter_new_blik_code": "Введите новый код BLIK",
     "enter_cvv": "Введите код CVV",
+    "enter_cvv_code": "Укажите код CVV карты",
     "enter_card_date": "Введите срок действия карты",
     "enter_card_number": "Введите номер карты",
     "enter_valid_cvv": "Введите действительный код",

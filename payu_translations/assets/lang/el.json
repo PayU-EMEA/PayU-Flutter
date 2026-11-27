@@ -13,6 +13,7 @@
     "enter_blik_code": "Εισαγωγή κωδικού BLIK",
     "enter_new_blik_code": "Εισαγωγή νέου κωδικού BLIK",
     "enter_cvv": "Εισαγωγή κωδικού CVV",
+    "enter_cvv_code": "Παρακαλώ καταχωρίστε τον κωδικό CVV της κάρτας σας",
     "enter_card_date": "Εισαγωγή ημερομηνίας κάρτας",
     "enter_card_number": "Εισαγωγή αριθμού κάρτας",
     "enter_valid_cvv": "Παρακαλώ εισάγετε έναν έγκυρο κωδικό",
