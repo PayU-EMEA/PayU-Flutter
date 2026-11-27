@@ -13,6 +13,7 @@
     "enter_blik_code": "Enter BLIK code",
     "enter_new_blik_code": "Enter new BLIK code",
     "enter_cvv": "Enter CVV code",
+    "enter_cvv_code": "Provide CVV code for your card",
     "enter_card_date": "Enter card date",
     "enter_card_number": "Enter card number",
     "enter_valid_cvv": "Please enter a valid code",

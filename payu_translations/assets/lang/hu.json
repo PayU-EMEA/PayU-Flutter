@@ -13,6 +13,7 @@
     "enter_blik_code": "Írd be a BLIK kódot",
     "enter_new_blik_code": "Írj be új BLIK kódot",
     "enter_cvv": "Írd be a bankkártya kódot",
+    "enter_cvv_code": "Írd be a kártyád CVV kódját",
     "enter_card_date": "Írd be a bankkártyád dátumát",
     "enter_card_number": "Írd be a bankkártyád számát",
     "enter_valid_cvv": "Hibás kódot írtál be",

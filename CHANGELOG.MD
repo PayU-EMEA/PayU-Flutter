@@ -1,3 +1,6 @@
+## 1.2.5
+Added the missing translation for enter_cvv_code
+
 ## 1.2.4
 * Added open deep links (Universal Links / App Links) in installed applications instead of loading them in Web Payments webview
 * Minimum supported version is Flutter 3.35.0 / Dart 3.9.0
